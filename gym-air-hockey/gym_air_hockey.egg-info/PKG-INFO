@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: gym-air-hockey
+Version: 0.0.1
+Summary: OpenAI Gym Environment Wrapper for Air Hockey Game Simulator
+Home-page: https://github.com/arakhmat/gym-air-hockey
+Author: Akhmed Rakhmati
+Author-email: akhmed.rakhmati@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
