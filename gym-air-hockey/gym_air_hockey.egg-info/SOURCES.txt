@@ -1,7 +1,0 @@
-README.md
-setup.py
-gym_air_hockey.egg-info/PKG-INFO
-gym_air_hockey.egg-info/SOURCES.txt
-gym_air_hockey.egg-info/dependency_links.txt
-gym_air_hockey.egg-info/requires.txt
-gym_air_hockey.egg-info/top_level.txt
