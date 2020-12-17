@@ -27,7 +27,7 @@ get_sin_deflection_angle = lambda delta :  delta / math.sqrt(l**2 + delta **2)
 
 cable_compatability = lambda x : x[0] - get_Flc(x[2])
 rod_compatability = lambda x: x[1] - get_Frod(x[2])
-force_balance = lambda x : x[1] * get_sin_deflection_angle(x[2]) + 2*x[0]- Tension
+force_balance = lambda x : x[1] * get_sin_deflection_angle(x[2]) + 2*x[0]*math.sin(alpha)- Tension
 
 objective_function = lambda x : [cable_compatability(x), rod_compatability(x), force_balance(x)]
 
