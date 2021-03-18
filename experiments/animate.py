@@ -329,14 +329,14 @@ if __name__ == "__main__":
         # pts[:,1]=y
 
         pts = ptsimg.reshape((-1, 1,2)) 
-        print(pts)
+        # print(pts)
         for dx,dy in zip(np.diff(x), np.diff(y)):
 
             v =  np.array([dx,dy])
             img = np.ones(img.shape)*255
             
             c.draw(img)
-            cv2.polylines(img, pts, isClosed=True, color=(10,10,10), thickness=3, lineType=cv2.LINE_AA)
+            cv2.polylines(img, [pts], False, color=(10,10,10), thickness=3, lineType=cv2.LINE_AA)
             imgthresh = cv2.inRange(img, (254,254,254), (256,256,256),cv2.THRESH_BINARY).reshape(500,500,1)/255
             
             c.update_banger_pos(v)
@@ -350,4 +350,3 @@ if __name__ == "__main__":
             writer.append_data(tablergb)
 
     cv2.destroyAllWindows()
-
