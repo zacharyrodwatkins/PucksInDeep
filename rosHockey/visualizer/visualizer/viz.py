@@ -4,6 +4,13 @@
 import sys, random
 import numpy as np
 import time
+try:
+    from visualizer.sub import EncoderSubscriber
+except ModuleNotFoundError:
+    from sub import EncoderSubscriber
+from hockey_msgs.msg import MalletPos
+import rclpy
+from rclpy.node import Node
 
 if sys.version_info.major > 2:
     import tkinter as tk
@@ -20,7 +27,8 @@ MAX_SCORE = 7 #Winning score.
 SPEED = 20 #milliseconds between frame update.
 FONT = "ms 50"
 MAX_SPEED, PADDLE_SPEED = 15, 15
-
+global tes_inc
+tes_inc = 0
 #### METHODS ####
 
 def str_dict(dic):
@@ -36,6 +44,8 @@ def rand():
     
 #### OBJECT DEFINITIONS ####
         
+
+
 class Equitment(object):
     """
     Parent class of Puck and Paddle.
@@ -95,32 +105,7 @@ class Paddle(Equitment):
         Equitment.update(self, position)
         self.can.coords(self.handle, self.x-self.w/2, self.y-self.w/2,
                                    self.x+self.w/2, self.y+self.w/2)
-
-    def check_for_hit(self,puck,print_updates = False):
-        flip_arr = np.array((1,-1))
-        mallet_pos = np.array(self.get_position())*flip_arr
-        puck_pos = np.array((puck.x,puck.y))*flip_arr
-        puck_vel = np.array((puck.vx,puck.vy))*flip_arr
-        mallet_vel = np.array((self.vx,self.vy))*flip_arr
-        relative_velocity = puck_vel - mallet_vel
-        seperation_vector = puck_pos - mallet_pos
-        if np.dot(relative_velocity,seperation_vector)>0:
-            if print_updates:   
-                print("Moving apart")
-        else:
-            if print_updates:
-                print("Moving together")
-            if np.linalg.norm(seperation_vector)<self.w+puck.w:
-                if print_updates:
-                    print("Hit!")
-                    time.sleep(2)
-                    
-                return True
-        return False
-        
-
-
-                                   
+                               
 class Background(object):
     """
     canvas: tk.Canvas object.
@@ -271,72 +256,18 @@ class Player(object):
     puck: Puck object.
     constraint: UPPER or LOWER (can be None).
     """
-    def __init__(self, master, canvas, background, puck, constraint,print_updates = True):
-        self.puck, self.background = puck, background
-        self.constraint, self.v = constraint, PADDLE_SPEED
-        self.print_updates = print_updates
+    def __init__(self, master, canvas, background):
+        self.background = background
         screen = self.background.get_screen()
         self.x = screen[0]/2
-        self.y = 60 if self.constraint == UPPER else screen[1] - 50
-
+        self.y = screen[1] - 50
         self.paddle = Paddle(canvas, self.background.get_goal_w()/7,
-                                                            (self.x, self.y))
-        self.up, self.down, self.left, self.right = False, False, False, False
-        
-        if self.constraint == LOWER:
-            master.bind('<Up>', self.MoveUp)
-            master.bind('<Down>', self.MoveDown)
-            master.bind('<KeyRelease-Up>', self.UpRelease)
-            master.bind('<KeyRelease-Down>', self.DownRelease)
-            master.bind('<Right>', self.MoveRight)
-            master.bind('<Left>', self.MoveLeft)
-            master.bind('<KeyRelease-Right>', self.RightRelease)
-            master.bind('<KeyRelease-Left>', self.LeftRelease)
-        else:
-            master.bind('<w>', self.MoveUp)
-            master.bind('<s>', self.MoveDown)
-            master.bind('<KeyRelease-w>', self.UpRelease)
-            master.bind('<KeyRelease-s>', self.DownRelease)
-            master.bind('<d>', self.MoveRight)
-            master.bind('<a>', self.MoveLeft)
-            master.bind('<KeyRelease-d>', self.RightRelease)
-            master.bind('<KeyRelease-a>', self.LeftRelease)
-        
-    def update(self):
-        x, y = self.x, self.y
-        
-        if self.up: y = self.y - self.v
-        if self.down: y = self.y + self.v
-        if self.left: x = self.x - self.v
-        if self.right: x = self.x + self.v
-        
-        if self.background.is_position_valid((x, y), 
-                                      self.paddle.get_width(), self.constraint):
-            self.x, self.y = x, y
-            self.paddle.update((self.x, self.y))
-        
-        if self.paddle.check_for_hit(self.puck,print_updates = self.print_updates):
-        # if self.puck == self.paddle:
-            # moving = any((self.up, self.down, self.left, self.right))
-            # self.puck.hit(self.paddle, moving)
-            self.puck.real_hit(self.paddle)
-    
-    def MoveUp(self, callback=False):
-        self.up = True
-    def MoveDown(self, callback=False):
-        self.down = True
-    def MoveLeft(self, callback=False):
-        self.left = True
-    def MoveRight(self, callback=False):
-        self.right = True
-    def UpRelease(self, callback=False):
-        self.up = False
-    def DownRelease(self, callback=False):
-        self.down = False
-    def LeftRelease(self, callback=False):
-        self.left = False
-    def RightRelease(self, callback=False):
-        self.right = False
+                                                            (self.x, self.y))    
+    def update(self,position):
+        self.x , self.y = position
+        self.paddle.update((self.x, self.y))
+
+
         
 class Home(object):
     """
@@ -362,7 +293,7 @@ class Home(object):
         master.title(str_dict(score))
         
         self.master, self.screen, self.score = master, screen, score
-        
+        # self.ros_coms = rosEquitmentManager(self.p2,self.p1,self.puck)
         self.update()
         
     def reset(self, callback=False):
@@ -375,7 +306,7 @@ class Home(object):
     def update(self):
         self.puck.update()
         self.p1.update()
-        self.p2.update()
+        # self.p2.update()
         if not self.puck.in_goal():
             self.frame.after(SPEED, self.update) 
         else:
@@ -397,17 +328,40 @@ class Home(object):
 def play(screen):
     """ screen: tuple, screen size (w, h). """
     root = tk.Tk()
-#    root.state("zoomed")
-#    root.resizable(0, 0)
     Home(root, screen)
-    #root.eval('tk::PlaceWindow %s center' %root.winfo_pathname(root.winfo_id()))
     root.mainloop()
+
+# class robot_mallet(Equitment):
             
-def main():
-    """ Choose screen size """  
-    screen = 700, 760
+
+class Visualizer():
+
+    def __init__(self,master,screen):
+        self.frame = tk.Frame(master)
+        self.frame.pack()
+        self.can = tk.Canvas(self.frame)
+        self.can.pack()
+        #goal width = 1/3 of screen width
+        background = Background(self.can, screen, screen[0]*0.33)
+        self.robot_mallet = Player(master, self.can, background)
+        self.robot_mallet_subscriber = EncoderSubscriber(self.robot_mallet_callback)
+        self.master = master
     
-    play(screen)
+    def robot_mallet_callback(self,msg):
+        self.robot_mallet.update((msg.x,msg.y))
+        print("Callback")
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    screen = 700,700
+    root = tk.Tk()
+    viz = Visualizer(root, screen)
+    while True:
+        viz.master.update_idletasks()
+        viz.master.update()
+        rclpy.spin_once(viz.robot_mallet_subscriber)
+        print("Here")
 
 if __name__ == "__main__":
     main()

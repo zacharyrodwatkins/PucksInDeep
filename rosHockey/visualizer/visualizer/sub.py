@@ -1,28 +1,28 @@
 import rclpy
 from rclpy.node import Node
 
-from std_msgs.msg import float64
+from hockey_msgs.msg import MalletPos
 
 
-class EncoderSubcriber(Node):
+class EncoderSubscriber(Node):
 
     def __init__(self,callback):
         super().__init__('minimal_subscriber')
         self.subscription = self.create_subscription(
-            String,
-            'topic',
-            self.listener_callback,
+            MalletPos,
+            'MalletPosition',
+            callback,
             10)
-        self.subscription  # prevent unused variable warning
+        self.subscription  # prevent unused variable warnin
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%s"' % msg.data)
+        self.get_logger().info(str(msg))
 
 
 def main(args=None):
     rclpy.init(args=args)
 
-    minimal_subscriber = MinimalSubscriber()
+    minimal_subscriber = EncoderSubscriber(None)
 
     rclpy.spin(minimal_subscriber)
 
