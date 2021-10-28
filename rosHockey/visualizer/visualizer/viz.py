@@ -4,7 +4,10 @@
 import sys, random
 import numpy as np
 import time
-from sub import EncoderSubscriber
+try:
+    from visualizer.sub import EncoderSubscriber
+except ModuleNotFoundError:
+    from sub import EncoderSubscriber
 from hockey_msgs.msg import MalletPos
 import rclpy
 from rclpy.node import Node
