@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'pyenc'
+package_name = 'position_publisher'
 
 setup(
     name=package_name,
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'enc = pyenc.enc:main'
+            'position_publisher = pyenc.position_publisher:main'
         ],
     },
 )

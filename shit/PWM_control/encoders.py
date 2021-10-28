@@ -4,9 +4,9 @@ import spidev
 
 class Encoder:
 
-    def __init__(self) -> None:
+    def __init__(self, device) -> None:
         self.bus = 0
-        self.device = 0
+        self.device = device
         self.spi0 = spidev.SpiDev()
         self.spi0.open(self.bus, self.device)
         self.spi0.max_speed_hz = 500
