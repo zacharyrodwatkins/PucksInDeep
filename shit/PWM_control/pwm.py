@@ -20,12 +20,13 @@ def get():
     while(1):
         k=inkey()
         if k=='\x1b[A':
-                print("motor1 up")
-
-                return 1
+            return "up"
         elif k=='\x1b[B':
-                print("motor2 down")
-                return -1
+            return "down"
+        elif k=='\x1b[D':
+            return "left"
+        elif k=='\x1b[C':
+            return "right"       
         elif 'q' in k:
             return "quit"
         return 0
@@ -42,57 +43,65 @@ motor_pin2 = 13
 MAX_VOLTAGE = 2 # volts
 MIN_VOLTAGE = 0
 NO_SPEED_VOLTAGE = (MAX_VOLTAGE + MIN_VOLTAGE)/2
- 
-def setup():
-    global pwm
-    global pwm2
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(motor_pin1, GPIO.OUT)
-    GPIO.output(motor_pin1, GPIO.LOW)
-    GPIO.setup(motor_pin2, GPIO.OUT)
-    GPIO.output(motor_pin2, GPIO.LOW)
-    pwm = GPIO.PWM(motor_pin1, 5000)
-    pwm2 = GPIO.PWM(motor_pin2,5000)
-    pwm.start(0)
-    pwm2.start(0)
+
+from roboclaw_3 import Roboclaw
+from time import sleep
+address1 = 0x80
+address2 = 0x81
+roboclaw = Roboclaw("/dev/ttyAMA0", 2400)
+roboclaw.Open()
+fact = 4
+
+	
 
 def loop():
-    dc = 50
-    dc2 = 50
+    m1 = 0
+    m2 = 0
+    mode = "fb"
     while True:
-        pwm.ChangeDutyCycle(dc)
-        # pwm.ChangeDutyCycle(50)
-        pwm2.ChangeDutyCycle(dc2)
-        # pwm2.ChangeDutyCycle(70)
-        # continue
         time.sleep(0.01)
         got = get()
         if got == "quit":
             return 
-        dc = dc + 10*got
-        if mode == 'f':
-            dc2 = 100 - dc
+        
+        if got == "up" or got == "down":
+            if mode == 'fb':
+                inc = (1 if got == "up" else -1)*fact
+                m1 += inc
+                m2 += -inc 
+            elif mode == 'ss':
+                mode = 'fb'
+                m1 = m2 = 0
+            
+        if got == "left" or got == "right":
+            if mode == 'ss':
+                inc = (1 if got == "right" else -1)*fact
+                m1 += inc
+                m2 += inc 
+            elif mode == 'fb':
+                mode = 'ss'
+                m1 = m2 = 0
+
+
+        m1 = min(m1, 128)
+        m1 = max(m1, -128)
+        m2 = min(m2, 128)
+        m2 = max(m2, -128)
+
+        if m1 > 0:
+            roboclaw.ForwardM1(address1,m1)
+            print("Forward {}".format(m1))
         else:
-            dc2 = dc
-        dc = min(dc, 100)
-        dc = max(dc, 0)
-        dc2 = min(dc2, 100)
-        dc2 = max(dc2, 0)
-        print(dc,dc2)
+            roboclaw.BackwardM1(address1,-m1)
+            print("Backwards {}".format(-m1))
+        
+        if m2 > 0:
+            roboclaw.ForwardM1(address2,m2)
+        else:
+        	roboclaw.BackwardM1(address2,-m2)
+        	       
+
+        print(mode,m1,m2)
          
-def destroy():
-    pwm.stop()
-    GPIO.output(motor_pin1, GPIO.LOW)
-    GPIO.cleanup()
-     
 if  __name__ == '__main__':
-    setup()
-    try:
-        loop()
-    except KeyboardInterrupt:
-        print("here1")
-        destroy()
-        print("here")
-        quit()
-    destroy()
-    quit()
+    loop()
