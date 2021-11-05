@@ -199,6 +199,8 @@ bool RoboClaw::write_n(uint8_t cnt, ... )
 		uint16_t crc = crc_get();
 		write(crc>>8);
 		write(crc);
+		// delayMicroseconds(100);
+		return true;
 		if(read(timeout)==0xFF)
 			return true;
 	}while(trys--);
