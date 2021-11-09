@@ -4,9 +4,10 @@
 // #include <time.h>
 #define CHIP_SELECT_LEFT A4
 #define CHIP_SELECT_RIGHT PB5
-#define MOTOR_LEFT 0x8
+#define MOTOR_LEFT 0x81
 #define MOTOR_RIGHT 0x80
 #define two_to_the_14 16384
+#define PULLEY_RADIUS 7.0612 // 2.78 inches in cm
 #define ANGLE_THRESH 350
 #define NUM_READS 200
 // #define SIMPLE_H
@@ -14,6 +15,9 @@
 float ticks_to_deg = 360.0/two_to_the_14;
 int j = 0;
 int k = 0;
+
+float test_path_straight_y[6] ={180,-450, 300,0,0,0};
+float test_path_straight_x[6] = {0,0,0,0,0,0};
 
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
@@ -30,21 +34,23 @@ int crosses[2];
 int prev_time[2];
 float velocity[2];
 float start_angles[2];
-bool direction = 0;
+float xy[2];
+float start_time;
+float des_xy[2];
+float current_time;
+float err_x;
+float err_y;
+float right_motor_effort;
+float left_motor_effort;
+float p = 69.0;
 
-// uint32_t before;
-// uint32_t after;
-int before;
-int after;
-int msecs[NUM_READS];
-
-
+void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]);
 void write_to_motor(uint8_t address, int val);
 void readAngle(u_int16_t result[]);
 void write_to_motor_simple(uint8_t val);
+void update_xy(float xy[], float total_angles[]);
 
 void setup() {
-  // delay(1000);
   pinMode(CHIP_SELECT_LEFT, OUTPUT);
   pinMode(CHIP_SELECT_RIGHT, OUTPUT);
   digitalWrite(CHIP_SELECT_LEFT, HIGH);
@@ -52,14 +58,35 @@ void setup() {
   Serial.begin(9600);
   Serial2.begin(460800);
   SPI.beginTransaction(SPISettings(115200, MSBFIRST, SPI_MODE1));
-  // // roboclaw.begin(38400); 
   readAngle(result);
 
   for (int i=0;i<2;i++){
     start_angles[i] = result[i]*ticks_to_deg;
   }
+
+  update_xy(xy,start_angles);
   delay(10);
+  start_time = micros()*1e-6;
 }
+
+void update_xy(float xy[], float total_angles[]){
+  xy[0] = (total_angles[0]+total_angles[1])/2*PULLEY_RADIUS;
+  xy[1] = (total_angles[0]-total_angles[1])/2*PULLEY_RADIUS;
+}
+
+
+void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]){
+  ret_val[0] = 0;
+  ret_val[1] = 0;
+  float tpow = 1;
+  for (int i = 5; i>=0; i--){
+    ret_val[0] += x_coeffs[i]*tpow;
+    ret_val[1] += y_coeffs[i]*tpow;
+    tpow *= time;
+  }
+}
+
+
 
 void write_to_motor(u_int8_t address, int val){
   if (val<0){roboclaw.ForwardM1(address ,(uint8_t) val);
@@ -87,6 +114,8 @@ void readAngle(u_int16_t result[]) {
 
 }
 
+
+
   void zeroCrossing(int crosses[], float velocity[]){
     for (int i=0; i<2; i++) {
       if ((result[i] - prev_angle[i]) > ANGLE_THRESH) {
@@ -102,23 +131,6 @@ void readAngle(u_int16_t result[]) {
       }
   }
 
-void display(void){
-    Serial.print("Left motor values: ");
-    Serial.print(crosses[0]);
-    Serial.print(" ");
-    Serial.print(result[0]);
-    Serial.print(" ");
-    Serial.print(velocity[0]);
-    Serial.print("\n");
-
-    Serial.print("Right motor values: ");
-    Serial.print(crosses[1]);
-    Serial.print(" ");
-    Serial.print(result[1]);
-    Serial.print(" ");
-    Serial.print(velocity[1]);
-    Serial.print("\n");
-}
 
 void make_total_angle(float total_angle[], uint16_t angle[], int crosses[]){
   for (int i=0;i<2;i++){
@@ -126,9 +138,6 @@ void make_total_angle(float total_angle[], uint16_t angle[], int crosses[]){
   }
 }
 
-void write_to_motor_simple(uint8_t val){
-  Serial2.write(val);
-}
 
 
 
@@ -137,40 +146,13 @@ void loop() {
   readAngle(result);
   zeroCrossing(crosses,velocity);
   make_total_angle(total_angles,result,crosses);
-if (total_angles[1]<start_angles[1]+360){
-    before = micros();
-    write_to_motor(MOTOR_RIGHT, 100);
-
-    after = micros();
-}
-else{
-   write_to_motor(MOTOR_RIGHT, -50);
-   delay(1000000);
-}
-
-  //  
-  // zeroCrossing(crosses, velocity);
-  // write_to_motor()
-
-  // if (true){
-  //   Serial.print(total_angles[1]);
-  // }
-
-  // if (j % 50000 == 0){
-  //   Serial.print("Left motor values: ");
-  //   Serial.print(crosses[0]);
-  //   Serial.print(" ");
-  //   Serial.print(result[0]);
-  //   Serial.print(" ");
-  //   Serial.print(velocity[0]);
-  //   Serial.print("\n");
-
-  //   Serial.print("Right motor values: ");
-  //   Serial.print(crosses[1]);
-  //   Serial.print(" ");
-  //   Serial.print(result[1]);
-  //   Serial.print(" ");
-  //   Serial.print(velocity[1]);
-  //   Serial.print("\n");
-  // }
+  current_time = micros()*1e-6-start_time;
+  update_desired_path_position(current_time, test_path_straight_x,test_path_straight_y,des_xy);
+  update_xy(xy,total_angles);
+  err_x = -1*(xy[0]-des_xy[0]);
+  err_y = -1*(xy[1]-des_xy[1]);
+  float err_m1 = (err_x+err_y)/PULLEY_RADIUS;
+  float err_m2 = (err_x-err_y)/PULLEY_RADIUS;
+  write_to_motor(MOTOR_RIGHT, (uint8_t) err_m1*p);
+  write_to_motor(MOTOR_LEFT, (uint8_t) err_m2*p);
 }
