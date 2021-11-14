@@ -31,17 +31,24 @@ float savgol[window];
 
 
 // [ 360. -900.  600.    0.    0.    0.]
+
 // float test_path_straight_y[6] ={360,-900, 600,0,0,0};
 // float test_path_straight_x[6] = {0,0,0,0,0,0};
 
-// float test_path_straight_x[6] = {0,0,0,0,0,0};
+// float test_path_straight_y[6] ={1.5*360.0*(2*2*2*2*2)*(2*2*2*2*2),-1.5*900.0*(2*2*2*2)*(2*2*2*2), 1.5*600.0*(2*2*2)*(2*2*2),0,0,0};
 
-float test_path_straight_x[6] ={-180,450, -300,0,0,0};
-float test_path_straight_y[6] ={180,-450, 300,0,0,0};
 
-int flag1 = 1;
-int flag2 = 1;
-int flag3 = 1;
+
+// float test_path_straight_y[6] = {0,0,0,-52,104,0};
+// float test_path_straight_x[6] = {0,0,80,-240,160,0};
+
+// float test_path_straight_x[6] ={-180,450, -300,0,0,0};
+// float test_path_straight_y[6] ={180,-450, 300,0,0,0};
+
+// Figure eight
+float test_path_straight_x[6] = {8,-80, 280, -400, 192, 0};
+float test_path_straight_y[6] = {0, 0, 1.4*10, -60*1.4, 1.4*80, 0};
+
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
@@ -54,6 +61,7 @@ float prev_angle[2];
 float total_angles[2];
 int crosses[2];
 
+float end_time = 4;
 
 float acc[2] = {0};
 float velocity[2];
@@ -70,6 +78,7 @@ float start_time;
 float des_xy[2];
 float des_vel[2];
 float des_acc[2];
+
 float err_x;
 float err_y;
 float err_x_pos;
@@ -79,21 +88,29 @@ float err_y_vel;
 float err_x_acc;
 float err_y_acc;
 
+float max_eff = 0;
 
 
 
+// These values worked on Nov 13
 float py = .3;
 float iy = 6;
 float dy = 0;
 float px = .3;
-float ix = 30;
+float ix = 15;
 float dx = 0;
+
+// float py = .7;
+// float iy = 20;
+// float dy = 0;
+// float px = .7;
+// float ix = 60;
+// float dx = 0;
+
+
 
 float err_m1;
 float err_m2;
-
-float y_test[1000];
-float t_test[1000];
 
 
 void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]);
@@ -272,13 +289,6 @@ void update_velocity(float xy[], float vel[], float acc[], float xy_hist[2][wind
   prev_xy[1] = xy[1];
 }
 
-float xy_to_m1(float err_x, float err_y){
-  return (err_x + err_y)/PULLEY_RADIUS;
-}
-
-float xy_to_m2(float err_x, float err_y){
-  return (err_x - err_y)/PULLEY_RADIUS;
-}
 
 void loop() {
   float time_secs = micros()*1e-6-start_time;
@@ -299,13 +309,69 @@ void loop() {
 
 
 
-  if (time_secs>1){
+  if (time_secs>end_time){
+    // float py = .7;
+    // float iy = 40;
+    // float dy = 0;
+    // float px = .7;
+    // float ix = 80;
+    // float dx = 0;
+    while(time_secs<5.0){
+      readAngle(result);
+      zeroCrossing(crosses,velocity, result);
+      make_total_angle(total_angles,result,crosses);
+
+      update_xy(xy,total_angles);
+      update_acceleration(vel_hist,acc);
+      update_velocity(xy, velocity,acc,xy_hist);
+
+      update_desired_path_velocity(end_time, test_path_straight_x, test_path_straight_y, des_vel);
+      update_desired_path_position(end_time, test_path_straight_x,test_path_straight_y,des_xy);
+      update_desired_path_acc(end_time, test_path_straight_x, test_path_straight_y, des_acc);
+
+      err_x_pos = (des_xy[0]-xy[0]);
+      err_y_pos = (des_xy[1]-xy[1]);
+      err_x_vel = (des_vel[0]-velocity[0]);
+      err_y_vel = (des_vel[1]-velocity[1]);
+      err_x_acc = (des_acc[0]-acc[0]);
+      err_y_acc = (des_acc[1]-acc[1]);
+
+      err_x = px*err_x_vel+ix*err_x_pos+dx*err_x_acc;
+      err_y = py*err_y_vel+iy*err_y_pos+dy*err_y_acc;
+    
+      err_m1 = (err_x+err_y)/PULLEY_RADIUS;
+      err_m2 = (err_x-err_y)/PULLEY_RADIUS;
+
+      int effort_m1 = err_m1;
+      int effort_m2 = err_m2;
+
+
+      write_to_motor(MOTOR_LEFT, effort_m1);
+      write_to_motor(MOTOR_RIGHT, effort_m2);
+      delayMicroseconds(150);
+      
+      time_secs =((float) micros()*1e-6)-start_time;
+
+
+
+
+    }
+
     write_to_motor(MOTOR_LEFT, 0);
     write_to_motor(MOTOR_RIGHT,0);
+    readAngle(result);
+    zeroCrossing(crosses,velocity, result);
+    make_total_angle(total_angles,result,crosses);
+    update_xy(xy,total_angles);
+    update_desired_path_position(end_time, test_path_straight_x,test_path_straight_y,des_xy);
+
+    err_x_pos = (des_xy[0]-xy[0]);
+    err_y_pos = (des_xy[1]-xy[1]);
+
     Serial.println("DONE");
-    Serial.print(err_x);
+    Serial.print(err_x_pos);
     Serial.print(" ");
-    Serial.print(err_y);
+    Serial.print(err_y_pos);
     Serial.print(" ");
     Serial.print(err_m1);
     Serial.print(" ");
@@ -313,6 +379,11 @@ void loop() {
     Serial.print(" ");
     Serial.print(time_secs);
     Serial.println();
+    Serial.println(xy[0]);
+    Serial.print(" ");
+    Serial.print(xy[1]);
+    Serial.println("Max eff ");
+    Serial.print(max_eff);
     while (true)
     {
       /* code */
@@ -339,19 +410,6 @@ void loop() {
 
   err_x = px*err_x_vel+ix*err_x_pos+dx*err_x_acc;
   err_y = py*err_y_vel+iy*err_y_pos+dy*err_y_acc;
-
-
-  // if (print_index % 1000 == 0){
-
-  //   Serial.print(err_x);
-  //   Serial.print(" ");
-  //   Serial.print(err_y);
-  //   Serial.print(" ");
-  //   Serial.print(time_secs);
-  //   Serial.println();
-
-  // }
-
  
   err_m1 = (err_x+err_y)/PULLEY_RADIUS;
   err_m2 = (err_x-err_y)/PULLEY_RADIUS;
@@ -359,9 +417,12 @@ void loop() {
   int effort_m1 = err_m1;
   int effort_m2 = err_m2;
 
-
+  if (effort_m1>max_eff){
+    max_eff = effort_m1;
+  }
   write_to_motor(MOTOR_LEFT, effort_m1);
   write_to_motor(MOTOR_RIGHT, effort_m2);
+  
   
   // write_to_motor(MOTOR_LEFT, 50);
   // write_to_motor(MOTOR_RIGHT, 50);
@@ -406,6 +467,9 @@ void loop() {
     // //     Serial.print(vel_hist[0][i]);
     // //     Serial.print(" ");
     // // }
+    // Serial.println("pos");
+    // Serial.println(xy[0]);
+    // Serial.println(xy[1]);
 
 
     
