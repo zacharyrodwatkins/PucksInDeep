@@ -1,6 +1,9 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include "RoboClaw.h"
+// #include <string>
+// #include <iostream>
+
 // #include <time.h>
 #define CHIP_SELECT_LEFT A4
 #define CHIP_SELECT_RIGHT PB5
@@ -32,8 +35,10 @@ float savgol[window];
 
 // [ 360. -900.  600.    0.    0.    0.]
 
-// float test_path_straight_y[6] ={360,-900, 600,0,0,0};
-// float test_path_straight_x[6] = {0,0,0,0,0,0};
+// float test_path_straight_y[6] ={1.5*360*(2*2*2*2*2),-1.5*900*(2*2*2*2), 1.5*600*(2*2*2),0,0,0};
+// float test_path_straight_x[6] ={360.0/1.5*(2*2*2*2*2),-900.0/1.5*(2*2*2*2), 600.0/1.5*(2*2*2),0,0,0};
+// float test_path_straight_y[6] = {0,0,0,0,0,0};
+// float test_path_straight_x[6] = {0,0,0,0,0,30};
 
 // float test_path_straight_y[6] ={1.5*360.0*(2*2*2*2*2)*(2*2*2*2*2),-1.5*900.0*(2*2*2*2)*(2*2*2*2), 1.5*600.0*(2*2*2)*(2*2*2),0,0,0};
 
@@ -45,7 +50,7 @@ float savgol[window];
 // float test_path_straight_x[6] ={-180,450, -300,0,0,0};
 // float test_path_straight_y[6] ={180,-450, 300,0,0,0};
 
-// Figure eight
+// Figure eight set end time to 4s
 float test_path_straight_x[6] = {8,-80, 280, -400, 192, 0};
 float test_path_straight_y[6] = {0, 0, 1.4*10, -60*1.4, 1.4*80, 0};
 
@@ -93,19 +98,20 @@ float max_eff = 0;
 
 
 // These values worked on Nov 13
-float py = .3;
-float iy = 6;
-float dy = 0;
-float px = .3;
-float ix = 15;
-float dx = 0;
-
-// float py = .7;
-// float iy = 20;
-// float dy = 0;
-// float px = .7;
-// float ix = 60;
+// float px = .3;
+// float ix = 30;
 // float dx = 0;
+// float py = .3;
+// float iy = 6;
+// float dy = 0;
+
+// New values using tuning nov 14tg
+float py = 0;
+float iy = 45;
+float dy = 0;
+float px = 0;
+float ix = 35;
+float dx = 0;
 
 
 
@@ -123,6 +129,7 @@ void update_desired_path_velocity(float time, float x_coeffs[], float y_coeffs[]
 void update_acceleration(float vel_hist[2][window], float acc[]);
 void update_velocity(float xy[], float vel[], float acc[], float xy_hist[2][window]);
 void savgol_coeff();
+void setPID();
 
 void setup() {
   pinMode(CHIP_SELECT_LEFT, OUTPUT);
@@ -142,7 +149,13 @@ void setup() {
   savgol_coeff();
 
   delay(10);
+  // setPID();
+
+
   start_time = micros()*1e-6;
+
+  
+
 }
 
 void savgol_coeff(){
@@ -289,6 +302,54 @@ void update_velocity(float xy[], float vel[], float acc[], float xy_hist[2][wind
   prev_xy[1] = xy[1];
 }
 
+void setPID() {
+  int flag = 1;
+  String var1 = "";
+  String var2 = "";
+  String var3 = "";
+  String var4 ="";
+  Serial.println("Please enter effort values px ix py iy");
+
+
+  // check for incoming serial data:
+  while(flag == 1){
+
+  while(Serial.available() > 0) {
+
+    var1 = Serial.readStringUntil(' '); // writes in the string all the inputs till a comma
+    Serial.read(); 
+    var2 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var3 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var4 = Serial.readStringUntil('\n');
+    delay(10);
+  }
+
+  if (var1 != ""){
+    px = var1.toFloat();
+    ix = var2.toFloat();
+    py = var3.toFloat();
+    iy = var4.toFloat();
+
+    Serial.print("Px: ");
+    Serial.println(px);
+    Serial.print("Ix: ");
+    Serial.println(ix);
+    Serial.print("Py: ");
+    Serial.println(py);
+    Serial.print("Iy: ");
+    Serial.println(iy);
+
+    delay(2000);
+
+    Serial.println("zoomin");
+    delay(100);
+    flag = 0;
+    }
+  }
+}
+
 
 void loop() {
   float time_secs = micros()*1e-6-start_time;
@@ -316,7 +377,7 @@ void loop() {
     // float px = .7;
     // float ix = 80;
     // float dx = 0;
-    while(time_secs<5.0){
+    while(time_secs<end_time+1){
       readAngle(result);
       zeroCrossing(crosses,velocity, result);
       make_total_angle(total_angles,result,crosses);
