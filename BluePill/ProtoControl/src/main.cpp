@@ -1,10 +1,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include "RoboClaw.h"
-// #include <string>
-// #include <iostream>
 
-// #include <time.h>
 #define CHIP_SELECT_LEFT A4
 #define CHIP_SELECT_RIGHT PB5
 #define MOTOR_LEFT 0x81
@@ -13,7 +10,6 @@
 #define PULLEY_RADIUS 3.5306 // 2.78 inches in cm
 #define ANGLE_THRESH 350
 #define NUM_READS 200
-// #define SIMPLE_H
 #define OMEGA 360.0
 float ticks_to_deg = 360.0/two_to_the_14;
 
@@ -27,22 +23,20 @@ int speed = 0;
 // Size of SavGol Filter Window
 const int window = 40;
 
-// Savgol coefficients computed for window = 13
-// float savgol[window] = {0.03297,0.02747,0.02198,0.01648,0.01099,0.00549,0,-0.00549,-0.01099,-0.01648,-0.02198,-0.02747,-0.03297};
+// make sure this value is smaller than window!!
+const int position_window = 500;
 
 float savgol[window];
+float pos_error[2][position_window] = {0};
 
 
-// [ 360. -900.  600.    0.    0.    0.]
 
-// float test_path_straight_y[6] ={1.5*360*(2*2*2*2*2),-1.5*900*(2*2*2*2), 1.5*600*(2*2*2),0,0,0};
-// float test_path_straight_x[6] ={360.0/1.5*(2*2*2*2*2),-900.0/1.5*(2*2*2*2), 600.0/1.5*(2*2*2),0,0,0};
-// float test_path_straight_y[6] = {0,0,0,0,0,0};
-// float test_path_straight_x[6] = {0,0,0,0,0,30};
+// float test_path_straight_y[6] ={360*(2*2*2*2*2),-900*(2*2*2*2), 600*(2*2*2),0,0,0};
+// float test_path_straight_x[6] ={360*(2*2*2*2*2)/1.4,-900*(2*2*2*2)/1.4, 600*(2*2*2)/1.4,0,0,0};
+// float test_path_straight_y[6] = {0,0,0,0,0,60};
+// float test_path_straight_x[6] = {0,0,0,0,0,0};
 
 // float test_path_straight_y[6] ={1.5*360.0*(2*2*2*2*2)*(2*2*2*2*2),-1.5*900.0*(2*2*2*2)*(2*2*2*2), 1.5*600.0*(2*2*2)*(2*2*2),0,0,0};
-
-
 
 // float test_path_straight_y[6] = {0,0,0,-52,104,0};
 // float test_path_straight_x[6] = {0,0,80,-240,160,0};
@@ -51,8 +45,16 @@ float savgol[window];
 // float test_path_straight_y[6] ={180,-450, 300,0,0,0};
 
 // Figure eight set end time to 4s
-float test_path_straight_x[6] = {8,-80, 280, -400, 192, 0};
-float test_path_straight_y[6] = {0, 0, 1.4*10, -60*1.4, 1.4*80, 0};
+// float test_path_straight_x[6] = {8,-80, 280, -400, 192, 0};
+// float test_path_straight_y[6] = {0, 0, 1.4*10, -60*1.4, 1.4*80, 0};
+
+// float test_path_straight_y[6] ={30.69,0, -90.81,0,90.6,0};
+// float test_path_straight_x[6] ={0,0,0,0,0,0};
+
+float test_path_straight_x[6] ={1.0/(2*2*2*2*2)*30.69/2,0, -1.0/(2*2*2)*90.81/2,0,1.0/2*90.6/2,0};
+float test_path_straight_y[6] ={0,0,0,0,0,0};
+
+float end_time = 3;
 
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
@@ -66,11 +68,7 @@ float prev_angle[2];
 float total_angles[2];
 int crosses[2];
 
-float end_time = 4;
-
-float acc[2] = {0};
 float velocity[2];
-float prev_vel[2] = {0,0};
 float vel_hist[2][window] = {0};
 float xy_hist[2][window] = {0};
 float time_hist[window] = {0};
@@ -78,11 +76,11 @@ float window_step_size;
 
 float start_angles[2];
 float xy[2];
-float prev_xy[2];
 float start_time;
 float des_xy[2];
 float des_vel[2];
-float des_acc[2];
+float int_error[2] = {0};
+
 
 float err_x;
 float err_y;
@@ -90,8 +88,12 @@ float err_x_pos;
 float err_y_pos;
 float err_x_vel;
 float err_y_vel;
-float err_x_acc;
-float err_y_acc;
+
+float err_m1;
+float err_m2;
+
+int effort_m1;
+int effort_m2;
 
 float max_eff = 0;
 
@@ -105,18 +107,20 @@ float max_eff = 0;
 // float iy = 6;
 // float dy = 0;
 
-// New values using tuning nov 14tg
-float py = 0;
-float iy = 45;
-float dy = 0;
-float px = 0;
-float ix = 35;
-float dx = 0;
+// New values using tuning nov 14th
+// float px = 0;
+// float ix = 35;
+// float dx = 0;
+// float py = 0;
+// float iy = 45;
+// float dy = 0;
 
-
-
-float err_m1;
-float err_m2;
+float px = 55;
+float ix = 50;
+float dx = 1.2;
+float py = 45;
+float iy = 50;
+float dy = 1.35;
 
 
 void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]);
@@ -126,8 +130,8 @@ void write_to_motor_simple(uint8_t val);
 void update_xy(float xy[], float total_angles[]);
 void make_total_angle(float total_angle[], float angle[], int crosses[]);
 void update_desired_path_velocity(float time, float x_coeffs[], float y_coeffs[], float ret_vel[]);
-void update_acceleration(float vel_hist[2][window], float acc[]);
-void update_velocity(float xy[], float vel[], float acc[], float xy_hist[2][window]);
+void update_velocity(float xy[], float vel[], float xy_hist[2][window]);
+void compute_int_error();
 void savgol_coeff();
 void setPID();
 
@@ -157,6 +161,9 @@ void setup() {
   
 
 }
+
+
+
 
 void savgol_coeff(){
   
@@ -204,17 +211,6 @@ void update_desired_path_velocity(float time, float x_coeffs[], float y_coeffs[]
   }
 }
 
-void update_desired_path_acc(float time, float x_coeffs[], float y_coeffs[], float ret_acc[]){
-  ret_acc[0] = 0;
-  ret_acc[1] = 0;
-  float tpow = 1;
-  for (int i = 3; i>=0; i--){
-    ret_acc[0] += x_coeffs[i]*tpow*(4-i+1)*(3-i+1);
-    ret_acc[1] += y_coeffs[i]*tpow*(4-i+1)*(3-i+1);
-    tpow *= time;
-  }
-}
-
 void write_to_motor(u_int8_t address, int val){
   if (val<0){roboclaw.ForwardM1(address ,(uint8_t) val);
     val = MAX(val,-127);
@@ -258,23 +254,44 @@ void make_total_angle(float total_angle[], float angle[], int crosses[]){
   }
 }
 
-void update_acceleration(float vel[2][window], float acc[]){
-  float sum_acc[2] = {0};
-  for (int i = 0;i<2;i++){
-    for (int j = 0; j < window;j++){
-      sum_acc[i] = sum_acc[i] + vel[i][j]*savgol[j];
-  }
-  }
-  acc[0] = sum_acc[0]/(window_step_size*mm_to_g);
-  acc[1] = sum_acc[1]/(window_step_size*mm_to_g);
+void compute_int_error(){
+    for(int i = 0; i<2; i++){
+      // subtract off the last value from mean
+      int_error[i] = int_error[i] - pos_error[i][position_window -1]/position_window;
+    }
 
+    // Serial.print("Last val ");
+    // Serial.println(pos_error[1][position_window -1]);
+
+    // for(int i = 0; i<position_window-1; i++){
+    //   Serial.print(pos_error[1][i]);
+    //   Serial.print(" ");
+    // }
+    // delay(1000);
+    // Serial.println();
+
+    // shift the array of errors
+    for(int i=position_window-1;i>0;i--){
+    pos_error[0][i] = pos_error[0][i-1];
+    pos_error[1][i] = pos_error[1][i-1];
+  }
+
+    // calculate the new error
+    for(int i = 0; i<2; i++){
+       pos_error[i][0] = des_xy[i]-xy[i];
+    }
+    // Serial.print("Newest val");
+    // Serial.println(pos_error[1][0]);
+    // set the 0th value in the array
+    for(int i = 0; i<2; i++){
+       int_error[i] = int_error[i]+pos_error[i][0]/position_window;
+    }
+    // Serial.println();
+    // Serial.print(int_error[1]);
+    
 }
-void update_velocity(float xy[], float vel[], float acc[], float xy_hist[2][window]){
-  // Serial.println();
-  // Serial.print((vel[0]));
-  // Serial.print(" ");
-  // Serial.print(prev_vel[0]);
-  // Serial.println();
+
+void update_velocity(float xy[], float vel[], float xy_hist[2][window]){
   float sum_vel[2] = {0};
   for (int i = 0;i<2;i++){
     for (int j = 0; j < window;j++){
@@ -294,12 +311,6 @@ void update_velocity(float xy[], float vel[], float acc[], float xy_hist[2][wind
 
   vel_hist[0][0] = vel[0];
   vel_hist[1][0] = vel[1];
-
-  prev_vel[0] = vel[0];
-  prev_vel[1] = vel[1];
-
-  prev_xy[0] = xy[0];
-  prev_xy[1] = xy[1];
 }
 
 void setPID() {
@@ -307,14 +318,17 @@ void setPID() {
   String var1 = "";
   String var2 = "";
   String var3 = "";
-  String var4 ="";
-  Serial.println("Please enter effort values px ix py iy");
+  String var4 = "";
+  String var5 = "";
+  String var6 = "";
+  Serial.println("Please enter effort values px ix dx py iy dy");
 
 
   // check for incoming serial data:
   while(flag == 1){
 
   while(Serial.available() > 0) {
+    Serial.println("blah");
 
     var1 = Serial.readStringUntil(' '); // writes in the string all the inputs till a comma
     Serial.read(); 
@@ -322,29 +336,39 @@ void setPID() {
     Serial.read(); 
     var3 = Serial.readStringUntil(' ');
     Serial.read(); 
-    var4 = Serial.readStringUntil('\n');
+    var4 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var5 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var6 = Serial.readStringUntil('\n');
     delay(10);
   }
+
 
   if (var1 != ""){
     px = var1.toFloat();
     ix = var2.toFloat();
-    py = var3.toFloat();
-    iy = var4.toFloat();
+    dx = var3.toFloat();
+    py = var4.toFloat();
+    iy = var5.toFloat();
+    dy = var6.toFloat();
 
     Serial.print("Px: ");
     Serial.println(px);
     Serial.print("Ix: ");
     Serial.println(ix);
+    Serial.print("Dx: ");
+    Serial.println(dx);
     Serial.print("Py: ");
     Serial.println(py);
     Serial.print("Iy: ");
     Serial.println(iy);
+    Serial.print("Dy: ");
+    Serial.println(dy);
 
     delay(2000);
 
     Serial.println("zoomin");
-    delay(100);
     flag = 0;
     }
   }
@@ -371,63 +395,43 @@ void loop() {
 
 
   if (time_secs>end_time){
-    // float py = .7;
-    // float iy = 40;
-    // float dy = 0;
-    // float px = .7;
-    // float ix = 80;
-    // float dx = 0;
-    while(time_secs<end_time+1){
-      readAngle(result);
-      zeroCrossing(crosses,velocity, result);
-      make_total_angle(total_angles,result,crosses);
 
-      update_xy(xy,total_angles);
-      update_acceleration(vel_hist,acc);
-      update_velocity(xy, velocity,acc,xy_hist);
+    // while(time_secs<end_time+1){
+    //   readAngle(result);
+    //   zeroCrossing(crosses,velocity, result);
+    //   make_total_angle(total_angles,result,crosses);
 
-      update_desired_path_velocity(end_time, test_path_straight_x, test_path_straight_y, des_vel);
-      update_desired_path_position(end_time, test_path_straight_x,test_path_straight_y,des_xy);
-      update_desired_path_acc(end_time, test_path_straight_x, test_path_straight_y, des_acc);
+    //   update_xy(xy,total_angles);
+    //   update_velocity(xy, velocity,xy_hist);
 
-      err_x_pos = (des_xy[0]-xy[0]);
-      err_y_pos = (des_xy[1]-xy[1]);
-      err_x_vel = (des_vel[0]-velocity[0]);
-      err_y_vel = (des_vel[1]-velocity[1]);
-      err_x_acc = (des_acc[0]-acc[0]);
-      err_y_acc = (des_acc[1]-acc[1]);
+    //   update_desired_path_velocity(end_time, test_path_straight_x, test_path_straight_y, des_vel);
+    //   update_desired_path_position(end_time, test_path_straight_x,test_path_straight_y,des_xy);
 
-      err_x = px*err_x_vel+ix*err_x_pos+dx*err_x_acc;
-      err_y = py*err_y_vel+iy*err_y_pos+dy*err_y_acc;
+    //   err_x_pos = (des_xy[0]-xy[0]);
+    //   err_y_pos = (des_xy[1]-xy[1]);
+    //   err_x_vel = (des_vel[0]-velocity[0]);
+    //   err_y_vel = (des_vel[1]-velocity[1]);
+
+    //   // err_x = px*err_x_vel+ix*err_x_pos+dx*err_x_acc;
+    //   // err_y = py*err_y_vel+iy*err_y_pos+dy*err_y_acc;
     
-      err_m1 = (err_x+err_y)/PULLEY_RADIUS;
-      err_m2 = (err_x-err_y)/PULLEY_RADIUS;
+    //   err_m1 = (err_x+err_y)/PULLEY_RADIUS;
+    //   err_m2 = (err_x-err_y)/PULLEY_RADIUS;
 
-      int effort_m1 = err_m1;
-      int effort_m2 = err_m2;
+    //   int effort_m1 = err_m1;
+    //   int effort_m2 = err_m2;
 
 
-      write_to_motor(MOTOR_LEFT, effort_m1);
-      write_to_motor(MOTOR_RIGHT, effort_m2);
-      delayMicroseconds(150);
+    //   write_to_motor(MOTOR_LEFT, effort_m1);
+    //   write_to_motor(MOTOR_RIGHT, effort_m2);
+    //   delayMicroseconds(150);
       
-      time_secs =((float) micros()*1e-6)-start_time;
+    //   time_secs =((float) micros()*1e-6)-start_time;
 
-
-
-
-    }
+    // }
 
     write_to_motor(MOTOR_LEFT, 0);
     write_to_motor(MOTOR_RIGHT,0);
-    readAngle(result);
-    zeroCrossing(crosses,velocity, result);
-    make_total_angle(total_angles,result,crosses);
-    update_xy(xy,total_angles);
-    update_desired_path_position(end_time, test_path_straight_x,test_path_straight_y,des_xy);
-
-    err_x_pos = (des_xy[0]-xy[0]);
-    err_y_pos = (des_xy[1]-xy[1]);
 
     Serial.println("DONE");
     Serial.print(err_x_pos);
@@ -454,29 +458,28 @@ void loop() {
 
   update_xy(xy,total_angles);
   if (print_index>window){
-    update_acceleration(vel_hist,acc);
-    update_velocity(xy, velocity,acc,xy_hist);
+    update_velocity(xy, velocity,xy_hist);
   }
+
   update_desired_path_velocity(time_secs, test_path_straight_x, test_path_straight_y, des_vel);
   update_desired_path_position(time_secs, test_path_straight_x,test_path_straight_y,des_xy);
-  update_desired_path_acc(time_secs, test_path_straight_x, test_path_straight_y, des_acc);
 
-
+  if (print_index%1000==0){
+  compute_int_error();
+  }
   err_x_pos = (des_xy[0]-xy[0]);
   err_y_pos = (des_xy[1]-xy[1]);
   err_x_vel = (des_vel[0]-velocity[0]);
   err_y_vel = (des_vel[1]-velocity[1]);
-  err_x_acc = (des_acc[0]-acc[0]);
-  err_y_acc = (des_acc[1]-acc[1]);
 
-  err_x = px*err_x_vel+ix*err_x_pos+dx*err_x_acc;
-  err_y = py*err_y_vel+iy*err_y_pos+dy*err_y_acc;
+  err_x = px*err_x_pos+ix*int_error[0]+dx*err_x_vel;
+  err_y = py*err_y_pos+iy*int_error[1]+dy*err_y_vel;
  
   err_m1 = (err_x+err_y)/PULLEY_RADIUS;
   err_m2 = (err_x-err_y)/PULLEY_RADIUS;
 
-  int effort_m1 = err_m1;
-  int effort_m2 = err_m2;
+  effort_m1 = err_m1;
+  effort_m2 = err_m2;
 
   if (effort_m1>max_eff){
     max_eff = effort_m1;
@@ -484,22 +487,11 @@ void loop() {
   write_to_motor(MOTOR_LEFT, effort_m1);
   write_to_motor(MOTOR_RIGHT, effort_m2);
   
-  
-  // write_to_motor(MOTOR_LEFT, 50);
-  // write_to_motor(MOTOR_RIGHT, 50);
-  
-  // if (print_index%100==0){
-  //   speed++;
-  //   int pos_speed = speed%100;
-  //   int neg_speed = -1*pos_speed;
-  //   // Serial.println(pos_speed);
-  //   write_to_motor(MOTOR_LEFT, pos_speed);
-  //   write_to_motor(MOTOR_RIGHT, neg_speed);
-  // }
+
 
   print_index ++;
 
-  if (print_index % 100 == 0){
+  if (print_index % 1000 == 0){
 
     // Serial.print(des_vel[0]);
     // Serial.print(" ");
@@ -515,14 +507,6 @@ void loop() {
     // // Serial.print(effort_m1);
     // // Serial.print(" ");
     // // Serial.print(effort_m2);
-    // // Serial.print(des_acc[0]);
-    // // Serial.print(" ");
-    // // Serial.print(des_acc[1]);
-    // // Serial.print(" ");
-    // Serial.println("Here is acc  ");
-    // Serial.print(acc[0]);
-    // Serial.print(" ");
-    // Serial.println(acc[1]);
     // // Serial.println("Here is the vel hist");
     // // for (int i = 0;i<13;i++){
     // //     Serial.print(vel_hist[0][i]);
@@ -536,6 +520,10 @@ void loop() {
     
 
     // Serial.println();
+    // Serial.print("Int err  ");
+    // Serial.print(int_error[0]);
+    // Serial.print(" ");
+    // Serial.println(int_error[1]);
 
   }
   delayMicroseconds(150);
