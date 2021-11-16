@@ -93,13 +93,12 @@ class MalletController {
             }
         }
         
-        void update_all_positions();
         void update_desired_path();
         void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]);
         void write_to_motor(uint8_t address, int val);
         void readAngle(float result[]);
         void write_to_motor_simple(uint8_t val);
-        void update_xy(float xy[], float total_angles[]);
+        void update_xy();
         void make_total_angle(float total_angle[], float angle[], int crosses[]);
         void update_desired_path_velocity(float time, float x_coeffs[], float y_coeffs[], float ret_vel[]);
         void update_desired_path_acc(float time, float x_coeffs[], float y_coeffs[], float ret_acc[]);
@@ -123,9 +122,8 @@ class MalletController {
             digitalWrite(CHIP_SELECT_RIGHT, HIGH);
         }
 
-        ~MalletController();
         bool update();
         void setPID();
-        void setPath(float final_vals[]);
+        void setPath(float final_vals[], float time_step);
                 
 };
