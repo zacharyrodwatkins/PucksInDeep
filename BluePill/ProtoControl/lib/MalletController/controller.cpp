@@ -26,6 +26,17 @@ void MalletController::update_desired_path_velocity(float time, float x_coeffs[]
   }
 }
 
+void MalletController::update_desired_path_acc(float time, float x_coeffs[], float y_coeffs[], float ret_acc[]){
+  ret_acc[0] = 0;
+  ret_acc[1] = 0;
+  float tpow = 1;
+  for (int i = 3; i>=0; i--){
+    ret_acc[0] += x_coeffs[i]*tpow*(4-i+1)*(3-i+1);
+    ret_acc[1] += y_coeffs[i]*tpow*(4-i+1)*(3-i+1);
+    tpow *= time;
+  }
+}
+
 void MalletController::update_xy(){  
   xy[1] = (current_total_angle[0]-current_total_angle[1])/2*PULLEY_RADIUS*PI/180;
 
