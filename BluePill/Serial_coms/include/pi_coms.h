@@ -15,5 +15,5 @@
 // unsigned long write_time = 0;
 
 void coms_init();
-bool read_from_pi(byte *buffer);
-void write_to_pi(char *buffer);
+bool read_from_pi(uint8_t *buffer);
+void write_to_pi(uint8_t *buffer);
