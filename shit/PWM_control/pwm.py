@@ -90,10 +90,8 @@ def loop():
 
         if m1 > 0:
             roboclaw.ForwardM1(address1,m1)
-            print("Forward {}".format(m1))
         else:
             roboclaw.BackwardM1(address1,-m1)
-            print("Backwards {}".format(-m1))
         
         if m2 > 0:
             roboclaw.ForwardM1(address2,m2)

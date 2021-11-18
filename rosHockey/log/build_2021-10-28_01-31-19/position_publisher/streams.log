@@ -1,0 +1,20 @@
+[6.752s] Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/position_publisher build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher --record /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log --single-version-externally-managed
+[8.910s] running egg_info
+[8.917s] writing ../build/position_publisher/position_publisher.egg-info/PKG-INFO
+[8.921s] writing dependency_links to ../build/position_publisher/position_publisher.egg-info/dependency_links.txt
+[8.926s] writing entry points to ../build/position_publisher/position_publisher.egg-info/entry_points.txt
+[8.930s] writing requirements to ../build/position_publisher/position_publisher.egg-info/requires.txt
+[8.944s] writing top-level names to ../build/position_publisher/position_publisher.egg-info/top_level.txt
+[9.412s] reading manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'
+[9.430s] writing manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'
+[9.437s] running build
+[9.445s] running build_py
+[9.445s] running install
+[9.448s] running install_lib
+[9.450s] running install_data
+[9.454s] running install_egg_info
+[9.466s] removing '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher-0.0.0-py3.8.egg-info' (and everything under it)
+[9.469s] Copying ../build/position_publisher/position_publisher.egg-info to /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher-0.0.0-py3.8.egg-info
+[9.499s] running install_scripts
+[9.705s] Installing position_publisher script to /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/position_publisher
+[9.710s] writing list of installed files to '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log'

@@ -1,0 +1,6 @@
+{
+  "package_name": "hockey_msgs",
+  "non_idl_tuples": [
+    "/home/ubuntu/PucksInDeep/rosHockey/hockey_msgs:msg/MalletPos.msg"
+  ]
+}

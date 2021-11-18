@@ -1,0 +1,290 @@
+[1.497s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[1.498s] DEBUG:colcon:Parsed command line arguments: Namespace(ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffad198c70>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=4, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffad198c70>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffad1a7220>)
+[1.525s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.526s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.526s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.526s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.527s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.528s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.528s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ubuntu/PucksInDeep/rosHockey'
+[1.529s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.529s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.531s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.531s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.531s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.532s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.532s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.590s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.590s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.590s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.591s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.591s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.592s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.592s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.593s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.594s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['ignore', 'ignore_ament_install']
+[1.594s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'ignore'
+[1.595s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'ignore_ament_install'
+[1.595s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['colcon_pkg']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'colcon_pkg'
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['colcon_meta']
+[1.596s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'colcon_meta'
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['ros']
+[1.597s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'ros'
+[1.606s] DEBUG:colcon.colcon_core.package_identification:Package 'hockey_msgs' with type 'ros.ament_cmake' and name 'hockey_msgs'
+[1.607s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.608s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.608s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.609s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['ignore', 'ignore_ament_install']
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'ignore'
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'ignore_ament_install'
+[1.610s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['colcon_pkg']
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'colcon_pkg'
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['colcon_meta']
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'colcon_meta'
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['ros']
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'ros'
+[1.615s] DEBUG:colcon.colcon_core.package_identification:Package 'keyboard_control' with type 'ros.ament_python' and name 'keyboard_control'
+[1.616s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.617s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.617s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['ignore', 'ignore_ament_install']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'ignore'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'ignore_ament_install'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['colcon_pkg']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'colcon_pkg'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['colcon_meta']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'colcon_meta'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['ros']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'ros'
+[1.624s] DEBUG:colcon.colcon_core.package_identification:Package 'position_publisher' with type 'ros.ament_python' and name 'position_publisher'
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['ignore', 'ignore_ament_install']
+[1.626s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'ignore'
+[1.626s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'ignore_ament_install'
+[1.627s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['colcon_pkg']
+[1.627s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'colcon_pkg'
+[1.627s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['colcon_meta']
+[1.628s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'colcon_meta'
+[1.628s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['ros']
+[1.629s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'ros'
+[1.631s] DEBUG:colcon.colcon_core.package_identification:Package 'visualizer' with type 'ros.ament_python' and name 'visualizer'
+[1.632s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.632s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.632s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.632s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.633s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.732s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'cmake_args' from command line to 'None'
+[1.732s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'cmake_target' from command line to 'None'
+[1.733s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.733s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[1.733s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[1.733s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[1.734s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[1.734s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[1.734s] Level 5:colcon.colcon_core.verb:set package 'hockey_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.734s] DEBUG:colcon.colcon_core.verb:Building package 'hockey_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs', 'merge_install': False, 'path': '/home/ubuntu/PucksInDeep/rosHockey/hockey_msgs', 'symlink_install': False, 'test_result_base': None}
+[1.748s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_args' from command line to 'None'
+[1.748s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_target' from command line to 'None'
+[1.749s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.749s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_clean_cache' from command line to 'False'
+[1.749s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_clean_first' from command line to 'False'
+[1.749s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_force_configure' from command line to 'False'
+[1.749s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'ament_cmake_args' from command line to 'None'
+[1.750s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'catkin_cmake_args' from command line to 'None'
+[1.750s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.750s] DEBUG:colcon.colcon_core.verb:Building package 'keyboard_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control', 'merge_install': False, 'path': '/home/ubuntu/PucksInDeep/rosHockey/keyboard_control', 'symlink_install': False, 'test_result_base': None}
+[1.762s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_args' from command line to 'None'
+[1.762s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_target' from command line to 'None'
+[1.763s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.763s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_clean_cache' from command line to 'False'
+[1.763s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_clean_first' from command line to 'False'
+[1.763s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_force_configure' from command line to 'False'
+[1.763s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'ament_cmake_args' from command line to 'None'
+[1.764s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'catkin_cmake_args' from command line to 'None'
+[1.764s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.764s] DEBUG:colcon.colcon_core.verb:Building package 'position_publisher' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher', 'merge_install': False, 'path': '/home/ubuntu/PucksInDeep/rosHockey/position_publisher', 'symlink_install': False, 'test_result_base': None}
+[1.775s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'cmake_args' from command line to 'None'
+[1.776s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'cmake_target' from command line to 'None'
+[1.776s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.776s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'cmake_clean_cache' from command line to 'False'
+[1.776s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'cmake_clean_first' from command line to 'False'
+[1.777s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'cmake_force_configure' from command line to 'False'
+[1.777s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'ament_cmake_args' from command line to 'None'
+[1.777s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'catkin_cmake_args' from command line to 'None'
+[1.777s] Level 5:colcon.colcon_core.verb:set package 'visualizer' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.777s] DEBUG:colcon.colcon_core.verb:Building package 'visualizer' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/PucksInDeep/rosHockey/build/visualizer', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer', 'merge_install': False, 'path': '/home/ubuntu/PucksInDeep/rosHockey/visualizer', 'symlink_install': False, 'test_result_base': None}
+[1.779s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.789s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.791s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ubuntu/PucksInDeep/rosHockey/hockey_msgs' with build type 'ament_cmake'
+[1.792s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ubuntu/PucksInDeep/rosHockey/hockey_msgs'
+[1.815s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.817s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.817s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.835s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[1.853s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ubuntu/PucksInDeep/rosHockey/keyboard_control' with build type 'ament_python'
+[1.854s] Level 1:colcon.colcon_core.shell:create_environment_hook('keyboard_control', 'ament_prefix_path')
+[1.858s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/hook/ament_prefix_path.ps1'
+[1.863s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/hook/ament_prefix_path.dsv'
+[1.866s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/hook/ament_prefix_path.sh'
+[1.875s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.875s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.888s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[1.914s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher' with build type 'ament_python'
+[1.918s] Level 1:colcon.colcon_core.shell:create_environment_hook('position_publisher', 'ament_prefix_path')
+[1.921s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/ament_prefix_path.ps1'
+[1.925s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/ament_prefix_path.dsv'
+[1.929s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/ament_prefix_path.sh'
+[1.934s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.934s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.946s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[1.965s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ubuntu/PucksInDeep/rosHockey/visualizer' with build type 'ament_python'
+[1.968s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualizer', 'ament_prefix_path')
+[1.974s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/hook/ament_prefix_path.ps1'
+[1.981s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/hook/ament_prefix_path.dsv'
+[1.983s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/hook/ament_prefix_path.sh'
+[1.989s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.992s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.006s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[2.080s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher:/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs -- -j4 -l4
+[4.434s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ubuntu/PucksInDeep/rosHockey/keyboard_control'
+[4.439s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.440s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.454s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[6.546s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher'
+[6.550s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.551s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.563s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[7.963s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ubuntu/PucksInDeep/rosHockey/visualizer'
+[7.967s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.968s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.977s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[8.018s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs' returned '0': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher:/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs -- -j4 -l4
+[8.054s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/keyboard_control': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/keyboard_control build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control --record /home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control/install.log --single-version-externally-managed
+[8.097s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/position_publisher build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher --record /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log --single-version-externally-managed
+[8.123s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/visualizer': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/visualizer build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/visualizer/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/visualizer --record /home/ubuntu/PucksInDeep/rosHockey/build/visualizer/install.log --single-version-externally-managed
+[10.055s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher:/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs
+[10.894s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher' returned '0': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/position_publisher build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher --record /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log --single-version-externally-managed
+[10.940s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher' for CMake module files
+[10.946s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher' for CMake config files
+[10.954s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib'
+[10.956s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/bin'
+[10.956s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/pkgconfig/position_publisher.pc'
+[10.957s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages'
+[10.958s] Level 1:colcon.colcon_core.shell:create_environment_hook('position_publisher', 'pythonpath')
+[10.968s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/pythonpath.ps1'
+[10.971s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/pythonpath.dsv'
+[10.974s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/pythonpath.sh'
+[10.976s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(position_publisher)
+[10.980s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.ps1'
+[10.985s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.dsv'
+[10.988s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.sh'
+[10.993s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.bash'
+[11.001s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.zsh'
+[11.005s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/colcon-core/packages/position_publisher)
+[11.017s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hockey_msgs)
+[11.023s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs' for CMake module files
+[11.025s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs' returned '0': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher:/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs
+[11.030s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs' for CMake config files
+[11.033s] Level 1:colcon.colcon_core.shell:create_environment_hook('hockey_msgs', 'cmake_prefix_path')
+[11.037s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/cmake_prefix_path.ps1'
+[11.040s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/cmake_prefix_path.dsv'
+[11.042s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/cmake_prefix_path.sh'
+[11.046s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib'
+[11.047s] Level 1:colcon.colcon_core.shell:create_environment_hook('hockey_msgs', 'ld_library_path_lib')
+[11.058s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/ld_library_path_lib.ps1'
+[11.062s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/ld_library_path_lib.dsv'
+[11.065s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/ld_library_path_lib.sh'
+[11.072s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/bin'
+[11.073s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/pkgconfig/hockey_msgs.pc'
+[11.073s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages'
+[11.074s] Level 1:colcon.colcon_core.shell:create_environment_hook('hockey_msgs', 'pythonpath')
+[11.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/pythonpath.ps1'
+[11.080s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/pythonpath.dsv'
+[11.082s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/pythonpath.sh'
+[11.089s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.ps1'
+[11.093s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.dsv'
+[11.103s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.sh'
+[11.106s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.bash'
+[11.109s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.zsh'
+[11.111s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/colcon-core/packages/hockey_msgs)
+[11.541s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hockey_msgs)
+[11.545s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs' for CMake module files
+[11.550s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs' for CMake config files
+[11.553s] Level 1:colcon.colcon_core.shell:create_environment_hook('hockey_msgs', 'cmake_prefix_path')
+[11.556s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/cmake_prefix_path.ps1'
+[15.177s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/cmake_prefix_path.dsv'
+[15.199s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/cmake_prefix_path.sh'
+[15.253s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib'
+[15.262s] Level 1:colcon.colcon_core.shell:create_environment_hook('hockey_msgs', 'ld_library_path_lib')
+[15.312s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/ld_library_path_lib.ps1'
+[15.336s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/ld_library_path_lib.dsv'
+[15.359s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/ld_library_path_lib.sh'
+[15.377s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/bin'
+[15.408s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/pkgconfig/hockey_msgs.pc'
+[15.442s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages'
+[15.454s] Level 1:colcon.colcon_core.shell:create_environment_hook('hockey_msgs', 'pythonpath')
+[15.508s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/pythonpath.ps1'
+[15.532s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/pythonpath.dsv'
+[15.561s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/hook/pythonpath.sh'
+[15.583s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.ps1'
+[15.588s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.dsv'
+[15.593s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.sh'
+[15.598s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.bash'
+[15.602s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.zsh'
+[15.607s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/colcon-core/packages/hockey_msgs)
+[15.634s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/PucksInDeep/rosHockey/keyboard_control' returned '0': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/keyboard_control build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control --record /home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control/install.log --single-version-externally-managed
+[15.636s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control' for CMake module files
+[15.640s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control' for CMake config files
+[15.652s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/lib'
+[15.653s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/bin'
+[15.654s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/lib/pkgconfig/keyboard_control.pc'
+[15.655s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/lib/python3.8/site-packages'
+[15.656s] Level 1:colcon.colcon_core.shell:create_environment_hook('keyboard_control', 'pythonpath')
+[15.662s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/hook/pythonpath.ps1'
+[15.665s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/hook/pythonpath.dsv'
+[15.667s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/hook/pythonpath.sh'
+[15.669s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(keyboard_control)
+[15.673s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/package.ps1'
+[15.675s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/package.dsv'
+[15.679s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/package.sh'
+[15.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/package.bash'
+[15.686s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/keyboard_control/package.zsh'
+[15.689s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/share/colcon-core/packages/keyboard_control)
+[15.711s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer' for CMake module files
+[15.715s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/PucksInDeep/rosHockey/visualizer' returned '0': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/visualizer build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/visualizer/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/visualizer --record /home/ubuntu/PucksInDeep/rosHockey/build/visualizer/install.log --single-version-externally-managed
+[15.719s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer' for CMake config files
+[15.724s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/lib'
+[15.724s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/bin'
+[15.725s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/lib/pkgconfig/visualizer.pc'
+[15.725s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/lib/python3.8/site-packages'
+[15.726s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualizer', 'pythonpath')
+[15.730s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/hook/pythonpath.ps1'
+[15.732s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/hook/pythonpath.dsv'
+[15.735s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/hook/pythonpath.sh'
+[15.738s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(visualizer)
+[15.750s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/package.ps1'
+[15.753s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/package.dsv'
+[15.755s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/package.sh'
+[15.758s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/package.bash'
+[15.762s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/visualizer/package.zsh'
+[15.765s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/share/colcon-core/packages/visualizer)
+[15.768s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[15.770s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[15.772s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[15.773s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[15.815s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[15.815s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[15.816s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[15.955s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[15.959s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.ps1'
+[15.965s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/PucksInDeep/rosHockey/install/_local_setup_util_ps1.py'
+[15.972s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.ps1'
+[16.003s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.sh'
+[16.018s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/PucksInDeep/rosHockey/install/_local_setup_util_sh.py'
+[16.021s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.sh'
+[16.046s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.bash'
+[16.049s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.bash'
+[16.081s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.zsh'
+[16.084s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.zsh'

@@ -1,0 +1,431 @@
+[0.000000] (-) TimerEvent: {}
+[0.001379] (hockey_msgs) JobQueued: {'identifier': 'hockey_msgs', 'dependencies': OrderedDict()}
+[0.001997] (keyboard_control) JobQueued: {'identifier': 'keyboard_control', 'dependencies': OrderedDict()}
+[0.003304] (position_publisher) JobQueued: {'identifier': 'position_publisher', 'dependencies': OrderedDict()}
+[0.004243] (visualizer) JobQueued: {'identifier': 'visualizer', 'dependencies': OrderedDict()}
+[0.005760] (hockey_msgs) JobStarted: {'identifier': 'hockey_msgs'}
+[0.060815] (keyboard_control) JobStarted: {'identifier': 'keyboard_control'}
+[0.099761] (-) TimerEvent: {}
+[0.113243] (position_publisher) JobStarted: {'identifier': 'position_publisher'}
+[0.168933] (visualizer) JobStarted: {'identifier': 'visualizer'}
+[0.204699] (-) TimerEvent: {}
+[0.275979] (hockey_msgs) JobProgress: {'identifier': 'hockey_msgs', 'progress': 'cmake'}
+[0.288897] (hockey_msgs) JobProgress: {'identifier': 'hockey_msgs', 'progress': 'build'}
+[0.289247] (hockey_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs', '--', '-j4', '-l4'], 'cwd': '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('TMUX', '/tmp/tmux-1000/default,4434,1'), ('BYOBU_SED', 'sed'), ('BYOBU_LIGHT', '\\#EEEEEE'), ('BYOBU_EDITOR', 'sensible-editor'), ('USER', 'ubuntu'), ('SSH_AGENT_PID', '3378'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/ubuntu'), ('BYOBU_TIME', '%H:%M:%S'), ('OLDPWD', '/home/ubuntu/PucksInDeep/rosHockey/pyenc'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('BYOBU_PREFIX', '/usr'), ('MANAGERPID', '3142'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('BYOBU_WINDOW_NAME', '-'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'ubuntu'), ('BYOBU_TERM', 'screen-256color'), ('BYOBU_ULIMIT', 'ulimit'), ('BYOBU_HIGHLIGHT', '\\#DD4814'), ('BYOBU_ACCENT', '\\#75507B'), ('BYOBU_CHARMAP', 'UTF-8'), ('BYOBU_READLINK', 'readlink'), ('BYOBU_DISTRO', 'Ubuntu'), ('JOURNAL_STREAM', '9:78670'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ubuntu'), ('TERM', 'screen-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/3778,unix/ubuntu:/tmp/.ICE-unix/3778'), ('INVOCATION_ID', 'bedd27cf4bef433898cbc6b889534a95'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/3f8ef337_f42e_4d95_8bf3_7deefcb3bbd3'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.80'), ('SSH_AUTH_SOCK', '/home/ubuntu/.byobu/.ssh-agent'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('BYOBU_DATE', '%Y-%m-%d'), ('GDMSESSION', 'ubuntu'), ('BYOBU_PYTHON', 'python3'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('BYOBU_CONFIG_DIR', '/home/ubuntu/.byobu'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('BYOBU_PAGER', 'sensible-pager'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('BYOBU_DARK', '\\#333333'), ('QT_IM_MODULE', 'ibus'), ('BYOBU_RUN_DIR', '/dev/shm/byobu-ubuntu-yhe3O2Zr'), ('PWD', '/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('BYOBU_BACKEND', 'tmux'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('TMUX_PANE', '%1'), ('BYOBU_TTY', '/dev/pts/0'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.307791] (-) TimerEvent: {}
+[0.410206] (-) TimerEvent: {}
+[0.513394] (-) TimerEvent: {}
+[0.617006] (-) TimerEvent: {}
+[0.719551] (-) TimerEvent: {}
+[0.820698] (-) TimerEvent: {}
+[0.921749] (-) TimerEvent: {}
+[1.022899] (-) TimerEvent: {}
+[1.124273] (-) TimerEvent: {}
+[1.225424] (-) TimerEvent: {}
+[1.326561] (-) TimerEvent: {}
+[1.431643] (-) TimerEvent: {}
+[1.532828] (-) TimerEvent: {}
+[1.634171] (-) TimerEvent: {}
+[1.735367] (-) TimerEvent: {}
+[1.836661] (-) TimerEvent: {}
+[1.938423] (-) TimerEvent: {}
+[2.039494] (-) TimerEvent: {}
+[2.140550] (-) TimerEvent: {}
+[2.241806] (-) TimerEvent: {}
+[2.345491] (-) TimerEvent: {}
+[2.453849] (-) TimerEvent: {}
+[2.562313] (-) TimerEvent: {}
+[2.664957] (-) TimerEvent: {}
+[2.766355] (-) TimerEvent: {}
+[2.867521] (-) TimerEvent: {}
+[2.968595] (-) TimerEvent: {}
+[3.069644] (-) TimerEvent: {}
+[3.170768] (-) TimerEvent: {}
+[3.271955] (-) TimerEvent: {}
+[3.373017] (-) TimerEvent: {}
+[3.475346] (-) TimerEvent: {}
+[3.577956] (-) TimerEvent: {}
+[3.680264] (-) TimerEvent: {}
+[3.783744] (-) TimerEvent: {}
+[3.885122] (-) TimerEvent: {}
+[3.986355] (-) TimerEvent: {}
+[4.087367] (-) TimerEvent: {}
+[4.191203] (-) TimerEvent: {}
+[4.292269] (-) TimerEvent: {}
+[4.393405] (-) TimerEvent: {}
+[4.495125] (-) TimerEvent: {}
+[4.596957] (-) TimerEvent: {}
+[4.698664] (-) TimerEvent: {}
+[4.800407] (-) TimerEvent: {}
+[4.902557] (-) TimerEvent: {}
+[5.004780] (-) TimerEvent: {}
+[5.105989] (-) TimerEvent: {}
+[5.207255] (-) TimerEvent: {}
+[5.308492] (-) TimerEvent: {}
+[5.409686] (-) TimerEvent: {}
+[5.514633] (-) TimerEvent: {}
+[5.621144] (-) TimerEvent: {}
+[5.722527] (-) TimerEvent: {}
+[5.825063] (-) TimerEvent: {}
+[5.927794] (-) TimerEvent: {}
+[6.031922] (-) TimerEvent: {}
+[6.133224] (-) TimerEvent: {}
+[6.234873] (-) TimerEvent: {}
+[6.336372] (-) TimerEvent: {}
+[6.437610] (-) TimerEvent: {}
+[6.540519] (-) TimerEvent: {}
+[6.643267] (-) TimerEvent: {}
+[6.746420] (-) TimerEvent: {}
+[6.848453] (-) TimerEvent: {}
+[6.951260] (-) TimerEvent: {}
+[7.053746] (-) TimerEvent: {}
+[7.155828] (-) TimerEvent: {}
+[7.258718] (-) TimerEvent: {}
+[7.361586] (-) TimerEvent: {}
+[7.462801] (-) TimerEvent: {}
+[7.563914] (-) TimerEvent: {}
+[7.665033] (-) TimerEvent: {}
+[7.766429] (-) TimerEvent: {}
+[7.867689] (-) TimerEvent: {}
+[7.970220] (-) TimerEvent: {}
+[8.071904] (-) TimerEvent: {}
+[8.173075] (-) TimerEvent: {}
+[8.274149] (-) TimerEvent: {}
+[8.375215] (-) TimerEvent: {}
+[8.478627] (-) TimerEvent: {}
+[8.579921] (-) TimerEvent: {}
+[8.680898] (-) TimerEvent: {}
+[8.783315] (-) TimerEvent: {}
+[8.892207] (-) TimerEvent: {}
+[8.995114] (-) TimerEvent: {}
+[9.096341] (-) TimerEvent: {}
+[9.197969] (-) TimerEvent: {}
+[9.303627] (-) TimerEvent: {}
+[9.406096] (-) TimerEvent: {}
+[9.507234] (-) TimerEvent: {}
+[9.608418] (-) TimerEvent: {}
+[9.711316] (-) TimerEvent: {}
+[9.815218] (-) TimerEvent: {}
+[9.926262] (-) TimerEvent: {}
+[10.028883] (-) TimerEvent: {}
+[10.121228] (hockey_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[10.122237] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__cpp\x1b[0m\n'}
+[10.122827] (hockey_msgs) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[10.123389] (hockey_msgs) StdoutLine: {'line': b'[  6%] Built target hockey_msgs__cpp\n'}
+[10.124215] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_generator_c\x1b[0m\n'}
+[10.124891] (hockey_msgs) StdoutLine: {'line': b'[  9%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[10.125652] (hockey_msgs) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[10.126369] (hockey_msgs) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o\x1b[0m\n'}
+[10.127102] (hockey_msgs) StdoutLine: {'line': b'[ 19%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[10.140493] (-) TimerEvent: {}
+[10.142680] (hockey_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32m\x1b[1mLinking C shared library libhockey_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[10.147891] (hockey_msgs) StdoutLine: {'line': b'[ 22%] Built target hockey_msgs__rosidl_generator_c\n'}
+[10.150072] (hockey_msgs) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[10.150785] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_cpp\x1b[0m\n'}
+[10.151563] (hockey_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.cpp.o\x1b[0m\n'}
+[10.152324] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[10.153495] (hockey_msgs) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.cpp.o\x1b[0m\n'}
+[10.154384] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[10.155375] (hockey_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.cpp.o\x1b[0m\n'}
+[10.169511] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_c\x1b[0m\n'}
+[10.170304] (hockey_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.cpp.o\x1b[0m\n'}
+[10.171180] (hockey_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32m\x1b[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[10.180134] (hockey_msgs) StdoutLine: {'line': b'[ 41%] Built target hockey_msgs__rosidl_typesupport_c\n'}
+[10.180896] (hockey_msgs) StdoutLine: {'line': b'[ 45%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[10.181808] (keyboard_control) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/keyboard_control', 'build', '--build-base', '/home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control/build', 'install', '--prefix', '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control', '--record', '/home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control/install.log', '--single-version-externally-managed'], 'cwd': '/home/ubuntu/PucksInDeep/rosHockey/keyboard_control', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'TMUX': '/tmp/tmux-1000/default,4434,1', 'BYOBU_SED': 'sed', 'BYOBU_LIGHT': '\\#EEEEEE', 'BYOBU_EDITOR': 'sensible-editor', 'USER': 'ubuntu', 'SSH_AGENT_PID': '3378', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'HOME': '/home/ubuntu', 'BYOBU_TIME': '%H:%M:%S', 'OLDPWD': '/home/ubuntu/PucksInDeep/rosHockey/pyenc', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'BYOBU_PREFIX': '/usr', 'MANAGERPID': '3142', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'BYOBU_WINDOW_NAME': '-', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'ubuntu', 'BYOBU_TERM': 'screen-256color', 'BYOBU_ULIMIT': 'ulimit', 'BYOBU_HIGHLIGHT': '\\#DD4814', 'BYOBU_ACCENT': '\\#75507B', 'BYOBU_CHARMAP': 'UTF-8', 'BYOBU_READLINK': 'readlink', 'BYOBU_DISTRO': 'Ubuntu', 'JOURNAL_STREAM': '9:78670', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'ubuntu', 'TERM': 'screen-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/3778,unix/ubuntu:/tmp/.ICE-unix/3778', 'INVOCATION_ID': 'bedd27cf4bef433898cbc6b889534a95', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3f8ef337_f42e_4d95_8bf3_7deefcb3bbd3', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.80', 'SSH_AUTH_SOCK': '/home/ubuntu/.byobu/.ssh-agent', 'AMENT_PREFIX_PATH': '/opt/ros/foxy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'BYOBU_DATE': '%Y-%m-%d', 'GDMSESSION': 'ubuntu', 'BYOBU_PYTHON': 'python3', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'BYOBU_CONFIG_DIR': '/home/ubuntu/.byobu', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'BYOBU_PAGER': 'sensible-pager', 'GJS_DEBUG_OUTPUT': 'stderr', 'BYOBU_DARK': '\\#333333', 'QT_IM_MODULE': 'ibus', 'BYOBU_RUN_DIR': '/dev/shm/byobu-ubuntu-yhe3O2Zr', 'PWD': '/home/ubuntu/PucksInDeep/rosHockey/build/keyboard_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'BYOBU_BACKEND': 'tmux', 'PYTHONPATH': '/home/ubuntu/PucksInDeep/rosHockey/install/keyboard_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1', 'VTE_VERSION': '6003', 'TMUX_PANE': '%1', 'BYOBU_TTY': '/dev/pts/0'}, 'shell': False}
+[10.240900] (-) TimerEvent: {}
+[10.249827] (position_publisher) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/position_publisher', 'build', '--build-base', '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build', 'install', '--prefix', '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher', '--record', '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log', '--single-version-externally-managed'], 'cwd': '/home/ubuntu/PucksInDeep/rosHockey/position_publisher', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'TMUX': '/tmp/tmux-1000/default,4434,1', 'BYOBU_SED': 'sed', 'BYOBU_LIGHT': '\\#EEEEEE', 'BYOBU_EDITOR': 'sensible-editor', 'USER': 'ubuntu', 'SSH_AGENT_PID': '3378', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'HOME': '/home/ubuntu', 'BYOBU_TIME': '%H:%M:%S', 'OLDPWD': '/home/ubuntu/PucksInDeep/rosHockey/pyenc', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'BYOBU_PREFIX': '/usr', 'MANAGERPID': '3142', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'BYOBU_WINDOW_NAME': '-', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'ubuntu', 'BYOBU_TERM': 'screen-256color', 'BYOBU_ULIMIT': 'ulimit', 'BYOBU_HIGHLIGHT': '\\#DD4814', 'BYOBU_ACCENT': '\\#75507B', 'BYOBU_CHARMAP': 'UTF-8', 'BYOBU_READLINK': 'readlink', 'BYOBU_DISTRO': 'Ubuntu', 'JOURNAL_STREAM': '9:78670', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'ubuntu', 'TERM': 'screen-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/3778,unix/ubuntu:/tmp/.ICE-unix/3778', 'INVOCATION_ID': 'bedd27cf4bef433898cbc6b889534a95', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3f8ef337_f42e_4d95_8bf3_7deefcb3bbd3', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.80', 'SSH_AUTH_SOCK': '/home/ubuntu/.byobu/.ssh-agent', 'AMENT_PREFIX_PATH': '/opt/ros/foxy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'BYOBU_DATE': '%Y-%m-%d', 'GDMSESSION': 'ubuntu', 'BYOBU_PYTHON': 'python3', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'BYOBU_CONFIG_DIR': '/home/ubuntu/.byobu', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'BYOBU_PAGER': 'sensible-pager', 'GJS_DEBUG_OUTPUT': 'stderr', 'BYOBU_DARK': '\\#333333', 'QT_IM_MODULE': 'ibus', 'BYOBU_RUN_DIR': '/dev/shm/byobu-ubuntu-yhe3O2Zr', 'PWD': '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'BYOBU_BACKEND': 'tmux', 'PYTHONPATH': '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1', 'VTE_VERSION': '6003', 'TMUX_PANE': '%1', 'BYOBU_TTY': '/dev/pts/0'}, 'shell': False}
+[10.311999] (visualizer) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/visualizer', 'build', '--build-base', '/home/ubuntu/PucksInDeep/rosHockey/build/visualizer/build', 'install', '--prefix', '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer', '--record', '/home/ubuntu/PucksInDeep/rosHockey/build/visualizer/install.log', '--single-version-externally-managed'], 'cwd': '/home/ubuntu/PucksInDeep/rosHockey/visualizer', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'TMUX': '/tmp/tmux-1000/default,4434,1', 'BYOBU_SED': 'sed', 'BYOBU_LIGHT': '\\#EEEEEE', 'BYOBU_EDITOR': 'sensible-editor', 'USER': 'ubuntu', 'SSH_AGENT_PID': '3378', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'HOME': '/home/ubuntu', 'BYOBU_TIME': '%H:%M:%S', 'OLDPWD': '/home/ubuntu/PucksInDeep/rosHockey/pyenc', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'BYOBU_PREFIX': '/usr', 'MANAGERPID': '3142', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'BYOBU_WINDOW_NAME': '-', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'ubuntu', 'BYOBU_TERM': 'screen-256color', 'BYOBU_ULIMIT': 'ulimit', 'BYOBU_HIGHLIGHT': '\\#DD4814', 'BYOBU_ACCENT': '\\#75507B', 'BYOBU_CHARMAP': 'UTF-8', 'BYOBU_READLINK': 'readlink', 'BYOBU_DISTRO': 'Ubuntu', 'JOURNAL_STREAM': '9:78670', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'ubuntu', 'TERM': 'screen-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/3778,unix/ubuntu:/tmp/.ICE-unix/3778', 'INVOCATION_ID': 'bedd27cf4bef433898cbc6b889534a95', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3f8ef337_f42e_4d95_8bf3_7deefcb3bbd3', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.80', 'SSH_AUTH_SOCK': '/home/ubuntu/.byobu/.ssh-agent', 'AMENT_PREFIX_PATH': '/opt/ros/foxy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'BYOBU_DATE': '%Y-%m-%d', 'GDMSESSION': 'ubuntu', 'BYOBU_PYTHON': 'python3', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'BYOBU_CONFIG_DIR': '/home/ubuntu/.byobu', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'BYOBU_PAGER': 'sensible-pager', 'GJS_DEBUG_OUTPUT': 'stderr', 'BYOBU_DARK': '\\#333333', 'QT_IM_MODULE': 'ibus', 'BYOBU_RUN_DIR': '/dev/shm/byobu-ubuntu-yhe3O2Zr', 'PWD': '/home/ubuntu/PucksInDeep/rosHockey/build/visualizer', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'BYOBU_BACKEND': 'tmux', 'PYTHONPATH': '/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1', 'VTE_VERSION': '6003', 'TMUX_PANE': '%1', 'BYOBU_TTY': '/dev/pts/0'}, 'shell': False}
+[10.342066] (-) TimerEvent: {}
+[10.446981] (-) TimerEvent: {}
+[10.552325] (-) TimerEvent: {}
+[10.627902] (hockey_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[10.652567] (-) TimerEvent: {}
+[10.754371] (-) TimerEvent: {}
+[10.857015] (-) TimerEvent: {}
+[10.959438] (-) TimerEvent: {}
+[11.062528] (-) TimerEvent: {}
+[11.064082] (hockey_msgs) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[11.162780] (-) TimerEvent: {}
+[11.258356] (hockey_msgs) StdoutLine: {'line': b'[ 51%] Built target hockey_msgs__rosidl_typesupport_cpp\n'}
+[11.263604] (-) TimerEvent: {}
+[11.364653] (-) TimerEvent: {}
+[11.465978] (-) TimerEvent: {}
+[11.567683] (-) TimerEvent: {}
+[11.668823] (-) TimerEvent: {}
+[11.748334] (hockey_msgs) StdoutLine: {'line': b'[ 51%] Built target hockey_msgs__rosidl_typesupport_introspection_cpp\n'}
+[11.769053] (-) TimerEvent: {}
+[11.870160] (-) TimerEvent: {}
+[11.971142] (-) TimerEvent: {}
+[12.072361] (-) TimerEvent: {}
+[12.174275] (-) TimerEvent: {}
+[12.275758] (-) TimerEvent: {}
+[12.376845] (-) TimerEvent: {}
+[12.458202] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[12.477062] (-) TimerEvent: {}
+[12.577973] (-) TimerEvent: {}
+[12.671867] (hockey_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.c.o\x1b[0m\n'}
+[12.678211] (-) TimerEvent: {}
+[12.779291] (-) TimerEvent: {}
+[12.880347] (-) TimerEvent: {}
+[12.981373] (-) TimerEvent: {}
+[13.082373] (-) TimerEvent: {}
+[13.184136] (-) TimerEvent: {}
+[13.285833] (-) TimerEvent: {}
+[13.323877] (hockey_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking C shared library libhockey_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[13.386033] (-) TimerEvent: {}
+[13.469881] (hockey_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[13.486317] (-) TimerEvent: {}
+[13.587518] (-) TimerEvent: {}
+[13.688758] (-) TimerEvent: {}
+[13.789903] (-) TimerEvent: {}
+[13.891760] (-) TimerEvent: {}
+[13.994546] (-) TimerEvent: {}
+[13.997243] (hockey_msgs) StdoutLine: {'line': b'[ 61%] Built target hockey_msgs__rosidl_typesupport_introspection_c\n'}
+[14.094768] (-) TimerEvent: {}
+[14.196113] (-) TimerEvent: {}
+[14.297230] (-) TimerEvent: {}
+[14.398476] (-) TimerEvent: {}
+[14.499820] (-) TimerEvent: {}
+[14.600876] (-) TimerEvent: {}
+[14.700683] (keyboard_control) StdoutLine: {'line': b'running egg_info\n'}
+[14.701788] (-) TimerEvent: {}
+[14.724963] (keyboard_control) StdoutLine: {'line': b'writing ../build/keyboard_control/keyboard_control.egg-info/PKG-INFO\n'}
+[14.749951] (keyboard_control) StdoutLine: {'line': b'writing dependency_links to ../build/keyboard_control/keyboard_control.egg-info/dependency_links.txt\n'}
+[14.753671] (keyboard_control) StdoutLine: {'line': b'writing entry points to ../build/keyboard_control/keyboard_control.egg-info/entry_points.txt\n'}
+[14.758270] (keyboard_control) StdoutLine: {'line': b'writing requirements to ../build/keyboard_control/keyboard_control.egg-info/requires.txt\n'}
+[14.769180] (keyboard_control) StdoutLine: {'line': b'writing top-level names to ../build/keyboard_control/keyboard_control.egg-info/top_level.txt\n'}
+[14.795940] (position_publisher) StdoutLine: {'line': b'running egg_info\n'}
+[14.800890] (position_publisher) StdoutLine: {'line': b'writing ../build/position_publisher/position_publisher.egg-info/PKG-INFO\n'}
+[14.802261] (-) TimerEvent: {}
+[14.807668] (position_publisher) StdoutLine: {'line': b'writing dependency_links to ../build/position_publisher/position_publisher.egg-info/dependency_links.txt\n'}
+[14.810752] (position_publisher) StdoutLine: {'line': b'writing entry points to ../build/position_publisher/position_publisher.egg-info/entry_points.txt\n'}
+[14.815146] (position_publisher) StdoutLine: {'line': b'writing requirements to ../build/position_publisher/position_publisher.egg-info/requires.txt\n'}
+[14.823165] (position_publisher) StdoutLine: {'line': b'writing top-level names to ../build/position_publisher/position_publisher.egg-info/top_level.txt\n'}
+[14.902457] (-) TimerEvent: {}
+[15.004508] (-) TimerEvent: {}
+[15.008872] (visualizer) StdoutLine: {'line': b'running egg_info\n'}
+[15.041914] (visualizer) StdoutLine: {'line': b'writing ../build/visualizer/visualizer.egg-info/PKG-INFO\n'}
+[15.050466] (visualizer) StdoutLine: {'line': b'writing dependency_links to ../build/visualizer/visualizer.egg-info/dependency_links.txt\n'}
+[15.060134] (visualizer) StdoutLine: {'line': b'writing entry points to ../build/visualizer/visualizer.egg-info/entry_points.txt\n'}
+[15.065470] (visualizer) StdoutLine: {'line': b'writing requirements to ../build/visualizer/visualizer.egg-info/requires.txt\n'}
+[15.068885] (visualizer) StdoutLine: {'line': b'writing top-level names to ../build/visualizer/visualizer.egg-info/top_level.txt\n'}
+[15.104883] (-) TimerEvent: {}
+[15.206822] (-) TimerEvent: {}
+[15.268261] (position_publisher) StdoutLine: {'line': b"reading manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'\n"}
+[15.276866] (position_publisher) StdoutLine: {'line': b"writing manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'\n"}
+[15.282626] (position_publisher) StdoutLine: {'line': b'running build\n'}
+[15.283940] (position_publisher) StdoutLine: {'line': b'running build_py\n'}
+[15.295848] (position_publisher) StdoutLine: {'line': b'creating /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build\n'}
+[15.297436] (position_publisher) StdoutLine: {'line': b'creating /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib\n'}
+[15.299048] (position_publisher) StdoutLine: {'line': b'creating /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher\n'}
+[15.301135] (position_publisher) StdoutLine: {'line': b'copying position_publisher/encoder.py -> /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher\n'}
+[15.312042] (position_publisher) StdoutLine: {'line': b'copying position_publisher/__init__.py -> /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher\n'}
+[15.313441] (-) TimerEvent: {}
+[15.316850] (position_publisher) StdoutLine: {'line': b'copying position_publisher/position_publisher.py -> /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher\n'}
+[15.319706] (position_publisher) StdoutLine: {'line': b'running install\n'}
+[15.330230] (position_publisher) StdoutLine: {'line': b'running install_lib\n'}
+[15.341973] (position_publisher) StdoutLine: {'line': b'creating /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher\n'}
+[15.344500] (position_publisher) StdoutLine: {'line': b'copying /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher/encoder.py -> /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher\n'}
+[15.359837] (position_publisher) StdoutLine: {'line': b'copying /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher/__init__.py -> /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher\n'}
+[15.362999] (position_publisher) StdoutLine: {'line': b'copying /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher/position_publisher.py -> /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher\n'}
+[15.368288] (position_publisher) StdoutLine: {'line': b'byte-compiling /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher/encoder.py to encoder.cpython-38.pyc\n'}
+[15.388062] (position_publisher) StdoutLine: {'line': b'byte-compiling /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher/__init__.py to __init__.cpython-38.pyc\n'}
+[15.391366] (position_publisher) StdoutLine: {'line': b'byte-compiling /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher/position_publisher.py to position_publisher.cpython-38.pyc\n'}
+[15.396425] (position_publisher) StdoutLine: {'line': b'running install_data\n'}
+[15.399245] (keyboard_control) StdoutLine: {'line': b"reading manifest file '../build/keyboard_control/keyboard_control.egg-info/SOURCES.txt'\n"}
+[15.400495] (hockey_msgs) StdoutLine: {'line': b'[ 61%] Built target hockey_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[15.411838] (position_publisher) StdoutLine: {'line': b'creating /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/ament_index\n'}
+[15.413651] (-) TimerEvent: {}
+[15.416457] (position_publisher) StdoutLine: {'line': b'creating /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/ament_index/resource_index\n'}
+[15.419777] (position_publisher) StdoutLine: {'line': b'creating /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/ament_index/resource_index/packages\n'}
+[15.423307] (position_publisher) StdoutLine: {'line': b'copying resource/position_publisher -> /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/ament_index/resource_index/packages\n'}
+[15.435778] (position_publisher) StdoutLine: {'line': b'copying package.xml -> /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher\n'}
+[15.437638] (position_publisher) StdoutLine: {'line': b'running install_egg_info\n'}
+[15.439909] (keyboard_control) StdoutLine: {'line': b"writing manifest file '../build/keyboard_control/keyboard_control.egg-info/SOURCES.txt'\n"}
+[15.440934] (keyboard_control) StdoutLine: {'line': b'running build\n'}
+[15.441644] (keyboard_control) StdoutLine: {'line': b'running build_py\n'}
+[15.451336] (keyboard_control) StdoutLine: {'line': b'running install\n'}
+[15.465413] (position_publisher) StdoutLine: {'line': b'Copying ../build/position_publisher/position_publisher.egg-info to /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher-0.0.0-py3.8.egg-info\n'}
+[15.473316] (keyboard_control) StdoutLine: {'line': b'running install_lib\n'}
+[15.502329] (position_publisher) StdoutLine: {'line': b'running install_scripts\n'}
+[15.512928] (keyboard_control) StdoutLine: {'line': b'running install_data\n'}
+[15.513682] (-) TimerEvent: {}
+[15.515723] (keyboard_control) StderrLine: {'line': b"error: can't copy 'resource/keyboard_control': doesn't exist or not a regular file\n"}
+[15.562086] (hockey_msgs) StdoutLine: {'line': b'[ 64%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[15.613908] (-) TimerEvent: {}
+[15.640921] (visualizer) StdoutLine: {'line': b"reading manifest file '../build/visualizer/visualizer.egg-info/SOURCES.txt'\n"}
+[15.666087] (visualizer) StdoutLine: {'line': b"writing manifest file '../build/visualizer/visualizer.egg-info/SOURCES.txt'\n"}
+[15.714468] (-) TimerEvent: {}
+[15.717043] (visualizer) StdoutLine: {'line': b'running build\n'}
+[15.718702] (visualizer) StdoutLine: {'line': b'running build_py\n'}
+[15.721295] (visualizer) StdoutLine: {'line': b'running install\n'}
+[15.735308] (visualizer) StdoutLine: {'line': b'running install_lib\n'}
+[15.788018] (visualizer) StdoutLine: {'line': b'running install_data\n'}
+[15.801834] (visualizer) StderrLine: {'line': b"error: can't copy 'resource/visualizer': doesn't exist or not a regular file\n"}
+[15.814898] (-) TimerEvent: {}
+[15.864229] (position_publisher) StdoutLine: {'line': b"writing list of installed files to '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log'\n"}
+[15.915365] (-) TimerEvent: {}
+[16.014272] (keyboard_control) CommandEnded: {'returncode': 1}
+[16.016869] (-) TimerEvent: {}
+[16.017675] (keyboard_control) JobEnded: {'identifier': 'keyboard_control', 'rc': 1}
+[16.117219] (-) TimerEvent: {}
+[16.143569] (visualizer) JobEnded: {'identifier': 'visualizer', 'rc': 'SIGINT'}
+[16.217458] (-) TimerEvent: {}
+[16.321083] (-) TimerEvent: {}
+[16.376851] (position_publisher) JobEnded: {'identifier': 'position_publisher', 'rc': 'SIGINT'}
+[16.421358] (-) TimerEvent: {}
+[16.522554] (-) TimerEvent: {}
+[16.623606] (-) TimerEvent: {}
+[16.724907] (-) TimerEvent: {}
+[16.826208] (-) TimerEvent: {}
+[16.927750] (-) TimerEvent: {}
+[17.028947] (-) TimerEvent: {}
+[17.130021] (-) TimerEvent: {}
+[17.232219] (-) TimerEvent: {}
+[17.333337] (-) TimerEvent: {}
+[17.434489] (-) TimerEvent: {}
+[17.535791] (-) TimerEvent: {}
+[17.636895] (-) TimerEvent: {}
+[17.678558] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[17.737186] (-) TimerEvent: {}
+[17.839123] (-) TimerEvent: {}
+[17.852172] (hockey_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o\x1b[0m\n'}
+[17.939478] (-) TimerEvent: {}
+[18.040754] (-) TimerEvent: {}
+[18.141843] (-) TimerEvent: {}
+[18.244316] (-) TimerEvent: {}
+[18.345483] (-) TimerEvent: {}
+[18.447029] (-) TimerEvent: {}
+[18.549019] (-) TimerEvent: {}
+[18.650289] (-) TimerEvent: {}
+[18.752468] (-) TimerEvent: {}
+[18.853427] (-) TimerEvent: {}
+[18.954669] (-) TimerEvent: {}
+[19.056462] (-) TimerEvent: {}
+[19.158805] (-) TimerEvent: {}
+[19.260935] (-) TimerEvent: {}
+[19.364352] (-) TimerEvent: {}
+[19.472208] (-) TimerEvent: {}
+[19.573188] (-) TimerEvent: {}
+[19.674737] (-) TimerEvent: {}
+[19.776247] (-) TimerEvent: {}
+[19.877504] (-) TimerEvent: {}
+[19.978537] (-) TimerEvent: {}
+[20.079835] (-) TimerEvent: {}
+[20.104147] (hockey_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[20.180173] (-) TimerEvent: {}
+[20.281181] (-) TimerEvent: {}
+[20.383741] (-) TimerEvent: {}
+[20.485519] (-) TimerEvent: {}
+[20.586645] (-) TimerEvent: {}
+[20.675116] (hockey_msgs) StdoutLine: {'line': b'[ 70%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c\n'}
+[20.686827] (-) TimerEvent: {}
+[20.722996] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs\x1b[0m\n'}
+[20.787394] (-) TimerEvent: {}
+[20.817034] (hockey_msgs) StdoutLine: {'line': b'[ 70%] Built target hockey_msgs\n'}
+[20.886603] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__py\x1b[0m\n'}
+[20.887513] (-) TimerEvent: {}
+[20.973592] (hockey_msgs) StdoutLine: {'line': b'[ 74%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[20.987735] (-) TimerEvent: {}
+[21.088669] (-) TimerEvent: {}
+[21.189682] (-) TimerEvent: {}
+[21.290663] (-) TimerEvent: {}
+[21.392309] (-) TimerEvent: {}
+[21.494340] (-) TimerEvent: {}
+[21.595457] (-) TimerEvent: {}
+[21.696443] (-) TimerEvent: {}
+[21.800767] (-) TimerEvent: {}
+[21.902408] (-) TimerEvent: {}
+[22.005266] (-) TimerEvent: {}
+[22.106179] (-) TimerEvent: {}
+[22.207183] (-) TimerEvent: {}
+[22.308122] (-) TimerEvent: {}
+[22.409022] (-) TimerEvent: {}
+[22.509969] (-) TimerEvent: {}
+[22.611049] (-) TimerEvent: {}
+[22.713292] (-) TimerEvent: {}
+[22.814294] (-) TimerEvent: {}
+[22.916608] (-) TimerEvent: {}
+[23.018982] (-) TimerEvent: {}
+[23.120213] (-) TimerEvent: {}
+[23.221438] (-) TimerEvent: {}
+[23.322871] (-) TimerEvent: {}
+[23.423980] (-) TimerEvent: {}
+[23.525757] (-) TimerEvent: {}
+[23.629072] (-) TimerEvent: {}
+[23.730443] (-) TimerEvent: {}
+[23.833553] (-) TimerEvent: {}
+[23.929008] (hockey_msgs) StdoutLine: {'line': b'[ 74%] Built target hockey_msgs__py\n'}
+[23.934334] (-) TimerEvent: {}
+[24.037585] (-) TimerEvent: {}
+[24.063938] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__python\x1b[0m\n'}
+[24.137691] (-) TimerEvent: {}
+[24.239048] (-) TimerEvent: {}
+[24.263377] (hockey_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o\x1b[0m\n'}
+[24.339257] (-) TimerEvent: {}
+[24.441004] (-) TimerEvent: {}
+[24.542789] (-) TimerEvent: {}
+[24.645292] (-) TimerEvent: {}
+[24.748709] (-) TimerEvent: {}
+[24.849664] (-) TimerEvent: {}
+[24.859631] (hockey_msgs) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so\x1b[0m\n'}
+[24.949895] (-) TimerEvent: {}
+[25.051201] (-) TimerEvent: {}
+[25.069816] (hockey_msgs) StdoutLine: {'line': b'[ 80%] Built target hockey_msgs__python\n'}
+[25.122802] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[25.151443] (-) TimerEvent: {}
+[25.250865] (hockey_msgs) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[25.252271] (-) TimerEvent: {}
+[25.356369] (-) TimerEvent: {}
+[25.459811] (-) TimerEvent: {}
+[25.563232] (-) TimerEvent: {}
+[25.665646] (-) TimerEvent: {}
+[25.771539] (-) TimerEvent: {}
+[25.877538] (-) TimerEvent: {}
+[25.980550] (-) TimerEvent: {}
+[26.081631] (-) TimerEvent: {}
+[26.183856] (-) TimerEvent: {}
+[26.251981] (hockey_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hockey_msgs/hockey_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[26.284261] (-) TimerEvent: {}
+[26.386341] (-) TimerEvent: {}
+[26.490483] (-) TimerEvent: {}
+[26.594620] (-) TimerEvent: {}
+[26.621105] (hockey_msgs) StdoutLine: {'line': b'[ 87%] Built target hockey_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[26.698892] (-) TimerEvent: {}
+[26.802921] (-) TimerEvent: {}
+[26.814295] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[26.903148] (-) TimerEvent: {}
+[27.004212] (-) TimerEvent: {}
+[27.105278] (-) TimerEvent: {}
+[27.120279] (hockey_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[27.205591] (-) TimerEvent: {}
+[27.306879] (-) TimerEvent: {}
+[27.408004] (-) TimerEvent: {}
+[27.509212] (-) TimerEvent: {}
+[27.610899] (-) TimerEvent: {}
+[27.712742] (-) TimerEvent: {}
+[27.815851] (-) TimerEvent: {}
+[27.856959] (hockey_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/hockey_msgs/hockey_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[27.916036] (-) TimerEvent: {}
+[28.017100] (-) TimerEvent: {}
+[28.118222] (-) TimerEvent: {}
+[28.158659] (hockey_msgs) StdoutLine: {'line': b'[ 93%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[28.218477] (-) TimerEvent: {}
+[28.223699] (hockey_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[28.317757] (hockey_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[28.318771] (-) TimerEvent: {}
+[28.421260] (-) TimerEvent: {}
+[28.523393] (-) TimerEvent: {}
+[28.626330] (-) TimerEvent: {}
+[28.727471] (-) TimerEvent: {}
+[28.829504] (-) TimerEvent: {}
+[28.931166] (-) TimerEvent: {}
+[29.033504] (-) TimerEvent: {}
+[29.058420] (hockey_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hockey_msgs/hockey_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[29.133730] (-) TimerEvent: {}
+[29.234674] (-) TimerEvent: {}
+[29.320112] (hockey_msgs) StdoutLine: {'line': b'[100%] Built target hockey_msgs__rosidl_typesupport_c__pyext\n'}
+[29.335561] (-) TimerEvent: {}
+[29.391750] (hockey_msgs) JobEnded: {'identifier': 'hockey_msgs', 'rc': 'SIGINT'}
+[29.408502] (-) EventReactorShutdown: {}

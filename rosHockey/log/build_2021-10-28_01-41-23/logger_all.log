@@ -1,0 +1,142 @@
+[1.514s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'position_publisher']
+[1.515s] DEBUG:colcon:Parsed command line arguments: Namespace(ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffab384c10>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=['position_publisher'], packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=4, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffab384c10>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffab3941c0>)
+[1.545s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.546s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.547s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.547s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.547s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.549s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.549s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ubuntu/PucksInDeep/rosHockey'
+[1.550s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.550s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.551s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.552s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.553s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.613s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.613s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.614s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.615s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.615s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['ignore', 'ignore_ament_install']
+[1.616s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'ignore'
+[1.617s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'ignore_ament_install'
+[1.617s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['colcon_pkg']
+[1.617s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'colcon_pkg'
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['colcon_meta']
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'colcon_meta'
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extensions ['ros']
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(hockey_msgs) by extension 'ros'
+[1.631s] DEBUG:colcon.colcon_core.package_identification:Package 'hockey_msgs' with type 'ros.ament_cmake' and name 'hockey_msgs'
+[1.633s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.633s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.634s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.635s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['ignore', 'ignore_ament_install']
+[1.635s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'ignore'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'ignore_ament_install'
+[1.637s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['colcon_pkg']
+[1.637s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'colcon_pkg'
+[1.637s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['colcon_meta']
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'colcon_meta'
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extensions ['ros']
+[1.639s] Level 1:colcon.colcon_core.package_identification:_identify(keyboard_control) by extension 'ros'
+[1.642s] DEBUG:colcon.colcon_core.package_identification:Package 'keyboard_control' with type 'ros.ament_python' and name 'keyboard_control'
+[1.644s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.644s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.645s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.646s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['ignore', 'ignore_ament_install']
+[1.646s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'ignore'
+[1.647s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'ignore_ament_install'
+[1.648s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['colcon_pkg']
+[1.648s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'colcon_pkg'
+[1.649s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['colcon_meta']
+[1.649s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'colcon_meta'
+[1.650s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extensions ['ros']
+[1.650s] Level 1:colcon.colcon_core.package_identification:_identify(position_publisher) by extension 'ros'
+[1.655s] DEBUG:colcon.colcon_core.package_identification:Package 'position_publisher' with type 'ros.ament_python' and name 'position_publisher'
+[1.656s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['ignore', 'ignore_ament_install']
+[1.656s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'ignore'
+[1.657s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'ignore_ament_install'
+[1.657s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['colcon_pkg']
+[1.658s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'colcon_pkg'
+[1.658s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['colcon_meta']
+[1.659s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'colcon_meta'
+[1.659s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extensions ['ros']
+[1.659s] Level 1:colcon.colcon_core.package_identification:_identify(visualizer) by extension 'ros'
+[1.662s] DEBUG:colcon.colcon_core.package_identification:Package 'visualizer' with type 'ros.ament_python' and name 'visualizer'
+[1.662s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.664s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.664s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.745s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'hockey_msgs' in 'hockey_msgs'
+[1.745s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'keyboard_control' in 'keyboard_control'
+[1.746s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'visualizer' in 'visualizer'
+[1.757s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_args' from command line to 'None'
+[1.758s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_target' from command line to 'None'
+[1.758s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.758s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_clean_cache' from command line to 'False'
+[1.758s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_clean_first' from command line to 'False'
+[1.758s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'cmake_force_configure' from command line to 'False'
+[1.758s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'ament_cmake_args' from command line to 'None'
+[1.759s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'catkin_cmake_args' from command line to 'None'
+[1.759s] Level 5:colcon.colcon_core.verb:set package 'position_publisher' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.759s] DEBUG:colcon.colcon_core.verb:Building package 'position_publisher' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher', 'merge_install': False, 'path': '/home/ubuntu/PucksInDeep/rosHockey/position_publisher', 'symlink_install': False, 'test_result_base': None}
+[1.761s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.771s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.772s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher' with build type 'ament_python'
+[1.773s] Level 1:colcon.colcon_core.shell:create_environment_hook('position_publisher', 'ament_prefix_path')
+[1.796s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.797s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/ament_prefix_path.ps1'
+[1.801s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/ament_prefix_path.dsv'
+[1.804s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/ament_prefix_path.sh'
+[1.811s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.811s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.827s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[3.162s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher'
+[3.165s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.166s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.175s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[3.210s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/position_publisher build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher --record /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log --single-version-externally-managed
+[5.849s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher' returned '0': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/position_publisher build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher --record /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log --single-version-externally-managed
+[5.869s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher' for CMake module files
+[5.872s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher' for CMake config files
+[5.881s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib'
+[5.882s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/bin'
+[5.883s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/pkgconfig/position_publisher.pc'
+[5.883s] Level 1:colcon.colcon_core.environment:checking '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages'
+[5.883s] Level 1:colcon.colcon_core.shell:create_environment_hook('position_publisher', 'pythonpath')
+[5.887s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/pythonpath.ps1'
+[5.889s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/pythonpath.dsv'
+[5.892s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/hook/pythonpath.sh'
+[5.894s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(position_publisher)
+[5.898s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.ps1'
+[5.902s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.dsv'
+[5.906s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.sh'
+[5.910s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.bash'
+[5.914s] INFO:colcon.colcon_core.shell:Creating package script '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/position_publisher/package.zsh'
+[5.918s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/share/colcon-core/packages/position_publisher)
+[5.920s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[5.922s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[5.923s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[5.924s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[5.958s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[5.959s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[5.959s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[6.052s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[6.056s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.ps1'
+[6.060s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/PucksInDeep/rosHockey/install/_local_setup_util_ps1.py'
+[6.067s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.ps1'
+[6.080s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.sh'
+[6.083s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ubuntu/PucksInDeep/rosHockey/install/_local_setup_util_sh.py'
+[6.086s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.sh'
+[6.098s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.bash'
+[6.101s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.bash'
+[6.113s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ubuntu/PucksInDeep/rosHockey/install/local_setup.zsh'
+[6.118s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ubuntu/PucksInDeep/rosHockey/install/setup.zsh'

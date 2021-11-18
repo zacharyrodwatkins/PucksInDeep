@@ -1,0 +1,4 @@
+[console_scripts]
+sub = visualizer.sub:main
+viz = visualizer.viz:main
+

@@ -1,0 +1,211 @@
+[0.147s] Invoking command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ubuntu/PucksInDeep/microros/src/micro_ros_setup -DCMAKE_INSTALL_PREFIX=/home/ubuntu/PucksInDeep/microros/install/micro_ros_setup
+[1.136s] -- The C compiler identification is GNU 9.3.0
+[3.340s] -- The CXX compiler identification is GNU 9.3.0
+[3.374s] -- Check for working C compiler: /usr/bin/cc
+[3.743s] -- Check for working C compiler: /usr/bin/cc -- works
+[3.750s] -- Detecting C compiler ABI info
+[4.088s] -- Detecting C compiler ABI info - done
+[4.134s] -- Detecting C compile features
+[4.136s] -- Detecting C compile features - done
+[4.149s] -- Check for working CXX compiler: /usr/bin/c++
+[4.511s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[4.515s] -- Detecting CXX compiler ABI info
+[4.883s] -- Detecting CXX compiler ABI info - done
+[4.926s] -- Detecting CXX compile features
+[4.928s] -- Detecting CXX compile features - done
+[4.963s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[5.122s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[5.122s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.310s] -- Found ament_lint_auto: 0.9.6 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[6.783s] -- Added test 'copyright' to check source files copyright and LICENSE
+[7.022s] -- Added test 'flake8' to check Python code syntax and style conventions
+[7.053s] -- Added test 'lint_cmake' to check CMake code style
+[7.069s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[8.394s] -- Added test 'xmllint' to check XML markup files
+[9.623s] -- Configuring done
+[9.638s] -- Generating done
+[9.643s] -- Build files have been written to: /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup
+[9.660s] Invoked command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ubuntu/PucksInDeep/microros/src/micro_ros_setup -DCMAKE_INSTALL_PREFIX=/home/ubuntu/PucksInDeep/microros/install/micro_ros_setup
+[9.678s] Invoking command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup -- -j4 -l4
+[9.923s] Invoked command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup -- -j4 -l4
+[10.139s] Invoking command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup
+[10.184s] -- Install configuration: ""
+[10.187s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/ament_index/resource_index/package_run_dependencies/micro_ros_setup
+[10.189s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/ament_index/resource_index/parent_prefix_path/micro_ros_setup
+[10.192s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/environment/ament_prefix_path.sh
+[10.193s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/environment/ament_prefix_path.dsv
+[10.194s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/environment/path.sh
+[10.196s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/environment/path.dsv
+[10.200s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/local_setup.bash
+[10.202s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/local_setup.sh
+[10.203s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/local_setup.zsh
+[10.205s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/local_setup.dsv
+[10.206s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/package.dsv
+[10.207s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/ament_index/resource_index/packages/micro_ros_setup
+[10.209s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/cmake/micro_ros_setupConfig.cmake
+[10.210s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/cmake/micro_ros_setupConfig-version.cmake
+[10.211s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/share/micro_ros_setup/package.xml
+[10.212s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config
+[10.214s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos
+[10.217s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32
+[10.219s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/board.repos
+[10.220s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/README.md
+[10.222s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/package.xml
+[10.223s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/build.sh
+[10.223s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/configure.sh
+[10.224s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/create.sh
+[10.224s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/client-colcon.meta
+[10.225s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/client_uros_packages.repos
+[10.225s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/esp32/flash.sh
+[10.226s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg
+[10.227s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/board.repos
+[10.228s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/package.xml
+[10.229s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/build.sh
+[10.231s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/configure.sh
+[10.233s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/reset.sh
+[10.236s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/create.sh
+[10.237s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/client-colcon.meta
+[10.238s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/client_uros_packages.repos
+[10.239s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f746zg/flash.sh
+[10.240s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407
+[10.240s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/board.repos
+[10.241s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/package.xml
+[10.242s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/build.sh
+[10.243s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/configure.sh
+[10.244s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/reset.sh
+[10.245s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/create.sh
+[10.248s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/client-colcon.meta
+[10.250s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/client_uros_packages.repos
+[10.253s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/olimex-stm32-e407/flash.sh
+[10.254s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/dev_ros2_packages.txt
+[10.256s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze
+[10.257s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/board.repos
+[10.257s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/package.xml
+[10.258s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/build.sh
+[10.258s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/configure.sh
+[10.259s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/reset.sh
+[10.259s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/create.sh
+[10.260s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/client-colcon.meta
+[10.261s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/client_uros_packages.repos
+[10.262s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446ze/flash.sh
+[10.264s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21
+[10.267s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/board.repos
+[10.269s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/package.xml
+[10.269s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/build.sh
+[10.272s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/configure.sh
+[10.273s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/create.sh
+[10.274s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/client-colcon.meta
+[10.274s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/client_uros_packages.repos
+[10.275s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/crazyflie21/flash.sh
+[10.275s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/dev_uros_packages.repos
+[10.276s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/list_apps.sh
+[10.276s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re
+[10.277s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/board.repos
+[10.278s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/package.xml
+[10.279s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/build.sh
+[10.282s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/configure.sh
+[10.285s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/reset.sh
+[10.287s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/create.sh
+[10.289s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/client-colcon.meta
+[10.290s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/client_uros_packages.repos
+[10.292s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f446re/flash.sh
+[10.293s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi
+[10.294s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/board.repos
+[10.294s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/package.xml
+[10.295s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/build.sh
+[10.296s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/configure.sh
+[10.296s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/reset.sh
+[10.304s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/create.sh
+[10.304s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/client-colcon.meta
+[10.305s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/client_uros_packages.repos
+[10.306s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/freertos/nucleo_f767zi/flash.sh
+[10.306s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian
+[10.307s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic
+[10.307s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic/supported_platforms
+[10.308s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic/build.sh
+[10.308s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic/configure.sh
+[10.309s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic/create.sh
+[10.310s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic/client-colcon.meta
+[10.311s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic/client_uros_packages.repos
+[10.312s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/generic/flash.sh
+[10.314s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/dev_ros2_packages.txt
+[10.317s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/raspbian/dev_uros_packages.repos
+[10.319s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra
+[10.320s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/ra6m5
+[10.320s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/ra6m5/board.repos
+[10.322s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/ra6m5/build.sh
+[10.323s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/ra6m5/configure.sh
+[10.323s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/ra6m5/create.sh
+[10.324s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/ra6m5/client_uros_packages.repos
+[10.325s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/ra6m5/flash.sh
+[10.325s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/dev_ros2_packages.txt
+[10.326s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/dev_uros_packages.repos
+[10.327s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/renesas_ra/list_apps.sh
+[10.328s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host
+[10.330s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic
+[10.332s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic/package.xml
+[10.335s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic/build.sh
+[10.336s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic/reset.sh
+[10.339s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic/create.sh
+[10.339s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic/client-host-colcon.meta
+[10.339s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic/flash.sh
+[10.340s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/generic/client_host_packages.repos
+[10.340s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/dev_ros2_packages.txt
+[10.341s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/dev_uros_packages.repos
+[10.342s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/host/client_ros2_packages.txt
+[10.343s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/utils.sh
+[10.344s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr
+[10.346s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic
+[10.352s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/board.repos
+[10.354s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/supported_platforms
+[10.354s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/package.xml
+[10.355s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/build.sh
+[10.356s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/configure.sh
+[10.356s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/reset.sh
+[10.357s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/create.sh
+[10.357s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/client-colcon.meta
+[10.357s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/client_uros_packages.repos
+[10.358s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/generic/flash.sh
+[10.358s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/dev_ros2_packages.txt
+[10.361s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/dev_uros_packages.repos
+[10.361s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/zephyr/list_apps.sh
+[10.362s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/agent_uros_packages.repos
+[10.364s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib
+[10.367s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic
+[10.369s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic/package.xml
+[10.369s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic/build.sh
+[10.370s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic/create.sh
+[10.372s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic/client-colcon.meta
+[10.373s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic/client_uros_packages.repos
+[10.373s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic/flash.sh
+[10.373s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/generic/demo_toolchain.cmake
+[10.374s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/dev_ros2_packages.txt
+[10.375s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/generate_lib/dev_uros_packages.repos
+[10.376s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/client_ros2_packages.txt
+[10.377s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx
+[10.378s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic
+[10.378s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/uros_packages.repos
+[10.379s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/supported_platforms
+[10.384s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/package.xml
+[10.386s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/build.sh
+[10.388s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/configure.sh
+[10.389s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/reset.sh
+[10.390s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/create.sh
+[10.394s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/client-colcon.meta
+[10.395s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/client_uros_packages.repos
+[10.396s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/generic/flash.sh
+[10.398s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/dev_ros2_packages.txt
+[10.401s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/nuttx/dev_uros_packages.repos
+[10.402s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/client_uros_packages.repos
+[10.403s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/./config/agent_ros2_packages.txt
+[10.404s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/create_ws.sh
+[10.405s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/create_agent_ws.sh
+[10.406s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/create_firmware_ws.sh
+[10.406s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/configure_firmware.sh
+[10.407s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/flash_firmware.sh
+[10.407s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/reset_firmware.sh
+[10.408s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/build_firmware.sh
+[10.409s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/build_agent.sh
+[10.410s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/yaml_filter.py
+[10.411s] -- Installing: /home/ubuntu/PucksInDeep/microros/install/micro_ros_setup/lib/micro_ros_setup/clean_env.sh
+[10.425s] Invoked command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup

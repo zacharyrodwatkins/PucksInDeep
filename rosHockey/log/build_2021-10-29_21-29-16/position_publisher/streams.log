@@ -1,0 +1,24 @@
+[2.988s] Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher': PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/position_publisher build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher --record /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log --single-version-externally-managed
+[5.750s] running egg_info
+[5.756s] writing ../build/position_publisher/position_publisher.egg-info/PKG-INFO
+[5.757s] writing dependency_links to ../build/position_publisher/position_publisher.egg-info/dependency_links.txt
+[5.759s] writing entry points to ../build/position_publisher/position_publisher.egg-info/entry_points.txt
+[5.768s] writing requirements to ../build/position_publisher/position_publisher.egg-info/requires.txt
+[5.769s] writing top-level names to ../build/position_publisher/position_publisher.egg-info/top_level.txt
+[5.990s] reading manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'
+[5.995s] writing manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'
+[5.996s] running build
+[5.997s] running build_py
+[5.998s] copying position_publisher/position_publisher.py -> /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher
+[6.000s] running install
+[6.004s] running install_lib
+[6.011s] copying /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher/position_publisher.py -> /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher
+[6.017s] byte-compiling /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher/position_publisher.py to position_publisher.cpython-38.pyc
+[6.026s] running install_data
+[6.029s] running install_egg_info
+[6.038s] removing '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher-0.0.0-py3.8.egg-info' (and everything under it)
+[6.043s] Copying ../build/position_publisher/position_publisher.egg-info to /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher-0.0.0-py3.8.egg-info
+[6.053s] running install_scripts
+[6.180s] Installing position_publisher script to /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/position_publisher
+[6.183s] writing list of installed files to '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log'
+[6.340s] Invoked command in '/home/ubuntu/PucksInDeep/rosHockey/position_publisher' returned '0': PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/position_publisher build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher --record /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log --single-version-externally-managed

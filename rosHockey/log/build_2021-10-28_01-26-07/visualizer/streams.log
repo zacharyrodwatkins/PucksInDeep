@@ -1,0 +1,15 @@
+[10.147s] Invoking command in '/home/ubuntu/PucksInDeep/rosHockey/visualizer': BYOBU_DATE=%Y-%m-%d PYTHONPATH=/home/ubuntu/PucksInDeep/rosHockey/install/visualizer/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/visualizer build --build-base /home/ubuntu/PucksInDeep/rosHockey/build/visualizer/build install --prefix /home/ubuntu/PucksInDeep/rosHockey/install/visualizer --record /home/ubuntu/PucksInDeep/rosHockey/build/visualizer/install.log --single-version-externally-managed
+[14.842s] running egg_info
+[14.873s] writing ../build/visualizer/visualizer.egg-info/PKG-INFO
+[14.882s] writing dependency_links to ../build/visualizer/visualizer.egg-info/dependency_links.txt
+[14.893s] writing entry points to ../build/visualizer/visualizer.egg-info/entry_points.txt
+[14.897s] writing requirements to ../build/visualizer/visualizer.egg-info/requires.txt
+[14.901s] writing top-level names to ../build/visualizer/visualizer.egg-info/top_level.txt
+[15.472s] reading manifest file '../build/visualizer/visualizer.egg-info/SOURCES.txt'
+[15.498s] writing manifest file '../build/visualizer/visualizer.egg-info/SOURCES.txt'
+[15.549s] running build
+[15.551s] running build_py
+[15.553s] running install
+[15.567s] running install_lib
+[15.620s] running install_data
+[15.634s] error: can't copy 'resource/visualizer': doesn't exist or not a regular file

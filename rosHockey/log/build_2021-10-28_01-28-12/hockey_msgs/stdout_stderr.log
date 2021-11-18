@@ -1,0 +1,121 @@
+[  9%] Built target hockey_msgs__rosidl_generator_c
+[ 12%] Built target hockey_msgs__cpp
+[ 22%] Built target hockey_msgs__rosidl_typesupport_c
+[ 32%] Built target hockey_msgs__rosidl_typesupport_introspection_c
+[ 41%] Built target hockey_msgs__rosidl_typesupport_cpp
+[ 51%] Built target hockey_msgs__rosidl_typesupport_introspection_cpp
+[ 61%] Built target hockey_msgs__rosidl_typesupport_fastrtps_cpp
+[ 70%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c
+[ 70%] Built target hockey_msgs
+[ 74%] Built target hockey_msgs__py
+[ 80%] Built target hockey_msgs__python
+[ 87%] Built target hockey_msgs__rosidl_typesupport_introspection_c__pyext
+[ 93%] Built target hockey_msgs__rosidl_typesupport_c__pyext
+[100%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c__pyext
+-- Install configuration: ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/ament_index/resource_index/rosidl_interfaces/hockey_msgs
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__type_support.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__struct.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__functions.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__functions.c
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/mallet_pos.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/library_path.sh
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/library_path.dsv
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_generator_c.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_generator_c.so" to ""
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/dds_fastrtps
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_c.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__type_support.c
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_c.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__traits.hpp
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__struct.hpp
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__builder.hpp
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/mallet_pos.hpp
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg
+-- Up-to-date: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__type_support.cpp
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_cpp.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_cpp.so" to ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/pythonpath.sh
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/pythonpath.dsv
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/__init__.py
+Compiling '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/__init__.py'...
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/__init__.py
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/_mallet_pos_s.c
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/_mallet_pos.py
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so" to ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so" to ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so" to ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__python.so
+-- Set runtime path of "/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/libhockey_msgs__python.so" to ""
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/msg/MalletPos.idl
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/msg/MalletPos.msg
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/ament_index/resource_index/package_run_dependencies/hockey_msgs
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/ament_index/resource_index/parent_prefix_path/hockey_msgs
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/ament_prefix_path.sh
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/ament_prefix_path.dsv
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/path.sh
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/environment/path.dsv
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/local_setup.bash
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/local_setup.sh
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/local_setup.zsh
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/local_setup.dsv
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.dsv
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/ament_index/resource_index/packages/hockey_msgs
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_generator_cExport.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cExport.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_generator_cppExport.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/rosidl_cmake-extras.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgsConfig.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgsConfig-version.cmake
+-- Installing: /home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/share/hockey_msgs/package.xml

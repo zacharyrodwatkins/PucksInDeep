@@ -1,0 +1,73 @@
+[0.000000] (-) TimerEvent: {}
+[0.000757] (-) JobUnselected: {'identifier': 'hockey_msgs'}
+[0.004074] (-) JobUnselected: {'identifier': 'keyboard_control'}
+[0.005573] (-) JobUnselected: {'identifier': 'visualizer'}
+[0.005924] (position_publisher) JobQueued: {'identifier': 'position_publisher', 'dependencies': OrderedDict()}
+[0.006361] (position_publisher) JobStarted: {'identifier': 'position_publisher'}
+[0.098346] (-) TimerEvent: {}
+[0.199705] (-) TimerEvent: {}
+[0.300930] (-) TimerEvent: {}
+[0.403153] (-) TimerEvent: {}
+[0.505555] (-) TimerEvent: {}
+[0.608019] (-) TimerEvent: {}
+[0.717637] (-) TimerEvent: {}
+[0.819367] (-) TimerEvent: {}
+[0.920971] (-) TimerEvent: {}
+[1.022048] (-) TimerEvent: {}
+[1.122799] (-) TimerEvent: {}
+[1.223603] (-) TimerEvent: {}
+[1.325017] (-) TimerEvent: {}
+[1.428565] (-) TimerEvent: {}
+[1.432972] (position_publisher) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/position_publisher', 'build', '--build-base', '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build', 'install', '--prefix', '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher', '--record', '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log', '--single-version-externally-managed'], 'cwd': '/home/ubuntu/PucksInDeep/rosHockey/position_publisher', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'TMUX': '/tmp/tmux-1000/default,4434,1', 'BYOBU_SED': 'sed', 'BYOBU_LIGHT': '\\#EEEEEE', 'BYOBU_EDITOR': 'sensible-editor', 'USER': 'ubuntu', 'SSH_AGENT_PID': '3378', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'HOME': '/home/ubuntu', 'BYOBU_TIME': '%H:%M:%S', 'OLDPWD': '/home/ubuntu/PucksInDeep/rosHockey/pyenc', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'BYOBU_PREFIX': '/usr', 'MANAGERPID': '3142', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'BYOBU_WINDOW_NAME': '-', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/ubuntu/PucksInDeep/rosHockey/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'ubuntu', 'BYOBU_TERM': 'screen-256color', 'BYOBU_ULIMIT': 'ulimit', 'BYOBU_HIGHLIGHT': '\\#DD4814', 'BYOBU_ACCENT': '\\#75507B', 'BYOBU_CHARMAP': 'UTF-8', 'BYOBU_READLINK': 'readlink', 'BYOBU_DISTRO': 'Ubuntu', 'JOURNAL_STREAM': '9:78670', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'ubuntu', 'TERM': 'screen-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/3778,unix/ubuntu:/tmp/.ICE-unix/3778', 'INVOCATION_ID': 'bedd27cf4bef433898cbc6b889534a95', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3f8ef337_f42e_4d95_8bf3_7deefcb3bbd3', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.80', 'SSH_AUTH_SOCK': '/home/ubuntu/.byobu/.ssh-agent', 'AMENT_PREFIX_PATH': '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher:/opt/ros/foxy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'BYOBU_DATE': '%Y-%m-%d', 'GDMSESSION': 'ubuntu', 'BYOBU_PYTHON': 'python3', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'BYOBU_CONFIG_DIR': '/home/ubuntu/.byobu', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'BYOBU_PAGER': 'sensible-pager', 'GJS_DEBUG_OUTPUT': 'stderr', 'BYOBU_DARK': '\\#333333', 'QT_IM_MODULE': 'ibus', 'BYOBU_RUN_DIR': '/dev/shm/byobu-ubuntu-yhe3O2Zr', 'PWD': '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'BYOBU_BACKEND': 'tmux', 'PYTHONPATH': '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages:/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1', 'VTE_VERSION': '6003', 'TMUX_PANE': '%1', 'CMAKE_PREFIX_PATH': '/home/ubuntu/PucksInDeep/rosHockey/install/hockey_msgs', 'BYOBU_TTY': '/dev/pts/0'}, 'shell': False}
+[1.528878] (-) TimerEvent: {}
+[1.630532] (-) TimerEvent: {}
+[1.731606] (-) TimerEvent: {}
+[1.832556] (-) TimerEvent: {}
+[1.933814] (-) TimerEvent: {}
+[2.034880] (-) TimerEvent: {}
+[2.135716] (-) TimerEvent: {}
+[2.236782] (-) TimerEvent: {}
+[2.337503] (-) TimerEvent: {}
+[2.438694] (-) TimerEvent: {}
+[2.539597] (-) TimerEvent: {}
+[2.575760] (position_publisher) StdoutLine: {'line': b'running egg_info\n'}
+[2.578871] (position_publisher) StdoutLine: {'line': b'writing ../build/position_publisher/position_publisher.egg-info/PKG-INFO\n'}
+[2.639825] (-) TimerEvent: {}
+[2.740834] (-) TimerEvent: {}
+[2.841792] (-) TimerEvent: {}
+[2.942779] (-) TimerEvent: {}
+[3.043797] (-) TimerEvent: {}
+[3.144759] (-) TimerEvent: {}
+[3.245785] (-) TimerEvent: {}
+[3.346818] (-) TimerEvent: {}
+[3.447842] (-) TimerEvent: {}
+[3.548888] (-) TimerEvent: {}
+[3.637784] (position_publisher) StdoutLine: {'line': b'writing dependency_links to ../build/position_publisher/position_publisher.egg-info/dependency_links.txt\n'}
+[3.639521] (position_publisher) StdoutLine: {'line': b'writing entry points to ../build/position_publisher/position_publisher.egg-info/entry_points.txt\n'}
+[3.640920] (position_publisher) StdoutLine: {'line': b'writing requirements to ../build/position_publisher/position_publisher.egg-info/requires.txt\n'}
+[3.642205] (position_publisher) StdoutLine: {'line': b'writing top-level names to ../build/position_publisher/position_publisher.egg-info/top_level.txt\n'}
+[3.649178] (-) TimerEvent: {}
+[3.750693] (-) TimerEvent: {}
+[3.808587] (position_publisher) StdoutLine: {'line': b"reading manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'\n"}
+[3.813825] (position_publisher) StdoutLine: {'line': b"writing manifest file '../build/position_publisher/position_publisher.egg-info/SOURCES.txt'\n"}
+[3.814859] (position_publisher) StdoutLine: {'line': b'running build\n'}
+[3.815596] (position_publisher) StdoutLine: {'line': b'running build_py\n'}
+[3.816330] (position_publisher) StdoutLine: {'line': b'copying position_publisher/position_publisher.py -> /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher\n'}
+[3.817615] (position_publisher) StdoutLine: {'line': b'running install\n'}
+[3.821284] (position_publisher) StdoutLine: {'line': b'running install_lib\n'}
+[3.826984] (position_publisher) StdoutLine: {'line': b'copying /home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/build/lib/position_publisher/position_publisher.py -> /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher\n'}
+[3.830447] (position_publisher) StdoutLine: {'line': b'byte-compiling /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher/position_publisher.py to position_publisher.cpython-38.pyc\n'}
+[3.838474] (position_publisher) StdoutLine: {'line': b'running install_data\n'}
+[3.840976] (position_publisher) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.848706] (position_publisher) StdoutLine: {'line': b"removing '/home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher-0.0.0-py3.8.egg-info' (and everything under it)\n"}
+[3.851872] (position_publisher) StdoutLine: {'line': b'Copying ../build/position_publisher/position_publisher.egg-info to /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/python3.8/site-packages/position_publisher-0.0.0-py3.8.egg-info\n'}
+[3.852758] (-) TimerEvent: {}
+[3.865050] (position_publisher) StdoutLine: {'line': b'running install_scripts\n'}
+[3.952955] (-) TimerEvent: {}
+[3.954256] (position_publisher) StdoutLine: {'line': b'Installing position_publisher script to /home/ubuntu/PucksInDeep/rosHockey/install/position_publisher/lib/position_publisher\n'}
+[3.957482] (position_publisher) StdoutLine: {'line': b"writing list of installed files to '/home/ubuntu/PucksInDeep/rosHockey/build/position_publisher/install.log'\n"}
+[4.053460] (-) TimerEvent: {}
+[4.077037] (position_publisher) CommandEnded: {'returncode': 0}
+[4.150755] (position_publisher) JobEnded: {'identifier': 'position_publisher', 'rc': 0}
+[4.156700] (-) TimerEvent: {}
+[4.157210] (-) EventReactorShutdown: {}
