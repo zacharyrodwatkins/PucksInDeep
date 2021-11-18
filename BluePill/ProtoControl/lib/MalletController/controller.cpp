@@ -26,8 +26,18 @@ void MalletController::update_desired_path_velocity(float time, float x_coeffs[]
   }
 }
 
+void MalletController::update_desired_path_acc(float time, float x_coeffs[], float y_coeffs[], float ret_acc[]){
+  ret_acc[0] = 0;
+  ret_acc[1] = 0;
+  float tpow = 1;
+  for (int i = 3; i>=0; i--){
+    ret_acc[0] += x_coeffs[i]*tpow*(4-i+1)*(3-i+1);
+    ret_acc[1] += y_coeffs[i]*tpow*(4-i+1)*(3-i+1);
+    tpow *= time;
+  }
+}
+
 void MalletController::update_xy(){  
-  xy[0] = (current_total_angle[0]+current_total_angle[1])/2*PULLEY_RADIUS*PI/180;
   xy[1] = (current_total_angle[0]-current_total_angle[1])/2*PULLEY_RADIUS*PI/180;
 
   for(int i=window-1;i>0;i--){
@@ -38,7 +48,6 @@ void MalletController::update_xy(){
   xy_hist[1][0] = xy[1];
 }
 
-void MalletController::write_to_motor(u_int8_t address, int val){
   if (val<0){
     (*roboclaw_p).ForwardM1(address ,(uint8_t) val);
     val = MAX(val,-127);

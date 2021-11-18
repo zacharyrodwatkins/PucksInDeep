@@ -53,6 +53,7 @@ class MalletController {
     float start_time;
     float desired_xy[2];
     float desired_velocity[2];
+    float desired_acc[2];
     float integral_error[2] = {0};
 
 
@@ -100,7 +101,7 @@ class MalletController {
         void update_xy();
         void make_total_angle(float total_angle[], float angle[], int crosses[]);
         void update_desired_path_velocity(float time, float x_coeffs[], float y_coeffs[], float ret_vel[]);
-        void update_desired_path_acc(float time, float x_coeffs[], float y_coeffs[], float ret_vel[]);
+        void update_desired_path_acc(float time, float x_coeffs[], float y_coeffs[], float ret_acc[]);
         void update_velocity(float xy[], float vel[], float xy_hist[2][window]);
         void compute_int_error();
         void zeroCrossing(int crosses[], float velocity[], float  angle[]);
