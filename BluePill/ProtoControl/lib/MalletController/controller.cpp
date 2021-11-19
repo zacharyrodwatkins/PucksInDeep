@@ -113,14 +113,15 @@ void MalletController::compute_int_error(){
     }
 }
 
-void MalletController::update_velocity(float xy[], float vel[], float xy_hist[2][window]){
+void MalletController::update_velocity(float xy[2], float vel[2], float xy_hist[2][window]){
 
 
-  float sum_vel[2] = {0};
+  float sum_vel[2] = {0,0};
+
   for (int i = 0;i<2;i++){
     for (int j = 0; j < window;j++){
-      sum_vel[i] = sum_vel[i] + xy_hist[i][j]*savgol[j];
-  }
+      sum_vel[i] += xy_hist[i][j]*savgol[j];
+    }
   }
 
   vel[0] = sum_vel[0]/(window_step_size);
@@ -152,20 +153,25 @@ bool MalletController::update(){
   make_total_angle(current_total_angle,angle_reading,num_zerocrosses);
   update_xy();
 
-  if (time_on_path>time_step){
-    return true;
-  }
 
   if (loop_counter > window){
     update_velocity(xy, current_velocity,xy_hist);
+    loop_counter = 0;
+  }
+
+  loop_counter++;
+
+  if (time_on_path>time_step){
+    return true;
   }
 
   update_desired_path_position(time_on_path,x_coeffs, y_coeffs, desired_xy);
   update_desired_path_velocity(time_on_path, x_coeffs, y_coeffs, desired_velocity);
 
-  if (loop_counter%1000==0){
-    compute_int_error();
-  }
+  // if (loop_counter%1000==0){
+  //   compute_int_error();
+  // }
+
   err_x_pos = (desired_xy[0]-xy[0]);
   err_y_pos = (desired_xy[1]-xy[1]);
   err_x_vel = (desired_velocity[0]-current_velocity[0]);
