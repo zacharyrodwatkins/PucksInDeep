@@ -1,0 +1,5 @@
+rosHockey/build
+rosHockey/install
+rosHockey/log
+rosHockey/*/resource
+*.ini
