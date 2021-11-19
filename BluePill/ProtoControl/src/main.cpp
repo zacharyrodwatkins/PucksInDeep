@@ -1,218 +1,51 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include "RoboClaw.h"
-
-#define CHIP_SELECT_LEFT A4
-#define CHIP_SELECT_RIGHT PB5
+#include "controller.h"
 #define MOTOR_LEFT 0x81
 #define MOTOR_RIGHT 0x80
-#define two_to_the_14 16384
-#define PULLEY_RADIUS 3.5306 // 2.78 inches in cm
-#define ANGLE_THRESH 350
-#define NUM_READS 200
-#define OMEGA 360.0
-float ticks_to_deg = 360.0/two_to_the_14;
-
-// To convert acc to g's set to 9800
-float mm_to_g = 1;
-int j = 0;
-int k = 0;
-int print_index = 1;
-int speed = 0;
-
-// Size of SavGol Filter Window
-const int window = 40;
-
-// make sure this value is smaller than window!!
-const int position_window = 500;
-
-float savgol[window];
-float pos_error[2][position_window] = {0};
-
-
-
-// float test_path_straight_y[6] ={360*(2*2*2*2*2),-900*(2*2*2*2), 600*(2*2*2),0,0,0};
-// float test_path_straight_x[6] ={360*(2*2*2*2*2)/1.4,-900*(2*2*2*2)/1.4, 600*(2*2*2)/1.4,0,0,0};
-// float test_path_straight_y[6] = {0,0,0,0,0,60};
-// float test_path_straight_x[6] = {0,0,0,0,0,0};
-
-// float test_path_straight_y[6] ={1.5*360.0*(2*2*2*2*2)*(2*2*2*2*2),-1.5*900.0*(2*2*2*2)*(2*2*2*2), 1.5*600.0*(2*2*2)*(2*2*2),0,0,0};
-
-// float test_path_straight_y[6] = {0,0,0,-52,104,0};
-// float test_path_straight_x[6] = {0,0,80,-240,160,0};
-
-// float test_path_straight_x[6] ={-180,450, -300,0,0,0};
-// float test_path_straight_y[6] ={180,-450, 300,0,0,0};
-
-// Figure eight set end time to 4s
-// float test_path_straight_x[6] = {8,-80, 280, -400, 192, 0};
-// float test_path_straight_y[6] = {0, 0, 1.4*10, -60*1.4, 1.4*80, 0};
-
-// float test_path_straight_y[6] ={30.69,0, -90.81,0,90.6,0};
-// float test_path_straight_x[6] ={0,0,0,0,0,0};
-
-float test_path_straight_x[6] ={1.0/(2*2*2*2*2)*30.69/2,0, -1.0/(2*2*2)*90.81/2,0,1.0/2*90.6/2,0};
-float test_path_straight_y[6] ={0,0,0,0,0,0};
-
-float end_time = 3;
-
-
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
+#define SEND_SIZE 4
 
+MalletController controller;
 HardwareSerial Serial2(PA3, PA2);
-RoboClaw roboclaw(&Serial2,460800);
 
-float result[2];
-float prev_angle[2];
-float total_angles[2];
-int crosses[2];
+RoboClaw roboclaw(&Serial2, 460800);
+RoboClaw* roboclaw_p = &roboclaw;
 
-float velocity[2];
-float vel_hist[2][window] = {0};
-float xy_hist[2][window] = {0};
-float time_hist[window] = {0};
-float window_step_size;
+float temp_float = 0;
+uint8_t send[SEND_SIZE];
 
-float start_angles[2];
-float xy[2];
-float start_time;
-float des_xy[2];
-float des_vel[2];
-float int_error[2] = {0};
+int prev_write_time = 0;
+float finalXY[] = {0,60};
+float finalVel[] = {0,60};
+float finalAcc[] = {0,0};
+
+float SerialReads[10] = {0};
+
+void setup(){
 
 
-float err_x;
-float err_y;
-float err_x_pos;
-float err_y_pos;
-float err_x_vel;
-float err_y_vel;
+  controller = MalletController();
 
-float err_m1;
-float err_m2;
-
-int effort_m1;
-int effort_m2;
-
-float max_eff = 0;
-
-
-
-// These values worked on Nov 13
-// float px = .3;
-// float ix = 30;
-// float dx = 0;
-// float py = .3;
-// float iy = 6;
-// float dy = 0;
-
-// New values using tuning nov 14th
-// float px = 0;
-// float ix = 35;
-// float dx = 0;
-// float py = 0;
-// float iy = 45;
-// float dy = 0;
-
-float px = 55;
-float ix = 50;
-float dx = 1.2;
-float py = 45;
-float iy = 50;
-float dy = 1.35;
-
-
-void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]);
-void write_to_motor(uint8_t address, int val);
-void readAngle(float result[]);
-void write_to_motor_simple(uint8_t val);
-void update_xy(float xy[], float total_angles[]);
-void make_total_angle(float total_angle[], float angle[], int crosses[]);
-void update_desired_path_velocity(float time, float x_coeffs[], float y_coeffs[], float ret_vel[]);
-void update_velocity(float xy[], float vel[], float xy_hist[2][window]);
-void compute_int_error();
-void savgol_coeff();
-void setPID();
-
-void setup() {
-  pinMode(CHIP_SELECT_LEFT, OUTPUT);
-  pinMode(CHIP_SELECT_RIGHT, OUTPUT);
-  digitalWrite(CHIP_SELECT_LEFT, HIGH);
-  digitalWrite(CHIP_SELECT_RIGHT, HIGH);
   Serial.begin(9600);
   Serial2.begin(460800);
-  SPI.beginTransaction(SPISettings(115200, MSBFIRST, SPI_MODE1));
-  readAngle(result);
-  make_total_angle(total_angles, result, crosses);
 
-  for (int i=0;i<2;i++){
-    start_angles[i] = result[i];
-  }
-
-  savgol_coeff();
-
-  delay(10);
-  // setPID();
-
-
-  start_time = micros()*1e-6;
-
+  controller.setPath(finalXY,finalVel,finalAcc,0.5,0);
+  delay(100);
+  // for (int i =0 ; i<6 ; i++){
+  //   Serial.print(controller.x_coeffs[i]);
+  //   Serial.print(" ");
+  //   Serial.print(controller.y_coeffs[i]);
+  //   Serial.println();
+  // }
   
-
 }
 
-
-
-
-void savgol_coeff(){
-  
-  float start = 6.0/(window*(window+1));
-  float del = -12.0/((window-1)*(window)*(window+1));
-
-  for (int i = 0; i<window;i++){
-    savgol[i] = start;
-    start = start+del;
-  }
-}
-
-void update_xy(float xy[], float total_angles[]){  
-  xy[0] = (total_angles[0]+total_angles[1])/2*PULLEY_RADIUS*PI/180;
-  xy[1] = (total_angles[0]-total_angles[1])/2*PULLEY_RADIUS*PI/180;
-
-  for(int i=window-1;i>0;i--){
-    xy_hist[0][i] = xy_hist[0][i-1];
-    xy_hist[1][i] = xy_hist[1][i-1];
-  }
-  xy_hist[0][0] = xy[0];
-  xy_hist[1][0] = xy[1];
-}
-
-
-void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]){
-  ret_val[0] = 0;
-  ret_val[1] = 0;
-  float tpow = 1;
-  for (int i = 5; i>=0; i--){
-    ret_val[0] += x_coeffs[i]*tpow;
-    ret_val[1] += y_coeffs[i]*tpow;
-    tpow *= time;
-  }
-}
-
-void update_desired_path_velocity(float time, float x_coeffs[], float y_coeffs[], float ret_vel[]){
-  ret_vel[0] = 0;
-  ret_vel[1] = 0;
-  float tpow = 1;
-  for (int i = 4; i>=0; i--){
-    ret_vel[0] += x_coeffs[i]*tpow*(4-i+1);
-    ret_vel[1] += y_coeffs[i]*tpow*(4-i+1);
-    tpow *= time;
-  }
-}
-
-void write_to_motor(u_int8_t address, int val){
-  if (val<0){roboclaw.ForwardM1(address ,(uint8_t) val);
+void write_to_motor(uint8_t address, int val){
+  if (val<0){
+    roboclaw.ForwardM1(address ,(uint8_t) val);
     val = MAX(val,-127);
     roboclaw.BackwardM1(address, (uint8_t) abs(val));
   }
@@ -222,311 +55,54 @@ void write_to_motor(u_int8_t address, int val){
   }
 }
 
-//Read from or write to register from the SCP1000:
-void readAngle(float result[]) {
-  int chips[2] = {CHIP_SELECT_LEFT,CHIP_SELECT_RIGHT};
-  
-  for (int i = 0; i<2; i++) {
-    u_int16_t reads; // incoming byte from the SPI
-    digitalWrite(chips[i], LOW);
-    reads = SPI.transfer16(0xFF);
-    digitalWrite(chips[i],HIGH);
-    result[i] = 360.0-(reads & 0b0011111111111111)*ticks_to_deg-start_angles[i];
-    }
-
-}
-
-void zeroCrossing(int crosses[], float velocity[], float  angle[]){
-    for (int i=0; i<2; i++) {
-      if ((angle[i] - prev_angle[i]) > ANGLE_THRESH) {
-          crosses[i] -= 1;
-        }
-        else if ((-result[i] + prev_angle[i]) > ANGLE_THRESH){
-          crosses[i] += 1;
-        }
-        prev_angle[i] = result[i];
-      }
-  }
-
-void make_total_angle(float total_angle[], float angle[], int crosses[]){
-  for (int i=0;i<2;i++){
-    total_angle[i] = angle[i]+crosses[i]*360.0;
+void write_to_pi(uint8_t *buffer) {
+  for (int i = 0; i<4; i++) {
+    Serial.write(buffer[i]);
   }
 }
 
-void compute_int_error(){
-    for(int i = 0; i<2; i++){
-      // subtract off the last value from mean
-      int_error[i] = int_error[i] - pos_error[i][position_window -1]/position_window;
-    }
+// void output32BitUInt(uint32_t value )
+// {
+//     Serial.write((value >> 24) & 0xFF );
+//     Serial.write((value >> 16) & 0xFF );
+//     Serial.write((value >>  8) & 0xFF );
+//     Serial.write((value      ) & 0xFF );
+// }
 
-    // Serial.print("Last val ");
-    // Serial.println(pos_error[1][position_window -1]);
-
-    // for(int i = 0; i<position_window-1; i++){
-    //   Serial.print(pos_error[1][i]);
-    //   Serial.print(" ");
-    // }
-    // delay(1000);
-    // Serial.println();
-
-    // shift the array of errors
-    for(int i=position_window-1;i>0;i--){
-    pos_error[0][i] = pos_error[0][i-1];
-    pos_error[1][i] = pos_error[1][i-1];
-  }
-
-    // calculate the new error
-    for(int i = 0; i<2; i++){
-       pos_error[i][0] = des_xy[i]-xy[i];
-    }
-    // Serial.print("Newest val");
-    // Serial.println(pos_error[1][0]);
-    // set the 0th value in the array
-    for(int i = 0; i<2; i++){
-       int_error[i] = int_error[i]+pos_error[i][0]/position_window;
-    }
-    // Serial.println();
-    // Serial.print(int_error[1]);
-    
-}
-
-void update_velocity(float xy[], float vel[], float xy_hist[2][window]){
-  float sum_vel[2] = {0};
-  for (int i = 0;i<2;i++){
-    for (int j = 0; j < window;j++){
-      sum_vel[i] = sum_vel[i] + xy_hist[i][j]*savgol[j];
-  }
-  }
-
-  vel[0] = sum_vel[0]/(window_step_size);
-  vel[1] = sum_vel[1]/(window_step_size);
-
-
-  for(int i=window-1;i>0;i--){
-    vel_hist[0][i] = vel_hist[0][i-1];
-    vel_hist[1][i] = vel_hist[1][i-1];
-  }
-
-
-  vel_hist[0][0] = vel[0];
-  vel_hist[1][0] = vel[1];
-}
-
-void setPID() {
-  int flag = 1;
-  String var1 = "";
-  String var2 = "";
-  String var3 = "";
-  String var4 = "";
-  String var5 = "";
-  String var6 = "";
-  Serial.println("Please enter effort values px ix dx py iy dy");
-
-
-  // check for incoming serial data:
-  while(flag == 1){
-
-  while(Serial.available() > 0) {
-    Serial.println("blah");
-
-    var1 = Serial.readStringUntil(' '); // writes in the string all the inputs till a comma
-    Serial.read(); 
-    var2 = Serial.readStringUntil(' ');
-    Serial.read(); 
-    var3 = Serial.readStringUntil(' ');
-    Serial.read(); 
-    var4 = Serial.readStringUntil(' ');
-    Serial.read(); 
-    var5 = Serial.readStringUntil(' ');
-    Serial.read(); 
-    var6 = Serial.readStringUntil('\n');
-    delay(10);
-  }
-
-
-  if (var1 != ""){
-    px = var1.toFloat();
-    ix = var2.toFloat();
-    dx = var3.toFloat();
-    py = var4.toFloat();
-    iy = var5.toFloat();
-    dy = var6.toFloat();
-
-    Serial.print("Px: ");
-    Serial.println(px);
-    Serial.print("Ix: ");
-    Serial.println(ix);
-    Serial.print("Dx: ");
-    Serial.println(dx);
-    Serial.print("Py: ");
-    Serial.println(py);
-    Serial.print("Iy: ");
-    Serial.println(iy);
-    Serial.print("Dy: ");
-    Serial.println(dy);
-
-    delay(2000);
-
-    Serial.println("zoomin");
-    flag = 0;
-    }
-  }
-}
-
-
-void loop() {
-  float time_secs = micros()*1e-6-start_time;
-
-
-  for(int i=window-1;i>0;i--){
-    time_hist[i] = time_hist[i-1];
-  }
-
-  time_hist[0] = time_secs;
-  window_step_size = (time_hist[0] - time_hist[window-1])/(window-1);
-
-
-  readAngle(result);
-  zeroCrossing(crosses,velocity, result);
-  make_total_angle(total_angles,result,crosses);
-
-
-
-
-  if (time_secs>end_time){
-
-    // while(time_secs<end_time+1){
-    //   readAngle(result);
-    //   zeroCrossing(crosses,velocity, result);
-    //   make_total_angle(total_angles,result,crosses);
-
-    //   update_xy(xy,total_angles);
-    //   update_velocity(xy, velocity,xy_hist);
-
-    //   update_desired_path_velocity(end_time, test_path_straight_x, test_path_straight_y, des_vel);
-    //   update_desired_path_position(end_time, test_path_straight_x,test_path_straight_y,des_xy);
-
-    //   err_x_pos = (des_xy[0]-xy[0]);
-    //   err_y_pos = (des_xy[1]-xy[1]);
-    //   err_x_vel = (des_vel[0]-velocity[0]);
-    //   err_y_vel = (des_vel[1]-velocity[1]);
-
-    //   // err_x = px*err_x_vel+ix*err_x_pos+dx*err_x_acc;
-    //   // err_y = py*err_y_vel+iy*err_y_pos+dy*err_y_acc;
-    
-    //   err_m1 = (err_x+err_y)/PULLEY_RADIUS;
-    //   err_m2 = (err_x-err_y)/PULLEY_RADIUS;
-
-    //   int effort_m1 = err_m1;
-    //   int effort_m2 = err_m2;
-
-
-    //   write_to_motor(MOTOR_LEFT, effort_m1);
-    //   write_to_motor(MOTOR_RIGHT, effort_m2);
-    //   delayMicroseconds(150);
-      
-    //   time_secs =((float) micros()*1e-6)-start_time;
-
-    // }
-
-    write_to_motor(MOTOR_LEFT, 0);
-    write_to_motor(MOTOR_RIGHT,0);
-
-    Serial.println("DONE");
-    Serial.print(err_x_pos);
-    Serial.print(" ");
-    Serial.print(err_y_pos);
-    Serial.print(" ");
-    Serial.print(err_m1);
-    Serial.print(" ");
-    Serial.print(err_m2);
-    Serial.print(" ");
-    Serial.print(time_secs);
-    Serial.println();
-    Serial.println(xy[0]);
-    Serial.print(" ");
-    Serial.print(xy[1]);
-    Serial.println("Max eff ");
-    Serial.print(max_eff);
-    while (true)
-    {
-      /* code */
+int i = 0;
+void loop(){
+  controller.update();
+  if (Serial.available() == 40) {
+    for (int i = 0; i < 10 ; i ++){
+      SerialReads[i] = Serial.parseFloat();
+      Serial.println(SerialReads[i]);
     }
   }
 
+  // if (controller.update()){
+  //   write_to_motor(MOTOR_LEFT, 0);
+  //   write_to_motor(MOTOR_RIGHT, 0);
+  //   // delay(100);
+  //   Serial.println("Done");
+  //   while (true) {}
+  //   }
 
-  update_xy(xy,total_angles);
-  if (print_index>window){
-    update_velocity(xy, velocity,xy_hist);
+  else {
+  write_to_motor(MOTOR_LEFT, controller.effort_m1);
+  write_to_motor(MOTOR_RIGHT, controller.effort_m2);
   }
 
-  update_desired_path_velocity(time_secs, test_path_straight_x, test_path_straight_y, des_vel);
-  update_desired_path_position(time_secs, test_path_straight_x,test_path_straight_y,des_xy);
+  if ((millis() - prev_write_time) > 1000) {
+    prev_write_time = millis();
+    float x = 100.0;
+    uint8_t x_asbyes[4];
+    memcpy(&x_asbyes, &x, 4);
+    write_to_pi(x_asbyes);
+    // Serial.write(x_asbyes[0]);
+    // Serial.write(x_asbyes[1]);
+    // Serial.write(x_asbyes[2]);
+    // Serial.write(x_asbyes[3]);
+  } 
 
-  if (print_index%1000==0){
-  compute_int_error();
-  }
-  err_x_pos = (des_xy[0]-xy[0]);
-  err_y_pos = (des_xy[1]-xy[1]);
-  err_x_vel = (des_vel[0]-velocity[0]);
-  err_y_vel = (des_vel[1]-velocity[1]);
-
-  err_x = px*err_x_pos+ix*int_error[0]+dx*err_x_vel;
-  err_y = py*err_y_pos+iy*int_error[1]+dy*err_y_vel;
- 
-  err_m1 = (err_x+err_y)/PULLEY_RADIUS;
-  err_m2 = (err_x-err_y)/PULLEY_RADIUS;
-
-  effort_m1 = err_m1;
-  effort_m2 = err_m2;
-
-  if (effort_m1>max_eff){
-    max_eff = effort_m1;
-  }
-  write_to_motor(MOTOR_LEFT, effort_m1);
-  write_to_motor(MOTOR_RIGHT, effort_m2);
-  
-
-
-  print_index ++;
-
-  if (print_index % 1000 == 0){
-
-    // Serial.print(des_vel[0]);
-    // Serial.print(" ");
-    // // Serial.println("here is vel");
-    // // Serial.print(velocity[0]);
-    // Serial.print(" ");
-    // Serial.print(des_vel[1]);
-    // Serial.print(" ");
-    // // Serial.print(velocity[1]);
-    // // Serial.print(" ");
-    // // Serial.print(err_y_vel);
-    // // Serial.print(" ");
-    // // Serial.print(effort_m1);
-    // // Serial.print(" ");
-    // // Serial.print(effort_m2);
-    // // Serial.println("Here is the vel hist");
-    // // for (int i = 0;i<13;i++){
-    // //     Serial.print(vel_hist[0][i]);
-    // //     Serial.print(" ");
-    // // }
-    // Serial.println("pos");
-    // Serial.println(xy[0]);
-    // Serial.println(xy[1]);
-
-
-    
-
-    // Serial.println();
-    // Serial.print("Int err  ");
-    // Serial.print(int_error[0]);
-    // Serial.print(" ");
-    // Serial.println(int_error[1]);
-
-  }
   delayMicroseconds(150);
-
-
 }

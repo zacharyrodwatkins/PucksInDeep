@@ -37,7 +37,8 @@ void MalletController::update_desired_path_acc(float time, float x_coeffs[], flo
   }
 }
 
-void MalletController::update_xy(){  
+void MalletController::update_xy(){
+  xy[0] = (current_total_angle[0]+current_total_angle[1])/2*PULLEY_RADIUS*PI/180;
   xy[1] = (current_total_angle[0]-current_total_angle[1])/2*PULLEY_RADIUS*PI/180;
 
   for(int i=window-1;i>0;i--){
@@ -48,6 +49,7 @@ void MalletController::update_xy(){
   xy_hist[1][0] = xy[1];
 }
 
+void MalletController::write_to_motor(uint8_t address, int val){
   if (val<0){
     (*roboclaw_p).ForwardM1(address ,(uint8_t) val);
     val = MAX(val,-127);
@@ -137,11 +139,12 @@ void MalletController::update_velocity(float xy[], float vel[], float xy_hist[2]
 }
 
 bool MalletController::update(){
-  float time_secs = micros()*1e-6-start_time;
+  float time_on_path = 1.0*micros()*1e-6-start_time;
   for(int i=window-1;i>0;i--){
     time_hist[i] = time_hist[i-1];
   }
-  time_hist[0] = time_secs;
+
+  time_hist[0] = time_on_path;
   window_step_size = (time_hist[0] - time_hist[window-1])/(window-1);
 
   readAngle(angle_reading);
@@ -149,7 +152,7 @@ bool MalletController::update(){
   make_total_angle(current_total_angle,angle_reading,num_zerocrosses);
   update_xy();
 
-  if (time_secs>end_time){
+  if (time_on_path>time_step){
     return true;
   }
 
@@ -157,8 +160,8 @@ bool MalletController::update(){
     update_velocity(xy, current_velocity,xy_hist);
   }
 
-  update_desired_path_position(time_secs,x_coeffs, y_coeffs, desired_xy);
-  update_desired_path_velocity(time_secs, x_coeffs, y_coeffs, desired_velocity);
+  update_desired_path_position(time_on_path,x_coeffs, y_coeffs, desired_xy);
+  update_desired_path_velocity(time_on_path, x_coeffs, y_coeffs, desired_velocity);
 
   if (loop_counter%1000==0){
     compute_int_error();
@@ -166,10 +169,12 @@ bool MalletController::update(){
   err_x_pos = (desired_xy[0]-xy[0]);
   err_y_pos = (desired_xy[1]-xy[1]);
   err_x_vel = (desired_velocity[0]-current_velocity[0]);
-  err_y_vel = (desired_velocity[1]-desired_velocity[1]);
+  err_y_vel = (desired_velocity[1]-current_velocity[1]);
 
-  effort_x = px*err_x_pos+ix*integral_error[0]+dx*err_x_vel;
-  effort_y = py*err_y_pos+iy*integral_error[1]+dy*err_y_vel;
+  // effort_x = px*err_x_pos+ix*integral_error[0]+dx*err_x_vel;
+  // effort_y = py*err_y_pos+iy*integral_error[1]+dy*err_y_vel;
+  effort_x = px*err_x_pos+dx*err_x_vel;
+  effort_y = py*err_y_pos+dy*err_y_vel;
  
   effort_m1 = (effort_x+effort_y)/PULLEY_RADIUS;
   effort_m2 = (effort_x-effort_y)/PULLEY_RADIUS;
@@ -177,11 +182,31 @@ bool MalletController::update(){
   return false;
 }
 
+void MalletController::update_coeffs(float curr_xy[2], float curr_vel[2], float curr_acc[2], float final_xy[2], float final_vel[2], float final_acc[2], float T, float x_coeffs[6], float y_coeffs[6]){
+  float Vx[] = {curr_xy[0],final_xy[0],curr_vel[0],final_vel[0],curr_acc[0],final_acc[0]};
+  
 
+  x_coeffs[0] = (-6.0/(pow (T, 5.0)))*Vx[0] + (6.0/(pow (T, 5.0)))*Vx[1] + (-3.0/(pow (T, 4.0)))*Vx[2] + (-3.0/(pow (T, 4.0)))*Vx[3] + (-0.5/(pow (T, 3.0)))*Vx[4] + (0.5/(pow (T, 3.0)))*Vx[5];
+  x_coeffs[1] = (15.0/(pow (T, 4.0)))*Vx[0] + (-15.0/(pow (T, 4.0)))*Vx[1] + (8.0/(pow (T, 3.0)))*Vx[2] + (7.0/(pow (T, 3.0)))*Vx[3] + (1.5/(pow (T, 2.0)))*Vx[4] + (-1.0/(pow (T, 2.0)))*Vx[5];
+  x_coeffs[2] = (-10.0/(pow (T, 3.0)))*Vx[0] + (10.0/(pow (T, 3.0)))*Vx[1] + (-6.0/(pow (T, 2.0)))*Vx[2] + (-4.0/(pow (T, 2.0)))*Vx[3] + (-3.0/(2.0*T))*Vx[4] + (1.0/(2.0*T))*Vx[5]; 
+  x_coeffs[3] = 0.5*Vx[4];
+  x_coeffs[4] = Vx[2];
+  x_coeffs[5] = Vx[0];
 
-void MalletController::setPath(float final_vals[], float time_step){
-  // update_coeffs(x_coeffs, y_coeffs, final_vals, time_step);
-  start_time = micros()*1e6;
-  end_time = time_step;
+  float Vy[] = {curr_xy[1],final_xy[1],curr_vel[1],final_vel[1],curr_acc[1],final_acc[1]};
+
+  y_coeffs[0] = (-6.0/(pow (T, 5.0)))*Vy[0] + (6.0/(pow (T, 5.0)))*Vy[1] + (-3.0/(pow (T, 4.0)))*Vy[2] + (-3.0/(pow (T, 4.0)))*Vy[3] + (-0.5/(pow (T, 3.0)))*Vy[4] + (0.5/(pow (T, 3.0)))*Vy[5];
+  y_coeffs[1] = (15.0/(pow (T, 4.0)))*Vy[0] + (-15.0/(pow (T, 4.0)))*Vy[1] + (8.0/(pow (T, 3.0)))*Vy[2] + (7.0/(pow (T, 3.0)))*Vy[3] + (1.5/(pow (T, 2.0)))*Vy[4] + (-1.0/(pow (T, 2.0)))*Vy[5];
+  y_coeffs[2] = (-10.0/(pow (T, 3.0)))*Vy[0] + (10.0/(pow (T, 3.0)))*Vy[1] + (-6.0/(pow (T, 2.0)))*Vy[2] + (-4.0/(pow (T, 2.0)))*Vy[3] + (-3.0/(2.0*T))*Vy[4] + (1.0/(2.0*T))*Vy[5]; 
+  y_coeffs[3] = 0.5*Vy[4];
+  y_coeffs[4] = Vy[2];
+  y_coeffs[5] = Vy[0];
+}
+
+void MalletController::setPath(float final_xy[], float final_vel[], float final_acc[], float deltaT, float current_time){
+  update_desired_path_acc(current_time, x_coeffs, y_coeffs , desired_acc);
+  update_coeffs(xy, current_velocity, desired_acc, final_xy, final_vel, final_acc, deltaT, x_coeffs, y_coeffs);
+  start_time = micros()*1e-6;
+  time_step= deltaT;
 } 
 

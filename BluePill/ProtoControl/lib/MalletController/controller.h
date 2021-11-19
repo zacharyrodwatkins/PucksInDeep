@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <RoboClaw.h>
+#include <SPI.h>
 #define CHIP_SELECT_LEFT A4
 #define CHIP_SELECT_RIGHT PB5
 #define MOTOR_LEFT 0x81
@@ -15,69 +16,68 @@ const float ticks_to_deg = 360.0/two_to_the_14;
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
 class MalletController {
+    public:
+        float px = 55;
+        float ix = 50;
+        float dx = 1.2;
+        float py = 45;
+        float iy = 50;
+        float dy = 1.35;
 
-    float px = 55;
-    float ix = 50;
-    float dx = 1.2;
-    float py = 45;
-    float iy = 50;
-    float dy = 1.35;
+        // const uint8_t MOTOR_LEFT = 0x81;
+        // const uint8_t MOTOR_RIGHT = 0x80;
 
-    // Size of SavGol Filter Window
-    static const int window = 40;
+        // Size of SavGol Filter Window
+        static const int window = 40;
 
-    // make sure this value is smaller than window!!
-    // Used for integrating
-    static const int position_window = 500;
-    
-    //Coefficients for savgol filter
+        // make sure this value is smaller than window!!
+        // Used for integrating
+        static const int position_window = 500;
+        
+        //Coefficients for savgol filter
 
-    float savgol[window];
+        float savgol[window];
 
-    //Array for storing computing integral error
-    float pos_error[2][position_window] = {0};
+        //Array for storing computing integral error
+        float pos_error[2][position_window] = {0};
 
-    float angle_reading[2];
-    float prev_angle[2];
-    float current_total_angle[2];
-    int num_zerocrosses[2];
+        float angle_reading[2];
+        float prev_angle[2] = {0,0};
+        float current_total_angle[2] = {0.0,0.0};
+        int num_zerocrosses[2] = {0,0};
 
-    float current_velocity[2];
-    float velocity_hist[2][window] = {0};
-    float xy_hist[2][window] = {0};
-    float time_hist[window] = {0};
-    float window_step_size;
+        float current_velocity[2];
+        float velocity_hist[2][window] = {0};
+        float xy_hist[2][window] = {0};
+        float time_hist[window] = {0};
+        float window_step_size;
 
-    float start_angles[2];
-    float xy[2];
-    float start_time;
-    float desired_xy[2];
-    float desired_velocity[2];
-    float desired_acc[2];
-    float integral_error[2] = {0};
+        float start_angles[2]= {0,0};
+        float xy[2];
+        float start_time;
+        float desired_xy[2];
+        float desired_velocity[2];
+        float desired_acc[2];
+        float integral_error[2] = {0};
 
+        float effort_x = 0;
+        float effort_y = 0;
+        float err_x_pos = 0;
+        float err_y_pos = 0;
+        float err_x_vel = 0;
+        float err_y_vel = 0;
 
+        float time_step = 0;
 
-    float effort_x;
-    float effort_y;
-    float err_x_pos;
-    float err_y_pos;
-    float err_x_vel;
-    float err_y_vel;
+        // float err_m1;
+        // float err_m2;
 
-    float x_coeffs[6] = {0,0,0,0,0,0};
-    float y_coeffs[6] = {0,0,0,0,0,0};
-    float end_time = 0;
+        int effort_m1 = 0;
+        int effort_m2 = 0;
+        int loop_counter = 0;
 
-    // float err_m1;
-    // float err_m2;
-
-    int effort_m1;
-    int effort_m2;
-    int loop_counter = 0;
-
-    RoboClaw* roboclaw_p;
-    HardwareSerial* serial_p;
+        RoboClaw* roboclaw_p;
+        HardwareSerial* serial_p;
 
 
 
@@ -95,7 +95,6 @@ class MalletController {
         
         void update_desired_path();
         void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]);
-        void write_to_motor(uint8_t address, int val);
         void readAngle(float result[]);
         void write_to_motor_simple(uint8_t val);
         void update_xy();
@@ -105,25 +104,35 @@ class MalletController {
         void update_velocity(float xy[], float vel[], float xy_hist[2][window]);
         void compute_int_error();
         void zeroCrossing(int crosses[], float velocity[], float  angle[]);
+        void update_coeffs(float curr_xy[], float curr_vel[], float curr_acc[], 
+            float final_xy[], float final_vel[], float final_acc[], 
+            float T, float x_coeffs[], float y_coeffs[]);
 
 
     public:
-
         MalletController() {
+
+        
+            SPI.beginTransaction(SPISettings(115200, MSBFIRST, SPI_MODE1));
             //Coefficients for savgol filter
             update_savgol_coeff(savgol);
-            HardwareSerial Serial2(PA3, PA2);
-            RoboClaw roboclaw(&Serial2, 460800);
-            RoboClaw* roboclaw_p = &roboclaw;
-            HardwareSerial* serial_p = &Serial2;
             pinMode(CHIP_SELECT_LEFT, OUTPUT);
             pinMode(CHIP_SELECT_RIGHT, OUTPUT);
             digitalWrite(CHIP_SELECT_LEFT, HIGH);
             digitalWrite(CHIP_SELECT_RIGHT, HIGH);
+            readAngle(start_angles);
+            // zeroCrossing(num_zerocrosses,current_velocity, angle_reading);
+            make_total_angle(current_total_angle,angle_reading,num_zerocrosses);
+            update_xy();
+            
         }
 
         bool update();
         void setPID();
-        void setPath(float final_vals[], float time_step);
+        void setPath(float final_xy[], float final_vel[], float final_acc[], float time_step, float current_time);
+        float x_coeffs[6] = {0,0,0,0,0,0};
+        float y_coeffs[6] = {0,0,0,0,0,0};
+        void write_to_motor(uint8_t address, int val);
+
                 
 };
