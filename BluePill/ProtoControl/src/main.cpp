@@ -21,15 +21,15 @@ int prev_write_time = 0;
 float finalXY[] = {0,60};
 float finalVel[] = {0,60};
 float finalAcc[] = {0,0};
-
 float SerialReads[10] = {0};
+float send_to_pi[5];
 
 void setup(){
 
 
   controller = MalletController();
 
-  Serial.begin(9600);
+  Serial.begin(1000000);  // Serial communicates with RPi, if you change this baud, change on Pi too
   Serial2.begin(460800);
 
   controller.setPath(finalXY,finalVel,finalAcc,0.5,0);
@@ -71,7 +71,7 @@ void write_to_pi(uint8_t *buffer) {
 
 int i = 0;
 void loop(){
-  controller.update();
+  // controller.update();
   if (Serial.available() == 40) {
     for (int i = 0; i < 10 ; i ++){
       SerialReads[i] = Serial.parseFloat();
@@ -92,16 +92,17 @@ void loop(){
   write_to_motor(MOTOR_RIGHT, controller.effort_m2);
   }
 
-  if ((millis() - prev_write_time) > 1000) {
+  if ((millis() - prev_write_time) > 500) {
     prev_write_time = millis();
-    float x = 100.0;
-    uint8_t x_asbyes[4];
-    memcpy(&x_asbyes, &x, 4);
-    write_to_pi(x_asbyes);
-    // Serial.write(x_asbyes[0]);
-    // Serial.write(x_asbyes[1]);
-    // Serial.write(x_asbyes[2]);
-    // Serial.write(x_asbyes[3]);
+    send_to_pi[0] = 1.0;//controller.xy[0];  // x position
+    send_to_pi[1] =  2.0;// controller.xy[1];  // y position
+    send_to_pi[2] = controller.current_velocity[0];  // x velocity
+    send_to_pi[3] =  controller.current_velocity[1];  // y velocity
+    send_to_pi[4] = send_to_pi[0] + send_to_pi[1] + send_to_pi[2] + send_to_pi[3];  // checksum
+
+    uint8_t msg[5];
+    memcpy(&msg, &send_to_pi, 5);
+    write_to_pi(msg);
   } 
 
   delayMicroseconds(150);
