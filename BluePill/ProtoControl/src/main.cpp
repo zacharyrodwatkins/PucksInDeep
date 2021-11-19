@@ -42,47 +42,42 @@ void write_to_pi(uint8_t *buffer) {
   }
 }
 
-void zero() {
-  float angles[2];
-  float lastAngle;
+// void zero() {
+//   float angles[2];
+//   float lastAngle;
 
-  controller.readAngle(angles);
-  write_to_motor(MOTOR_LEFT, -20);
+//   controller.readAngle(angles);
+//   write_to_motor(MOTOR_LEFT, -20);
   
-  do {
-    delay(100);
-    lastAngle = angles[0];
-    controller.readAngle(angles);
-  } while (lastAngle != angles[0]);
+//   do {
+//     delay(100);
+//     lastAngle = angles[0];
+//     controller.readAngle(angles);
+//   } while (lastAngle != angles[0]);
 
-  write_to_motor(MOTOR_LEFT, 0);
-  delay(500);
-  controller.clear_history();
+//   write_to_motor(MOTOR_LEFT, 0);
+//   delay(500);
+//   controller.clear_history();
 
-  // Must reset start angles to zero, readAngle depends on their values
-  controller.start_angles[0] =  0.0;
-  controller.start_angles[1] =  0.0;
-  controller.readAngle(controller.start_angles);
-}
+//   // Must reset start angles to zero, readAngle depends on their values
+//   controller.start_angles[0] =  0.0;
+//   controller.start_angles[1] =  0.0;
+//   controller.readAngle(controller.start_angles);
+// }
 
 void setup(){
+
+
   controller = MalletController();
 
-  Serial.begin(9600);  // Serial communicates with RPi, if you change this baud, change on Pi too
+  Serial.begin(100000);  // Serial communicates with RPi, if you change this baud, change on Pi too
   Serial2.begin(460800);
-  delay(100);
-  Serial.println("serial begun");
 
-  zero();  // Zeros mallet to bottom left corner
+  // zero();  // Zeros mallet to bottom left corner
 
-  controller.setPath(finalXY,finalVel,finalAcc,1,0);
+  controller.setPath(finalXY,finalVel,finalAcc,0.5,0);
   delay(100);
-  for (int i =0 ; i<6 ; i++){
-    Serial.print(controller.x_coeffs[i]);
-    Serial.print(" ");
-    Serial.print(controller.y_coeffs[i]);
-    Serial.println();
-  } 
+
 }
 
 // void output32BitUInt(uint32_t value )
@@ -93,9 +88,8 @@ void setup(){
 //     Serial.write((value      ) & 0xFF );
 // }
 
-int i = 0;
 void loop(){
-controller.update();
+  controller.update();
   if (Serial.available() == 40) {
     for (int i = 0; i < 10 ; i ++){
       SerialReads[i] = Serial.parseFloat();
@@ -103,18 +97,15 @@ controller.update();
     }
   }
 
-  if (controller.update()) {
-    write_to_motor(MOTOR_LEFT, 0);
-    write_to_motor(MOTOR_RIGHT, 0);
-    // delay(100);
-    Serial.println("Done");
-    while (true) {}
-  }
+  // if (controller.update()) {
+  //   write_to_motor(MOTOR_LEFT, 0);
+  //   write_to_motor(MOTOR_RIGHT, 0);
+  // }
 
-  else {
-  write_to_motor(MOTOR_LEFT, controller.effort_m1);
-  write_to_motor(MOTOR_RIGHT, controller.effort_m2);
-  }
+  // else {
+  // write_to_motor(MOTOR_LEFT, controller.effort_m1);
+  // write_to_motor(MOTOR_RIGHT, controller.effort_m2);
+  // }
 
   if ((millis() - prev_write_time) > 500) {
     prev_write_time = millis();
