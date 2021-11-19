@@ -6,7 +6,7 @@
 #define MOTOR_RIGHT 0x80
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
-#define SEND_SIZE 4
+#define SEND_SIZE 20
 
 MalletController controller;
 HardwareSerial Serial2(PA3, PA2);
@@ -29,7 +29,7 @@ void setup(){
 
   controller = MalletController();
 
-  Serial.begin(1000000);  // Serial communicates with RPi, if you change this baud, change on Pi too
+  Serial.begin(1000000);//1000000 for pi Serial communicates with RPi, if you change this baud, change on Pi too
   Serial2.begin(460800);
 
   controller.setPath(finalXY,finalVel,finalAcc,0.5,0);
@@ -56,7 +56,7 @@ void write_to_motor(uint8_t address, int val){
 }
 
 void write_to_pi(uint8_t *buffer) {
-  for (int i = 0; i<4; i++) {
+  for (int i = 0; i<SEND_SIZE; i++) {
     Serial.write(buffer[i]);
   }
 }
@@ -71,7 +71,7 @@ void write_to_pi(uint8_t *buffer) {
 
 int i = 0;
 void loop(){
-  // controller.update();
+controller.update();
   if (Serial.available() == 40) {
     for (int i = 0; i < 10 ; i ++){
       SerialReads[i] = Serial.parseFloat();
@@ -94,14 +94,14 @@ void loop(){
 
   if ((millis() - prev_write_time) > 500) {
     prev_write_time = millis();
-    send_to_pi[0] = 1.0;//controller.xy[0];  // x position
-    send_to_pi[1] =  2.0;// controller.xy[1];  // y position
+    send_to_pi[0] = controller.xy[0];  // x position
+    send_to_pi[1] =  controller.xy[1];  // y position
     send_to_pi[2] = controller.current_velocity[0];  // x velocity
     send_to_pi[3] =  controller.current_velocity[1];  // y velocity
     send_to_pi[4] = send_to_pi[0] + send_to_pi[1] + send_to_pi[2] + send_to_pi[3];  // checksum
 
-    uint8_t msg[5];
-    memcpy(&msg, &send_to_pi, 5);
+    uint8_t msg[20];
+    memcpy(&msg, &send_to_pi, 20);
     write_to_pi(msg);
   } 
 
