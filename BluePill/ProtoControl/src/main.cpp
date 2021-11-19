@@ -18,30 +18,11 @@ float temp_float = 0;
 uint8_t send[SEND_SIZE];
 
 int prev_write_time = 0;
-float finalXY[] = {0,60};
-float finalVel[] = {0,60};
+float finalXY[] = {40,0};
+float finalVel[] = {0,0};
 float finalAcc[] = {0,0};
 float SerialReads[10] = {0};
 float send_to_pi[5];
-
-void setup(){
-
-
-  controller = MalletController();
-
-  Serial.begin(1000000);  // Serial communicates with RPi, if you change this baud, change on Pi too
-  Serial2.begin(460800);
-
-  controller.setPath(finalXY,finalVel,finalAcc,0.5,0);
-  delay(100);
-  // for (int i =0 ; i<6 ; i++){
-  //   Serial.print(controller.x_coeffs[i]);
-  //   Serial.print(" ");
-  //   Serial.print(controller.y_coeffs[i]);
-  //   Serial.println();
-  // }
-  
-}
 
 void write_to_motor(uint8_t address, int val){
   if (val<0){
@@ -61,6 +42,49 @@ void write_to_pi(uint8_t *buffer) {
   }
 }
 
+void zero() {
+  float angles[2];
+  float lastAngle;
+
+  controller.readAngle(angles);
+  write_to_motor(MOTOR_LEFT, -20);
+  
+  do {
+    delay(100);
+    lastAngle = angles[0];
+    controller.readAngle(angles);
+  } while (lastAngle != angles[0]);
+
+  write_to_motor(MOTOR_LEFT, 0);
+  delay(500);
+  controller.clear_history();
+
+  // Must reset start angles to zero, readAngle depends on their values
+  controller.start_angles[0] =  0.0;
+  controller.start_angles[1] =  0.0;
+  controller.readAngle(controller.start_angles);
+}
+
+void setup(){
+  controller = MalletController();
+
+  Serial.begin(9600);  // Serial communicates with RPi, if you change this baud, change on Pi too
+  Serial2.begin(460800);
+  delay(100);
+  Serial.println("serial begun");
+
+  zero();  // Zeros mallet to bottom left corner
+
+  controller.setPath(finalXY,finalVel,finalAcc,1,0);
+  delay(100);
+  for (int i =0 ; i<6 ; i++){
+    Serial.print(controller.x_coeffs[i]);
+    Serial.print(" ");
+    Serial.print(controller.y_coeffs[i]);
+    Serial.println();
+  } 
+}
+
 // void output32BitUInt(uint32_t value )
 // {
 //     Serial.write((value >> 24) & 0xFF );
@@ -71,7 +95,7 @@ void write_to_pi(uint8_t *buffer) {
 
 int i = 0;
 void loop(){
-  // controller.update();
+  controller.update();
   if (Serial.available() == 40) {
     for (int i = 0; i < 10 ; i ++){
       SerialReads[i] = Serial.parseFloat();
@@ -79,31 +103,38 @@ void loop(){
     }
   }
 
-  // if (controller.update()){
-  //   write_to_motor(MOTOR_LEFT, 0);
-  //   write_to_motor(MOTOR_RIGHT, 0);
-  //   // delay(100);
-  //   Serial.println("Done");
-  //   while (true) {}
-  //   }
+  if (controller.update()) {
+    write_to_motor(MOTOR_LEFT, 0);
+    write_to_motor(MOTOR_RIGHT, 0);
+    // delay(100);
+    Serial.println("Done");
+    while (true) {}
+  }
 
   else {
   write_to_motor(MOTOR_LEFT, controller.effort_m1);
   write_to_motor(MOTOR_RIGHT, controller.effort_m2);
   }
 
-  if ((millis() - prev_write_time) > 500) {
-    prev_write_time = millis();
-    send_to_pi[0] = 1.0;//controller.xy[0];  // x position
-    send_to_pi[1] =  2.0;// controller.xy[1];  // y position
-    send_to_pi[2] = controller.current_velocity[0];  // x velocity
-    send_to_pi[3] =  controller.current_velocity[1];  // y velocity
-    send_to_pi[4] = send_to_pi[0] + send_to_pi[1] + send_to_pi[2] + send_to_pi[3];  // checksum
+  // if ((millis() - prev_write_time) > 300) {
+  //   prev_write_time = millis();
+  //   // send_to_pi[0] = 1.0;//controller.xy[0];  // x position
+  //   // send_to_pi[1] =  2.0;// controller.xy[1];  // y position
+  //   // send_to_pi[2] = controller.current_velocity[0];  // x velocity
+  //   // send_to_pi[3] =  controller.current_velocity[1];  // y velocity
+  //   // send_to_pi[4] = send_to_pi[0] + send_to_pi[1] + send_to_pi[2] + send_to_pi[3];  // checksum
 
-    uint8_t msg[5];
-    memcpy(&msg, &send_to_pi, 5);
-    write_to_pi(msg);
-  } 
+  //   // uint8_t msg[20];
+  //   // for (int i=0; i<5; i++) {
+  //   //   memcpy(&msg[i*4], &send_to_pi[i], 4);
+  //   // }
+  //   // write_to_pi(msg);
+  //   Serial.println(controller.xy[0]);
+  //   Serial.println(controller.xy[1]);
+  //   Serial.println(controller.current_velocity[0]);
+  //   Serial.println(controller.current_velocity[1]);
+  //   Serial.println();
+  // } 
 
   delayMicroseconds(150);
 }

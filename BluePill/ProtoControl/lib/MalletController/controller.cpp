@@ -50,6 +50,7 @@ void MalletController::update_xy(){
 }
 
 void MalletController::write_to_motor(uint8_t address, int val){
+
   if (val<0){
     (*roboclaw_p).ForwardM1(address ,(uint8_t) val);
     val = MAX(val,-127);
@@ -64,7 +65,6 @@ void MalletController::write_to_motor(uint8_t address, int val){
 //Read from or write to register from the SCP1000:
 void MalletController::readAngle(float result[]) {
   int chips[2] = {CHIP_SELECT_LEFT,CHIP_SELECT_RIGHT};
-  
   for (int i = 0; i<2; i++) {
     u_int16_t reads; // incoming byte from the SPI
     digitalWrite(chips[i], LOW);
@@ -143,21 +143,22 @@ bool MalletController::update(){
   for(int i=window-1;i>0;i--){
     time_hist[i] = time_hist[i-1];
   }
-
   time_hist[0] = time_on_path;
   window_step_size = (time_hist[0] - time_hist[window-1])/(window-1);
-
   readAngle(angle_reading);
   zeroCrossing(num_zerocrosses,current_velocity, angle_reading);
   make_total_angle(current_total_angle,angle_reading,num_zerocrosses);
   update_xy();
 
-  if (time_on_path>time_step){
-    return true;
-  }
+  loop_counter++;
 
   if (loop_counter > window){
     update_velocity(xy, current_velocity,xy_hist);
+    loop_counter = 0;
+  }
+  
+  if (time_on_path>time_step){
+    return true;
   }
 
   update_desired_path_position(time_on_path,x_coeffs, y_coeffs, desired_xy);
@@ -210,3 +211,20 @@ void MalletController::setPath(float final_xy[], float final_vel[], float final_
   time_step= deltaT;
 } 
 
+void MalletController::clear_history() {
+  for (int i=0; i<2; i++) {
+    xy[i] = 0.0;
+    current_velocity[i] = 0.0;
+    current_total_angle[i] = 0.0;
+    // prev_angle[i] = 0.0;
+    num_zerocrosses[i] = 0;
+    // start_angles[i]= 0.0;
+    for (int j=0; j<window; j++) {
+      velocity_hist[i][j] = 0.0;
+      xy_hist[i][j] = 0.0;
+    }
+  }
+  for (int i=0; i<window; i++) {
+    time_hist[window] = 0.0;
+  }
+}

@@ -46,14 +46,14 @@ class MalletController {
         float current_total_angle[2] = {0.0,0.0};
         int num_zerocrosses[2] = {0,0};
 
-        float current_velocity[2];
+        float current_velocity[2] = {0,0};
         float velocity_hist[2][window] = {0};
         float xy_hist[2][window] = {0};
         float time_hist[window] = {0};
         float window_step_size;
 
-        float start_angles[2]= {0,0};
-        float xy[2];
+        float start_angles[2] = {0,0};
+        float xy[2] = {0,0};
         float start_time;
         float desired_xy[2];
         float desired_velocity[2];
@@ -95,7 +95,7 @@ class MalletController {
         
         void update_desired_path();
         void update_desired_path_position(float time, float x_coeffs[], float y_coeffs[], float ret_val[]);
-        void readAngle(float result[]);
+        // void readAngle(float result[]);  // I made this public for use with zeroing (Evan)
         void write_to_motor_simple(uint8_t val);
         void update_xy();
         void make_total_angle(float total_angle[], float angle[], int crosses[]);
@@ -133,6 +133,7 @@ class MalletController {
         float x_coeffs[6] = {0,0,0,0,0,0};
         float y_coeffs[6] = {0,0,0,0,0,0};
         void write_to_motor(uint8_t address, int val);
-
+        void readAngle(float result[]);
+        void clear_history();
                 
 };
