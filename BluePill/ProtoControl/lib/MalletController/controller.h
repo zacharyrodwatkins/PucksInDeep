@@ -135,7 +135,6 @@ class MalletController {
         float x_coeffs[6] = {0,0,0,0,0,0};
         float y_coeffs[6] = {0,0,0,0,0,0};
         void write_to_motor(uint8_t address, int val);
-        void readAngle(float result[]);
-        void clear_history();
-                
+        void readAngle(float result[]);  
+        void clear_history();       
 };
