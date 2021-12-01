@@ -237,3 +237,64 @@ void MalletController::clear_history() {
     time_hist[window] = 0.0;
   }
 }
+
+void MalletController::setPID() {
+  int flag = 1;
+  String var1 = "";
+  String var2 = "";
+  String var3 = "";
+  String var4 = "";
+  String var5 = "";
+  String var6 = "";
+  Serial.println("Please enter effort values px ix dx py iy dy");
+
+
+  // check for incoming serial data:
+  while(flag == 1){
+
+  while(Serial.available() > 0) {
+    Serial.println("blah");
+
+    var1 = Serial.readStringUntil(' '); // writes in the string all the inputs till a comma
+    Serial.read(); 
+    var2 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var3 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var4 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var5 = Serial.readStringUntil(' ');
+    Serial.read(); 
+    var6 = Serial.readStringUntil('\n');
+    delay(10);
+  }
+
+
+  if (var1 != ""){
+    px = var1.toFloat();
+    ix = var2.toFloat();
+    dx = var3.toFloat();
+    py = var4.toFloat();
+    iy = var5.toFloat();
+    dy = var6.toFloat();
+
+    Serial.print("Px: ");
+    Serial.println(px);
+    Serial.print("Ix: ");
+    Serial.println(ix);
+    Serial.print("Dx: ");
+    Serial.println(dx);
+    Serial.print("Py: ");
+    Serial.println(py);
+    Serial.print("Iy: ");
+    Serial.println(iy);
+    Serial.print("Dy: ");
+    Serial.println(dy);
+
+    delay(2000);
+
+    Serial.println("zoomin");
+    flag = 0;
+    }
+  }
+}

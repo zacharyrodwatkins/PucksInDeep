@@ -16,4 +16,5 @@
 
 void coms_init();
 bool read_from_pi(uint8_t *buffer, float *float_values);
+bool read_from_pi_pid(uint8_t *buffer, float *float_values);
 void write_to_pi(uint8_t *buffer);
