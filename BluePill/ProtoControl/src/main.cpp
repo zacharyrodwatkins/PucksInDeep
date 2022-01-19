@@ -26,6 +26,8 @@ float SerialReads[10] = {0};
 float send_to_pi[5];
 uint8_t x_rec[20];
 uint8_t y_rec[20];
+uint8_t x_pid_rec[16];
+uint8_t y_pid_rec[16];
 
 void zero();
 
@@ -37,9 +39,21 @@ void setup(){
   Serial.begin(1000000);//1000000 for pi Serial communicates with RPi, if you change this baud, change on Pi too
   Serial2.begin(460800);
 
-  zero();
-  controller.setPath(finalXY,finalVel,finalAcc,0.5,0);
-  delay(100);  
+  // zero();
+  // controller.setPath(finalXY,finalVel,finalAcc,0.5,0);
+  controller.start_angles[0] =  0.0;
+  controller.start_angles[1] =  0.0;
+  controller.readAngle(controller.start_angles);
+  delay(100); 
+  pinMode(PA12,OUTPUT);
+
+  for(int i = 0; i<6;i++){
+  controller.x_coeffs[i] = 0;
+  controller.y_coeffs[i] = 0;
+  }
+  controller.y_coeffs[5] = 50;
+  controller.time_step = 100;
+
 }
 
 void write_to_motor(uint8_t address, int val){
@@ -79,20 +93,37 @@ void zero() {
 
 
 void loop(){
+  digitalWrite(PA12, HIGH);
 
-  if (Serial.available() >= 40) {
-    float x_coefs[4]; // these are final x,v,a,t
-    float y_coefs[4];
-    if (read_from_pi(x_rec, x_coefs) && read_from_pi(y_rec, y_coefs)) {
-      // checksum valid on x data received from pi
-      float finalXY[2] = {x_coefs[0],y_coefs[0]};
-      float finalVel[2]   = {x_coefs[1], y_coefs[1]};
-      float finalAcc[2] = {x_coefs[2], y_coefs[2]};
-      float path_time = x_coefs[3];
+  // if (Serial.available() >= 40) {
+  //   float x_coefs[4]; // these are final x,v,a,t
+  //   float y_coefs[4];
+  //   if (read_from_pi(x_rec, x_coefs) && read_from_pi(y_rec, y_coefs)) {
+  //     // checksum valid on x data received from pi
+  //     float finalXY[2] = {x_coefs[0],y_coefs[0]};
+  //     float finalVel[2]   = {x_coefs[1], y_coefs[1]};
+  //     float finalAcc[2] = {x_coefs[2], y_coefs[2]};
+  //     float path_time = x_coefs[3];
 
 
-      controller.setPath(finalXY, finalVel, finalAcc, path_time,  micros() - controller.start_time);
-    }
+  //     controller.setPath(finalXY, finalVel, finalAcc, path_time,  micros() - controller.start_time);
+  //   }
+  // }
+
+if (Serial.available() >= 32) {
+
+  float x_pid[4];
+  float y_pid[4];
+
+  if(read_from_pi_pid(x_pid_rec,x_pid)&&read_from_pi_pid(y_pid_rec,y_pid)){
+    controller.px = x_pid[0];
+    controller.ix = x_pid[1];
+    controller.dx = x_pid[2];
+    controller.py = y_pid[0];
+    controller.iy = y_pid[1];
+    controller.dy = y_pid[2];
+  }
+  
   }
 
   if (controller.update()){
@@ -111,13 +142,15 @@ void loop(){
     send_to_pi[1] =  controller.xy[1];  // y position
     send_to_pi[2] = controller.current_velocity[0];  // x velocity
     send_to_pi[3] =  controller.current_velocity[1];  // y velocity
-    send_to_pi[4] = send_to_pi[0] + send_to_pi[1] + send_to_pi[2] + send_to_pi[3];  // checksum
+    // send_to_pi[4] = send_to_pi[0] + send_to_pi[1] + send_to_pi[2] + send_to_pi[3];  // checksum
+    send_to_pi[4] = (float) prev_write_time; //time
 
     uint8_t msg[20];
     memcpy(&msg, &send_to_pi, 20);
     write_to_pi(msg);
   } 
 
-  delayMicroseconds(150);
+  digitalWrite(PA12, LOW);
+  // delayMicroseconds(150);
 }
 
