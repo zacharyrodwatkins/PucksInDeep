@@ -21,13 +21,20 @@ M_B3 = M_belt/3;      % mass of 2 belt lengths (~1/3 of the belt) (kg)
 
 % Motor constants
 I_M = (1.63*0.6*(0.079/2)^2)/2;   % kg m2
-L = 0.002;        % H
-R = 0.19;          % ohm
+L = 0.00002;        % H
+R = 0.666;          % ohm
 Ke = 60/(2*3.14159*237);     % V/rad/s
 Kt = Ke;      % Nm/A
 K = Ke;         % Ke = Kt = K
 b1 = 0.001;      % viscous friction term
 b2 = 0.001;      % viscous friction term
+
+bx = 5e-4;
+by = 5e-4;
+
+bl = b1+bx+by;
+bs = bx-by;
+
 
 % General Inertia Terms
 % Torque needed for motor 1 is J_L*Omega1 + J_S*Omega2
@@ -43,6 +50,8 @@ H_theta = ((L*s+R)/K)*[s^2*J_L+s*b1+(K^2*s)/(L*s+R) s^2*J_S; s^2*J_S s^2*J_L+s*b
 H_theta_dot = ((L*s+R)/K)*[s*J_L+b1+(K^2)/(L*s+R) s*J_S; s*J_S s*J_L+b2+(K^2)/(L*s+R)];
 H_I_vComp = inv([L*s+R 0; 0 L*s+R]);
 H_I_omegaComp = -H_I_vComp*[K 0; 0 K];
+
+
 
 % V to x, x_dot, theta, omega conversion
 V_t = [24*heaviside(t);-24*heaviside(t)];
@@ -107,7 +116,6 @@ hold off
 % V_t = ilaplace(V);
 % I = H_I_vComp*V + H_I_omegaComp*omega;
 % I_t = ilaplace(I);
-% 
 % figure(3)
 % hold on
 % yyaxis left
