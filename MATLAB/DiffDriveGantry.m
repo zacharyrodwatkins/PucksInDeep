@@ -21,13 +21,20 @@ M_B3 = M_belt/3;      % mass of 2 belt lengths (~1/3 of the belt) (kg)
 
 % Motor constants
 I_M = (1.63*0.6*(0.079/2)^2)/2;   % kg m2
-L = 0.002;        % H
-R = 0.19;          % ohm
+L = 0.00002;        % H
+R = 0.666;          % ohm
 Ke = 60/(2*3.14159*237);     % V/rad/s
 Kt = Ke;      % Nm/A
 K = Ke;         % Ke = Kt = K
 b1 = 0.001;      % viscous friction term
 b2 = 0.001;      % viscous friction term
+
+bx = 5e-4;
+by = 5e-4;
+
+bl = b1+bx+by;
+bs = bx-by;
+
 
 % General Inertia Terms
 % Torque needed for motor 1 is J_L*Omega1 + J_S*Omega2
@@ -43,6 +50,8 @@ H_theta = ((L*s+R)/K)*[s^2*J_L+s*b1+(K^2*s)/(L*s+R) s^2*J_S; s^2*J_S s^2*J_L+s*b
 H_theta_dot = ((L*s+R)/K)*[s*J_L+b1+(K^2)/(L*s+R) s*J_S; s*J_S s*J_L+b2+(K^2)/(L*s+R)];
 H_I_vComp = inv([L*s+R 0; 0 L*s+R]);
 H_I_omegaComp = -H_I_vComp*[K 0; 0 K];
+
+
 
 % V to x, x_dot, theta, omega conversion
 % V_t = [24*heaviside(t);24*heaviside(t)];
@@ -91,54 +100,55 @@ H_I_omegaComp = -H_I_vComp*[K 0; 0 K];
 % xlabel('time (s)')
 % hold off
 
-% X to V and I conversion
-a = 44;      % m/s2
-v_max = 6;   % m/s
-X_t = [0;heaviside(t)*(a*t^2)/2-(2*a*(t-v_max/a)^2)/2*heaviside(t-v_max/a)];
-% X0 = heaviside(-t)*[0.5; 0.2];
-% X_t = X0 + (heaviside(t))*[(1.8*10^5*t^5 - 4.5*10^4*t^4 + 3*10^3*t^3 - 0.0*10^0*t^2 + 0.0*10^0*t + 5.0*10^(-1));1.50*10^5*t^5 - 4.05*10^4*t^4 + 3.10*10^3*t^3 - 0.00*10^0*t^2 + 0.00*10^0*t + 2.00*10^(-1)];
-% X_t = X0 + heaviside(t)*[493.82716049383083*t^5 + -370.3703703703728*t^4 + 74.0740740740745*t^3 + 0.5;-370.3703703703714*t^5 + 185.18518518518584*t^4 + -1.0279842820603364e-13*t^3 + 0.2];
-Vel_t = diff(X_t);
-X = laplace(X_t);
-V = H*X;
-omega = H_theta_dot\V;
-omega_t = ilaplace(omega);
-EMF_t = omega_t*Ke;
-V_t = ilaplace(V);
-I = H_I_vComp*V + H_I_omegaComp*omega;
-I_t = ilaplace(I);
+% % X to V and I conversion
+% a = 44;      % m/s2
+% v_max = 6;   % m/s
+% % X_t = [0;heaviside(t)*(a*t^2)/2-(2*a*(t-v_max/a)^2)/2*heaviside(t-v_max/a)];
+% X_t = [0;1/2*a*t^2];
+% % X0 = heaviside(-t)*[0.5; 0.2];
+% % X_t = X0 + (heaviside(t))*[(1.8*10^5*t^5 - 4.5*10^4*t^4 + 3*10^3*t^3 - 0.0*10^0*t^2 + 0.0*10^0*t + 5.0*10^(-1));1.50*10^5*t^5 - 4.05*10^4*t^4 + 3.10*10^3*t^3 - 0.00*10^0*t^2 + 0.00*10^0*t + 2.00*10^(-1)];
+% % X_t = X0 + heaviside(t)*[493.82716049383083*t^5 + -370.3703703703728*t^4 + 74.0740740740745*t^3 + 0.5;-370.3703703703714*t^5 + 185.18518518518584*t^4 + -1.0279842820603364e-13*t^3 + 0.2];
+% Vel_t = diff(X_t);
+% X = laplace(X_t);
+% V = H*X;
+% omega = H_theta_dot\V;
+% omega_t = ilaplace(omega);
+% EMF_t = omega_t*Ke;
+% V_t = ilaplace(V);
+% I = H_I_vComp*V + H_I_omegaComp*omega;
+% I_t = ilaplace(I);
 
-figure(3)
-hold on
-yyaxis left
-fplot(V_t(1), [0, 0.3])
-fplot(V_t(2), [0, 0.3])
-ylabel('Voltage (V)')
-yyaxis right
-fplot(I_t(1), [0, 0.3])
-fplot(I_t(2), [0, 0.3])
-ylabel('Current (A)')
-legend('Motor 1 Voltage', 'Motor 2 Voltage', 'Motor 1 Current','Motor 2 Current', 'Location','best')
-title('Voltage and Current vs time')
-xlabel('Time (s)')
-hold off
-
-figure(4)
-hold on
-yyaxis left
-fplot(X_t(1), [0, 0.3])
-fplot(X_t(2), [0, 0.3])
-ylim([0,1])
-ylabel('Position (m)')
-xlabel('Time (s)')
-yyaxis right
-fplot(Vel_t(1), [0, 0.3])
-fplot(Vel_t(2), [0, 0.3])
-ylim([0,12])
-ylabel('Velocity (m/s)')
-legend('X', 'Y', 'Vx','Vy', 'Location','northwest')
-title('Position and Velocity vs time')
-hold off
+% figure(3)
+% hold on
+% yyaxis left
+% fplot(V_t(1), [0, 0.3])
+% fplot(V_t(2), [0, 0.3])
+% ylabel('Voltage (V)')
+% yyaxis right
+% fplot(I_t(1), [0, 0.3])
+% fplot(I_t(2), [0, 0.3])
+% ylabel('Current (A)')
+% legend('Motor 1 Voltage', 'Motor 2 Voltage', 'Motor 1 Current','Motor 2 Current', 'Location','best')
+% title('Voltage and Current vs time')
+% xlabel('Time (s)')
+% hold off
+% 
+% figure(4)
+% hold on
+% yyaxis left
+% fplot(X_t(1), [0, 0.3])
+% fplot(X_t(2), [0, 0.3])
+% ylim([0,1])
+% ylabel('Position (m)')
+% xlabel('Time (s)')
+% yyaxis right
+% fplot(Vel_t(1), [0, 0.3])
+% fplot(Vel_t(2), [0, 0.3])
+% ylim([0,12])
+% ylabel('Velocity (m/s)')
+% legend('X', 'Y', 'Vx','Vy', 'Location','northwest')
+% title('Position and Velocity vs time')
+% hold off
 
 
 % Logic Check against U Michigan Model
