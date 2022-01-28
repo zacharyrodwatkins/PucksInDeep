@@ -1,0 +1,68 @@
+syms t s
+
+
+p = [0.0003, 0.0041, 0.1036]
+d =[0.0010, 0.0104, 0.0979]
+a = (p+d)/2
+b = (p-d)/2
+
+R_LP = 0.07115/2;  % m
+theta2xy = R_LP/2*[1,1; 1,-1] 
+
+% Solving for V(t) using ODE method
+X = [0;heaviside(t)*(a*t^2)/2-(2*a*(t-v_max/a)^2)/2*heaviside(t-v_max/a)];
+[theta_t; phi_t] = inv(theta2xy)*X;
+% theta_t = t^5+t^4+t^3+t^2+t
+theta_t_1 = diff(theta_t)
+theta_t_2 = diff(theta_t,2)
+theta_t_3 = diff(theta_t,3)
+theta_vec = [theta_t_3; theta_t_2; theta_t_1]
+
+% phi_t = t^5+t^4+t^3+t^2+t
+phi_t_1 = diff(phi_t)
+phi_t_2 = diff(phi_t,2)
+phi_t_3 = diff(phi_t,3)
+phi_vec = [phi_t_3; phi_t_2; phi_t_1]
+
+V_t_ODE = [dot(a', theta_vec)+dot(b', phi_vec);dot(b', theta_vec)+dot(a', phi_vec)]
+
+% hold on
+% fplot(V_t_ODE(1), [0, 2])
+% fplot(V_t_ODE(2), [0, 2])
+% legend('V1(t)', 'V2(t)','Location','best')
+% title('Voltage vs time')
+% ylabel('Voltage(t) (V)')
+% xlabel('time (s)')
+% hold off
+
+% Coverting ODE solution back to motor angles to compare
+s_vec = [s^3, s^2, s]
+H_theta2volt = [dot(a, s_vec), dot(b, s_vec); dot(b, s_vec), dot(a, s_vec)]
+V_s_ODE = laplace(V_t_ODE)
+theta_check = ilaplace(inv(H_theta2volt)*V_s_ODE)
+
+% Solving for V(t) using convolution method
+H_theta2volt_t = ilaplace(H_theta2volt) 
+% TBD
+
+
+
+figure(1)
+hold on
+fplot(theta_check(1), [0, 2])
+fplot(theta_check(2), [0, 2])
+legend('theta check(t)', 'phi check(t)', 'Location','best')
+title('motor angles vs time')
+ylabel('Angle (rad)')
+xlabel('time (s)')
+hold off
+
+figure(2)
+hold on
+fplot(theta_t, [0, 2])
+fplot(phi_t, [0, 2])
+legend('theta(t)', 'phi(t)', 'Location','best')
+title('motor angles vs time')
+ylabel('Angle (rad)')
+xlabel('time (s)')
+hold off

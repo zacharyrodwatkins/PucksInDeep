@@ -4,8 +4,9 @@ DiffDriveGantry;
 V_nom = 12.5*50/128;
 Hss = p1*s^3+p2*s^2+p3*s;
 invHt = ilaplace(inv(Hss),t);
-invHt_func = matlabFunction(invHt);
-theta_symb = int(V_nom*invHt,t,0,x);
+invHt_exp = 1/p3*(1-((exp(t*sqrt((p2/(2*p1))^2-p3/p1)-t*p2/(2*p1))+exp(-t*sqrt((p2/(2*p1))^2-p3/p1)-t*p2/(2*p1)))/2+(exp(t*sqrt((p2/(2*p1))^2-p3/p1)-t*p2/(2*p1))-exp(-t*sqrt((p2/(2*p1))^2-p3/p1)-t*p2/(2*p1)))/(2*sqrt((p2/(2*p1))^2-p3/p1))));
+invHt_func = matlabFunction(invHt_exp);
+theta_symb = int(V_nom*invHt_exp,t,0,x);
 
 
 p1_start = L/K*(J_L+J_S);
@@ -13,7 +14,7 @@ p2_start = (R*(J_L+J_S)+L*(bl+bs))/K;
 p3_start = K + R*(b1+bs)/K;
 
 theta_func = matlabFunction(theta_symb);
-Table = readtable('26-01-3\run-1.txt','NumHeaderLines',10);
+Table = readtable('SS_data\26-01-3\run-1.txt','NumHeaderLines',10);
 x = table2array(Table(:,6))/1000;
 x = x - x(1);
 theta_exp = table2array(Table(:,1))*pi/180;

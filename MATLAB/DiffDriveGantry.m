@@ -53,52 +53,52 @@ H_I_omegaComp = -H_I_vComp*[K 0; 0 K];
 
 
 
-% V to x, x_dot, theta, omega conversion
-V_t = [24*heaviside(t);-24*heaviside(t)];
-V =laplace(V_t);
-X = inv(H)*V;
-Vel = inv(H_vel)*V;
-X_t = ilaplace(X);
-Vel_t = ilaplace(Vel);
-
-omega = inv(H_theta_dot)*V
-%60/(2*3.1415)*
-omega_t = ilaplace(omega)
-I = H_I_vComp*V + H_I_omegaComp*omega;
-I_t = ilaplace(I);
-figure(1)
-hold on
-yyaxis left
-fplot(omega_t(1), [0, 3])
-fplot(omega_t(2), [0, 3])
-ylabel('Omega (rad/s)')
-yyaxis right
-fplot(I_t(1), [0, 3])
-fplot(I_t(2), [0, 3])
-ylabel('Current (A)')
-legend('Omega 1(t)', 'Omega 2(t)', 'Motor 1 Current', 'Motor 2 Current', 'Location','best')
-title('Angular Velocity vs Time')
-xlabel('Time (s)')
-hold off
-
-figure(2)
-hold on
-fplot(X_t(1), [0, 2])
-fplot(X_t(2), [0, 2])
-legend('X(t)', 'Y(t)','Location','best')
-title('Position vs time')
-ylabel('Position(t) (m)')
-xlabel('time (s)')
-hold off
-figure(3)
-hold on
-fplot(Vel_t(1), [0, 2])
-fplot(Vel_t(2), [0, 2])
-legend('Vel_X(t)', 'Vel_Y(t)','Location','best')
-title('Velocity vs time')
-ylabel('Velocity(t) (m/s)')
-xlabel('time (s)')
-hold off
+% % V to x, x_dot, theta, omega conversion
+% V_t = [24*heaviside(t);-24*heaviside(t)];
+% V =laplace(V_t);
+% X = inv(H)*V;
+% Vel = inv(H_vel)*V;
+% X_t = ilaplace(X);
+% Vel_t = ilaplace(Vel);
+% 
+% omega = inv(H_theta_dot)*V
+% %60/(2*3.1415)*
+% omega_t = ilaplace(omega)
+% I = H_I_vComp*V + H_I_omegaComp*omega;
+% I_t = ilaplace(I);
+% figure(1)
+% hold on
+% yyaxis left
+% fplot(omega_t(1), [0, 3])
+% fplot(omega_t(2), [0, 3])
+% ylabel('Omega (rad/s)')
+% yyaxis right
+% fplot(I_t(1), [0, 3])
+% fplot(I_t(2), [0, 3])
+% ylabel('Current (A)')
+% legend('Omega 1(t)', 'Omega 2(t)', 'Motor 1 Current', 'Motor 2 Current', 'Location','best')
+% title('Angular Velocity vs Time')
+% xlabel('Time (s)')
+% hold off
+% 
+% figure(2)
+% hold on
+% fplot(X_t(1), [0, 2])
+% fplot(X_t(2), [0, 2])
+% legend('X(t)', 'Y(t)','Location','best')
+% title('Position vs time')
+% ylabel('Position(t) (m)')
+% xlabel('time (s)')
+% hold off
+% figure(3)
+% hold on
+% fplot(Vel_t(1), [0, 2])
+% fplot(Vel_t(2), [0, 2])
+% legend('Vel_X(t)', 'Vel_Y(t)','Location','best')
+% title('Velocity vs time')
+% ylabel('Velocity(t) (m/s)')
+% xlabel('time (s)')
+% hold off
 
 % % X to V and I conversion
 % a = 44;      % m/s2
