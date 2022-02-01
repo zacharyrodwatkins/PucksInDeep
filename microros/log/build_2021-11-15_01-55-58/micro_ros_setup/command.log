@@ -1,6 +1,0 @@
-Invoking command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ubuntu/PucksInDeep/microros/src/micro_ros_setup -DCMAKE_INSTALL_PREFIX=/home/ubuntu/PucksInDeep/microros/install/micro_ros_setup
-Invoked command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ubuntu/PucksInDeep/microros/src/micro_ros_setup -DCMAKE_INSTALL_PREFIX=/home/ubuntu/PucksInDeep/microros/install/micro_ros_setup
-Invoking command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup -- -j4 -l4
-Invoked command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup -- -j4 -l4
-Invoking command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup
-Invoked command in '/home/ubuntu/PucksInDeep/microros/build/micro_ros_setup' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/microros/build/micro_ros_setup
