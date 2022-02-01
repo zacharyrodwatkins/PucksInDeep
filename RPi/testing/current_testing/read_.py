@@ -23,6 +23,9 @@ while True:
         while True:
             SENSOR_1_VALUE = GPIO.input(SENSOR_1_INPUT)
             SENSOR_2_VALUE = GPIO.input(SENSOR_2_INPUT)
+
+            # print((SENSOR_1_VALUE-SENSOR_2_VALUE)*AMPS_PER_V)
+            print(SENSOR_1_VALUE)
             current_values.append((SENSOR_1_VALUE-SENSOR_2_VALUE)*AMPS_PER_V)
     except KeyboardInterrupt:
         break
@@ -33,6 +36,7 @@ date = datetime.now()
 file_name = "current_testing-{}-{}-{}-{}".format(date.minute, date.hour, date.day, date.month)
 
 with open(file_name, 'w') as f:
-    f.writelines(current_values)
+    current_values_str = [str(x) + "\n" for x in current_values]
+    f.writelines(current_values_str)
 
 
