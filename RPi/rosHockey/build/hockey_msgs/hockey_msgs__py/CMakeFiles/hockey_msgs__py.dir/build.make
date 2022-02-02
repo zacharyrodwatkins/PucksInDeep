@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs
+CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs
+CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
 
 # Utility rule file for hockey_msgs__py.
 
@@ -57,8 +57,10 @@ hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/_hoc
 hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_introspection_c.c
 hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.c
 hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_mallet_pos.py
+hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_puck_status.py
 hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/__init__.py
 hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c
+hockey_msgs__py/CMakeFiles/hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c
 
 
 rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/lib/rosidl_generator_py/rosidl_generator_py
@@ -75,8 +77,9 @@ rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.
 rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/rosidl_generator_py/resource/_srv_pkg_typesupport_entry_point.c.em
 rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/hockey_msgs/msg/MalletPos.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
-	cd /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/hockey_msgs__py && /usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
+rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/hockey_msgs/msg/PuckStatus.idl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
+	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/hockey_msgs__py && /usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
 
 rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_introspection_c.c: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_introspection_c.c
@@ -87,19 +90,27 @@ rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.c: rosidl
 rosidl_generator_py/hockey_msgs/msg/_mallet_pos.py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hockey_msgs/msg/_mallet_pos.py
 
+rosidl_generator_py/hockey_msgs/msg/_puck_status.py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hockey_msgs/msg/_puck_status.py
+
 rosidl_generator_py/hockey_msgs/msg/__init__.py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hockey_msgs/msg/__init__.py
 
 rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c
 
+rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c
+
 hockey_msgs__py: hockey_msgs__py/CMakeFiles/hockey_msgs__py
 hockey_msgs__py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 hockey_msgs__py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_introspection_c.c
 hockey_msgs__py: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.c
 hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_mallet_pos.py
+hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_puck_status.py
 hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/__init__.py
 hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c
+hockey_msgs__py: rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c
 hockey_msgs__py: hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/build.make
 
 .PHONY : hockey_msgs__py
@@ -110,10 +121,10 @@ hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/build: hockey_msgs__py
 .PHONY : hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/build
 
 hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/clean:
-	cd /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/hockey_msgs__py && $(CMAKE_COMMAND) -P CMakeFiles/hockey_msgs__py.dir/cmake_clean.cmake
+	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/hockey_msgs__py && $(CMAKE_COMMAND) -P CMakeFiles/hockey_msgs__py.dir/cmake_clean.cmake
 .PHONY : hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/clean
 
 hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/depend:
-	cd /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/hockey_msgs__py /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/hockey_msgs__py /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/hockey_msgs__py /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/hockey_msgs__py /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : hockey_msgs__py/CMakeFiles/hockey_msgs__py.dir/depend
 

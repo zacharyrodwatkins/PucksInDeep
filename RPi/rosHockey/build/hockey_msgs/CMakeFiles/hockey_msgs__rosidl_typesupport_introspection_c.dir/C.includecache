@@ -6,23 +6,41 @@
 
 #IncludeRegexTransform: 
 
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.c
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.c
 stddef.h
 -
 hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_c.h
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_c.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_c.h
 hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
 rosidl_typesupport_introspection_c/field_types.h
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/field_types.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/field_types.h
 rosidl_typesupport_introspection_c/identifier.h
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/identifier.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/identifier.h
 rosidl_typesupport_introspection_c/message_introspection.h
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/message_introspection.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/message_introspection.h
 hockey_msgs/msg/detail/mallet_pos__functions.h
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/mallet_pos__functions.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/mallet_pos__functions.h
 hockey_msgs/msg/detail/mallet_pos__struct.h
-/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/mallet_pos__struct.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/mallet_pos__struct.h
+
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c
+stddef.h
+-
+hockey_msgs/msg/detail/puck_status__rosidl_typesupport_introspection_c.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_introspection_c.h
+hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+rosidl_typesupport_introspection_c/field_types.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/field_types.h
+rosidl_typesupport_introspection_c/identifier.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/identifier.h
+rosidl_typesupport_introspection_c/message_introspection.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_introspection_c/message_introspection.h
+hockey_msgs/msg/detail/puck_status__functions.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/puck_status__functions.h
+hockey_msgs/msg/detail/puck_status__struct.h
+/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/puck_status__struct.h
 
 /opt/ros/foxy/include/rosidl_runtime_c/message_initialization.h
 
@@ -80,9 +98,37 @@ stddef.h
 stdint.h
 -
 
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.h
+stdbool.h
+-
+stdlib.h
+-
+rosidl_runtime_c/visibility_control.h
+rosidl_generator_c/hockey_msgs/msg/detail/rosidl_runtime_c/visibility_control.h
+hockey_msgs/msg/rosidl_generator_c__visibility_control.h
+rosidl_generator_c/hockey_msgs/msg/detail/hockey_msgs/msg/rosidl_generator_c__visibility_control.h
+hockey_msgs/msg/detail/puck_status__struct.h
+rosidl_generator_c/hockey_msgs/msg/detail/hockey_msgs/msg/detail/puck_status__struct.h
+
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__struct.h
+stdbool.h
+-
+stddef.h
+-
+stdint.h
+-
+
 rosidl_generator_c/hockey_msgs/msg/rosidl_generator_c__visibility_control.h
 
 rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_c.h
+rosidl_runtime_c/message_type_support_struct.h
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_runtime_c/message_type_support_struct.h
+rosidl_typesupport_interface/macros.h
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_typesupport_interface/macros.h
+hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_introspection_c.h
 rosidl_runtime_c/message_type_support_struct.h
 rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/rosidl_runtime_c/message_type_support_struct.h
 rosidl_typesupport_interface/macros.h

@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "puck_tracker = puck_tracker.tracker:main"
         ],
     },
 )

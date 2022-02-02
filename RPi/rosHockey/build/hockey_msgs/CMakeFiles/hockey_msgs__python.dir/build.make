@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs
+CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs
+CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
 
 # Include any dependencies generated for this target.
 include CMakeFiles/hockey_msgs__python.dir/depend.make
@@ -59,25 +59,40 @@ include CMakeFiles/hockey_msgs__python.dir/flags.make
 
 CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o: CMakeFiles/hockey_msgs__python.dir/flags.make
 CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o: rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o   -c /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o   -c /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c
 
 CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c > CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c > CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.i
 
 CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c -o CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c -o CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.s
+
+CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o: CMakeFiles/hockey_msgs__python.dir/flags.make
+CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o: rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o   -c /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c
+
+CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c > CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.i
+
+CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c -o CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.s
 
 # Object files for target hockey_msgs__python
 hockey_msgs__python_OBJECTS = \
-"CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o"
+"CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o" \
+"CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o"
 
 # External object files for target hockey_msgs__python
 hockey_msgs__python_EXTERNAL_OBJECTS =
 
 rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o
+rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o
 rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: CMakeFiles/hockey_msgs__python.dir/build.make
 rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: libhockey_msgs__rosidl_generator_c.so
 rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: /usr/lib/aarch64-linux-gnu/libpython3.8.so
@@ -87,7 +102,7 @@ rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: /opt/ros/foxy/lib/lib
 rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: /opt/ros/foxy/lib/librcpputils.so
 rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: /opt/ros/foxy/lib/librcutils.so
 rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so: CMakeFiles/hockey_msgs__python.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C shared library rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hockey_msgs__python.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -100,6 +115,6 @@ CMakeFiles/hockey_msgs__python.dir/clean:
 .PHONY : CMakeFiles/hockey_msgs__python.dir/clean
 
 CMakeFiles/hockey_msgs__python.dir/depend:
-	cd /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__python.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__python.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/hockey_msgs__python.dir/depend
 

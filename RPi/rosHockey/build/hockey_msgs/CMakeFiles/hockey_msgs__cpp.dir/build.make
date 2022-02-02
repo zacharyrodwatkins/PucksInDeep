@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs
+CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs
+CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
 
 # Utility rule file for hockey_msgs__cpp.
 
@@ -57,6 +57,10 @@ CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
 CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__builder.hpp
 CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__struct.hpp
 CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__traits.hpp
+CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/puck_status.hpp
+CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__builder.hpp
+CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__struct.hpp
+CMakeFiles/hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__traits.hpp
 
 
 rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp: /opt/ros/foxy/lib/rosidl_generator_cpp/rosidl_generator_cpp
@@ -75,8 +79,9 @@ rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp: /opt/ros/foxy/share/rosidl_
 rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp: rosidl_adapter/hockey_msgs/msg/MalletPos.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
-	/usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_generator_cpp__arguments.json
+rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp: rosidl_adapter/hockey_msgs/msg/PuckStatus.idl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
+	/usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_cpp__arguments.json
 
 rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__builder.hpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__builder.hpp
@@ -87,11 +92,27 @@ rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__struct.hpp: rosidl_gener
 rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__traits.hpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__traits.hpp
 
+rosidl_generator_cpp/hockey_msgs/msg/puck_status.hpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hockey_msgs/msg/puck_status.hpp
+
+rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__builder.hpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__builder.hpp
+
+rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__struct.hpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__struct.hpp
+
+rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__traits.hpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__traits.hpp
+
 hockey_msgs__cpp: CMakeFiles/hockey_msgs__cpp
 hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/mallet_pos.hpp
 hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__builder.hpp
 hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__struct.hpp
 hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/mallet_pos__traits.hpp
+hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/puck_status.hpp
+hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__builder.hpp
+hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__struct.hpp
+hockey_msgs__cpp: rosidl_generator_cpp/hockey_msgs/msg/detail/puck_status__traits.hpp
 hockey_msgs__cpp: CMakeFiles/hockey_msgs__cpp.dir/build.make
 
 .PHONY : hockey_msgs__cpp
@@ -106,6 +127,6 @@ CMakeFiles/hockey_msgs__cpp.dir/clean:
 .PHONY : CMakeFiles/hockey_msgs__cpp.dir/clean
 
 CMakeFiles/hockey_msgs__cpp.dir/depend:
-	cd /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/hockey_msgs__cpp.dir/depend
 

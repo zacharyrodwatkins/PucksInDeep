@@ -29,7 +29,7 @@ class PositionPublisher(Node):
         self.i = 0
 
         self.rot_count_threshold = 350
-        self.pos_update_period = 0.0001
+        self.pos_update_period = 1/1e8
         self.pos_timer = self.create_timer(self.pos_update_period, self.update_motor_pos)
 
     def publish_callback(self):
@@ -38,8 +38,8 @@ class PositionPublisher(Node):
         msg.y = self.get_y()
         self.publisher_.publish(msg)
         print('a0: %d . %f     a1: %d . %f' % (self.motor_pos[0].rot_count, self.motor_pos[0].angle, self.motor_pos[1].rot_count, self.motor_pos[1].angle))
-        print('"%s"' % msg)
-        print('vel motor 1 %.3 vel motor 2 %.3f', self.motor_pos[0].vel, self.motor_pos[1].vel)
+        # print('"%s"' % msg)
+        # print('vel motor 1 %.3f vel motor 2 %.3f' % (self.motor_pos[0].vel, self.motor_pos[1].vel))
         self.i += 1
         
     def get_x(self):
@@ -55,7 +55,7 @@ class PositionPublisher(Node):
         rot_to_trans = 0.0174533 * self.pulley_diam/2  # degrees to radians then multipy by radius
         for i in range(2):
             translations.append(rot_to_trans*(360*self.motor_pos[i].rot_count + self.motor_pos[i].angle))
-        print(translations)
+        # print(translations)
         return translations
 
     def update_motor_pos(self):
@@ -64,13 +64,18 @@ class PositionPublisher(Node):
             return
         for i in range(2):
             if (self.motor_pos[i].angle - new_pos[i]) > self.rot_count_threshold:
+               
                 self.motor_pos[i].rot_count += 1
-                time_elapsed = (time.time() - self.motor_pos[i].thresh_time)*1000000
+                time_now = time.time()
+                time_elapsed = (time_now - self.motor_pos[i].thresh_time)
                 self.motor_pos[i].vel = 1/time_elapsed #angularvel in rotations/second
+                self.motor_pos[i].thresh_time = time_now
             if (new_pos[i] - self.motor_pos[i].angle) > self.rot_count_threshold:
                 self.motor_pos[i].rot_count -= 1
-                time_elapsed = (time.time() - self.motor_pos[i].thresh_time)*1000000
+                time_now = time.time()
+                time_elapsed = (time_now - self.motor_pos[i].thresh_time)
                 self.motor_pos[i].vel = 1/time_elapsed #angularvel in rotations/second
+                self.motor_pos[i].thresh_time = time_now
             self.motor_pos[i].angle = new_pos[i]
 
 

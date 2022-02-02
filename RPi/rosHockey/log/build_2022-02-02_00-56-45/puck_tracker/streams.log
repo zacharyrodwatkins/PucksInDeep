@@ -1,0 +1,26 @@
+[3.246s] Invoking command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/puck_tracker': PYTHONPATH=/home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/puck_tracker build --build-base /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build install --prefix /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker --record /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/install.log --single-version-externally-managed
+[4.319s] running egg_info
+[4.321s] writing ../build/puck_tracker/puck_tracker.egg-info/PKG-INFO
+[4.322s] writing dependency_links to ../build/puck_tracker/puck_tracker.egg-info/dependency_links.txt
+[4.323s] writing entry points to ../build/puck_tracker/puck_tracker.egg-info/entry_points.txt
+[4.324s] writing requirements to ../build/puck_tracker/puck_tracker.egg-info/requires.txt
+[4.324s] writing top-level names to ../build/puck_tracker/puck_tracker.egg-info/top_level.txt
+[4.478s] reading manifest file '../build/puck_tracker/puck_tracker.egg-info/SOURCES.txt'
+[4.482s] writing manifest file '../build/puck_tracker/puck_tracker.egg-info/SOURCES.txt'
+[4.482s] running build
+[4.483s] running build_py
+[4.484s] copying puck_tracker/tracker.py -> /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build/lib/puck_tracker
+[4.485s] running install
+[4.488s] running install_lib
+[4.493s] copying /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build/lib/puck_tracker/tracker.py -> /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[4.496s] byte-compiling /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/tracker.py to tracker.cpython-38.pyc
+[4.503s] /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/tracker.py:63: SyntaxWarning: 'str' object is not callable; perhaps you missed a comma?
+[4.503s]   frame = cv2.putText(frame, "x: %f y: %f\nx_vel: %f y_vel: %f" (cX, cY, self.puck_vel[0], self.puck_vel[1]), (0,0), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 2, cv2.LINE_AA)
+[4.504s] running install_data
+[4.507s] running install_egg_info
+[4.513s] removing '/home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker-0.0.0-py3.8.egg-info' (and everything under it)
+[4.515s] Copying ../build/puck_tracker/puck_tracker.egg-info to /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker-0.0.0-py3.8.egg-info
+[4.520s] running install_scripts
+[4.595s] Installing puck_tracker script to /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/puck_tracker
+[4.596s] writing list of installed files to '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/install.log'
+[4.705s] Invoked command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/puck_tracker' returned '0': PYTHONPATH=/home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/puck_tracker build --build-base /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build install --prefix /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker --record /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/install.log --single-version-externally-managed

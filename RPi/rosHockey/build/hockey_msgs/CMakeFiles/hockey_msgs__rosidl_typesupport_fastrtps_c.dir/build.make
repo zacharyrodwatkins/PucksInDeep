@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs
+CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs
+CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
 
 # Include any dependencies generated for this target.
 include CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/depend.make
@@ -66,33 +66,55 @@ rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupp
 rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h: /opt/ros/foxy/share/rosidl_typesupport_fastrtps_c/resource/srv__rosidl_typesupport_fastrtps_c.h.em
 rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h: /opt/ros/foxy/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em
 rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/hockey_msgs/msg/MalletPos.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C type support for eProsima Fast-RTPS"
-	/usr/bin/python3 /opt/ros/foxy/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c --generator-arguments-file /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c__arguments.json
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/hockey_msgs/msg/PuckStatus.idl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C type support for eProsima Fast-RTPS"
+	/usr/bin/python3 /opt/ros/foxy/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c --generator-arguments-file /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c__arguments.json
 
 rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp
 
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_fastrtps_c.h
+
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp
+
 CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o: CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/flags.make
 CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o -c /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o -c /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp
 
 CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp > CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp > CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.i
 
 CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp -o CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp -o CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.s
+
+CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o: CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/flags.make
+CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o -c /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp
+
+CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp > CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.i
+
+CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp -o CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.s
 
 # Object files for target hockey_msgs__rosidl_typesupport_fastrtps_c
 hockey_msgs__rosidl_typesupport_fastrtps_c_OBJECTS = \
-"CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o"
+"CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o" \
+"CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o"
 
 # External object files for target hockey_msgs__rosidl_typesupport_fastrtps_c
 hockey_msgs__rosidl_typesupport_fastrtps_c_EXTERNAL_OBJECTS =
 
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o
+libhockey_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/build.make
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/librosidl_typesupport_fastrtps_c.so
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: libhockey_msgs__rosidl_generator_c.so
@@ -101,7 +123,7 @@ libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/librmw.so
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/librosidl_runtime_c.so
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/librcutils.so
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/librosidl_typesupport_fastrtps_cpp.so
-libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/libfastrtps.so.2.0.2
+libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/libfastrtps.so.2.1.1
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/libfoonathan_memory-0.6.2.a
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /usr/lib/aarch64-linux-gnu/libtinyxml2.so
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /usr/lib/aarch64-linux-gnu/libtinyxml2.so
@@ -109,7 +131,7 @@ libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /usr/lib/aarch64-linux-gnu/lib
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /usr/lib/aarch64-linux-gnu/libcrypto.so
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: /opt/ros/foxy/lib/libfastcdr.so.1.0.13
 libhockey_msgs__rosidl_typesupport_fastrtps_c.so: CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libhockey_msgs__rosidl_typesupport_fastrtps_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libhockey_msgs__rosidl_typesupport_fastrtps_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +145,8 @@ CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/clean:
 
 CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp
-	cd /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/DependInfo.cmake --color=$(COLOR)
+CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_fastrtps_c.h
+CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp
+	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/depend
 
