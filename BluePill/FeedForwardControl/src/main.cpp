@@ -10,6 +10,8 @@
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #define SEND_SIZE 20
 
+int motor_v = 23.6;
+
 
 
 MalletController controller;
@@ -23,10 +25,23 @@ RoboClaw* roboclaw_p = &roboclaw;
 int start_time;
 float path_time;
 
+
 void zero();
 
+uint8_t send[SEND_SIZE];
+int prev_write_time = 0;
+float finalXY[] = {0,0};
+float finalVel[] = {0,0};
+float finalAcc[] = {0,0};
+float SerialReads[10] = {0};
+float send_to_pi[5];
+uint8_t x_rec[20];
+uint8_t y_rec[20];
+uint8_t x_pid_rec[16];
+uint8_t y_pid_rec[16];
+
 void setup(){
-    Serial.begin(9600);
+    Serial.begin(1000000);
     Serial2.begin(460800);
 
     controller = MalletController();
@@ -38,15 +53,9 @@ void setup(){
     controller.start_angles[1] =  0.0;
     controller.readAngle(controller.start_angles);
     delay(100); 
-    pinMode(PA12,OUTPUT);
 
 
-    float finalxy[2] = {35,60};
-    float finalvel[2] = {20,-20};
-    float finalacc[2] = {0,0};
-    path_time = 1;
-    controller.setPath(finalxy, finalvel, finalacc, path_time,0);
-    mod.set_coeffs(controller.x_coeffs, controller.y_coeffs);
+    
     start_time = micros();
 
 }
@@ -87,15 +96,31 @@ void zero() {
 
 
 void loop(){
+ 
 
-    float* effort;
-    int t = micros();
-    if (t-start_time<path_time*1000000){
-        
-        float time_s = float(t-start_time)/1000000;
-        effort = mod.get_effort(time_s);
-        effort[0] = (effort[0]/23.6)*128;
-        effort[1] = (effort[1]/23.6)*128;
+  if (Serial.available() >= 40) {
+    float x_coefs[4]; // these are final x,v,a,t
+    float y_coefs[4];
+    if (read_from_pi(x_rec, x_coefs) && read_from_pi(y_rec, y_coefs)) {
+      // checksum valid on x data received from pi
+      float finalXY[2] = {x_coefs[0]/10,y_coefs[0]/10};
+      float finalVel[2]   = {x_coefs[1]/10, y_coefs[1]/10};
+      float finalAcc[2] = {x_coefs[2]/10, y_coefs[2]/10};
+      float path_time = x_coefs[3];
+
+      start_time = micros();
+      controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
+      mod.set_coeffs(controller.x_coeffs, controller.y_coeffs);
+    }
+  }
+
+    float* effort;      
+    float time_s =  (1.0*micros() - start_time)/1e6;
+    effort = mod.get_effort(time_s);
+    effort[0] = (effort[0]/motor_v)*128;
+    effort[1] = (effort[1]/motor_v)*128;
+
+
   if (controller.update()){
     write_to_motor(MOTOR_LEFT, 0);
     write_to_motor(MOTOR_RIGHT, 0);
@@ -104,11 +129,22 @@ void loop(){
   else {
     write_to_motor(MOTOR_LEFT, controller.effort_m1+effort[0]);
     write_to_motor(MOTOR_RIGHT, controller.effort_m2+effort[1]);
-
-    // Serial.print(controller.effort_m1);
-    // Serial.print(" ");
-    // Serial.print(controller.effort_m2);
-    // Serial.println();
   }
-}
+
+  
+if ((millis() - prev_write_time) > 100) {
+    prev_write_time = millis();
+    send_to_pi[0] = controller.xy[0];  // x position
+    send_to_pi[1] =  controller.xy[1];  // y position
+    send_to_pi[2] = controller.current_velocity[0];  // x velocity
+    send_to_pi[3] =  controller.current_velocity[1];  // y velocity
+    send_to_pi[4] = (float) prev_write_time; //time
+
+    uint8_t msg[20];
+    memcpy(&msg, &send_to_pi, 20);
+    write_to_pi(msg);
+  } 
+
+
+  
 }
