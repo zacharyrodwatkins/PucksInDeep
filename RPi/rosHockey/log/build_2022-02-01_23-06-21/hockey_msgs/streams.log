@@ -1,0 +1,6 @@
+[0.155s] Invoking command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs': /usr/bin/cmake --build /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs -- -j4 -l4
+[4.275s] CMake Error: The current CMakeCache.txt directory /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeCache.txt is different than the directory /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
+[4.276s] CMake Error: The source directory "/home/ubuntu/PucksInDeep/rosHockey/hockey_msgs" does not exist.
+[4.277s] Specify --help for usage, or press the help button on the CMake GUI.
+[4.278s] make: *** [Makefile:748: cmake_check_build_system] Error 1
+[4.282s] Invoked command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs' returned '2': /usr/bin/cmake --build /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs -- -j4 -l4

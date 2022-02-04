@@ -7,3 +7,9 @@ CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/ms
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o: rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__struct.h
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o: rosidl_generator_c/hockey_msgs/msg/rosidl_generator_c__visibility_control.h
 
+CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c
+CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o: /opt/ros/foxy/include/rosidl_runtime_c/visibility_control.h
+CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.h
+CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__struct.h
+CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o: rosidl_generator_c/hockey_msgs/msg/rosidl_generator_c__visibility_control.h
+

@@ -1,6 +1,8 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QTimer
 import mplwidget
+import rospy
+from std_msgs.msg import String
 import sys
 import BP_Coms
 
@@ -23,6 +25,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_cur_mallet)
         self.timer.start(10)
+    
+    # ROS listener for getting mallet status
+    def listener(self):
+        rospy.init_node('GUI', anonymous=True)
+        rospy.Subscriber('chatter', String, self.subCallback)
 
     # Update doublespinbox value callbacks
     def update_fin_x_vel(self, value):

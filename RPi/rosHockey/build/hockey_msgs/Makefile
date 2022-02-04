@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/rosHockey/hockey_msgs
+CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs
+CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -402,6 +402,33 @@ rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.s:
 	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_generator_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.s
 .PHONY : rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.s
 
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.o: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o
+
+.PHONY : rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.o
+
+# target to build an object file
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_generator_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o
+.PHONY : rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o
+
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.i: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i
+
+.PHONY : rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.i
+
+# target to preprocess a source file
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_generator_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i
+.PHONY : rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i
+
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.s: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s
+
+.PHONY : rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.s
+
+# target to generate assembly for a file
+rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_generator_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s
+.PHONY : rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s
+
 rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.o: rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.c.o
 
 .PHONY : rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.o
@@ -510,6 +537,33 @@ rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.s:
 	$(MAKE) -f CMakeFiles/hockey_msgs__python.dir/build.make CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.s
 .PHONY : rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.s
 
+rosidl_generator_py/hockey_msgs/msg/_puck_status_s.o: rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o
+
+.PHONY : rosidl_generator_py/hockey_msgs/msg/_puck_status_s.o
+
+# target to build an object file
+rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__python.dir/build.make CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o
+.PHONY : rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o
+
+rosidl_generator_py/hockey_msgs/msg/_puck_status_s.i: rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.i
+
+.PHONY : rosidl_generator_py/hockey_msgs/msg/_puck_status_s.i
+
+# target to preprocess a source file
+rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__python.dir/build.make CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.i
+.PHONY : rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.i
+
+rosidl_generator_py/hockey_msgs/msg/_puck_status_s.s: rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.s
+
+.PHONY : rosidl_generator_py/hockey_msgs/msg/_puck_status_s.s
+
+# target to generate assembly for a file
+rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__python.dir/build.make CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.s
+.PHONY : rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.s
+
 rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.o: rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.o
@@ -536,6 +590,33 @@ rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.s: rosidl_typesupp
 rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.cpp.s
 .PHONY : rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.cpp.s
+
+rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.o: rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.o
+
+# target to build an object file
+rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.o
+
+rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.i: rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.i
+
+rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.s: rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.s
 
 rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.o: rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.cpp.o
 
@@ -564,6 +645,33 @@ rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.cpp.s
 .PHONY : rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.cpp.s
 
+rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.o: rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.o
+
+# target to build an object file
+rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.o
+
+rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.i: rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.i
+
+rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.s: rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.s
+
 rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.o: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o
 
 .PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.o
@@ -590,6 +698,33 @@ rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.
 rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.s:
 	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.s
+
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.o: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o
+
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.i: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.i
+
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.s: rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.s
 
 rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.o: rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.cpp.o
 
@@ -618,6 +753,33 @@ rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__
 	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.cpp.s
 
+rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.o: rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.o
+
+rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.i: rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.i
+
+rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.s: rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.s
+
 rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.o: rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.c.o
 
 .PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.o
@@ -645,6 +807,33 @@ rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_suppo
 	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.c.s
 .PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.c.s
 
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.o: rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.o
+
+.PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.o
+
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.i: rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.i
+
+.PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.i
+
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.s: rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.s
+
+.PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.s
+
 rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.o: rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.o
@@ -671,6 +860,33 @@ rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_sup
 rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.cpp.s
 .PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.cpp.s
+
+rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.o: rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.o
+
+rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.i: rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.i
+
+rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.s: rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.s
 
 # Help Target
 help:
@@ -704,6 +920,9 @@ help:
 	@echo "... rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.o"
 	@echo "... rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.i"
 	@echo "... rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.s"
+	@echo "... rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.o"
+	@echo "... rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.i"
+	@echo "... rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.s"
 	@echo "... rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.o"
 	@echo "... rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.i"
 	@echo "... rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.s"
@@ -716,24 +935,45 @@ help:
 	@echo "... rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.o"
 	@echo "... rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.i"
 	@echo "... rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.s"
+	@echo "... rosidl_generator_py/hockey_msgs/msg/_puck_status_s.o"
+	@echo "... rosidl_generator_py/hockey_msgs/msg/_puck_status_s.i"
+	@echo "... rosidl_generator_py/hockey_msgs/msg/_puck_status_s.s"
 	@echo "... rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.o"
 	@echo "... rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.i"
 	@echo "... rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.s"
+	@echo "... rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.o"
+	@echo "... rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.i"
+	@echo "... rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.s"
 	@echo "... rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.o"
 	@echo "... rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.i"
 	@echo "... rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.s"
+	@echo "... rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.o"
+	@echo "... rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.i"
+	@echo "... rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.s"
+	@echo "... rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.o"
+	@echo "... rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.i"
+	@echo "... rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.s"
+	@echo "... rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.o"
+	@echo "... rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.i"
+	@echo "... rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.s"
+	@echo "... rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.o"
+	@echo "... rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.i"
+	@echo "... rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.s"
+	@echo "... rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.o"
+	@echo "... rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.i"
+	@echo "... rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.s"
 .PHONY : help
 
 

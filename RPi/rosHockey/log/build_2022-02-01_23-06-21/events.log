@@ -1,0 +1,90 @@
+[0.000000] (-) TimerEvent: {}
+[0.001019] (hockey_msgs) JobQueued: {'identifier': 'hockey_msgs', 'dependencies': OrderedDict()}
+[0.001372] (keyboard_control) JobQueued: {'identifier': 'keyboard_control', 'dependencies': OrderedDict()}
+[0.002360] (position_publisher) JobQueued: {'identifier': 'position_publisher', 'dependencies': OrderedDict()}
+[0.003045] (puck_tracker) JobQueued: {'identifier': 'puck_tracker', 'dependencies': OrderedDict()}
+[0.004115] (visualizer) JobQueued: {'identifier': 'visualizer', 'dependencies': OrderedDict()}
+[0.004344] (hockey_msgs) JobStarted: {'identifier': 'hockey_msgs'}
+[0.033191] (keyboard_control) JobStarted: {'identifier': 'keyboard_control'}
+[0.068963] (position_publisher) JobStarted: {'identifier': 'position_publisher'}
+[0.098692] (puck_tracker) JobStarted: {'identifier': 'puck_tracker'}
+[0.102853] (-) TimerEvent: {}
+[0.144077] (hockey_msgs) JobProgress: {'identifier': 'hockey_msgs', 'progress': 'cmake'}
+[0.152482] (hockey_msgs) JobProgress: {'identifier': 'hockey_msgs', 'progress': 'build'}
+[0.155492] (hockey_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs', '--', '-j4', '-l4'], 'cwd': '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ubuntu'), ('SSH_AGENT_PID', '2851'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('HOME', '/home/ubuntu'), ('OLDPWD', '/home/ubuntu/PucksInDeep'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '2670'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('LOGNAME', 'ubuntu'), ('JOURNAL_STREAM', '9:76452'), ('_', '/usr/bin/colcon'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ubuntu'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '2'), ('PATH', '/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/2924,unix/ubuntu:/tmp/.ICE-unix/2924'), ('INVOCATION_ID', '223ba9df4abe46449151cf5462c34bde'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/d0947ded_0fae_4499_81f3_51ac937575ad'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.847'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('COLCON', '1'), ('VTE_VERSION', '6003')]), 'shell': False}
+[0.203306] (-) TimerEvent: {}
+[0.304779] (-) TimerEvent: {}
+[0.405677] (-) TimerEvent: {}
+[0.506834] (-) TimerEvent: {}
+[0.607982] (-) TimerEvent: {}
+[0.708911] (-) TimerEvent: {}
+[0.810388] (-) TimerEvent: {}
+[0.911509] (-) TimerEvent: {}
+[1.013034] (-) TimerEvent: {}
+[1.114861] (-) TimerEvent: {}
+[1.215865] (-) TimerEvent: {}
+[1.316872] (-) TimerEvent: {}
+[1.421443] (-) TimerEvent: {}
+[1.523917] (-) TimerEvent: {}
+[1.626570] (-) TimerEvent: {}
+[1.728226] (-) TimerEvent: {}
+[1.830085] (-) TimerEvent: {}
+[1.931062] (-) TimerEvent: {}
+[2.031997] (-) TimerEvent: {}
+[2.133133] (-) TimerEvent: {}
+[2.234105] (-) TimerEvent: {}
+[2.335394] (-) TimerEvent: {}
+[2.437125] (-) TimerEvent: {}
+[2.538091] (-) TimerEvent: {}
+[2.639101] (-) TimerEvent: {}
+[2.740894] (-) TimerEvent: {}
+[2.843979] (-) TimerEvent: {}
+[2.946633] (-) TimerEvent: {}
+[3.048866] (-) TimerEvent: {}
+[3.151046] (-) TimerEvent: {}
+[3.253032] (-) TimerEvent: {}
+[3.355146] (-) TimerEvent: {}
+[3.456978] (-) TimerEvent: {}
+[3.558517] (-) TimerEvent: {}
+[3.660532] (-) TimerEvent: {}
+[3.761550] (-) TimerEvent: {}
+[3.863464] (-) TimerEvent: {}
+[3.965716] (-) TimerEvent: {}
+[4.068357] (-) TimerEvent: {}
+[4.169197] (-) TimerEvent: {}
+[4.270396] (-) TimerEvent: {}
+[4.277907] (hockey_msgs) StderrLine: {'line': b'CMake Error: The current CMakeCache.txt directory /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeCache.txt is different than the directory /home/ubuntu/PucksInDeep/rosHockey/build/hockey_msgs where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt\n'}
+[4.279721] (hockey_msgs) StderrLine: {'line': b'CMake Error: The source directory "/home/ubuntu/PucksInDeep/rosHockey/hockey_msgs" does not exist.\n'}
+[4.280781] (hockey_msgs) StderrLine: {'line': b'Specify --help for usage, or press the help button on the CMake GUI.\n'}
+[4.281716] (hockey_msgs) StderrLine: {'line': b'make: *** [Makefile:748: cmake_check_build_system] Error 1\n'}
+[4.285270] (hockey_msgs) CommandEnded: {'returncode': 2}
+[4.370628] (-) TimerEvent: {}
+[4.472742] (-) TimerEvent: {}
+[4.574084] (-) TimerEvent: {}
+[4.675862] (-) TimerEvent: {}
+[4.777385] (-) TimerEvent: {}
+[4.842815] (hockey_msgs) JobEnded: {'identifier': 'hockey_msgs', 'rc': 2}
+[4.877620] (-) TimerEvent: {}
+[4.979259] (-) TimerEvent: {}
+[5.080543] (-) TimerEvent: {}
+[5.182255] (-) TimerEvent: {}
+[5.284025] (-) TimerEvent: {}
+[5.385338] (-) TimerEvent: {}
+[5.486589] (-) TimerEvent: {}
+[5.588373] (-) TimerEvent: {}
+[5.689653] (-) TimerEvent: {}
+[5.791149] (-) TimerEvent: {}
+[5.893002] (-) TimerEvent: {}
+[5.994661] (-) TimerEvent: {}
+[6.096437] (-) TimerEvent: {}
+[6.198151] (-) TimerEvent: {}
+[6.300061] (-) TimerEvent: {}
+[6.401992] (-) TimerEvent: {}
+[6.506541] (-) TimerEvent: {}
+[6.610346] (-) TimerEvent: {}
+[6.623822] (keyboard_control) JobEnded: {'identifier': 'keyboard_control', 'rc': 'SIGINT'}
+[6.650128] (position_publisher) JobEnded: {'identifier': 'position_publisher', 'rc': 'SIGINT'}
+[6.710687] (-) TimerEvent: {}
+[6.747284] (puck_tracker) JobEnded: {'identifier': 'puck_tracker', 'rc': 'SIGINT'}
+[6.750867] (visualizer) JobSkipped: {'identifier': 'visualizer'}
+[6.751063] (-) EventReactorShutdown: {}

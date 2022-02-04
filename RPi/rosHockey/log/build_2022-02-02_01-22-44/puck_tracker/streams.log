@@ -1,0 +1,24 @@
+[4.671s] Invoking command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/puck_tracker': PYTHONPATH=/home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/puck_tracker build --build-base /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build install --prefix /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker --record /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/install.log --single-version-externally-managed
+[5.919s] running egg_info
+[5.922s] writing ../build/puck_tracker/puck_tracker.egg-info/PKG-INFO
+[5.927s] writing dependency_links to ../build/puck_tracker/puck_tracker.egg-info/dependency_links.txt
+[5.935s] writing entry points to ../build/puck_tracker/puck_tracker.egg-info/entry_points.txt
+[5.941s] writing requirements to ../build/puck_tracker/puck_tracker.egg-info/requires.txt
+[5.941s] writing top-level names to ../build/puck_tracker/puck_tracker.egg-info/top_level.txt
+[6.107s] reading manifest file '../build/puck_tracker/puck_tracker.egg-info/SOURCES.txt'
+[6.111s] writing manifest file '../build/puck_tracker/puck_tracker.egg-info/SOURCES.txt'
+[6.112s] running build
+[6.112s] running build_py
+[6.113s] copying puck_tracker/tracker.py -> /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build/lib/puck_tracker
+[6.114s] running install
+[6.118s] running install_lib
+[6.122s] copying /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build/lib/puck_tracker/tracker.py -> /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[6.125s] byte-compiling /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/tracker.py to tracker.cpython-38.pyc
+[6.133s] running install_data
+[6.139s] running install_egg_info
+[6.145s] removing '/home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker-0.0.0-py3.8.egg-info' (and everything under it)
+[6.147s] Copying ../build/puck_tracker/puck_tracker.egg-info to /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker-0.0.0-py3.8.egg-info
+[6.152s] running install_scripts
+[6.224s] Installing puck_tracker script to /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/puck_tracker
+[6.226s] writing list of installed files to '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/install.log'
+[6.340s] Invoked command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/puck_tracker' returned '0': PYTHONPATH=/home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/puck_tracker build --build-base /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/build install --prefix /home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker --record /home/ubuntu/PucksInDeep/RPi/rosHockey/build/puck_tracker/install.log --single-version-externally-managed
