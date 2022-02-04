@@ -2,7 +2,7 @@
 #include <time.h>
 
 #define PI_INTERRUPT  B12
-#define SEND_SIZE 5*4  // 4 bytes of data and a check sum
+#define SEND_SIZE 28 // 4 bytes of data and a check sum
 #define REC_SIZE 5*4
 
 // char send[SEND_SIZE];  // 4 floats, 16 bytes

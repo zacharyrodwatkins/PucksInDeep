@@ -9,7 +9,7 @@ void coms_init() {
 bool read_from_pi(uint8_t *buffer, float *float_values) {
   // start = micros();
   float f;
-  float sum;
+  float sum = 0;
   Serial.readBytes(buffer, 20);  
   for (int i = 0; i < 4; i++) {
     memcpy(&f, &(buffer[4*i]), 4);
@@ -27,7 +27,7 @@ bool read_from_pi(uint8_t *buffer, float *float_values) {
 bool read_from_pi_pid(uint8_t *buffer, float *float_values) {
   // start = micros();
   float f;
-  float sum;
+  float sum = 0;
   Serial.readBytes(buffer, 16);  
   for (int i = 0; i < 3; i++) {
     memcpy(&f, &(buffer[4*i]), 4);

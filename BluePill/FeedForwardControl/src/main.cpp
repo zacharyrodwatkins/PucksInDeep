@@ -8,11 +8,9 @@
 #define MOTOR_RIGHT 0x80
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
-#define SEND_SIZE 20
+
 
 int motor_v = 23.6;
-
-
 
 MalletController controller;
 GantryModel mod;
@@ -34,7 +32,8 @@ float finalXY[] = {0,0};
 float finalVel[] = {0,0};
 float finalAcc[] = {0,0};
 float SerialReads[10] = {0};
-float send_to_pi[5];
+float send_to_pi[7];
+int total_effort[2] = {0};
 uint8_t x_rec[20];
 uint8_t y_rec[20];
 uint8_t x_pid_rec[16];
@@ -99,14 +98,16 @@ void loop(){
  
 
   if (Serial.available() >= 40) {
+    zero();
+    delay(150);
     float x_coefs[4]; // these are final x,v,a,t
     float y_coefs[4];
     if (read_from_pi(x_rec, x_coefs) && read_from_pi(y_rec, y_coefs)) {
       // checksum valid on x data received from pi
-      float finalXY[2] = {x_coefs[0]/10,y_coefs[0]/10};
-      float finalVel[2]   = {x_coefs[1]/10, y_coefs[1]/10};
-      float finalAcc[2] = {x_coefs[2]/10, y_coefs[2]/10};
-      float path_time = x_coefs[3];
+      float finalXY[2] = {x_coefs[0],y_coefs[0]};
+      float finalVel[2]   = {x_coefs[1], y_coefs[1]};
+      float finalAcc[2] = {x_coefs[2], y_coefs[2]};
+      float path_time = x_coefs[3]/1000.0;
 
       start_time = micros();
       controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
@@ -120,6 +121,9 @@ void loop(){
     effort[0] = (effort[0]/motor_v)*128;
     effort[1] = (effort[1]/motor_v)*128;
 
+    total_effort[0] = controller.effort_m1+effort[0];
+    total_effort[1] = controller.effort_m2+effort[1];
+
 
   if (controller.update()){
     write_to_motor(MOTOR_LEFT, 0);
@@ -127,24 +131,26 @@ void loop(){
   }
 
   else {
-    write_to_motor(MOTOR_LEFT, controller.effort_m1+effort[0]);
-    write_to_motor(MOTOR_RIGHT, controller.effort_m2+effort[1]);
+    write_to_motor(MOTOR_LEFT, total_effort[0]);
+    write_to_motor(MOTOR_RIGHT, total_effort[0]);
   }
 
   
 if ((millis() - prev_write_time) > 100) {
     prev_write_time = millis();
     send_to_pi[0] = controller.xy[0];  // x position
-    send_to_pi[1] =  controller.xy[1];  // y position
+    send_to_pi[1] = controller.xy[1];  // y position
     send_to_pi[2] = controller.current_velocity[0];  // x velocity
-    send_to_pi[3] =  controller.current_velocity[1];  // y velocity
-    send_to_pi[4] = (float) prev_write_time; //time
+    send_to_pi[3] = controller.current_velocity[1];  // y velocity
+    send_to_pi[4] = (float) total_effort[0]; // motor1 effort
+    send_to_pi[5] = (float) total_effort[1]; // motor2 effort
+    send_to_pi[6] = (float) time_s*1e3; //time in seconds
+    
 
-    uint8_t msg[20];
-    memcpy(&msg, &send_to_pi, 20);
+    uint8_t msg[SEND_SIZE];
+    memcpy(&msg, &send_to_pi, SEND_SIZE);
     write_to_pi(msg);
   } 
-
 
   
 }
