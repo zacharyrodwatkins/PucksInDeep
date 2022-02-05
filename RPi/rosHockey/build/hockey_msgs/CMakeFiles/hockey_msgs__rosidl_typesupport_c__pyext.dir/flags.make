@@ -6,5 +6,5 @@ C_FLAGS = -fPIC   -Wall -Wextra
 
 C_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\"hockey_msgs\" -Dhockey_msgs__rosidl_typesupport_c__pyext_EXPORTS
 
-C_INCLUDES = -I/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c -I/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py -I/usr/include/python3.8 -I/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_c -isystem /opt/ros/foxy/include 
+C_INCLUDES = -I/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c -I/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py -I/usr/include/python3.8 -I/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_c -isystem /opt/ros/foxy/include 
 

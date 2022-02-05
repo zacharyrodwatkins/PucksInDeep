@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs
+CMAKE_SOURCE_DIR = /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
+CMAKE_BINARY_DIR = /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs
 
 # Include any dependencies generated for this target.
 include CMakeFiles/hockey_msgs__rosidl_generator_c.dir/depend.make
@@ -72,8 +72,8 @@ rosidl_generator_c/hockey_msgs/msg/mallet_pos.h: /opt/ros/foxy/share/rosidl_gene
 rosidl_generator_c/hockey_msgs/msg/mallet_pos.h: /opt/ros/foxy/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/hockey_msgs/msg/mallet_pos.h: rosidl_adapter/hockey_msgs/msg/MalletPos.idl
 rosidl_generator_c/hockey_msgs/msg/mallet_pos.h: rosidl_adapter/hockey_msgs/msg/PuckStatus.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
-	/usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
+	/usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c__arguments.json
 
 rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.h: rosidl_generator_c/hockey_msgs/msg/mallet_pos.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.h
@@ -104,29 +104,29 @@ rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c: rosidl_gener
 
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o: CMakeFiles/hockey_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o: rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o   -c /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o   -c /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c
 
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c > CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c > CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.i
 
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.s
 
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o: CMakeFiles/hockey_msgs__rosidl_generator_c.dir/flags.make
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o   -c /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o   -c /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c
 
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c > CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c > CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.i
 
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c -o CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.s
 
 # Object files for target hockey_msgs__rosidl_generator_c
 hockey_msgs__rosidl_generator_c_OBJECTS = \
@@ -142,7 +142,7 @@ libhockey_msgs__rosidl_generator_c.so: CMakeFiles/hockey_msgs__rosidl_generator_
 libhockey_msgs__rosidl_generator_c.so: /opt/ros/foxy/lib/librosidl_runtime_c.so
 libhockey_msgs__rosidl_generator_c.so: /opt/ros/foxy/lib/librcutils.so
 libhockey_msgs__rosidl_generator_c.so: CMakeFiles/hockey_msgs__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library libhockey_msgs__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library libhockey_msgs__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hockey_msgs__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -164,6 +164,6 @@ CMakeFiles/hockey_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/hockey
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__type_support.h
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c
 CMakeFiles/hockey_msgs__rosidl_generator_c.dir/depend: rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c
-	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/hockey_msgs__rosidl_generator_c.dir/depend
 

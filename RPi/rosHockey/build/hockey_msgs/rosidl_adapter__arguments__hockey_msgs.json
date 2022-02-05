@@ -1,7 +1,7 @@
 {
   "package_name": "hockey_msgs",
   "non_idl_tuples": [
-    "/home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs:msg/MalletPos.msg",
-    "/home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs:msg/PuckStatus.msg"
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs:msg/MalletPos.msg",
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs:msg/PuckStatus.msg"
   ]
 }

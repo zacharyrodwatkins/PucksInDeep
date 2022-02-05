@@ -43,18 +43,18 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs
+CMAKE_SOURCE_DIR = /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
+CMAKE_BINARY_DIR = /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs
 
 # Utility rule file for hockey_msgs.
 
 # Include the progress variables for this target.
 include CMakeFiles/hockey_msgs.dir/progress.make
 
-CMakeFiles/hockey_msgs: /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs/msg/MalletPos.msg
-CMakeFiles/hockey_msgs: /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs/msg/PuckStatus.msg
+CMakeFiles/hockey_msgs: /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs/msg/MalletPos.msg
+CMakeFiles/hockey_msgs: /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs/msg/PuckStatus.msg
 
 
 hockey_msgs: CMakeFiles/hockey_msgs
@@ -72,6 +72,6 @@ CMakeFiles/hockey_msgs.dir/clean:
 .PHONY : CMakeFiles/hockey_msgs.dir/clean
 
 CMakeFiles/hockey_msgs.dir/depend:
-	cd /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/CMakeFiles/hockey_msgs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/hockey_msgs.dir/depend
 
