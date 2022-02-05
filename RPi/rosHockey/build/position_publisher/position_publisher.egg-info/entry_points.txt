@@ -1,3 +1,0 @@
-[console_scripts]
-position_publisher = position_publisher.position_publisher:main
-

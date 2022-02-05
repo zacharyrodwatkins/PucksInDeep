@@ -1,7 +1,0 @@
-{
-  "package_name": "hockey_msgs",
-  "non_idl_tuples": [
-    "/home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs:msg/MalletPos.msg",
-    "/home/fizzer/PucksInDeep/RPi/rosHockey/hockey_msgs:msg/PuckStatus.msg"
-  ]
-}
