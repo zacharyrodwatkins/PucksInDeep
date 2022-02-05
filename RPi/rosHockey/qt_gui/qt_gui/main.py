@@ -10,7 +10,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
-
+        self.gui_node = gui_node()
         #Load the UI Page
         uic.loadUi('layout.ui', self)
         self.fin_x_vel.valueChanged.connect(self.update_fin_x_vel)
@@ -19,14 +19,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.fin_y_acc.valueChanged.connect(self.update_fin_y_acc)
         self.path_time.valueChanged.connect(self.update_path_time)
         self.gen_button.clicked.connect(self.table_plot.canvas.generate_path)
+        self.table_plot.canvas.gui_node = self.gui_node
         self.send_button.clicked.connect(self.table_plot.canvas.send_path)
 
         # Timer configuration
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_cur_mallet)
         self.timer.start(10)
-
-        self.gui_node = gui_node()
 
     # Update doublespinbox value callbacks
     def update_fin_x_vel(self, value):
@@ -48,6 +47,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_cur_mallet(self):
         rclpy.spin_once(self.gui_node)
         self.table_plot.canvas.current_pos.set(xdata = self.gui_node.x, ydata = self.gui_node.y)
+        self.table_plot.canvas.canvas.draw()
 
 
 def main(args=None):
