@@ -1,3 +1,3 @@
-float64 M1_effort
-float64 M2_effort
-float64 t
+float64 m1effort
+float64 m2effort
+float64 time_on_path

@@ -28,8 +28,12 @@ class bp_tx(Node):
 
             
     def send_next_path(self, NextPath):
-        self.bp_msg.extend[(NextPath.x, NextPath.y, NextPath.vx, NextPath.vy, NextPath.ax, NextPath.ay, NextPath.t)]
-        self.ser.write(struct.pack('fffffff', *self.bp_msg))
+        print("hello from next path")
+        x_params = (NextPath.x, NextPath.vx, NextPath.ax, NextPath.t)
+        y_params = (NextPath.y, NextPath.vy, NextPath.ay, NextPath.y)
+        msg_x = (*x_params, sum(x_params))
+        msg_y = (*y_params, sum(y_params))
+        self.ser.write(struct.pack('ffffffffff', *msg_x, *msg_y))
     
 
     

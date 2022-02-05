@@ -4,6 +4,7 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as Canvas
 import matplotlib.pyplot as plt
 import matplotlib
+from gui_node import gui_node
 # import BP_Coms
 import path_generator
 from PIL import Image
@@ -17,7 +18,7 @@ class MplCanvas(Canvas):
         # Making Matplotlib figure object with data
         self.canvas = Canvas(Figure())
         Canvas.__init__(self, self.canvas.figure)
-
+        self.gui_node = gui_node
         # Configure base frame of interactive plot
         playspace_width = 760
         playspace_height = 1120
@@ -64,14 +65,16 @@ class MplCanvas(Canvas):
         y_start = [self.current_pos.get_data()[1], 0, 0]
         self.y_stop = [self.y, self.final_y_vel, self.final_y_acc]
         self.time_to_complete = self.path_time
-        (self.x_path, self.y_path, self.t_path) = path_generator.gen_path(x_start, y_start, self.x_stop, self.y_stop, self.time_to_complete)
+        (self.x_path, self.y_path, self.t_path) = \
+            path_generator.gen_path(x_start, y_start, self.x_stop, self.y_stop, self.time_to_complete)
         self.path.set(xdata=self.x_path, ydata=self.y_path)
         self.canvas.draw()
 
     def send_path(self):
-        send_x = self.x_stop + [self.path_time]
-        send_y = self.y_stop + [self.path_time]
-        # BP_Coms.send_path(send_x, send_y)
+        # send_x = self.x_stop + [self.path_time]
+        # send_y = self.y_stop + [self.path_time]
+        self.gui_node.send_path(self.x, self.y, float(self.final_x_vel), float(self.final_y_vel), \
+            float(self.final_x_acc), float(self.final_y_acc), float(self.time_to_complete))
 
     def on_click(self, event):
         if event.inaxes is not None:

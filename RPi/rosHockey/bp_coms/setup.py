@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'bp_rx = bp_coms.bp_rx:main'
+            'bp_rx = bp_coms.bp_rx:main',
+	    'bp_tx = bp_coms.bp_tx:main'
         ],
     },
 )
