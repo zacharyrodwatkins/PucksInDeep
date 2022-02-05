@@ -17,7 +17,7 @@ bool read_from_pi(uint8_t *buffer, float *float_values) {
     sum = sum + f;
   }
   memcpy(&f, &(buffer[16]), 4);
-  if (abs(sum-f) < 0.001) {
+  if (abs(sum-f) < 0.1) {
     return true;
   }
   return false;

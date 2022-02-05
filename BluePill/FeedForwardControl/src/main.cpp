@@ -97,9 +97,7 @@ void zero() {
 void loop(){
  
 
-  if (Serial.available() >= 40) {
-    zero();
-    delay(150);
+  if (Serial.available() == 40) {
     float x_coefs[4]; // these are final x,v,a,t
     float y_coefs[4];
     if (read_from_pi(x_rec, x_coefs) && read_from_pi(y_rec, y_coefs)) {
@@ -121,22 +119,24 @@ void loop(){
     effort[0] = (effort[0]/motor_v)*128;
     effort[1] = (effort[1]/motor_v)*128;
 
-    total_effort[0] = controller.effort_m1+effort[0];
-    total_effort[1] = controller.effort_m2+effort[1];
 
 
   if (controller.update()){
+    total_effort[0] = 0;
+    total_effort[1] = 0;
     write_to_motor(MOTOR_LEFT, 0);
     write_to_motor(MOTOR_RIGHT, 0);
   }
 
   else {
+    total_effort[0] = controller.effort_m1+effort[0];
+    total_effort[1] = controller.effort_m2+effort[1];
     write_to_motor(MOTOR_LEFT, total_effort[0]);
-    write_to_motor(MOTOR_RIGHT, total_effort[0]);
+    write_to_motor(MOTOR_RIGHT, total_effort[1]);
   }
 
   
-if ((millis() - prev_write_time) > 100) {
+if ((millis() - prev_write_time) > 500) {
     prev_write_time = millis();
     send_to_pi[0] = controller.xy[0];  // x position
     send_to_pi[1] = controller.xy[1];  // y position
