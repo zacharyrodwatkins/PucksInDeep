@@ -1,3 +1,0 @@
-[console_scripts]
-puck_tracker = puck_tracker.tracker:main
-
