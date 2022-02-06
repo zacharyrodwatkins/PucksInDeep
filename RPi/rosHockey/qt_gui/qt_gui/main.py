@@ -5,13 +5,16 @@ import sys
 # import BP_Coms
 from gui_node import gui_node
 import rclpy
+import os
 
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         self.gui_node = gui_node()
+
         #Load the UI Page
+        os.chdir(os.path.dirname(os.path.realpath(__file__)))  # So you can run from any directory
         uic.loadUi('layout.ui', self)
         self.fin_x_vel.valueChanged.connect(self.update_fin_x_vel)
         self.fin_y_vel.valueChanged.connect(self.update_fin_y_vel)

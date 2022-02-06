@@ -44,8 +44,3 @@ class gui_node(Node):
         msg.ax = ax/10
         msg.t = t*1000
         self.path_publisher.publish(msg)
-
-
-
-
-
