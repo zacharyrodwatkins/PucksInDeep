@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy.lib.twodim_base import vander
-time = 1
+time = 0.5
 start = np.array([0,0,0])
-end = np.array([30,0,0])
+end = np.array([50,0,-1000])
 
 
 def get_coeffs(start, stop, Dt):
@@ -23,8 +23,8 @@ def gen_mat(Dt):
     mat[5,:-2] = T[2:]*np.array([20,12,6,0]) + np.array([0,0,0,2])
     return mat
 
-coeffs = get_coeffs(start,end, 1)
-t = np.linspace(0,time)
+coeffs = get_coeffs(start,end, time)
+t = np.linspace(0,time+0.1)
 # t = vander(t,6).shape
 # print(t)
 y = np.matmul(vander(t,6),coeffs)

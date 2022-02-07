@@ -12,11 +12,11 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "/Users/gabrielrobinson-leith/Documents/PucksInDeep/BluePill/FeedForwardControl/.pio/build/bluepill_f103c8/firmware.elf",
+            "executable": "/home/fizzer/PucksInDeep/BluePill/FeedForwardControl/.pio/build/bluepill_f103c8/firmware.elf",
             "projectEnvName": "bluepill_f103c8",
-            "toolchainBinDir": "/Users/gabrielrobinson-leith/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "/home/fizzer/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/Users/gabrielrobinson-leith/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd",
+            "svdPath": "/home/fizzer/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
                 "task": "Pre-Debug"
@@ -26,21 +26,21 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "/Users/gabrielrobinson-leith/Documents/PucksInDeep/BluePill/FeedForwardControl/.pio/build/bluepill_f103c8/firmware.elf",
+            "executable": "/home/fizzer/PucksInDeep/BluePill/FeedForwardControl/.pio/build/bluepill_f103c8/firmware.elf",
             "projectEnvName": "bluepill_f103c8",
-            "toolchainBinDir": "/Users/gabrielrobinson-leith/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "/home/fizzer/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/Users/gabrielrobinson-leith/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd"
+            "svdPath": "/home/fizzer/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd"
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "/Users/gabrielrobinson-leith/Documents/PucksInDeep/BluePill/FeedForwardControl/.pio/build/bluepill_f103c8/firmware.elf",
+            "executable": "/home/fizzer/PucksInDeep/BluePill/FeedForwardControl/.pio/build/bluepill_f103c8/firmware.elf",
             "projectEnvName": "bluepill_f103c8",
-            "toolchainBinDir": "/Users/gabrielrobinson-leith/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "/home/fizzer/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/Users/gabrielrobinson-leith/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd",
+            "svdPath": "/home/fizzer/.platformio/platforms/ststm32/misc/svd/STM32F103xx.svd",
             "loadMode": "manual"
         }
     ]

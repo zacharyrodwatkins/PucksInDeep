@@ -64,7 +64,6 @@ class MalletController {
 
         float start_angles[2]= {0,0};
         float xy[2] = {0,0};
-        float start_time;
         float desired_xy[2];
         float desired_velocity[2];
         float desired_acc[2];
@@ -116,6 +115,7 @@ class MalletController {
         void update_coeffs(float curr_xy[], float curr_vel[], float curr_acc[], 
             float final_xy[], float final_vel[], float final_acc[], 
             float T, float x_coeffs[], float y_coeffs[]);
+        float start_time=0;
 
 
     public:

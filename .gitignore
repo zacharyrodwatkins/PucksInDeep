@@ -3,3 +3,7 @@ rosHockey/install
 rosHockey/log
 rosHockey/*/resource
 *.ini
+__pycache__
+*.pyc
+*/.vscode
+*/.pio

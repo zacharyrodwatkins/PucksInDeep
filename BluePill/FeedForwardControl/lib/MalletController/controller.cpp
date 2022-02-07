@@ -140,6 +140,7 @@ void MalletController::update_velocity(float xy[2], float vel[2], float xy_hist[
 }
 
 bool MalletController::update(){
+
   float time_on_path = 1.0*micros()*1e-6-start_time;
   for(int i=window-1;i>0;i--){
     time_hist[i] = time_hist[i-1];
@@ -205,7 +206,7 @@ void MalletController::update_coeffs(float curr_xy[2], float curr_vel[2], float 
 }
 
 void MalletController::setPath(float final_xy[], float final_vel[], float final_acc[], float deltaT, float current_time){
-  start_time = current_time*1e6;
+  this->start_time = current_time*1e6;
   if (current_time > time_step) {
     desired_acc[0] = 0;
     desired_acc[1] = 0;
@@ -214,7 +215,7 @@ void MalletController::setPath(float final_xy[], float final_vel[], float final_
   }
   update_coeffs(xy, current_velocity, desired_acc, final_xy, final_vel, final_acc, deltaT, x_coeffs, y_coeffs);
   
-  time_step= deltaT;
+  this->time_step = deltaT;
 } 
 
 

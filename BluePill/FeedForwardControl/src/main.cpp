@@ -10,7 +10,8 @@
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
 
-int motor_v = 23.6;
+float motor_v = 23.6;
+int start_time;
 
 MalletController controller;
 GantryModel mod;
@@ -19,9 +20,6 @@ HardwareSerial Serial2(PA3, PA2);
 
 RoboClaw roboclaw(&Serial2, 460800);
 RoboClaw* roboclaw_p = &roboclaw;
-
-int start_time;
-float path_time;
 
 
 void zero();
@@ -52,10 +50,6 @@ void setup(){
     controller.start_angles[1] =  0.0;
     controller.readAngle(controller.start_angles);
     delay(100); 
-
-
-    
-    start_time = micros();
 
 }
 
@@ -107,7 +101,9 @@ void loop(){
       float finalAcc[2] = {x_coefs[2], y_coefs[2]};
       float path_time = x_coefs[3]/1000.0;
 
-      start_time = micros();
+      int start_time = micros();
+
+      // path_time should be in seconds, start_time should be in seconds
       controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
       mod.set_coeffs(controller.x_coeffs, controller.y_coeffs);
     }
@@ -144,8 +140,7 @@ if ((millis() - prev_write_time) > 500) {
     send_to_pi[3] = controller.current_velocity[1];  // y velocity
     send_to_pi[4] = (float) total_effort[0]; // motor1 effort
     send_to_pi[5] = (float) total_effort[1]; // motor2 effort
-    send_to_pi[6] = (float) time_s*1e3; //time in seconds
-    
+    send_to_pi[6] = (float) time_s*1e3; //time in milliseconds
 
     uint8_t msg[SEND_SIZE];
     memcpy(&msg, &send_to_pi, SEND_SIZE);
