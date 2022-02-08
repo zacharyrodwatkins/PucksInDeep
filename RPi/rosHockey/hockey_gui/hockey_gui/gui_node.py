@@ -42,5 +42,5 @@ class gui_node(Node):
         msg.vx = vx/10
         msg.vy = vy/10
         msg.ax = ax/10
-        msg.t = t*1000
+        msg.t = t
         self.path_publisher.publish(msg)

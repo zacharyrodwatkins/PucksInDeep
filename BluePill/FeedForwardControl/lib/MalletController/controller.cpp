@@ -51,7 +51,6 @@ void MalletController::update_xy(){
 
 void MalletController::write_to_motor(uint8_t address, int val){
   if (val<0){
-    (*roboclaw_p).ForwardM1(address ,(uint8_t) val);
     val = MAX(val,-127);
     (*roboclaw_p).BackwardM1(address, (uint8_t) abs(val));
   }
@@ -162,7 +161,7 @@ bool MalletController::update(){
 
   loop_counter++;
 
-  if (time_on_path>time_step){
+  if (time_on_path>=this->time_step){
     return true;
   }
 
@@ -206,13 +205,15 @@ void MalletController::update_coeffs(float curr_xy[2], float curr_vel[2], float 
 }
 
 void MalletController::setPath(float final_xy[], float final_vel[], float final_acc[], float deltaT, float current_time){
-  this->start_time = current_time*1e6;
   if (current_time > time_step) {
     desired_acc[0] = 0;
     desired_acc[1] = 0;
   } else {
     update_desired_path_acc(current_time, x_coeffs, y_coeffs , desired_acc);
   }
+
+  this->start_time = current_time;
+
   update_coeffs(xy, current_velocity, desired_acc, final_xy, final_vel, final_acc, deltaT, x_coeffs, y_coeffs);
   
   this->time_step = deltaT;

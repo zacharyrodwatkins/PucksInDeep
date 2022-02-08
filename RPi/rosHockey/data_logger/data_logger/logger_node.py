@@ -36,8 +36,8 @@ class logger_node(Node):
     def mallet_callback(self, msg):
         self.x = msg.x*10
         self.y = msg.y*10
-        self.v_x = msg.v_x*10
-        self.v_y = msg.v_y*10
+        self.v_x = msg.vx*10
+        self.v_y = msg.vy*10
 
         # BP_rx node writes mallet first, then motor status, but I'm not sure how ROS's 
         # Synching works, so some manual synching might be necessary

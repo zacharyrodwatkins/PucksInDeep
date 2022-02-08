@@ -11,7 +11,7 @@
 
 
 float motor_v = 23.6;
-int start_time;
+int start_time = 0;
 
 MalletController controller;
 GantryModel mod;
@@ -85,6 +85,7 @@ void zero() {
   controller.start_angles[0] =  0.0;
   controller.start_angles[1] =  0.0;
   controller.readAngle(controller.start_angles);
+  start_time = micros();
 }
 
 
@@ -99,9 +100,9 @@ void loop(){
       float finalXY[2] = {x_coefs[0],y_coefs[0]};
       float finalVel[2]   = {x_coefs[1], y_coefs[1]};
       float finalAcc[2] = {x_coefs[2], y_coefs[2]};
-      float path_time = x_coefs[3]/1000.0;
+      float path_time = x_coefs[3];
 
-      int start_time = micros();
+      start_time = micros();
 
       // path_time should be in seconds, start_time should be in seconds
       controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
@@ -109,12 +110,9 @@ void loop(){
     }
   }
 
-    float* effort;      
-    float time_s =  (1.0*micros() - start_time)/1e6;
-    effort = mod.get_effort(time_s);
-    effort[0] = (effort[0]/motor_v)*128;
-    effort[1] = (effort[1]/motor_v)*128;
-
+  float* effort;      
+  float time_s =  (1.0*micros() - start_time)/1e6;
+    
 
 
   if (controller.update()){
@@ -125,14 +123,17 @@ void loop(){
   }
 
   else {
-    total_effort[0] = controller.effort_m1+effort[0];
-    total_effort[1] = controller.effort_m2+effort[1];
+    effort = mod.get_effort(time_s);
+    effort[0] = (effort[0]/motor_v)*128;
+    effort[1] = (effort[1]/motor_v)*128;
+    total_effort[0] = effort[0] + controller.effort_m1;
+    total_effort[1] = effort[1] + controller.effort_m2;
     write_to_motor(MOTOR_LEFT, total_effort[0]);
     write_to_motor(MOTOR_RIGHT, total_effort[1]);
   }
 
   
-if ((millis() - prev_write_time) > 500) {
+  if ((millis() - prev_write_time) > 100) {
     prev_write_time = millis();
     send_to_pi[0] = controller.xy[0];  // x position
     send_to_pi[1] = controller.xy[1];  // y position
@@ -140,7 +141,7 @@ if ((millis() - prev_write_time) > 500) {
     send_to_pi[3] = controller.current_velocity[1];  // y velocity
     send_to_pi[4] = (float) total_effort[0]; // motor1 effort
     send_to_pi[5] = (float) total_effort[1]; // motor2 effort
-    send_to_pi[6] = (float) time_s*1e3; //time in milliseconds
+    send_to_pi[6] = (float) time_s; //time in milliseconds
 
     uint8_t msg[SEND_SIZE];
     memcpy(&msg, &send_to_pi, SEND_SIZE);

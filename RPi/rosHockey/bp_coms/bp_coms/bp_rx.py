@@ -9,7 +9,7 @@ from hockey_msgs.msg import MalletPos
 from hockey_msgs.msg import MotorStatus
 NUM_FLOATS = 7
 NUM_BYTES = 4*NUM_FLOATS
-TIMER_PERIOD = 5/1000
+TIMER_PERIOD = 1/10000
 
 
 class bp_rx(Node):
@@ -32,7 +32,7 @@ class bp_rx(Node):
 
             
     def get_bp_data(self):
-        if (self.ser.in_waiting == NUM_BYTES):
+        if (self.ser.in_waiting >= NUM_BYTES):
             mallet_status = self.ser.read(NUM_BYTES)
             floats = struct.unpack('fffffff', mallet_status)
             x,y,vx,vy,m1,m2,t = floats
