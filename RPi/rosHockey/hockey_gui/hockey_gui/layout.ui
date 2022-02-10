@@ -137,26 +137,26 @@
     <property name="geometry">
      <rect>
       <x>232</x>
-      <y>170</y>
+      <y>150</y>
       <width>111</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Generate Path</string>
+     <string>&amp;Generate Path</string>
     </property>
    </widget>
    <widget class="QPushButton" name="send_button">
     <property name="geometry">
      <rect>
       <x>362</x>
-      <y>170</y>
+      <y>150</y>
       <width>101</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Send Path</string>
+     <string>&amp;Send Path</string>
     </property>
    </widget>
    <widget class="MplWidget" name="table_plot" native="true">
@@ -167,6 +167,19 @@
       <width>201</width>
       <height>211</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="random_button">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>190</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Rand</string>
     </property>
    </widget>
   </widget>

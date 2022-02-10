@@ -29,8 +29,11 @@ class bp_tx(Node):
         y_params = (NextPath.y, NextPath.vy, NextPath.ay, NextPath.t)
         msg_x = (*x_params, sum(x_params))
         msg_y = (*y_params, sum(y_params))
+        # test_list = msg_x + 
         print (msg_x, msg_y)
-        self.ser.write(struct.pack('ffffffffff', *msg_x, *msg_y))
+
+        # send = [0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0]
+        print(self.ser.write(struct.pack('ffffffffff', *msg_x, *msg_y)))
     
 
     
