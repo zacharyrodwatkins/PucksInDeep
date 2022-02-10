@@ -24,7 +24,7 @@ class gui_node(Node):
             self.motor_callback,
             1)
 
-        self.path_publisher = self.create_publisher(NextPath, 'PATH', 10)
+        self.path_publisher = self.create_publisher(NextPath, 'PATH', 1)
 
 
     def mallet_callback(self, msg):
@@ -42,5 +42,5 @@ class gui_node(Node):
         msg.vx = vx/10
         msg.vy = vy/10
         msg.ax = ax/10
-        msg.t = t*1000
+        msg.t = t
         self.path_publisher.publish(msg)

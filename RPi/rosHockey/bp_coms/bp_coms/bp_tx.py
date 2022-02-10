@@ -1,5 +1,3 @@
-from os import read
-from xmlrpc.client import Server
 import serial
 from serial.serialutil import SerialException
 import time
@@ -19,7 +17,6 @@ class bp_tx(Node):
         for i in range(3):
             try:
                 self.ser = serial.Serial('/dev/ttyUSB{}'.format(i),1000000, timeout=0.01)
-                self.ser.flush()
                 break
             except SerialException:
                 pass
@@ -28,12 +25,15 @@ class bp_tx(Node):
 
             
     def send_next_path(self, NextPath):
-        print("hello from next path")
         x_params = (NextPath.x, NextPath.vx, NextPath.ax, NextPath.t)
-        y_params = (NextPath.y, NextPath.vy, NextPath.ay, NextPath.y)
+        y_params = (NextPath.y, NextPath.vy, NextPath.ay, NextPath.t)
         msg_x = (*x_params, sum(x_params))
         msg_y = (*y_params, sum(y_params))
-        self.ser.write(struct.pack('ffffffffff', *msg_x, *msg_y))
+        # test_list = msg_x + 
+        print (msg_x, msg_y)
+
+        # send = [0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0]
+        print(self.ser.write(struct.pack('ffffffffff', *msg_x, *msg_y)))
     
 
     

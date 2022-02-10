@@ -1,10 +1,21 @@
 #include <pi_coms.h>
 
-void coms_init() {
-  Serial.begin(1000000);
-  Serial.setTimeout(1);
-  delay(100);
+// void coms_init() {
+//   Serial.begin(1000000);
+//   Serial.setTimeout(1);
+//   delay(100);
+// }
+
+//stores as a float
+void read_shorts_from_pi(uint8_t *buffer, float *float_vals, const size_t num_vals){
+    short shorts[num_vals];
+    for (int i = 0; i < num_vals; i++) {
+      short s;
+      memcpy(&s, &(buffer[__SIZEOF_SHORT__*i]), __SIZEOF_SHORT__);
+      float_vals[i] = (float) s;
+  }
 }
+
 
 bool read_from_pi(uint8_t *buffer, float *float_values) {
   // start = micros();
@@ -35,7 +46,7 @@ bool read_from_pi_pid(uint8_t *buffer, float *float_values) {
     sum = sum + f;
   }
   memcpy(&f, &(buffer[12]), 4);
-  if (abs(sum-f) < 0.001) {
+  if (abs(sum-f) < 0.1) {
     return true;
   }
   return false;

@@ -31,4 +31,5 @@ def gen_path(x_start, y_start, x_end, y_end, time):
     y = np.matmul(vander(t,6),y_coeffs)
     x_coeffs = get_coeffs(x_start,x_end, 1)
     x = np.matmul(vander(t,6),x_coeffs)
+    print("Generated path")
     return (x, y, t)

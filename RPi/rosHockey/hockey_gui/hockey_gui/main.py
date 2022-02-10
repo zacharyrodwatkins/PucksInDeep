@@ -6,6 +6,7 @@ import sys
 from gui_node import gui_node
 import rclpy
 import os
+import random
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -24,6 +25,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.gen_button.clicked.connect(self.table_plot.canvas.generate_path)
         self.table_plot.canvas.gui_node = self.gui_node
         self.send_button.clicked.connect(self.table_plot.canvas.send_path)
+        self.random_button.clicked.connect(self.rand_send)
 
         # Timer configuration
         self.timer = QTimer()
@@ -34,6 +36,13 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_fin_x_vel(self, value):
         self.table_plot.canvas.final_x_vel = value
         print(self.table_plot.final_x_v)
+
+    def rand_send(self):
+        for i in range(100):
+            vals =  [random.random() for i in range(7)]
+            print("send {}".format(i))
+            self.gui_node.send_path(*vals)
+
 
     def update_fin_y_vel(self, value):
         self.table_plot.canvas.final_y_vel = value

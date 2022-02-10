@@ -1,30 +1,32 @@
-from os import read
+
 import serial
 from serial.serialutil import SerialException
 import time
 import struct
+import numpy as np
 import rclpy
 from rclpy.node import Node
-from hockey_msgs.msg import MalletPos
-from hockey_msgs.msg import MotorStatus
+from hockey_msgs.msg import NextPath, MotorStatus, MalletPos
+TIMER_PERIOD = 1/1000
 NUM_FLOATS = 7
 NUM_BYTES = 4*NUM_FLOATS
-TIMER_PERIOD = 1/100
-print("Timer period: {}".format(TIMER_PERIOD))
 
 
-class bp_rx(Node):
+class bp_coms(Node):
 
     def __init__(self):
-        super().__init__('bp_rx')
+        super().__init__('bp_coms')
+        self.nextpath_subscription = self.create_subscription(NextPath, 'PATH', self.send_next_path, 100)
+        self.ser = None
+
         self.mallet_publisher = self.create_publisher(MalletPos, 'MALLET', 10)
         self.motor_publisher = self.create_publisher(MotorStatus, 'MOTOR', 10)
         self.time = self.create_timer(TIMER_PERIOD, self.get_bp_data)
-        self.ser = None
+
+
         for i in range(3):
             try:
                 self.ser = serial.Serial('/dev/ttyUSB{}'.format(i),1000000, timeout=0.01)
-                self.ser.flush()
                 break
             except SerialException:
                 pass
@@ -32,6 +34,18 @@ class bp_rx(Node):
             raise SerialException("Could not connect to bluepill")
 
             
+    def send_next_path(self, NextPath):
+        x_params = (NextPath.x, NextPath.vx, NextPath.ax, NextPath.t)
+        y_params = (NextPath.y, NextPath.vy, NextPath.ay, NextPath.t)
+        msg_x = (*x_params, sum(x_params))
+        msg_y = (*y_params, sum(y_params))
+        # test_list = msg_x + 
+        print (msg_x, msg_y)
+
+        # send = [0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0]
+        print(self.ser.write(struct.pack('ffffffffff', *msg_x, *msg_y)))
+
+                    
     def get_bp_data(self):
         if (self.ser.in_waiting >= NUM_BYTES):
             mallet_status = self.ser.read(NUM_BYTES)
@@ -49,15 +63,14 @@ class bp_rx(Node):
             mallet_msg.time_on_path =  t
             self.mallet_publisher.publish(mallet_msg)
             self.motor_publisher.publish(motor_msg)
-    
 
-    
+
 def main(args=None):
     rclpy.init(args=args)
-    rx = bp_rx()
-    rclpy.spin(rx)
+    coms = bp_coms()
+    rclpy.spin(coms)
 
-    rx.destroy_node()
+    coms.destroy_node()
     rclpy.shutdown()
 
 

@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'qt_gui'
+package_name = 'hockey_testing'
 
 setup(
     name=package_name,
