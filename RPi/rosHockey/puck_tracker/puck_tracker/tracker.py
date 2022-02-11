@@ -18,12 +18,16 @@ class PuckTracker(Node):
         self.puck_pos = [None, None]
         self.puck_vel = [None, None]
 
-        self.vid = cv2.VideoCapture('/dev/video14')
+        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.2:1.0-video-index0')
         self.frame = self.vid.read()[1]
-        self.bbox_list = []
-        self.decoded_qrs = ['']
+        self.w = self.frame.shape[0]
+        self.h = self.frame.shape[1]
+        self.left = self.frame[0:int(self.w/2)]
+        self.right = self.frame[int(self.w/2):-1]
+        self.bboxes = {"tr":[],"tl":[],"bl":[],"br":[]}
+        # self.bbox_list = [[],[],[],[]]
+        self.decoded_qrs = ['','','','']
         self.qrDecoder = cv2.QRCodeDetector()
-        self.show_frame = True
 
         self.initialize()
         # # Puck status updater and display
@@ -42,44 +46,61 @@ class PuckTracker(Node):
         # self.img_array = []
     
     def initialize(self):
-        while ('' in self.decoded_qrs) or (len(self.bbox_list) < 4):
+        while not (self.decoded_qrs.count('') == 0):
             self.frame = self.vid.read()[1]
+
             # self.frame = cv2.cvtColor(self.frame, cv2.COLOR_BGGR2GRAY)
             # self.frame = cv2.threshold(self.frame, 20, 255, cv2.THRESH_BINARY)
-        
+
             self.get_QR_boxes()
-            print(self.bbox_list)
+            print(self.bboxes)
             self.display()
         
-        print(self.decoded_qrs)
+        # Used decoded QR text to identify each box as top left, bottom left, etc.
         # for i in range(len(self.decoded_qrs)):
         #     if self.decoded_qrs[i] == self.TR_code:
         #         tr_box = self.bbox_list[i]
-        #     else:
-        #         top_bbox = self.bbox_list[1]                
-        #         bottom_bbox = self.bbox_list[0]
+        #     elif self.decoded_qrs[i] == self.TL_code:
+        #         tl_box = self.bbox_list[i]
+        #     elif self.decoded_qrs[i] == self.BR_code:
+        #         br_box = self.bbox_list[i]
+        #     elif self.decoded_qrs[i] == self.BL_code:
+        #         bl_box = self.bbox_list[i]
         
-          
+        # Get outermost corners from QR bboxes
+        outer_corners = []
+        for box in self.bboxes.values():
+            max_cent_dist = 0
+            print("new box")
+            for corner in box:
+                dist_from_center = ((corner[0]-self.h/2)**2 + (corner[1]-self.w/2)**2)**(1/2)
+                print("center: {}    corner: {}     dist: {}".format([self.h/2, self.w/2], corner, dist_from_center))
+                if dist_from_center > max_cent_dist:
+                    max_cent_dist = dist_from_center
+                    out = corner
+            outer_corners.append(out)
+
+        cv2.polylines(self.frame, np.array([outer_corners], np.int32), True, (255,0,0), 3)
+        self.display()
+        
+
 
     def display(self):
         # Put QR bboxes in frame
-        if not (len(self.bbox_list) == 0):
-            n = len(self.bbox_list)
-            print("found {} codes".format(n))
-            for i in range(n):  # For every bounding box
-                # print("bbox: {}, len: {}".format(self.bbox[i], len(self.bbox[i])))
-                for j in range(len(self.bbox_list[i])):  # For every edge in the bounding box
-                    # print("P1:{}".format(tuple(self.bbox[i][j])))
-                    # print("P2:{}".format(tuple(self.bbox[i][(j+1) % len(self.bbox[i])])))
-                    cv2.line(self.frame, tuple([int(x) for x in self.bbox_list[i][j]]), tuple([int(x) for x in self.bbox_list[i][(j+1) % len(self.bbox_list[i])]]), (255,0,0), 3)
+        # if not (len(self.bbox_list) == 0):
+        print("decoded: {}".format(self.decoded_qrs))
+        n = 4-self.decoded_qrs.count('')
+        print("found {} codes".format(n))
+        for bbox in self.bboxes.values():  # For every bounding box
+            if bbox is not None:
+                cv2.polylines(self.frame, np.array([bbox], np.int32), True, (255,0,0), 3)
+                # for j in range(len(bbox)):  # For every corner in the bounding box
+                #     cv2.line(self.frame, tuple([int(x) for x in bbox[j]]), tuple([int(x) for x in bbox[(j+1) % len(bbox)]]), (255,0,0), 3)
 
-        # Put puck pos, vel and center dot in frame
         if (self.puck_vel[0] is not None):
             self.frame = cv2.putText(self.frame, "x: {} y: {}".format(self.puck_pos[0], self.puck_pos[1]), (0,10), cv2.FONT_HERSHEY_SIMPLEX, .4, (0,0,0), 1, cv2.LINE_AA)
             self.frame = cv2.putText(self.frame, "x_vel: {} y_vel: {}".format(self.puck_vel[0], self.puck_vel[1]), (0,30), cv2.FONT_HERSHEY_SIMPLEX, .4, (0,0,0), 1, cv2.LINE_AA)
             cv2.circle(self.frame, (int(self.puck_pos[0]), int(self.puck_pos[1])), 5, (255, 255, 255), -1)
-
-        # self.img_array.append(frame)
 
         cv2.imshow('frame', self.frame)
 
@@ -129,12 +150,61 @@ class PuckTracker(Node):
         self.last_frame_time = time_stamp
 
     def get_QR_boxes(self):
-        success, decoded, bboxes, rectified_images = self.qrDecoder.detectAndDecodeMulti(self.frame)
-        if success:
-            self.decoded_qrs = decoded
-            self.bbox_list = bboxes
-        else:
-            print("QR Codes not detected")
+        # left = self.frame[0:int(self.w/2)]
+        # right = self.frame[int(self.w/2):]
+        bottom_left = self.frame[0:int(self.w/2),0:int(self.h/2)]
+        top_left = self.frame[0:int(self.w/2),int(self.h/2):]
+        top_right = self.frame[int(self.w/2):,int(self.h/2):]
+        bottom_right = self.frame[int(self.w/2):,0:int(self.h/2)]
+
+        decoded_bl, bbox_bl, rectified_image_bl = self.qrDecoder.detectAndDecode(bottom_left)
+        try:
+            self.bboxes["bl"] = bbox_bl[0]
+        except TypeError:
+            self.bboxes["bl"] = None
+        self.decoded_qrs[0] = decoded_bl
+
+        decoded_tl, bbox_tl, rectified_image_tl = self.qrDecoder.detectAndDecode(top_left)
+        try:
+            self.bboxes["tl"] = [[corner[0]+int(self.h/2), corner[1]] for corner in bbox_tl[0]]
+        except TypeError:
+            self.bboxes["tl"] = None
+        self.decoded_qrs[1] = decoded_tl
+
+        decoded_tr, bbox_tr, rectified_image_tr = self.qrDecoder.detectAndDecode(top_right)
+        try:
+            self.bboxes["tr"] = [[edge[0]+int(self.h/2), edge[1]+int(self.w/2)] for edge in bbox_tr[0]]
+        except TypeError:
+            self.bboxes["tr"] = None
+        self.decoded_qrs[2] = decoded_tr
+
+        decoded_br, bbox_br, rectified_image_br = self.qrDecoder.detectAndDecode(bottom_right)
+        try:
+            self.bboxes["br"] = [[edge[0], edge[1]+int(self.w/2)] for edge in bbox_br[0]]
+        except TypeError:
+            self.bboxes["br"] = None
+        self.decoded_qrs[3] = decoded_br
+            # print(self.qrDecoder.decodeMulti(left, bboxes_left))
+            # self.decoded_qrs[0:2] = self.qrDecoder.decodeMulti(left, bboxes_left)[1]
+            # print("left decoded: {}".format(self.decoded_qrs[0:2]))
+            # print("top left decoded: {}".format(decoded_tl))
+            # self.decoded_qrs[0] = decoded_tl
+            # self.bbox_list[0] = bboxes_tl
+        # else:
+        #     self.decoded_qrs[0:2] = ['','']
+        #     self.bbox_list[0:2] = [[],[]]
+        #     print("Could not detect both left QR codes")
+
+        # success_right, decoded_right, bboxes_right, rectified_images_right = self.qrDecoder.detectAndDecodeMulti(right)
+        # if success_right and (len(bboxes_right) == 2):
+        #     print("right decoded: {}".format(decoded_right))
+        #     bboxes_right = np.array([[[edge[0], edge[1]+int(self.w/2)] for edge in box] for box in bboxes_right], np.float32)
+        #     self.decoded_qrs[2:-1] = decoded_right
+        #     self.bbox_list[2:-1] = bboxes_right
+        # else:
+        #     self.decoded_qrs[2:-1] = ['','']
+        #     self.bbox_list[2:-1] = [[],[]]
+        #     print("Could not detect both right QR codes")
 
     def filter_for_puck(self):
         # Convert to HSV and filter to binary image for puck isolation
