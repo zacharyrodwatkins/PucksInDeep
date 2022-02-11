@@ -1,4 +1,5 @@
 from decimal import DivisionByZero
+import queue
 import cv2
 import rclpy
 import time
@@ -6,15 +7,12 @@ from rclpy.node import Node
 from hockey_msgs.msg import PuckStatus
 import keyboard
 import numpy as np
+import pickle
 
 class PuckTracker(Node):
 
     def __init__(self):
         super().__init__('puck_tracker')
-        self.TL_code = "f u ashley"
-        self.TR_code = "lick by butt"
-        self.BL_code = "bush did 9/11"
-        self.BR_code = "miti 4 president"
         self.puck_pos = [None, None]
         self.puck_vel = [None, None]
 
@@ -22,23 +20,25 @@ class PuckTracker(Node):
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
         self.h = self.frame.shape[1]
-        self.left = self.frame[0:int(self.w/2)]
-        self.right = self.frame[int(self.w/2):-1]
-        self.bboxes = {"tr":[],"tl":[],"bl":[],"br":[]}
-        # self.bbox_list = [[],[],[],[]]
-        self.decoded_qrs = ['','','','']
-        self.qrDecoder = cv2.QRCodeDetector()
-
+        
+        # Initialization parameters for perspective transform
+        self.y_dist = 40+13.0/16
+        self.x_dist = 30+13.0/16
+        self.des_image_shape = [int(1000*self.x_dist/self.y_dist), 1000]
+        self.pixels_to_cm = self.y_dist*2.54/1000
+        self.from_corners = []
+        self.to_corners = [[0,self.des_image_shape[1]], [0,0], [self.des_image_shape[0],0], self.des_image_shape]
         self.initialize()
-        # # Puck status updater and display
-        # self.frame_rate = 30
-        # self.pos_update_period = 1/self.frame_rate
-        # self.last_frame_time = time.time()
-        # self.pos_timer = self.create_timer(self.pos_update_period, self.update_puck_status)
-        # self.QR_timer = self.create_timer(self.pos_update_period, self.get_QR_boxes)
-        # self.disp_timer = self.create_timer(self.pos_update_period, self.display)
 
-        # # Puck status publisher
+        # Puck status updater and display
+        self.frame_rate = 30
+        self.pos_update_period = 1/self.frame_rate
+        self.last_frame_time = time.time()
+        self.show_frame = True
+        self.pos_timer = self.create_timer(self.pos_update_period, self.update_puck_status)
+        self.disp_timer = self.create_timer(self.pos_update_period, self.display)
+
+        # # Puck status publisher(self.frame.shape[1], self.frame.shape[0]
         # self.publisher_ = self.create_publisher(PuckStatus, 'puck_status', 10)
         # publisher_period = 0.01  # seconds
         # self.pub_timer = self.create_timer(publisher_period, self.publish_callback)
@@ -46,74 +46,49 @@ class PuckTracker(Node):
         # self.img_array = []
     
     def initialize(self):
-        while not (self.decoded_qrs.count('') == 0):
+        recal = input("Recalibrate camera? (Y/n)\n")
+
+        if recal in ['y', 'Y', '']:
             self.frame = self.vid.read()[1]
+            cv2.imshow("initialization", self.frame)
+            cv2.setMouseCallback("initialization", self.get_corners)
+            while (len(self.from_corners) < 4):
+                cv2.waitKey(1)
+            cv2.destroyWindow("initialization")
+            with open('camera_calib.pkl', 'wb') as f:
+                pickle.dump(self.from_corners, f)
 
-            # self.frame = cv2.cvtColor(self.frame, cv2.COLOR_BGGR2GRAY)
-            # self.frame = cv2.threshold(self.frame, 20, 255, cv2.THRESH_BINARY)
+        else:
+            with open('camera_calib.pkl', 'rb') as f:
+                self.from_corners = pickle.load(f)
+            
+        
+        self.transform_matrix = cv2.getPerspectiveTransform(np.float32(self.from_corners), np.float32(self.to_corners))
 
-            self.get_QR_boxes()
-            print(self.bboxes)
-            self.display()
-        
-        # Used decoded QR text to identify each box as top left, bottom left, etc.
-        # for i in range(len(self.decoded_qrs)):
-        #     if self.decoded_qrs[i] == self.TR_code:
-        #         tr_box = self.bbox_list[i]
-        #     elif self.decoded_qrs[i] == self.TL_code:
-        #         tl_box = self.bbox_list[i]
-        #     elif self.decoded_qrs[i] == self.BR_code:
-        #         br_box = self.bbox_list[i]
-        #     elif self.decoded_qrs[i] == self.BL_code:
-        #         bl_box = self.bbox_list[i]
-        
-        # Get outermost corners from QR bboxes
-        outer_corners = []
-        for box in self.bboxes.values():
-            max_cent_dist = 0
-            print("new box")
-            for corner in box:
-                dist_from_center = ((corner[0]-self.h/2)**2 + (corner[1]-self.w/2)**2)**(1/2)
-                print("center: {}    corner: {}     dist: {}".format([self.h/2, self.w/2], corner, dist_from_center))
-                if dist_from_center > max_cent_dist:
-                    max_cent_dist = dist_from_center
-                    out = corner
-            outer_corners.append(out)
-
-        cv2.polylines(self.frame, np.array([outer_corners], np.int32), True, (255,0,0), 3)
-        self.display()
-        
+    def get_corners(self, event, x, y, flags, param):
+        if (event == cv2.EVENT_LBUTTONDOWN):
+            print(x,y)
+            self.from_corners.append([x,y])
 
 
     def display(self):
-        # Put QR bboxes in frame
-        # if not (len(self.bbox_list) == 0):
-        print("decoded: {}".format(self.decoded_qrs))
-        n = 4-self.decoded_qrs.count('')
-        print("found {} codes".format(n))
-        for bbox in self.bboxes.values():  # For every bounding box
-            if bbox is not None:
-                cv2.polylines(self.frame, np.array([bbox], np.int32), True, (255,0,0), 3)
-                # for j in range(len(bbox)):  # For every corner in the bounding box
-                #     cv2.line(self.frame, tuple([int(x) for x in bbox[j]]), tuple([int(x) for x in bbox[(j+1) % len(bbox)]]), (255,0,0), 3)
-
         if (self.puck_vel[0] is not None):
             self.frame = cv2.putText(self.frame, "x: {} y: {}".format(self.puck_pos[0], self.puck_pos[1]), (0,10), cv2.FONT_HERSHEY_SIMPLEX, .4, (0,0,0), 1, cv2.LINE_AA)
             self.frame = cv2.putText(self.frame, "x_vel: {} y_vel: {}".format(self.puck_vel[0], self.puck_vel[1]), (0,30), cv2.FONT_HERSHEY_SIMPLEX, .4, (0,0,0), 1, cv2.LINE_AA)
-            cv2.circle(self.frame, (int(self.puck_pos[0]), int(self.puck_pos[1])), 5, (255, 255, 255), -1)
+            cv2.circle(self.frame, (int(self.puck_pos[0]/self.pixels_to_cm), int(self.puck_pos[1]/self.pixels_to_cm)), 5, (255, 255, 255), -1)
 
-        cv2.imshow('frame', self.frame)
+        # cv2.imshow('frame', self.frame)
 
         # If you hit q, stop displaying frame
         # If you hit d, resume displaying frame
         if (cv2.waitKey(1) & 0xFF) == ord('q'):
             self.show_frame = False
             cv2.destroyWindow('frame')
-        # elif keyboard.is_pressed('d'):
+        # elif cv2.waitKey(1) & 0xFF == ord('d'):
         #     self.show_frame = True
 
-        # if (self.show_frame):
-        #     cv2.imshow('frame', self.frame)
+        if (self.show_frame):
+            cv2.imshow('frame', self.frame)
     
     def publish_callback(self):
         if self.puck_vel[0] is not None:
@@ -128,6 +103,7 @@ class PuckTracker(Node):
     def update_puck_status(self):
         # Capture the video frame and record time of frame
         ret, self.frame = self.vid.read()
+        self.frame = cv2.warpPerspective(self.frame, self.transform_matrix, self.des_image_shape)
         time_stamp = time.time()
 
         bin_img = self.filter_for_puck()
@@ -135,8 +111,8 @@ class PuckTracker(Node):
         # Use moment to find center of puck from binary image
         try:
             M = cv2.moments(bin_img)
-            cX = float(M["m10"] / M["m00"])
-            cY = float(M["m01"] / M["m00"])
+            cX = float(M["m10"] / M["m00"]) * self.pixels_to_cm
+            cY = float(M["m01"] / M["m00"]) * self.pixels_to_cm
         except ZeroDivisionError:
             print("lost puck")
             cX = self.puck_pos[0]
@@ -148,63 +124,6 @@ class PuckTracker(Node):
 
         self.puck_pos = [cX, cY]
         self.last_frame_time = time_stamp
-
-    def get_QR_boxes(self):
-        # left = self.frame[0:int(self.w/2)]
-        # right = self.frame[int(self.w/2):]
-        bottom_left = self.frame[0:int(self.w/2),0:int(self.h/2)]
-        top_left = self.frame[0:int(self.w/2),int(self.h/2):]
-        top_right = self.frame[int(self.w/2):,int(self.h/2):]
-        bottom_right = self.frame[int(self.w/2):,0:int(self.h/2)]
-
-        decoded_bl, bbox_bl, rectified_image_bl = self.qrDecoder.detectAndDecode(bottom_left)
-        try:
-            self.bboxes["bl"] = bbox_bl[0]
-        except TypeError:
-            self.bboxes["bl"] = None
-        self.decoded_qrs[0] = decoded_bl
-
-        decoded_tl, bbox_tl, rectified_image_tl = self.qrDecoder.detectAndDecode(top_left)
-        try:
-            self.bboxes["tl"] = [[corner[0]+int(self.h/2), corner[1]] for corner in bbox_tl[0]]
-        except TypeError:
-            self.bboxes["tl"] = None
-        self.decoded_qrs[1] = decoded_tl
-
-        decoded_tr, bbox_tr, rectified_image_tr = self.qrDecoder.detectAndDecode(top_right)
-        try:
-            self.bboxes["tr"] = [[edge[0]+int(self.h/2), edge[1]+int(self.w/2)] for edge in bbox_tr[0]]
-        except TypeError:
-            self.bboxes["tr"] = None
-        self.decoded_qrs[2] = decoded_tr
-
-        decoded_br, bbox_br, rectified_image_br = self.qrDecoder.detectAndDecode(bottom_right)
-        try:
-            self.bboxes["br"] = [[edge[0], edge[1]+int(self.w/2)] for edge in bbox_br[0]]
-        except TypeError:
-            self.bboxes["br"] = None
-        self.decoded_qrs[3] = decoded_br
-            # print(self.qrDecoder.decodeMulti(left, bboxes_left))
-            # self.decoded_qrs[0:2] = self.qrDecoder.decodeMulti(left, bboxes_left)[1]
-            # print("left decoded: {}".format(self.decoded_qrs[0:2]))
-            # print("top left decoded: {}".format(decoded_tl))
-            # self.decoded_qrs[0] = decoded_tl
-            # self.bbox_list[0] = bboxes_tl
-        # else:
-        #     self.decoded_qrs[0:2] = ['','']
-        #     self.bbox_list[0:2] = [[],[]]
-        #     print("Could not detect both left QR codes")
-
-        # success_right, decoded_right, bboxes_right, rectified_images_right = self.qrDecoder.detectAndDecodeMulti(right)
-        # if success_right and (len(bboxes_right) == 2):
-        #     print("right decoded: {}".format(decoded_right))
-        #     bboxes_right = np.array([[[edge[0], edge[1]+int(self.w/2)] for edge in box] for box in bboxes_right], np.float32)
-        #     self.decoded_qrs[2:-1] = decoded_right
-        #     self.bbox_list[2:-1] = bboxes_right
-        # else:
-        #     self.decoded_qrs[2:-1] = ['','']
-        #     self.bbox_list[2:-1] = [[],[]]
-        #     print("Could not detect both right QR codes")
 
     def filter_for_puck(self):
         # Convert to HSV and filter to binary image for puck isolation
