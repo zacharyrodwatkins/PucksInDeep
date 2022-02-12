@@ -16,11 +16,6 @@ class PuckTracker(Node):
         self.puck_pos = [None, None]
         self.puck_vel = [None, None]
 
-        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.2:1.0-video-index0')
-        self.frame = self.vid.read()[1]
-        self.w = self.frame.shape[0]
-        self.h = self.frame.shape[1]
-        
         # Initialization parameters for perspective transform
         self.y_dist = 40+13.0/16
         self.x_dist = 30+13.0/16
@@ -28,6 +23,15 @@ class PuckTracker(Node):
         self.pixels_to_cm = self.y_dist*2.54/1000
         self.from_corners = []
         self.to_corners = [[0,self.des_image_shape[1]], [0,0], [self.des_image_shape[0],0], self.des_image_shape]
+
+        # Setup video capture and recording objects
+        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.2:1.0-video-index0')
+        self.vid_out = cv2.VideoWriter('/home/pham/PucksInDeep/RPi/rosHockey/tracker2.avi', cv2.VideoWriter_fourcc(*'MP42'), 30.0, self.des_image_shape)
+        self.frame = self.vid.read()[1]
+        self.w = self.frame.shape[0]
+        self.h = self.frame.shape[1]
+        
+        # Run camera initialization
         self.initialize()
 
         # Puck status updater and display
@@ -46,9 +50,14 @@ class PuckTracker(Node):
         # self.img_array = []
     
     def initialize(self):
-        recal = input("Recalibrate camera? (Y/n)\n")
+        recal = input("Recalibrate camera? (y/N)\n")
+        rec = input("Record video? (y/N)")
+        
+        self.record = False
+        if rec in ['y', 'Y']:
+            self.record = True
 
-        if recal in ['y', 'Y', '']:
+        if recal in ['y', 'Y']:
             self.frame = self.vid.read()[1]
             cv2.imshow("initialization", self.frame)
             cv2.setMouseCallback("initialization", self.get_corners)
@@ -73,8 +82,8 @@ class PuckTracker(Node):
 
     def display(self):
         if (self.puck_vel[0] is not None):
-            self.frame = cv2.putText(self.frame, "x: {} y: {}".format(self.puck_pos[0], self.puck_pos[1]), (0,10), cv2.FONT_HERSHEY_SIMPLEX, .4, (0,0,0), 1, cv2.LINE_AA)
-            self.frame = cv2.putText(self.frame, "x_vel: {} y_vel: {}".format(self.puck_vel[0], self.puck_vel[1]), (0,30), cv2.FONT_HERSHEY_SIMPLEX, .4, (0,0,0), 1, cv2.LINE_AA)
+            self.frame = cv2.putText(self.frame, "x: {:.2f} y: {:.2f}".format(self.puck_pos[0], self.puck_pos[1]), (0,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
+            self.frame = cv2.putText(self.frame, "x_vel: {:.2f} y_vel: {:.2f}".format(self.puck_vel[0], self.puck_vel[1]), (0,60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
             cv2.circle(self.frame, (int(self.puck_pos[0]/self.pixels_to_cm), int(self.puck_pos[1]/self.pixels_to_cm)), 5, (255, 255, 255), -1)
 
         # cv2.imshow('frame', self.frame)
@@ -83,11 +92,14 @@ class PuckTracker(Node):
         # If you hit d, resume displaying frame
         if (cv2.waitKey(1) & 0xFF) == ord('q'):
             self.show_frame = False
+            self.vid_out.release()
             cv2.destroyWindow('frame')
         # elif cv2.waitKey(1) & 0xFF == ord('d'):
         #     self.show_frame = True
 
         if (self.show_frame):
+            if self.record:
+                self.vid_out.write(self.frame)
             cv2.imshow('frame', self.frame)
     
     def publish_callback(self):
@@ -147,7 +159,9 @@ def main(args=None):
     try:
         rclpy.spin(puck_tracker)
     except KeyboardInterrupt:
-        print("saving video")
+        print("closing video writer")
+        # puck_tracker.vid.release()
+
         # i = 0
         # for f in puck_tracker.img_array:
         #     padding = "0" * (10 - len(str(i)))
@@ -162,52 +176,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
-# define a video capture object
-# vid = cv2.VideoCapture(0)
-# # vid_out = cv2.VideoWriter('/home/ubuntu/PucksInDeep/RPi/rosHockey/001.avi', cv2.VideoWriter_fourcc(*'MP42'), 30.0, (640,480))
-# i = 0
-# while(True):
-      
-#     # Capture the video frame
-#     ret, frame = vid.read()
-#     if not ret:
-#         break
-#     hsv_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-#     hsv_min = (0, int(0.6*255), int(0.20*255))
-#     hsv_max = (8, int(0.98*255), int(0.80*255))
-#     low_hue_bin_img = cv2.inRange(hsv_img, hsv_min, hsv_max)
-#     hsv_min = (175, int(0.6*255), int(0.40*255))
-#     hsv_max = (180, int(0.98*255), int(0.80*255))
-#     high_hue_bin_img = cv2.inRange(hsv_img, hsv_min, hsv_max)
-#     bin_img = low_hue_bin_img + high_hue_bin_img
-#     binvert = cv2.bitwise_not(bin_img)
-#     M = cv2.moments(bin_img)
-#     cX = int(M["m10"] / M["m00"])
-#     cY = int(M["m01"] / M["m00"])
-    
-
-
-#     cv2.circle(frame, (cX, cY), 5, (255, 255, 255), -1)
-#     # Display the resulting frames
-#     cv2.imshow('bin', frame)
-
-
-
-#     # cv2.imshow('inv', binvert)
-#     # cv2.imshow('low', low_hue_bin_img)
-#     # cv2.imshow('high', high_hue_bin_img)
-#     # cv2.imshow('frame', frame)  
-    
-#     # the 'q' button is set as the
-#     # quitting button you may use any
-#     # desired button of your choice
-#     if cv2.waitKey(1) & 0xFF == ord('q'):
-#         break
-#     i += 1
-  
-# # After the loop release the cap object
-# vid.release()
-# # vid_out.release()
-# # Destroy all the windows
-# cv2.destroyAllWindows()
