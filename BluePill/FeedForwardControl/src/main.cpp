@@ -30,8 +30,8 @@ void zero();
 
 uint8_t send[SEND_SIZE];
 int prev_write_time = 0;
-float finalXY[] = {0,0};
-float finalVel[] = {0,0};
+// float finalXY[] = {0,0};
+// float finalVel[] = {0,0};
 float SerialReads[10] = {0};
 float send_to_pi[7];
 int total_effort[2] = {0};
@@ -51,6 +51,11 @@ const size_t NUM_VALS = NUM_BYTES_REC/__SIZEOF_SHORT__;
 
 uint8_t serial_reading_buffer[NUM_BYTES_REC];
 int n_read_in_buffer = 0;
+
+float finalXY[2] = {0,0};
+float finalVel[2] = {0,0};
+float finalAcc[2] = {0,0};
+float path_time = 0;
 
 void setup(){
     Serial.begin(460800);
@@ -103,42 +108,106 @@ void zero() {
   start_time = micros();
 }
 
-void read_serial(){
-  if (n_read_in_buffer == 0){
-    // look for start byte
-    uint8_t start_buffer[1];
-    while(Serial.available()>0){
-      Serial.readBytes(start_buffer, 1);
-      if (start_buffer[0] & 0xFF)
-        break;
+
+
+
+
+// void read_serial(){
+//   bool read_start = false;
+//   if (n_read_in_buffer == 0){
+//     // look for start byte
+//     uint8_t start_buffer[1];
+//     while(Serial.available()>0){
+//       Serial.readBytes(start_buffer, 1);
+//       if (start_buffer[0] == 0xFF){
+//         read_start = true;
+//         break;
+//       }
+//     }
+//     if (read_start == false){
+//       return;
+//     }
+//   }
+
+//   int num_available = Serial.available();
+//   int num_to_read = min( (int) NUM_BYTES_REC-n_read_in_buffer, num_available);
+//   size_t num_read = Serial.readBytes((serial_reading_buffer+n_read_in_buffer),num_to_read);
+//   n_read_in_buffer += num_read;
+
+
+
+// }
+
+int read_serial(byte path_msg[], int n_read){
+  uint8_t incoming_byte;
+  while(Serial.available()>0){
+    incoming_byte = Serial.read();
+    if (incoming_byte == 0xff){
+      n_read = 0;
     }
+
+    else if (n_read == NUM_BYTES_REC){
+      n_read = -1;
+    }
+
+    else if (n_read >= 0){
+      path_msg[n_read] = incoming_byte;
+    }
+    n_read += 1;
   }
-  int num_available = Serial.available();
-  int num_to_read = min( (int) NUM_BYTES_REC-n_read_in_buffer, num_available);
-  size_t num_read = Serial.readBytes((serial_reading_buffer+n_read_in_buffer),num_to_read);
-  n_read_in_buffer += num_read;
+  return n_read;
+  
+  // if (n_read_in_buffer == 0){
+  //   // look for start byte
+  //   uint8_t start_buffer[1];
+  //   while(Serial.available()<15){}
+  //     Serial.readBytes(start_buffer, 1);
+  //     Serial.readBytes(serial_reading_buffer,14);
+  //     if (start_buffer[0] == 0xFF){
+  //       n_read_in_buffer = NUM_BYTES_REC;
+  //       return;
+  //     }
+    
+  //   if (read_start == false){
+  //     return;
+  //   }
+  // int num_available = Serial.available();
+  // int num_to_read = min( (int) NUM_BYTES_REC-n_read_in_buffer, num_available);
+  // size_t num_read = Serial.readBytes((serial_reading_buffer+n_read_in_buffer),num_to_read);
+  // n_read_in_buffer += num_read;
 }
 
 
 void loop(){
- 
-  read_serial();
+
+  n_read_in_buffer = read_serial(serial_reading_buffer, n_read_in_buffer);
 
   ser_counter = Serial.available();
   if (n_read_in_buffer == NUM_BYTES_REC) {
     float vals [NUM_VALS];
     read_count++;
+    //uint8_t serial_reading_buffer[14] = {1 ,2, 3 ,4, 5, 6 , 7 , 8, 9, 10, 11, 12, 13,14};
     read_shorts_from_pi(serial_reading_buffer, vals, NUM_VALS);
-    float finalXY[2] = {vals[0],vals[1]};
-    float finalVel[2] = {vals[2],vals[3]};
-    float finalAcc[2] = {vals[4],vals[5]};
-    float path_time = vals[6];
+    //float finalXY[2] = {vals[0],vals[1]};
+    //float finalVel[2] = {vals[2],vals[3]};
+    //float finalAcc[2] = {vals[4],vals[5]};
+    //float path_time = vals[6];
+
+    finalXY[0] = vals[0];
+    finalXY[1] = vals[1];
+    finalVel[0] = vals[2];
+    finalVel[1] = vals[3];
+    finalAcc[0] = vals[4];
+    finalAcc[1] = vals[5];
+    path_time = vals[6];
+
     n_read_in_buffer = 0;
 
     //TODO: UNITS!!!
     // path_time should be in seconds, start_time should be in seconds
-    // controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
+    controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
     // mod.set_coeffs(controller.x_coeffs, controller.y_coeffs);
+    start_time = micros();
   }
 
   float* effort;      
@@ -166,12 +235,12 @@ void loop(){
   if ((millis() - prev_write_time) > 100) {
     if (Serial.availableForWrite()){
     prev_write_time = millis();
-    send_to_pi[0] = (float) x_ok;//controller.xy[0];  // x position
-    send_to_pi[1] = (float) y_ok;//controller.xy[1];  // y position
-    send_to_pi[2] = (float) read_count;//controller.current_velocity[0];  // x velocity
-    send_to_pi[3] = (float) ser_counter;//controller.current_velocity[1];  // y velocity
-    send_to_pi[4] = (float) total_effort[0]; // motor1 effort
-    send_to_pi[5] = (float) total_effort[1]; // motor2 effort
+    send_to_pi[0] = (float) finalXY[0];//x_ok;//controller.xy[0];  // x position
+    send_to_pi[1] = (float) finalXY[1];//y_ok;//controller.xy[1];  // y position
+    send_to_pi[2] = (float) finalVel[0];//read_count;//controller.current_velocity[0];  // x velocity
+    send_to_pi[3] = (float) finalVel[1];//ser_counter;//controller.current_velocity[1];  // y velocity
+    send_to_pi[4] = (float) finalAcc[0]; // motor1 effort
+    send_to_pi[5] = (float) finalAcc[1]; // motor2 effort
     send_to_pi[6] = (float) time_s; //time in milliseconds
 
     uint8_t msg[SEND_SIZE];

@@ -8,17 +8,16 @@
 
 //stores as a float
 void read_shorts_from_pi(uint8_t *buffer, float *float_vals, const size_t num_vals){
-    short shorts[num_vals];
     for (int i = 0; i < num_vals; i++) {
-      short s;
+      short s = 0;
       memcpy(&s, &(buffer[__SIZEOF_SHORT__*i]), __SIZEOF_SHORT__);
-      float_vals[i] = (float) s;
+      float_vals[i] = (float) (s % 256)*256 + (s/256);
   }
 }
 
 
 bool read_from_pi(uint8_t *buffer, float *float_values) {
-  // start = micros();
+
   float f;
   float sum = 0;
   Serial.readBytes(buffer, 20);  
@@ -32,7 +31,7 @@ bool read_from_pi(uint8_t *buffer, float *float_values) {
     return true;
   }
   return false;
-  // read_time = micros() - start;
+  
 }
 
 bool read_from_pi_pid(uint8_t *buffer, float *float_values) {

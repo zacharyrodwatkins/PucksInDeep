@@ -91,8 +91,18 @@ void BpComm::read_bp(){
     }
 }
 
-void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg){
-    
+
+void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
+    uint8_t write_buffer[15];
+    write_buffer[0] = 0xff;
+    const hockey_msgs::msg::NextPath msg = *msg_ptr;
+    short vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};
+    // short vals[7] = {2,2,3,4,5,6,7};
+    for (int i=0;i<7;i++){
+        memcpy(&write_buffer[2*i+1], &vals[i], 2);
+        printf("Writing %.2f\n", vals[i]);
+    }
+    write(serial_port, write_buffer, 15);
 }
 
 int BpComm::config_tty(){
