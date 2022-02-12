@@ -19,3 +19,5 @@ bool read_from_pi(uint8_t *buffer, float *float_values);
 bool read_from_pi_pid(uint8_t *buffer, float *float_values);
 void write_to_pi(uint8_t *buffer);
 void read_shorts_from_pi(uint8_t *buffer, float *float_vals, const size_t num_vals);
+int buffer_to_int(uint8_t *buffer);
+void read_floats_from_pi(uint8_t *buffer, float *float_vals, const size_t num_vals);

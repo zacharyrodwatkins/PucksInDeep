@@ -39,8 +39,8 @@ uint8_t x_rec[20];
 uint8_t y_rec[20];
 uint8_t x_pid_rec[16];
 uint8_t y_pid_rec[16];
-const size_t NUM_BYTES_REC=14;
-const size_t NUM_VALS = NUM_BYTES_REC/__SIZEOF_SHORT__;
+const size_t NUM_VALS = 7;
+const size_t NUM_BYTES_REC=NUM_VALS*__SIZEOF_FLOAT__;
 
 // start byte (all ones) -> 1
 // x (two bytes (mm)), y (two bytes (mm)) -> 4
@@ -139,42 +139,28 @@ void zero() {
 // }
 
 int read_serial(byte path_msg[], int n_read){
-  uint8_t incoming_byte;
-  while(Serial.available()>0){
-    incoming_byte = Serial.read();
-    if (incoming_byte == 0xff){
+  uint8_t incoming_4bytes[4];
+  int read_val;
+  while(Serial.available()>=4){
+    Serial.readBytes(incoming_4bytes, 4);
+    read_val = buffer_to_int(incoming_4bytes);
+    if (read_val == 0xffffffff){
       n_read = 0;
     }
+
 
     else if (n_read == NUM_BYTES_REC){
       n_read = -1;
     }
 
     else if (n_read >= 0){
-      path_msg[n_read] = incoming_byte;
+      for (int i=0 ; i<4; i++)
+        path_msg[n_read+i] = incoming_4bytes[i];
+      n_read += 4;
     }
-    n_read += 1;
   }
   return n_read;
-  
-  // if (n_read_in_buffer == 0){
-  //   // look for start byte
-  //   uint8_t start_buffer[1];
-  //   while(Serial.available()<15){}
-  //     Serial.readBytes(start_buffer, 1);
-  //     Serial.readBytes(serial_reading_buffer,14);
-  //     if (start_buffer[0] == 0xFF){
-  //       n_read_in_buffer = NUM_BYTES_REC;
-  //       return;
-  //     }
-    
-  //   if (read_start == false){
-  //     return;
-  //   }
-  // int num_available = Serial.available();
-  // int num_to_read = min( (int) NUM_BYTES_REC-n_read_in_buffer, num_available);
-  // size_t num_read = Serial.readBytes((serial_reading_buffer+n_read_in_buffer),num_to_read);
-  // n_read_in_buffer += num_read;
+
 }
 
 
@@ -187,7 +173,7 @@ void loop(){
     float vals [NUM_VALS];
     read_count++;
     //uint8_t serial_reading_buffer[14] = {1 ,2, 3 ,4, 5, 6 , 7 , 8, 9, 10, 11, 12, 13,14};
-    read_shorts_from_pi(serial_reading_buffer, vals, NUM_VALS);
+    read_floats_from_pi(serial_reading_buffer, vals, NUM_VALS);
     //float finalXY[2] = {vals[0],vals[1]};
     //float finalVel[2] = {vals[2],vals[3]};
     //float finalAcc[2] = {vals[4],vals[5]};

@@ -1,4 +1,4 @@
-rs_time = 0
+rs_time = 0.25
 from os import read
 import serial
 import time
@@ -23,6 +23,7 @@ w_max = 0
 r_max = 0
 total = 0
 
+
 def send_test_path():
     test_floats = [random.random() for i in range(8)]
     x = test_floats[0:4] + [sum(test_floats[0:4])]
@@ -30,16 +31,17 @@ def send_test_path():
     print(ser.write(struct.pack('ffffffffff', *x,*y)))
 
 
-def send_new_path():
-    ser.write(struct.pack('c',bytes([255])))
-    args  = [1,2,3,4,5,6,7]
-    ser.write(struct.pack('hhhhhhh', *args))
+def send_new_path(i):
+    ser.write(struct.pack('cccc',*[bytes([255])]*4))
+    args  = [10,1000,-100.34,4,5,6,7]
+    ser.write(struct.pack('fffffff', *args))
 
-
+i =0
 while(True):
     #send_test_path()
-    send_new_path()
+    send_new_path(i)
     time.sleep(rs_time)
+    i += 1
 
 
 

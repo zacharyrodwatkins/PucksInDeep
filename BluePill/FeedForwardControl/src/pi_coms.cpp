@@ -15,6 +15,20 @@ void read_shorts_from_pi(uint8_t *buffer, float *float_vals, const size_t num_va
   }
 }
 
+int buffer_to_int(uint8_t *buffer){
+  int ret_val;
+  memcpy(&ret_val, &buffer[0], __SIZEOF_INT__);
+  return ret_val;
+}
+
+void read_floats_from_pi(uint8_t *buffer, float *float_vals, const size_t num_vals){
+  float f;
+  for (int i = 0; i < num_vals; i++) {
+    memcpy(&f, &(buffer[__SIZEOF_FLOAT__*i]), __SIZEOF_FLOAT__);
+    float_vals[i] = f;
+  }
+}
+
 
 bool read_from_pi(uint8_t *buffer, float *float_values) {
 
