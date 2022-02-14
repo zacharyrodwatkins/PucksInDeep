@@ -171,13 +171,13 @@ void loop(){
   ser_counter = Serial.available();
   if (n_read_in_buffer == NUM_BYTES_REC) {
     float vals [NUM_VALS];
-    read_count++;
+    //read_count++;
     //uint8_t serial_reading_buffer[14] = {1 ,2, 3 ,4, 5, 6 , 7 , 8, 9, 10, 11, 12, 13,14};
     read_floats_from_pi(serial_reading_buffer, vals, NUM_VALS);
-    //float finalXY[2] = {vals[0],vals[1]};
-    //float finalVel[2] = {vals[2],vals[3]};
-    //float finalAcc[2] = {vals[4],vals[5]};
-    //float path_time = vals[6];
+    // float finalXY[2] = {vals[0],vals[1]};
+    // float finalVel[2] = {vals[2],vals[3]};
+    // float finalAcc[2] = {vals[4],vals[5]};
+    // float path_time = vals[6];
 
     finalXY[0] = vals[0];
     finalXY[1] = vals[1];
@@ -187,46 +187,46 @@ void loop(){
     finalAcc[1] = vals[5];
     path_time = vals[6];
 
-    n_read_in_buffer = 0;
+    n_read_in_buffer = -1;
 
-    //TODO: UNITS!!!
+    start_time = micros();
     // path_time should be in seconds, start_time should be in seconds
     controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
-    // mod.set_coeffs(controller.x_coeffs, controller.y_coeffs);
-    start_time = micros();
+    mod.set_coeffs(controller.x_coeffs, controller.y_coeffs);
+    
   }
 
   float* effort;      
   float time_s =  (1.0*micros() - start_time)/1e6;
     
 
-  // if (controller.update()){
-  //   total_effort[0] = 0;
-  //   total_effort[1] = 0;
-  //   write_to_motor(MOTOR_LEFT, 0);
-  //   write_to_motor(MOTOR_RIGHT, 0);
-  // }
+  if (controller.update()){
+    total_effort[0] = 0;
+    total_effort[1] = 0;
+    write_to_motor(MOTOR_LEFT, 0);
+    write_to_motor(MOTOR_RIGHT, 0);
+  }
 
-  // else {
-  //   effort = mod.get_effort(time_s);
-  //   effort[0] = (effort[0]/motor_v)*128;
-  //   effort[1] = (effort[1]/motor_v)*128;
-  //   total_effort[0] = effort[0] + controller.effort_m1;
-  //   total_effort[1] = effort[1] + controller.effort_m2;
-  //   write_to_motor(MOTOR_LEFT, total_effort[0]);
-  //   write_to_motor(MOTOR_RIGHT, total_effort[1]);
-  // }
+  else {
+    effort = mod.get_effort(time_s);
+    effort[0] = (effort[0]/motor_v)*128;
+    effort[1] = (effort[1]/motor_v)*128;
+    total_effort[0] = effort[0] + controller.effort_m1;
+    total_effort[1] = effort[1] + controller.effort_m2;
+    write_to_motor(MOTOR_LEFT, total_effort[0]);
+    write_to_motor(MOTOR_RIGHT, total_effort[1]);
+  }
 
   
   if ((millis() - prev_write_time) > 100) {
     if (Serial.availableForWrite()){
     prev_write_time = millis();
-    send_to_pi[0] = (float) finalXY[0];//x_ok;//controller.xy[0];  // x position
-    send_to_pi[1] = (float) finalXY[1];//y_ok;//controller.xy[1];  // y position
-    send_to_pi[2] = (float) finalVel[0];//read_count;//controller.current_velocity[0];  // x velocity
-    send_to_pi[3] = (float) finalVel[1];//ser_counter;//controller.current_velocity[1];  // y velocity
-    send_to_pi[4] = (float) finalAcc[0]; // motor1 effort
-    send_to_pi[5] = (float) finalAcc[1]; // motor2 effort
+    send_to_pi[0] = (float) controller.xy[0];  // x position
+    send_to_pi[1] = (float) controller.xy[1];  // y position
+    send_to_pi[2] = (float) controller.current_velocity[0];  // x velocity
+    send_to_pi[3] = (float) controller.current_velocity[1];  // y velocity
+    send_to_pi[4] = (float) total_effort[0]; // motor1 effort
+    send_to_pi[5] = (float) total_effort[1]; // motor2 effort
     send_to_pi[6] = (float) time_s; //time in milliseconds
 
     uint8_t msg[SEND_SIZE];
