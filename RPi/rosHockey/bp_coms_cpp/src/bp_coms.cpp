@@ -116,6 +116,9 @@ void BpComm::read_bp(){
         }
         ioctl(serial_port, FIONREAD, &bytes);
     }
+
+// go fuck yourself
+
     // int bytes;
     // uint8_t start_bytes[__SIZEOF_FLOAT__];
     // uint32_t start_byte;
