@@ -38,21 +38,23 @@ class HLC(Node):
 
     def compute_crossing_point(self):
         # print(self.puck_vy)
-        if (self.puck_vy < -0.1):
-            self.mallet_t = (self.crossing_line-self.puck_y)/self.puck_vy
-            self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
-            if (self.mallet_x< 10):
-                self.mallet_x = 10
-            if (self.mallet_x> 50):
-                self.mallet_x = 50
+        # if (self.puck_vy < -0.1):
+        #     self.mallet_t = (self.crossing_line-self.puck_y)/self.puck_vy
+        #     self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
+        #     if (self.mallet_x< 10):
+        #         self.mallet_x = 10
+        #     if (self.mallet_x> 50):
+        #         self.mallet_x = 50
 
-        else:
-            self.mallet_x = self.puck_x
-            self.mallet_t = 1.0
-            if (self.mallet_x< 10):
-                self.mallet_x = 10
-            if (self.mallet_x> 50):
-                self.mallet_x = 50
+        # else:
+        #     self.mallet_x = self.puck_x
+        #     self.mallet_t = 1.0
+        #     if (self.mallet_x< 10):
+        #         self.mallet_x = 10
+        #     if (self.mallet_x> 50):
+        #         self.mallet_x = 50
+        self.mallet_x = self.puck_x
+        
 
 
     def puck_callback(self, msg):

@@ -23,6 +23,7 @@ def plot_paths(log_file, n_paths = -1):
     # positions = pd.DataFrame(columns=cols)
 
     dfs = []
+    puck_status_dfs = []
     for line in lines:
         data = json.loads(line)
         if 'MALLET' in data.keys():
@@ -45,17 +46,23 @@ def plot_paths(log_file, n_paths = -1):
                 paths.append(pd.DataFrame(dummy_path))
                 functions.append((lambda t : dummy_path['x']), (lambda t : dummy_path['y']))
 
+                path_index += 1
+                paths.append(pd.DataFrame(data['PATH'], index=[0]))
+
+        elif 'PUCK' in data.keys():
+            data = data['PUCK']
+            data['path_index'] = path_index
+            # print(data)
+            new_df = pd.DataFrame(data,index = [0])
+            puck_status_dfs.append(new_df)
             
-            path_index += 1
-            
-
-
-
-            paths.append(pd.DataFrame(data['PATH'], index=[0]))
-
     positions = pd.concat(dfs).reset_index(drop=True)
     paths = pd.concat(paths).reset_index(drop=True)
+    puck_status = pd.concat(puck_status_dfs).reset_index(drop=True)
     print(paths)
+
+    plt.plot(puck_status["logger time"], puck_status["vy"])
+    plt.plot(positions["logger time"], positions["vy"])
 
 if __name__ == "__main__":
     data_file = '/home/fizzer/PucksInDeep/RPi/rosHockey/data_logger/data/2022-02-14 19:06:37.937629.csv'

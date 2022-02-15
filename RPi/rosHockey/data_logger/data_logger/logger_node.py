@@ -5,6 +5,7 @@ from rclpy.node import Node
 from hockey_msgs.msg import MalletPos
 from hockey_msgs.msg import MotorStatus
 from hockey_msgs.msg import NextPath
+from hockey_msgs.msg import PuckStatus
 import datetime
 import os
 import time
@@ -40,12 +41,24 @@ class logger_node(Node):
             'PATH',
             self.path_callback,
             10)
+        self.subscription = self.create_subscription(
+            PuckStatus,
+            'PUCK',
+            self.puck_callback,
+            10)
+        
         self.start_time = time.time()
 
     def path_callback(self, msg):
         logger_time = time.time() - self.start_time
         msg_s = '{{"PATH" : {{"x" : {}, "y" : {}, "vx" : {}, "vy" : {}, "ax" : {}, "ay" : {}, "t" : {}, "logger_time" : {}}}}}\n'\
             .format(msg.x, msg.y, msg.vx, msg.vy,msg.ax, msg.ay, msg.t, logger_time)
+        self.log_file.write(msg_s)
+
+    def puck_callback(self, msg):
+        logger_time = time.time() - self.start_time
+        msg_s = '{{"PUCK" : {{"x" : {}, "y" : {}, "vx" : {}, "vy" : {}, "logger_time" : {}}}}}\n'\
+            .format(msg.x, msg.y, msg.x_vel, msg.y_vel, logger_time)
         self.log_file.write(msg_s)
 
     def mallet_callback(self, msg):

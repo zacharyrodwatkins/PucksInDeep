@@ -1,5 +1,3 @@
-from decimal import DivisionByZero
-import queue
 import cv2
 import rclpy
 import time
@@ -30,8 +28,6 @@ class PuckTracker(Node):
         # Setup video capture and recording objects
         self.dir_path = os.path.dirname(os.path.realpath(__file__))  # directory of this python file
         self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.3:1.0-video-index0')
-        self.vid_out = cv2.VideoWriter(self.dir_path + '/../videos/' + str(datetime.datetime.now()) + '.avi',
-                                         cv2.VideoWriter_fourcc(*'MP42'), 30.0, self.des_image_shape)
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
         self.h = self.frame.shape[1]
@@ -51,9 +47,9 @@ class PuckTracker(Node):
         self.pos_timer = self.create_timer(self.pos_update_period, self.update_puck_status)
         self.disp_timer = self.create_timer(self.pos_update_period, self.display)
 
-        # Puck status publisher(self.frame.shape[1], self.frame.shape[0]
-        self.publisher_ = self.create_publisher(PuckStatus, 'puck_status', 10)
-        publisher_period = 0.01  # seconds
+        # Puck status publisher
+        self.publisher_ = self.create_publisher(PuckStatus, 'PUCK', 10)
+        publisher_period = 0.2  # seconds
         self.pub_timer = self.create_timer(publisher_period, self.publish_callback)
     
     def initialize(self):
@@ -62,6 +58,8 @@ class PuckTracker(Node):
         
         self.record = False
         if rec in ['y', 'Y']:
+            self.vid_out = cv2.VideoWriter(self.dir_path + '/../videos/' + str(datetime.datetime.now()) + '.avi',
+                                             cv2.VideoWriter_fourcc(*'MP42'), 30.0, self.des_image_shape)
             self.record = True
 
         if recal in ['y', 'Y']:
@@ -101,7 +99,8 @@ class PuckTracker(Node):
         # If you hit d, resume displaying frame
         if (cv2.waitKey(1) & 0xFF) == ord('q'):
             self.show_frame = False
-            self.vid_out.release()
+            if self.record:
+                self.vid_out.release()
             cv2.destroyWindow('frame')
         # elif cv2.waitKey(1) & 0xFF == ord('d'):
         #     self.show_frame = True
