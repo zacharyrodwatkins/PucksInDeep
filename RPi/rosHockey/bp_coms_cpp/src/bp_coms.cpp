@@ -134,6 +134,9 @@ void BpComm::read_bp(){
     //         printf("OK!");
     //     }
     // if(bytes>READ_SIZE){
+        while(bytes<READ_SIZE){
+            ioctl(serial_port, FIONREAD, &bytes);
+        }
         n_read = read(serial_port, &read_buf, sizeof(read_buf));
         if (n_read == READ_SIZE){
             hockey_msgs::msg::MalletPos mallet_msg = hockey_msgs::msg::MalletPos();
