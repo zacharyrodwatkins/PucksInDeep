@@ -39,6 +39,7 @@ public:
     path_sub_ = this->create_subscription<hockey_msgs::msg::NextPath>(
         "PATH", 1, std::bind(&BpComm::write_bp, this, std::placeholders::_1));
     serial_port = config_tty();
+    clear_serial();
   }
   void close_serial();
   ~BpComm(){
@@ -48,6 +49,7 @@ public:
 private:
 
   int config_tty();
+  void clear_serial();
   void read_bp();
   void write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg);
   rclcpp::TimerBase::SharedPtr timer_;
@@ -60,7 +62,15 @@ private:
   int n_read;
 };
 
-
+void BpComm::clear_serial(){
+    int bytes;
+    uint8_t byte_buff[1];
+    ioctl(serial_port, FIONREAD, &bytes);
+    while(bytes>0){
+        read(serial_port, &byte_buff, sizeof(byte_buff));
+        ioctl(serial_port, FIONREAD, &bytes);
+    }
+}
 
 void BpComm::read_bp(){
     int bytes;
@@ -158,6 +168,8 @@ int BpComm::config_tty(){
 void BpComm::close_serial(){
     close(serial_port);
 }
+
+
 
 int main(int argc, char * argv[])
 {
