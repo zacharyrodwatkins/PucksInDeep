@@ -3,7 +3,7 @@ import rclpy
 import time
 from rclpy.node import Node
 from hockey_msgs.msg import PuckStatus
-import keyboard
+# import keyboard
 import numpy as np
 import pickle
 import os 
@@ -27,7 +27,7 @@ class PuckTracker(Node):
 
         # Setup video capture and recording objects
         self.dir_path = os.path.dirname(os.path.realpath(__file__))  # directory of this python file
-        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.3:1.0-video-index0')
+        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:2:1.0-video-index0')
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
         self.h = self.frame.shape[1]
@@ -49,7 +49,7 @@ class PuckTracker(Node):
 
         # Puck status publisher
         self.publisher_ = self.create_publisher(PuckStatus, 'PUCK', 10)
-        publisher_period = 0.2  # seconds
+        publisher_period = 0.01  # seconds
         self.pub_timer = self.create_timer(publisher_period, self.publish_callback)
     
     def initialize(self):

@@ -183,7 +183,7 @@ void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
 int BpComm::config_tty(){
 
     // serial stuff
-    int serial_port = open("/dev/ttyUSB0", O_RDWR);
+    int serial_port = open("/dev/ttyUSB1", O_RDWR);
     if (serial_port < 0) {
         printf("Error %i from open: %s\n", errno, strerror(errno));
     }
