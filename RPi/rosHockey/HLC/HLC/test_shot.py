@@ -5,7 +5,7 @@ from rclpy.node import Node
 from random import randrange
 from hockey_msgs.msg import PuckStatus, NextPath
 TIMER_PERIOD = 1/1000
-PATH_RESET_PERIOD = 5
+PATH_RESET_PERIOD = .5
 
 
 class Fake_Shot(Node):
@@ -36,7 +36,7 @@ class Fake_Shot(Node):
         self.counter = self.counter + 1
 
     def reset_puck(self):
-        self.x = randrange(0, 75)*1.0
+        self.x = randrange(0, 65)*1.0
         self.y = randrange(45, 55)*1.0
 
         self.vx = randrange(-15,15)*1.0
@@ -57,9 +57,9 @@ class Fake_Shot(Node):
             self.vx = 0.0
             self.x = 75.0
 
-        if self.x<0:
+        if self.x<10:
             self.vx = 0.0
-            self.x = 0.0
+            self.x = 10.0
         
         sleep(step)
             

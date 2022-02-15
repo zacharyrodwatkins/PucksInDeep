@@ -2,7 +2,7 @@ import time
 import rclpy
 from rclpy.node import Node
 from hockey_msgs.msg import PuckStatus, NextPath
-TIMER_PERIOD = 1/1000
+TIMER_PERIOD = 1/10
 
 
 class HLC(Node):
@@ -33,26 +33,26 @@ class HLC(Node):
         msg.vy = 0.0
         msg.ax = 0.0
         msg.ay = 0.0
-        msg.t = self.mallet_t
+        msg.t = 0.5
         self.path_publisher.publish(msg)
 
     def compute_crossing_point(self):
-        print(self.puck_vy)
+        # print(self.puck_vy)
         if (self.puck_vy < -0.1):
-            if self.mallet_x< 0:
-                self.mallet_x = 0
-            if self.mallet_x> 75:
-                self.mallet_x = 75
             self.mallet_t = (self.crossing_line-self.puck_y)/self.puck_vy
             self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
+            if (self.mallet_x< 10):
+                self.mallet_x = 10
+            if (self.mallet_x> 50):
+                self.mallet_x = 50
 
         else:
-            if self.mallet_x< 0:
-                self.mallet_x = 0
-            if self.mallet_x> 75:
-                self.mallet_x = 75
             self.mallet_x = self.puck_x
             self.mallet_t = 1.0
+            if (self.mallet_x< 10):
+                self.mallet_x = 10
+            if (self.mallet_x> 50):
+                self.mallet_x = 50
 
 
     def puck_callback(self, msg):
