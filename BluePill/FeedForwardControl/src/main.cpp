@@ -220,18 +220,22 @@ void loop(){
   
   if ((millis() - prev_write_time) > 100) {
     if (Serial.availableForWrite()){
-    prev_write_time = millis();
-    send_to_pi[0] = (float) controller.xy[0];  // x position
-    send_to_pi[1] = (float) controller.xy[1];  // y position
-    send_to_pi[2] = (float) controller.current_velocity[0];  // x velocity
-    send_to_pi[3] = (float) controller.current_velocity[1];  // y velocity
-    send_to_pi[4] = (float) total_effort[0]; // motor1 effort
-    send_to_pi[5] = (float) total_effort[1]; // motor2 effort
-    send_to_pi[6] = (float) time_s; //time in milliseconds
+      prev_write_time = millis();
+      send_to_pi[0] = (float) controller.xy[0];  // x position
+      send_to_pi[1] = (float) controller.xy[1];  // y position
+      send_to_pi[2] = (float) controller.current_velocity[0];  // x velocity
+      send_to_pi[3] = (float) controller.current_velocity[1];  // y velocity
+      send_to_pi[4] = (float) total_effort[0]; // motor1 effort
+      send_to_pi[5] = (float) total_effort[1]; // motor2 effort
+      send_to_pi[6] = (float) time_s; //time in milliseconds
 
-    uint8_t msg[SEND_SIZE];
-    memcpy(&msg, &send_to_pi, SEND_SIZE);
-    write_to_pi(msg);
+      uint8_t msg[SEND_SIZE];
+      memcpy(&msg, &send_to_pi, SEND_SIZE);
+      for (int i = 0; i < 4; i++)
+        Serial.write(0xff);
+        
+      write_to_pi(msg);
+      
     }
 
   } 
