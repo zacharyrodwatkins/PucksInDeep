@@ -39,7 +39,7 @@ public:
     path_sub_ = this->create_subscription<hockey_msgs::msg::NextPath>(
         "PATH", 1, std::bind(&BpComm::write_bp, this, std::placeholders::_1));
     serial_port = config_tty();
-    // clear_serial();
+    clear_serial();
   }
   void close_serial();
   ~BpComm(){
@@ -49,7 +49,7 @@ public:
 private:
 
   int config_tty();
-//   void clear_serial();
+  void clear_serial();
   void read_bp();
   void write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg);
   rclcpp::TimerBase::SharedPtr timer_;
@@ -62,78 +62,20 @@ private:
   int n_read;
 };
 
-// void BpComm::clear_serial(){
-//     int count = 0;
-//     int bytes;
-//     uint8_t init_byte[1];
-//     ioctl(serial_port, FIONREAD, &bytes);
-//     while (count < 4){
-//         if (bytes > 0){
-//             read(serial_port, &init_byte, sizeof(init_byte))
-//             if (init_byte[0] == 0xff){
-//                 count++;
-//             }
-//             else{
-//                 count = 0
-//             }
-//         }
-//         ioctl(serial_port, FIONREAD, &bytes);
-//     }
-//     int floats_read = 0;
-//     printf("Clearing Serial");
-//     while(floats_read <= NUM_FLOATS_READ+1){
-//         if (bytes>=4){
-//             read(serial_port, &byte_buff, __SIZEOF_FLOAT__);
-//             memcpy(&sum, &byte_buff[0], __SIZEOF_FLOAT__);
-//             if (sum==0xffffffff){
-//                 printf("Here");
-//                 floats_read++;
-//             }
-
-//             else if (floats_read>0){
-//                 // read(serial_port, &byte_buff, __SIZEOF_FLOAT__);
-//                 floats_read++;
-//             }
-//         }
-//         ioctl(serial_port, FIONREAD, &bytes);
-//     }
-// }
-
-void BpComm::read_bp(){
-    int count = 0;
+void BpComm::clear_serial(){
     int bytes;
-    uint8_t init_byte[1];
+    uint8_t byte_buff[1];
     ioctl(serial_port, FIONREAD, &bytes);
-    while (count < 4){
-        if (bytes > 0){
-            read(serial_port, &init_byte, sizeof(init_byte));
-            if (init_byte[0] == 0xff){
-                count++;
-            }
-            else{
-                count = 0;
-            }
-        }
+    while(bytes>0){
+        read(serial_port, &byte_buff, sizeof(byte_buff));
         ioctl(serial_port, FIONREAD, &bytes);
     }
-    // int bytes;
-    // uint8_t start_bytes[__SIZEOF_FLOAT__];
-    // uint32_t start_byte;
-    // ioctl(serial_port, FIONREAD, &bytes);
-    // if (bytes >= READ_SIZE + __SIZEOF_FLOAT__){
-    //     read(serial_port, &start_bytes, __SIZEOF_FLOAT__);
-    //     memcpy(&start_byte, &start_bytes[0], __SIZEOF_FLOAT__);
+}
 
-    //     if (start_byte != 0xffffffff){
-    //         printf("ERROR: WRONG START BYTE. CHECK COMS\n");
-    //         printf("%d", start_byte);
-    //         printf("\n");
-    //         }
-        
-    //     else {
-    //         printf("OK!");
-    //     }
-    // if(bytes>READ_SIZE){
+void BpComm::read_bp(){
+    int bytes;
+    ioctl(serial_port, FIONREAD, &bytes);
+    if (bytes >= READ_SIZE){
         n_read = read(serial_port, &read_buf, sizeof(read_buf));
         if (n_read == READ_SIZE){
             hockey_msgs::msg::MalletPos mallet_msg = hockey_msgs::msg::MalletPos();
@@ -156,7 +98,7 @@ void BpComm::read_bp(){
             mallet_publisher_->publish(mallet_msg);
             motor_publisher_->publish(motor_msg);
         }
-    // }
+    }
 }
 
 
