@@ -8,6 +8,9 @@ from hockey_msgs.msg import PuckStatus
 import keyboard
 import numpy as np
 import pickle
+import os 
+import datetime
+from scipy.signal import savgol_filter 
 
 class PuckTracker(Node):
 
@@ -25,8 +28,10 @@ class PuckTracker(Node):
         self.to_corners = [[0,self.des_image_shape[1]], [0,0], [self.des_image_shape[0],0], self.des_image_shape]
 
         # Setup video capture and recording objects
-        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.2:1.0-video-index0')
-        self.vid_out = cv2.VideoWriter('/home/pham/PucksInDeep/RPi/rosHockey/tracker2.avi', cv2.VideoWriter_fourcc(*'MP42'), 30.0, self.des_image_shape)
+        self.dir_path = os.path.dirname(os.path.realpath(__file__))  # directory of this python file
+        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.3:1.0-video-index0')
+        self.vid_out = cv2.VideoWriter(self.dir_path + '/../videos/' + str(datetime.datetime.now()) + '.avi',
+                                         cv2.VideoWriter_fourcc(*'MP42'), 30.0, self.des_image_shape)
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
         self.h = self.frame.shape[1]
@@ -37,17 +42,19 @@ class PuckTracker(Node):
         # Puck status updater and display
         self.frame_rate = 30
         self.pos_update_period = 1/self.frame_rate
-        self.last_frame_time = time.time()
+        self.last_frame_time = time.time()  # seconds
         self.show_frame = True
+        self.SG_window = 7
+        self.SV_poly_order = 4
+        self.xvel_buffer = [0]*self.SG_window
+        self.yvel_buffer = [0]*self.SG_window
         self.pos_timer = self.create_timer(self.pos_update_period, self.update_puck_status)
         self.disp_timer = self.create_timer(self.pos_update_period, self.display)
 
-        # # Puck status publisher(self.frame.shape[1], self.frame.shape[0]
-        # self.publisher_ = self.create_publisher(PuckStatus, 'puck_status', 10)
-        # publisher_period = 0.01  # seconds
-        # self.pub_timer = self.create_timer(publisher_period, self.publish_callback)
-
-        # self.img_array = []
+        # Puck status publisher(self.frame.shape[1], self.frame.shape[0]
+        self.publisher_ = self.create_publisher(PuckStatus, 'puck_status', 10)
+        publisher_period = 0.01  # seconds
+        self.pub_timer = self.create_timer(publisher_period, self.publish_callback)
     
     def initialize(self):
         recal = input("Recalibrate camera? (y/N)\n")
@@ -64,11 +71,11 @@ class PuckTracker(Node):
             while (len(self.from_corners) < 4):
                 cv2.waitKey(1)
             cv2.destroyWindow("initialization")
-            with open('camera_calib.pkl', 'wb') as f:
+            with open(self.dir_path + '/../camera_calib.pkl', 'wb') as f:
                 pickle.dump(self.from_corners, f)
 
         else:
-            with open('camera_calib.pkl', 'rb') as f:
+            with open(self.dir_path + '/../camera_calib.pkl', 'rb') as f:
                 self.from_corners = pickle.load(f)
             
         
@@ -82,11 +89,13 @@ class PuckTracker(Node):
 
     def display(self):
         if (self.puck_vel[0] is not None):
-            self.frame = cv2.putText(self.frame, "x: {:.2f} y: {:.2f}".format(self.puck_pos[0], self.puck_pos[1]), (0,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
-            self.frame = cv2.putText(self.frame, "x_vel: {:.2f} y_vel: {:.2f}".format(self.puck_vel[0], self.puck_vel[1]), (0,60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
-            cv2.circle(self.frame, (int(self.puck_pos[0]/self.pixels_to_cm), int(self.puck_pos[1]/self.pixels_to_cm)), 5, (255, 255, 255), -1)
+            self.frame = cv2.putText(self.frame, "x: {:.2f} y: {:.2f}".format(self.puck_pos[0], self.puck_pos[1]),
+                                        (0,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
+            self.frame = cv2.putText(self.frame, "x_vel: {:.2f} y_vel: {:.2f}".format(self.puck_vel[0], self.puck_vel[1]),
+                                        (0,60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 1, cv2.LINE_AA)
 
-        # cv2.imshow('frame', self.frame)
+            cv2.circle(self.frame, (int(self.puck_pos[0]/self.pixels_to_cm), int(self.des_image_shape[1] - self.puck_pos[1]/self.pixels_to_cm)),
+                                        5, (255, 255, 255), -1)
 
         # If you hit q, stop displaying frame
         # If you hit d, resume displaying frame
@@ -110,13 +119,13 @@ class PuckTracker(Node):
             msg.x_vel = self.puck_vel[0]
             msg.y_vel = self.puck_vel[1]
             self.publisher_.publish(msg)
-            # print('pos: %f , %f     vel: %f . %f' % (msg.x, msg.y, msg.x_vel, msg.y_vel))
+            print('pos: %f , %f     vel: %f . %f' % (msg.x, msg.y, msg.x_vel, msg.y_vel))
 
     def update_puck_status(self):
         # Capture the video frame and record time of frame
         ret, self.frame = self.vid.read()
         self.frame = cv2.warpPerspective(self.frame, self.transform_matrix, self.des_image_shape)
-        time_stamp = time.time()
+        time_stamp = time.time()  # seconds
 
         bin_img = self.filter_for_puck()
 
@@ -124,15 +133,21 @@ class PuckTracker(Node):
         try:
             M = cv2.moments(bin_img)
             cX = float(M["m10"] / M["m00"]) * self.pixels_to_cm
-            cY = float(M["m01"] / M["m00"]) * self.pixels_to_cm
+            cY = (self.des_image_shape[1] - float(M["m01"] / M["m00"])) * self.pixels_to_cm  # Subtracting from image height to get y=0 at bottom
         except ZeroDivisionError:
             print("lost puck")
             cX = self.puck_pos[0]
             cY = self.puck_pos[1]
 
         if (self.puck_pos[0] is not None):
-            self.puck_vel = [(self.puck_pos[0] - cX)/(time_stamp - self.last_frame_time),
-                            (self.puck_pos[1] - cY)/(time_stamp - self.last_frame_time)]
+            # load new x and y velocities into buffer, and apply savgol filter to smooth noise
+            del self.xvel_buffer[0]
+            self.xvel_buffer.append((cX - self.puck_pos[0])/(time_stamp - self.last_frame_time))
+            del self.yvel_buffer[0]
+            self.yvel_buffer.append((cY - self.puck_pos[1])/(time_stamp - self.last_frame_time))
+            xvel_filtered = savgol_filter(self.xvel_buffer, self.SG_window, self.SV_poly_order)
+            yvel_filtered = savgol_filter(self.yvel_buffer, self.SG_window, self.SV_poly_order)
+            self.puck_vel = [xvel_filtered[-1], yvel_filtered[-1]]
 
         self.puck_pos = [cX, cY]
         self.last_frame_time = time_stamp
