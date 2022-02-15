@@ -20,7 +20,7 @@ class HLC(Node):
         self.mallet_t = 0.0
 
         super().__init__('HLC')
-        self.puck_status_subscription = self.create_subscription(PuckStatus,'PuckStatus',self.puck_callback,1)
+        self.puck_status_subscription = self.create_subscription(PuckStatus,'PUCK',self.puck_callback,10)
         self.path_publisher = self.create_publisher(NextPath, 'PATH', 10)
         
         self.puck_status_publisher = self.create_publisher(PuckStatus, 'PuckStatus', 10)
@@ -33,7 +33,7 @@ class HLC(Node):
         msg.vy = 0.0
         msg.ax = 0.0
         msg.ay = 0.0
-        msg.t = 0.5
+        msg.t = 0.2
         self.path_publisher.publish(msg)
 
     def compute_crossing_point(self):
@@ -54,7 +54,6 @@ class HLC(Node):
         #     if (self.mallet_x> 50):
         #         self.mallet_x = 50
         self.mallet_x = self.puck_x
-        
 
 
     def puck_callback(self, msg):
