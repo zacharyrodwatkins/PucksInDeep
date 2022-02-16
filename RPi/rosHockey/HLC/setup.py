@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'HLC = HLC.main:main', 
-            'Fake_Shot = HLC.test_shot:main'
+            'Fake_Shot = HLC.test_shot:main',
+            'intercept = HLC.basic_intercept:main'
         ],
     },
 )
