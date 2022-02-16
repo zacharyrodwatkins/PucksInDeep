@@ -43,7 +43,8 @@ public:
   }
   void close_serial();
   ~BpComm(){
-      close_serial();
+      if (serial_port>0)
+      	close_serial();
   }
 
 private:
@@ -183,9 +184,16 @@ void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
 int BpComm::config_tty(){
 
     // serial stuff
-    int serial_port = open("/dev/ttyUSB1", O_RDWR);
+    int serial_port = open("/dev/ttyUSB0", O_RDWR);
     if (serial_port < 0) {
         printf("Error %i from open: %s\n", errno, strerror(errno));
+        printf("Trying /dev/ttyUSB1\n");
+        serial_port = open("/dev/ttyUSB1", O_RDWR);
+        if (serial_port<0){
+            printf("Could not open /dev/ttyUSB1\n");
+            exit(1);
+            return serial_port;
+        }
     }
 
     // Read in existing settings, and handle any error
