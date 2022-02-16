@@ -27,13 +27,8 @@ class PuckTracker(Node):
 
         # Setup video capture and recording objects
         self.dir_path = os.path.dirname(os.path.realpath(__file__))  # directory of this python file
-<<<<<<< HEAD
-        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.3:1.0-video-index0')
-=======
-        
         # ls /dev/v4l/by-path then mash tab and take an index 0 careful not to take webcam
-        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1:1.0-video-index0')
->>>>>>> 86dcf41e8f84c1446161b724ebbccdb346398017
+        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.3:1.0-video-index0')
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
         self.h = self.frame.shape[1]
