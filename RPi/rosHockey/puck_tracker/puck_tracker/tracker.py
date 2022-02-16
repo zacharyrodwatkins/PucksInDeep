@@ -27,7 +27,9 @@ class PuckTracker(Node):
 
         # Setup video capture and recording objects
         self.dir_path = os.path.dirname(os.path.realpath(__file__))  # directory of this python file
-        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:2:1.0-video-index0')
+        
+        # ls /dev/v4l/by-path then mash tab and take an index 0 careful not to take webcam
+        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1:1.0-video-index0')
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
         self.h = self.frame.shape[1]
@@ -64,7 +66,7 @@ class PuckTracker(Node):
 
         if recal in ['y', 'Y']:
             self.frame = self.vid.read()[1]
-            cv2.imshow("initialization", self.frame)
+            # cv2.imshow("initialization", self.frame)
             cv2.setMouseCallback("initialization", self.get_corners)
             while (len(self.from_corners) < 4):
                 cv2.waitKey(1)
@@ -108,7 +110,7 @@ class PuckTracker(Node):
         if (self.show_frame):
             if self.record:
                 self.vid_out.write(self.frame)
-            cv2.imshow('frame', self.frame)
+            # cv2.imshow('frame', self.frame)
     
     def publish_callback(self):
         if self.puck_vel[0] is not None:
