@@ -3,7 +3,7 @@ import rclpy
 import time
 from rclpy.node import Node
 from hockey_msgs.msg import PuckStatus
-import keyboard
+# import keyboard
 import numpy as np
 import pickle
 import os 
@@ -27,6 +27,7 @@ class PuckTracker(Node):
 
         # Setup video capture and recording objects
         self.dir_path = os.path.dirname(os.path.realpath(__file__))  # directory of this python file
+        # ls /dev/v4l/by-path then mash tab and take an index 0 careful not to take webcam
         self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.1.3:1.0-video-index0')
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
@@ -37,7 +38,7 @@ class PuckTracker(Node):
 
         # Puck status updater and display
         self.frame_rate = 30
-        self.pos_update_period = 1/self.frame_rate
+        self.pos_update_period = 1.0/self.frame_rate
         self.last_frame_time = time.time()  # seconds
         self.show_frame = True
         self.SG_window = 7
@@ -49,7 +50,7 @@ class PuckTracker(Node):
 
         # Puck status publisher
         self.publisher_ = self.create_publisher(PuckStatus, 'PUCK', 10)
-        publisher_period = 0.2  # seconds
+        publisher_period = 1.0/self.frame_rate  # seconds
         self.pub_timer = self.create_timer(publisher_period, self.publish_callback)
     
     def initialize(self):
@@ -64,7 +65,7 @@ class PuckTracker(Node):
 
         if recal in ['y', 'Y']:
             self.frame = self.vid.read()[1]
-            cv2.imshow("initialization", self.frame)
+            # cv2.imshow("initialization", self.frame)
             cv2.setMouseCallback("initialization", self.get_corners)
             while (len(self.from_corners) < 4):
                 cv2.waitKey(1)
@@ -108,7 +109,7 @@ class PuckTracker(Node):
         if (self.show_frame):
             if self.record:
                 self.vid_out.write(self.frame)
-            cv2.imshow('frame', self.frame)
+            # cv2.imshow('frame', self.frame)
     
     def publish_callback(self):
         if self.puck_vel[0] is not None:
