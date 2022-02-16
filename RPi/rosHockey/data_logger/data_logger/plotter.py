@@ -49,7 +49,7 @@ def plot_paths(log_file, n_paths = -1):
                 path_index += 1
                 paths.append(pd.DataFrame(data['PATH'], index=[0]))
 
-        elif 'PUCK' in data.keys():
+        if 'PUCK' in data.keys():
             data = data['PUCK']
             data['path_index'] = path_index
             # print(data)
@@ -57,15 +57,20 @@ def plot_paths(log_file, n_paths = -1):
             puck_status_dfs.append(new_df)
             
     positions = pd.concat(dfs).reset_index(drop=True)
-    paths = pd.concat(paths).reset_index(drop=True)
+    # paths = pd.concat(paths).reset_index(drop=True)
     puck_status = pd.concat(puck_status_dfs).reset_index(drop=True)
     print(paths)
 
-    plt.plot(puck_status["logger time"], puck_status["vy"])
-    plt.plot(positions["logger time"], positions["vy"])
+    plt.plot(puck_status["logger_time"], puck_status["vy"])
+    plt.plot(positions["logger_time"], positions["vy"])
+    plt.xlabel("time (s)")
+    plt.ylabel("y velocity (cm/s)")
+    plt.legend(["puck position", "mallet position"])
+    plt.title("Using Mallet Position Readout to Validate Puck Velocity Readings")
+    plt.show()
 
 if __name__ == "__main__":
-    data_file = '/home/fizzer/PucksInDeep/RPi/rosHockey/data_logger/data/2022-02-14 19:06:37.937629.csv'
+    data_file = '/home/pham/PucksInDeep/RPi/rosHockey/data_logger/data/2022-02-15 15:22:07.193560.csv'
     plot_paths(data_file)
 
 

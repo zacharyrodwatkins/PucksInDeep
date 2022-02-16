@@ -21,32 +21,40 @@ class Intercept(Node):
         self.mallet_y = self.crossing_line
         self.mallet_t = 0.0
 
-        self.q = Queue() 
+        self.avgx = 0
+        self.avgy = 0
+
+        self.vx = Queue() 
+        self.vy = Queue()
         self.not_pub = True
 
         super().__init__('intercept')
         self.puck_status_subscription = self.create_subscription(PuckStatus,'PUCK',self.puck_callback,10)
         self.path_publisher = self.create_publisher(NextPath, 'PATH', 10)
         
-        self.puck_status_publisher = self.create_publisher(PuckStatus, 'PuckStatus', 10)
+        # self.puck_status_publisher = self.create_publisher(PuckStatus, 'PUCK', 10)
 
 
     def compute_dir(self):
-        if(self.not_pub and self.puck_vy < -10.0):
-            dir = math.atan(self.puck_vx/self.puck_vy)+ math.pi/2
-            self.q.put(dir)
-            if (self.q.qsize()>5):
-                l = list(self.q.queue)
-                std = np.std(l)
-                if (std<0.1):
-                    self.not_pub = False
-                    self.publish_path()
-                self.q.get()
-            
+        if(self.not_pub and self.puck_vy < -150.0):
+            self.vy.put(self.puck_vy)
+            self.vx.put(self.puck_vx)
+            if (self.vx.qsize()>=3):
+                
+                l = list(self.vx.queue)
+                self.avgx = sum(l)/len(l)
+                
+                l = list(self.vy.queue)
+                self.avgy = sum(l)/len(l)
+                self.not_pub = False
+                print('zoom')
+                print(self.avgy)
+                print(self.avgx)
+                self.publish_path()          
             
     def publish_path(self):
-        self.mallet_t = (self.crossing_line-self.puck_y)/self.puck_vy
-        self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
+        self.mallet_t = (self.crossing_line-self.puck_y)/self.avgy
+        self.mallet_x = self.puck_x+self.avgx*self.mallet_t
 
         msg = NextPath()
         msg.x = self.mallet_x
@@ -55,10 +63,11 @@ class Intercept(Node):
         msg.vy = 0.0
         msg.ax = 0.0
         msg.ay = 0.0
-        msg.t = self.mallet_t
+        msg.t = self.mallet_t*.6
         self.path_publisher.publish(msg)
 
     def puck_callback(self, msg):
+        # print('callback')
         self.puck_x = msg.x
         self.puck_y = msg.y
         self.puck_vx = msg.x_vel
