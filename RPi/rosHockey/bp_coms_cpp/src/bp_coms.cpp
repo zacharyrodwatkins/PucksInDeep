@@ -35,7 +35,7 @@ public:
     mallet_publisher_ = this->create_publisher<hockey_msgs::msg::MalletPos>("MALLET", 1);
     motor_publisher_ = this->create_publisher<hockey_msgs::msg::MotorStatus>("MOTOR", 1);
     timer_ = this->create_wall_timer(
-        10ms, std::bind(&BpComm::read_bp, this));
+        TIMER_FREQ, std::bind(&BpComm::read_bp, this));
     path_sub_ = this->create_subscription<hockey_msgs::msg::NextPath>(
         "PATH", 1, std::bind(&BpComm::write_bp, this, std::placeholders::_1));
     serial_port = config_tty();
@@ -101,6 +101,7 @@ private:
 // }
 
 void BpComm::read_bp(){
+    // RCLCPP_INFO(this->get_logger(), "reading");
     int count = 0;
     int bytes;
     uint8_t init_byte[1];
@@ -164,10 +165,12 @@ void BpComm::read_bp(){
             motor_publisher_->publish(motor_msg);
         }
     // }
+    // RCLCPP_INFO(this->get_logger(), "read");
 }
 
 
 void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
+    RCLCPP_INFO(this->get_logger(), "sending");
     uint8_t write_buffer[32];
     for (int i = 0; i<4; i++)
         write_buffer[i] = 0xff;
@@ -179,6 +182,7 @@ void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
         // printf("Writing %.2f\n", vals[i]);
     }
     write(serial_port, write_buffer, 32);
+        RCLCPP_INFO(this->get_logger(), "sent");
 }
 
 int BpComm::config_tty(){
@@ -190,9 +194,14 @@ int BpComm::config_tty(){
         printf("Trying /dev/ttyUSB1\n");
         serial_port = open("/dev/ttyUSB1", O_RDWR);
         if (serial_port<0){
-            printf("Could not open /dev/ttyUSB1\n");
-            exit(1);
-            return serial_port;
+            printf("Error %i from open: %s\n", errno, strerror(errno));
+            printf("Trying /dev/ttyUSB2\n");
+            serial_port = open("/dev/ttyUSB2", O_RDWR);
+            if (serial_port<0) {
+                printf("Could not open /dev/ttyUSB2\n");
+                exit(1);
+                return serial_port;
+            }
         }
     }
 

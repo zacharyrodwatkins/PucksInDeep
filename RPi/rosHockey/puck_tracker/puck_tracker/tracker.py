@@ -14,6 +14,7 @@ class PuckTracker(Node):
 
     def __init__(self):
         super().__init__('puck_tracker')
+        self.index = 1
         self.puck_pos = [None, None]
         self.puck_vel = [None, None]
 
@@ -65,7 +66,7 @@ class PuckTracker(Node):
 
         if recal in ['y', 'Y']:
             self.frame = self.vid.read()[1]
-            # cv2.imshow("initialization", self.frame)
+            cv2.imshow("initialization", self.frame)
             cv2.setMouseCallback("initialization", self.get_corners)
             while (len(self.from_corners) < 4):
                 cv2.waitKey(1)
@@ -109,17 +110,19 @@ class PuckTracker(Node):
         if (self.show_frame):
             if self.record:
                 self.vid_out.write(self.frame)
-            # cv2.imshow('frame', self.frame)
+            cv2.imshow('frame', self.frame)
     
     def publish_callback(self):
         if self.puck_vel[0] is not None:
+            self.index = self.index + 1
             msg = PuckStatus()
             msg.x = self.puck_pos[0]
             msg.y = self.puck_pos[1]
             msg.x_vel = self.puck_vel[0]
             msg.y_vel = self.puck_vel[1]
-            self.publisher_.publish(msg)
             print('pos: %f , %f     vel: %f . %f' % (msg.x, msg.y, msg.x_vel, msg.y_vel))
+            self.publisher_.publish(msg)
+
 
     def update_puck_status(self):
         # Capture the video frame and record time of frame
@@ -156,14 +159,19 @@ class PuckTracker(Node):
         # Convert to HSV and filter to binary image for puck isolation
         # Red puck has hue on boundary between 0 and 180, so two filters are used and summed
         hsv_img = cv2.cvtColor(self.frame, cv2.COLOR_BGR2HSV)
-        hsv_min = (0, int(0.6*255), int(0.20*255))
-        hsv_max = (8, int(0.98*255), int(0.80*255))
+        # hsv_min = (0, int(0.3*255), int(0.20*255))
+        # hsv_max = (15, int(0.98*255), int(0.80*255))
+        hsv_min = (0, 0.70*255, 0.06*255)
+        hsv_max = (19, 1.00*255, 0.12*255)
         low_hue_bin_img = cv2.inRange(hsv_img, hsv_min, hsv_max)
-        hsv_min = (175, int(0.6*255), int(0.40*255))
-        hsv_max = (180, int(0.98*255), int(0.80*255))
+        # hsv_min = (175, int(0.3*255), int(0.20*255))
+        # hsv_max = (180, int(0.98*255), int(0.80*255))
+        hsv_min = (170, 0.7*255, 0.06*255)
+        hsv_max = (180, 1.0*255, 0.12*255)
         high_hue_bin_img = cv2.inRange(hsv_img, hsv_min, hsv_max)
         bin_img = low_hue_bin_img + high_hue_bin_img
-
+        # cv2.imshow("low", low_hue_bin_img)
+        # cv2.imshow("high", high_hue_bin_img)
         return bin_img
 
 def main(args=None):

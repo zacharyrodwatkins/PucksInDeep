@@ -39,7 +39,7 @@ class Intercept(Node):
         if(self.not_pub and self.puck_vy < -150.0):
             self.vy.put(self.puck_vy)
             self.vx.put(self.puck_vx)
-            if (self.vx.qsize()>=3):
+            if (self.vx.qsize()>=1):
                 
                 l = list(self.vx.queue)
                 self.avgx = sum(l)/len(l)
@@ -63,8 +63,10 @@ class Intercept(Node):
         msg.vy = 0.0
         msg.ax = 0.0
         msg.ay = 0.0
-        msg.t = self.mallet_t*.6
+        msg.t = self.mallet_t
+        self.get_logger().info("intercept")
         self.path_publisher.publish(msg)
+        self.get_logger().info("published")
 
     def puck_callback(self, msg):
         # print('callback')
