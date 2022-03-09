@@ -59,6 +59,21 @@ static bool _MalletPos__cdr_serialize(
     cdr << ros_message->y;
   }
 
+  // Field name: vx
+  {
+    cdr << ros_message->vx;
+  }
+
+  // Field name: vy
+  {
+    cdr << ros_message->vy;
+  }
+
+  // Field name: time_on_path
+  {
+    cdr << ros_message->time_on_path;
+  }
+
   return true;
 }
 
@@ -79,6 +94,21 @@ static bool _MalletPos__cdr_deserialize(
   // Field name: y
   {
     cdr >> ros_message->y;
+  }
+
+  // Field name: vx
+  {
+    cdr >> ros_message->vx;
+  }
+
+  // Field name: vy
+  {
+    cdr >> ros_message->vy;
+  }
+
+  // Field name: time_on_path
+  {
+    cdr >> ros_message->time_on_path;
   }
 
   return true;
@@ -107,6 +137,24 @@ size_t get_serialized_size_hockey_msgs__msg__MalletPos(
   // field.name y
   {
     size_t item_size = sizeof(ros_message->y);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name vx
+  {
+    size_t item_size = sizeof(ros_message->vx);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name vy
+  {
+    size_t item_size = sizeof(ros_message->vy);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name time_on_path
+  {
+    size_t item_size = sizeof(ros_message->time_on_path);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -142,6 +190,27 @@ size_t max_serialized_size_hockey_msgs__msg__MalletPos(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
   // member: y
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+  // member: vx
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+  // member: vy
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+  // member: time_on_path
   {
     size_t array_size = 1;
 

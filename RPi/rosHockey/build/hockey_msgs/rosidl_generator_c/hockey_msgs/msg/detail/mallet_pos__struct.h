@@ -22,6 +22,9 @@ typedef struct hockey_msgs__msg__MalletPos
 {
   double x;
   double y;
+  double vx;
+  double vy;
+  double time_on_path;
 } hockey_msgs__msg__MalletPos;
 
 // Struct for a sequence of hockey_msgs__msg__MalletPos.

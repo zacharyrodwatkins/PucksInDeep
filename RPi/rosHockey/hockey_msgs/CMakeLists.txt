@@ -27,6 +27,8 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/MalletPos.msg"
   "msg/PuckStatus.msg"
+  "msg/NextPath.msg"
+  "msg/MotorStatus.msg"
  )
 
 ament_package()

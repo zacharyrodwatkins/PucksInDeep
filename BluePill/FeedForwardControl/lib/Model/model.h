@@ -3,8 +3,6 @@
 class GantryModel
 {
 private:
-    enum vers { STEP = 0, DSTEP = 1, RAMP = 2 };
-
     float A_step[3] = {0.00213052462653085, 0.0307510306542813, 0.132961429507223};
     float B_step[3] = {-0.00141458223317764, -0.00983851249298195, 0.0141591992993925};
     float A_dstep[3] = {0.00345334354729376, 0.00374117618306043, 0.167048868001934};
@@ -30,6 +28,9 @@ private:
     float R = 3.5306;
 
 public:
+
+    enum vers { STEP = 0, DSTEP = 1, RAMP = 2 };
+
 
     float theta[2] = {0};
     float theta1[2] = {0};

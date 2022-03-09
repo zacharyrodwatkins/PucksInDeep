@@ -9,6 +9,12 @@ module hockey_msgs {
       double x;
 
       double y;
+
+      double vx;
+
+      double vy;
+
+      double time_on_path;
     };
   };
 };

@@ -1,4 +1,8 @@
 msg/MalletPos.idl
 msg/MalletPos.msg
+msg/MotorStatus.idl
+msg/MotorStatus.msg
+msg/NextPath.idl
+msg/NextPath.msg
 msg/PuckStatus.idl
 msg/PuckStatus.msg

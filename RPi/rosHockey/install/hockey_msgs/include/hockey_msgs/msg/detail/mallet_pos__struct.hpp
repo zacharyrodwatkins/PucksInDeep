@@ -39,6 +39,9 @@ struct MalletPos_
     {
       this->x = 0.0;
       this->y = 0.0;
+      this->vx = 0.0;
+      this->vy = 0.0;
+      this->time_on_path = 0.0;
     }
   }
 
@@ -50,6 +53,9 @@ struct MalletPos_
     {
       this->x = 0.0;
       this->y = 0.0;
+      this->vx = 0.0;
+      this->vy = 0.0;
+      this->time_on_path = 0.0;
     }
   }
 
@@ -60,6 +66,15 @@ struct MalletPos_
   using _y_type =
     double;
   _y_type y;
+  using _vx_type =
+    double;
+  _vx_type vx;
+  using _vy_type =
+    double;
+  _vy_type vy;
+  using _time_on_path_type =
+    double;
+  _time_on_path_type time_on_path;
 
   // setters for named parameter idiom
   Type & set__x(
@@ -72,6 +87,24 @@ struct MalletPos_
     const double & _arg)
   {
     this->y = _arg;
+    return *this;
+  }
+  Type & set__vx(
+    const double & _arg)
+  {
+    this->vx = _arg;
+    return *this;
+  }
+  Type & set__vy(
+    const double & _arg)
+  {
+    this->vy = _arg;
+    return *this;
+  }
+  Type & set__time_on_path(
+    const double & _arg)
+  {
+    this->time_on_path = _arg;
     return *this;
   }
 
@@ -121,6 +154,15 @@ struct MalletPos_
       return false;
     }
     if (this->y != other.y) {
+      return false;
+    }
+    if (this->vx != other.vx) {
+      return false;
+    }
+    if (this->vy != other.vy) {
+      return false;
+    }
+    if (this->time_on_path != other.time_on_path) {
       return false;
     }
     return true;

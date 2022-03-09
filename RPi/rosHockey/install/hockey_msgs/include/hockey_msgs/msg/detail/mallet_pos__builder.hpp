@@ -20,16 +20,64 @@ namespace msg
 namespace builder
 {
 
+class Init_MalletPos_time_on_path
+{
+public:
+  explicit Init_MalletPos_time_on_path(::hockey_msgs::msg::MalletPos & msg)
+  : msg_(msg)
+  {}
+  ::hockey_msgs::msg::MalletPos time_on_path(::hockey_msgs::msg::MalletPos::_time_on_path_type arg)
+  {
+    msg_.time_on_path = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::hockey_msgs::msg::MalletPos msg_;
+};
+
+class Init_MalletPos_vy
+{
+public:
+  explicit Init_MalletPos_vy(::hockey_msgs::msg::MalletPos & msg)
+  : msg_(msg)
+  {}
+  Init_MalletPos_time_on_path vy(::hockey_msgs::msg::MalletPos::_vy_type arg)
+  {
+    msg_.vy = std::move(arg);
+    return Init_MalletPos_time_on_path(msg_);
+  }
+
+private:
+  ::hockey_msgs::msg::MalletPos msg_;
+};
+
+class Init_MalletPos_vx
+{
+public:
+  explicit Init_MalletPos_vx(::hockey_msgs::msg::MalletPos & msg)
+  : msg_(msg)
+  {}
+  Init_MalletPos_vy vx(::hockey_msgs::msg::MalletPos::_vx_type arg)
+  {
+    msg_.vx = std::move(arg);
+    return Init_MalletPos_vy(msg_);
+  }
+
+private:
+  ::hockey_msgs::msg::MalletPos msg_;
+};
+
 class Init_MalletPos_y
 {
 public:
   explicit Init_MalletPos_y(::hockey_msgs::msg::MalletPos & msg)
   : msg_(msg)
   {}
-  ::hockey_msgs::msg::MalletPos y(::hockey_msgs::msg::MalletPos::_y_type arg)
+  Init_MalletPos_vx y(::hockey_msgs::msg::MalletPos::_y_type arg)
   {
     msg_.y = std::move(arg);
-    return std::move(msg_);
+    return Init_MalletPos_vx(msg_);
   }
 
 private:

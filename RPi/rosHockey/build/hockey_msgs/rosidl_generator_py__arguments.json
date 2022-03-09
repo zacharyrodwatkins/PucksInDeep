@@ -1,10 +1,12 @@
 {
   "package_name": "hockey_msgs",
-  "output_dir": "/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs",
+  "output_dir": "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_py/hockey_msgs",
   "template_dir": "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource",
   "idl_tuples": [
-    "/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs:msg/MalletPos.idl",
-    "/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs:msg/PuckStatus.idl"
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs:msg/MalletPos.idl",
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs:msg/PuckStatus.idl",
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs:msg/NextPath.idl",
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs:msg/MotorStatus.idl"
   ],
   "target_dependencies": [
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py",
@@ -20,7 +22,9 @@
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource/_msg.py.em",
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource/_srv_pkg_typesupport_entry_point.c.em",
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource/_srv.py.em",
-    "/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs/msg/MalletPos.idl",
-    "/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs/msg/PuckStatus.idl"
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs/msg/MalletPos.idl",
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs/msg/PuckStatus.idl",
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs/msg/NextPath.idl",
+    "/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_adapter/hockey_msgs/msg/MotorStatus.idl"
   ]
 }

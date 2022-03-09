@@ -68,6 +68,33 @@ bool hockey_msgs__msg__mallet_pos__convert_from_py(PyObject * _pymsg, void * _ro
     ros_message->y = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
+  {  // vx
+    PyObject * field = PyObject_GetAttrString(_pymsg, "vx");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->vx = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
+  {  // vy
+    PyObject * field = PyObject_GetAttrString(_pymsg, "vy");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->vy = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
+  {  // time_on_path
+    PyObject * field = PyObject_GetAttrString(_pymsg, "time_on_path");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->time_on_path = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -106,6 +133,39 @@ PyObject * hockey_msgs__msg__mallet_pos__convert_to_py(void * raw_ros_message)
     field = PyFloat_FromDouble(ros_message->y);
     {
       int rc = PyObject_SetAttrString(_pymessage, "y", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // vx
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->vx);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "vx", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // vy
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->vy);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "vy", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // time_on_path
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->time_on_path);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "time_on_path", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

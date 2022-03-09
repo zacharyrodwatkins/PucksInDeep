@@ -37,7 +37,7 @@ void MalletPos_fini_function(void * message_memory)
   typed_message->~MalletPos();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember MalletPos_message_member_array[2] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember MalletPos_message_member_array[5] = {
   {
     "x",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
@@ -67,13 +67,58 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MalletPos_mes
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "vx",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(hockey_msgs::msg::MalletPos, vx),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "vy",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(hockey_msgs::msg::MalletPos, vy),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "time_on_path",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(hockey_msgs::msg::MalletPos, time_on_path),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers MalletPos_message_members = {
   "hockey_msgs::msg",  // message namespace
   "MalletPos",  // message name
-  2,  // number of fields
+  5,  // number of fields
   sizeof(hockey_msgs::msg::MalletPos),
   MalletPos_message_member_array,  // message members
   MalletPos_init_function,  // function to initialize message memory (memory has to be allocated)

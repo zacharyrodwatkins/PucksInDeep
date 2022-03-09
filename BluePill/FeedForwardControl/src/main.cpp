@@ -18,7 +18,7 @@ float motor_v = 23.6;
 int start_time = 0;
 
 MalletController controller;
-GantryModel mod;
+GantryModel mod(GantryModel::vers::RAMP);
 
 HardwareSerial Serial2(PA3, PA2);
 
@@ -62,7 +62,6 @@ void setup(){
     Serial2.begin(460800);
 
     controller = MalletController();
-    mod = GantryModel(GantryModel::vers::STEP);
 
     zero();
 

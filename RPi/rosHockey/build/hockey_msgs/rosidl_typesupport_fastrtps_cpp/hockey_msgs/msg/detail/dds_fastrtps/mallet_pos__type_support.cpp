@@ -36,6 +36,12 @@ cdr_serialize(
   cdr << ros_message.x;
   // Member: y
   cdr << ros_message.y;
+  // Member: vx
+  cdr << ros_message.vx;
+  // Member: vy
+  cdr << ros_message.vy;
+  // Member: time_on_path
+  cdr << ros_message.time_on_path;
   return true;
 }
 
@@ -50,6 +56,15 @@ cdr_deserialize(
 
   // Member: y
   cdr >> ros_message.y;
+
+  // Member: vx
+  cdr >> ros_message.vx;
+
+  // Member: vy
+  cdr >> ros_message.vy;
+
+  // Member: time_on_path
+  cdr >> ros_message.time_on_path;
 
   return true;
 }
@@ -76,6 +91,24 @@ get_serialized_size(
   // Member: y
   {
     size_t item_size = sizeof(ros_message.y);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: vx
+  {
+    size_t item_size = sizeof(ros_message.vx);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: vy
+  {
+    size_t item_size = sizeof(ros_message.vy);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: time_on_path
+  {
+    size_t item_size = sizeof(ros_message.time_on_path);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -107,6 +140,30 @@ max_serialized_size_MalletPos(
   }
 
   // Member: y
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+
+  // Member: vx
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+
+  // Member: vy
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+
+  // Member: time_on_path
   {
     size_t array_size = 1;
 

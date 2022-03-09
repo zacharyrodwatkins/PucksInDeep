@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -Wall -std=gnu++14
 
 CXX_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\"hockey_msgs\" -Dhockey_msgs__rosidl_typesupport_c_EXPORTS
 
-CXX_INCLUDES = -I/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c -I/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_c -isystem /opt/ros/foxy/include 
+CXX_INCLUDES = -I/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_generator_c -I/home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/rosidl_typesupport_c -isystem /opt/ros/foxy/include 
 

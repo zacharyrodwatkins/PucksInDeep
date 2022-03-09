@@ -17,6 +17,9 @@ hockey_msgs__msg__MalletPos__init(hockey_msgs__msg__MalletPos * msg)
   }
   // x
   // y
+  // vx
+  // vy
+  // time_on_path
   return true;
 }
 
@@ -28,6 +31,9 @@ hockey_msgs__msg__MalletPos__fini(hockey_msgs__msg__MalletPos * msg)
   }
   // x
   // y
+  // vx
+  // vy
+  // time_on_path
 }
 
 hockey_msgs__msg__MalletPos *

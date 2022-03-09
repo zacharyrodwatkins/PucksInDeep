@@ -10,6 +10,7 @@ setup.py
 ../build/puck_tracker/puck_tracker.egg-info/zip-safe
 puck_tracker/__init__.py
 puck_tracker/tracker.py
+puck_tracker/vel_test.py
 resource/puck_tracker
 test/test_copyright.py
 test/test_flake8.py

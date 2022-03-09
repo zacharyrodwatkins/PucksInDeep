@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs/hockey_msgs__py
+# Install script for directory: /home/fizzer/PucksInDeep/RPi/rosHockey/build/hockey_msgs/hockey_msgs__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/PucksInDeep/RPi/rosHockey/install/hockey_msgs")
+  set(CMAKE_INSTALL_PREFIX "/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

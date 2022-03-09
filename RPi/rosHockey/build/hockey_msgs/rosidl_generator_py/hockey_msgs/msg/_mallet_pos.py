@@ -55,14 +55,23 @@ class MalletPos(metaclass=Metaclass_MalletPos):
     __slots__ = [
         '_x',
         '_y',
+        '_vx',
+        '_vy',
+        '_time_on_path',
     ]
 
     _fields_and_field_types = {
         'x': 'double',
         'y': 'double',
+        'vx': 'double',
+        'vy': 'double',
+        'time_on_path': 'double',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
     )
@@ -73,6 +82,9 @@ class MalletPos(metaclass=Metaclass_MalletPos):
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.x = kwargs.get('x', float())
         self.y = kwargs.get('y', float())
+        self.vx = kwargs.get('vx', float())
+        self.vy = kwargs.get('vy', float())
+        self.time_on_path = kwargs.get('time_on_path', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -107,6 +119,12 @@ class MalletPos(metaclass=Metaclass_MalletPos):
             return False
         if self.y != other.y:
             return False
+        if self.vx != other.vx:
+            return False
+        if self.vy != other.vy:
+            return False
+        if self.time_on_path != other.time_on_path:
+            return False
         return True
 
     @classmethod
@@ -139,3 +157,42 @@ class MalletPos(metaclass=Metaclass_MalletPos):
                 isinstance(value, float), \
                 "The 'y' field must be of type 'float'"
         self._y = value
+
+    @property
+    def vx(self):
+        """Message field 'vx'."""
+        return self._vx
+
+    @vx.setter
+    def vx(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'vx' field must be of type 'float'"
+        self._vx = value
+
+    @property
+    def vy(self):
+        """Message field 'vy'."""
+        return self._vy
+
+    @vy.setter
+    def vy(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'vy' field must be of type 'float'"
+        self._vy = value
+
+    @property
+    def time_on_path(self):
+        """Message field 'time_on_path'."""
+        return self._time_on_path
+
+    @time_on_path.setter
+    def time_on_path(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'time_on_path' field must be of type 'float'"
+        self._time_on_path = value
