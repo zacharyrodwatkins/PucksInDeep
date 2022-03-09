@@ -22,7 +22,7 @@ class ID_tool(Node):
             msg = NextPath()
             while (1):
                 msg.x = float(input("\nPath Type?\nStep  1\nDouble Step  2\nRamp  3\nTriangle  4\n"))
-                if (msg.x in (1,2,3,4)):
+                if (msg.x in (1,2,3,4,5)):
                     break
                 print("\n-------Invalid input--------\n\n")
             while (1):
