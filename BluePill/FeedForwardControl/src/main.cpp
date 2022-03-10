@@ -14,7 +14,7 @@ bool y_ok = true;
 int read_count = 0;
 int ser_counter = 0;
 
-float motor_v = 23.6;
+float motor_v = 24;
 int start_time = 0;
 
 MalletController controller;
