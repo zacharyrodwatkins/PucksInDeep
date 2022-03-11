@@ -14,7 +14,7 @@ bool y_ok = true;
 int read_count = 0;
 int ser_counter = 0;
 
-float motor_v = 23.6;
+float motor_v = 24;
 int start_time = 0;
 
 MalletController controller;
@@ -170,13 +170,13 @@ void loop(){
   ser_counter = Serial.available();
   if (n_read_in_buffer == NUM_BYTES_REC) {
     float vals [NUM_VALS];
-    //read_count++;
-    //uint8_t serial_reading_buffer[14] = {1 ,2, 3 ,4, 5, 6 , 7 , 8, 9, 10, 11, 12, 13,14};
+    read_count++;
+    // uint8_t serial_reading_buffer[14] = {1 ,2, 3 ,4, 5, 6 , 7 , 8, 9, 10, 11, 12, 13,14};
     read_floats_from_pi(serial_reading_buffer, vals, NUM_VALS);
-    // float finalXY[2] = {vals[0],vals[1]};
-    // float finalVel[2] = {vals[2],vals[3]};
-    // float finalAcc[2] = {vals[4],vals[5]};
-    // float path_time = vals[6];
+    float finalXY[2] = {vals[0],vals[1]};
+    float finalVel[2] = {vals[2],vals[3]};
+    float finalAcc[2] = {vals[4],vals[5]};
+    float path_time = vals[6];
 
     finalXY[0] = vals[0];
     finalXY[1] = vals[1];
@@ -210,6 +210,11 @@ void loop(){
     effort = mod.get_effort(time_s);
     effort[0] = (effort[0]/motor_v)*128;
     effort[1] = (effort[1]/motor_v)*128;
+
+// no model
+    effort[0] = 0;
+    effort[1] = 0;
+
     total_effort[0] = effort[0] + controller.effort_m1;
     total_effort[1] = effort[1] + controller.effort_m2;
     write_to_motor(MOTOR_LEFT, total_effort[0]);

@@ -28,12 +28,21 @@ class MalletController {
         // float iy = 50;
         // float dy = 1.35;
 
-        float px = 0;
+        // float px = 25;
+        // float ix = 0;
+        // float dx = 0.93;
+        // float py = 21;
+        // float iy = 0;
+        // float dy = .65;
+// 0.4 works
+        float factor = 1;
+
+        float px = 25*factor;
         float ix = 0;
-        float dx = 0;
-        float py = 0;
+        float dx = .93*factor;
+        float py = 21*factor;
         float iy = 0;
-        float dy = 0;
+        float dy = .65*factor;
 
 
         // const uint8_t MOTOR_LEFT = 0x81;
