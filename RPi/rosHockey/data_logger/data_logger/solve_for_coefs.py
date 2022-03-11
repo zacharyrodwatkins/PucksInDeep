@@ -33,7 +33,7 @@ def get_derivative_function(start,stop,dt):
     coeffs = get_coeffs(start,stop,dt)
     return lambda t : np.dot(coeffs, np.array(5,4,3,2,1,0)/t*np.vander(np.array([t]),6)[0]) if t < dt else 0
 
-def get_2nd_derivve_function(start, stop, dt):
+def get_2nd_derivative_function(start, stop, dt):
     coeffs = get_coeffs(start,stop,dt)
     return lambda t : np.dot(coeffs, np.array(5*4,4*3,3*2,2,0,0)/t**2*np.vander(np.array([t]),6)[0]) if t < dt else 0
 

@@ -1,4 +1,5 @@
 # from click import pass_obj
+from turtle import position
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -36,8 +37,8 @@ def plot_paths(log_file, n_paths = -1):
             matlab_fit_data = {}
             data = data['MALLET']
 
-            matlab_fit_data['theta1'] = 180*((data['x'] - x0) + (data['y'] - y0))/(2*radius*np.pi)
-            matlab_fit_data['theta2'] = 180*((data['x'] - x0) - (data['y'] - y0))/(2*radius*np.pi)
+            matlab_fit_data['theta1'] = 180*((data['x'] - x0) + (data['y'] - y0))/(radius*np.pi)
+            matlab_fit_data['theta2'] = 180*((data['x'] - x0) - (data['y'] - y0))/(radius*np.pi)
             matlab_fit_data['x'] = data['x'] - x0
             matlab_fit_data['y'] = data['y'] - y0
             matlab_fit_data['I'] = 0.0
@@ -53,19 +54,32 @@ def plot_paths(log_file, n_paths = -1):
                     matlab_fit_data['x'] = data['x'] - x0
                     matlab_fit_data['y'] = data['y'] - y0
                     first = False
-                    print(matlab_fit_data)
+                    # print(matlab_fit_data)
 
                 new_df = pd.DataFrame(matlab_fit_data,index = [0])
                 dfs.append(new_df)
             
     positions = pd.concat(dfs).reset_index(drop=True)
-    
+    return positions
     # print(positions)
-    file = Path("C:\\Users\\epham\\Documents\\airhockey\\PucksInDeep\\RPi\\rosHockey\\data_logger\\data\\d_step_speed_10.txt")
-    file.parent.mkdir(parents=True, exist_ok=True)  
-    positions.to_csv(file, index=False)
+    # file = Path("C:\\Users\\epham\\Documents\\airhockey\\PucksInDeep\\RPi\\rosHockey\\data_logger\\data\\d_step_speed_10.txt")
+    # file.parent.mkdir(parents=True, exist_ok=True)  
+    # positions.to_csv(file, index=False)
 
 if __name__ == "__main__":
-    data_file = "C:\\Users\\epham\\Documents\\airhockey\\PucksInDeep\\RPi\\rosHockey\\data_logger\\data\\d_step_slow_2022-03-08 14_24_24.578303.csv"
-    plot_paths(data_file)
+    import glob
+    import os
+    in_folder = "../data"
+    out_folder = "../data/converted"
+    files = glob.glob("{}/*.csv".format(in_folder))
+    for file_ in files:
+        position = plot_paths(file_)
+        print("Converted {}".format(file_))
+        bname = os.path.basename(file_)
+        out_file_name = Path("{}/{}".format(out_folder, bname))
+        out_file_name.parent.mkdir(parents=True, exist_ok=True)  
+        position.to_csv(out_file_name, index=False)
+
+    # data_file = "data_logger/data/d_step_slow_2022-03-08 14_24_24.578303.csv"
+    # plot_paths(data_file)
 
