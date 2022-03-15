@@ -70,7 +70,7 @@ def plot_paths(log_file, n_paths = -1):
     plt.show()
 
 if __name__ == "__main__":
-    data_file = '/home/pham/PucksInDeep/RPi/rosHockey/data_logger/data/2022-02-15 15:22:07.193560.csv'
+    data_file = '/home/fizzer/PucksInDeep/RPi/rosHockey/data_logger/data/2022-03-14 12:53:21.114204.csv'
     plot_paths(data_file)
 
 
