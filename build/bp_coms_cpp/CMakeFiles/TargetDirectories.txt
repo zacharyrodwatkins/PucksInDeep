@@ -1,0 +1,10 @@
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/install/strip.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/install/local.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/install.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/list_install_components.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/rebuild_cache.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/edit_cache.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/test.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/bp_coms_cpp_uninstall.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/bp_coms.dir
+/home/fizzer/PucksInDeep/build/bp_coms_cpp/CMakeFiles/uninstall.dir

@@ -1,10 +1,8 @@
 import time
-
-from sqlalchemy import true
 import rclpy
 from rclpy.node import Node
 from hockey_msgs.msg import PuckStatus, NextPath
-from math import mean
+from statistics import mean
 TIMER_PERIOD = 1/10
 
 
@@ -28,8 +26,8 @@ class HLC(Node):
         self.crossing_line = 0.0  # Default defensive intercept line is goal line
         self.threshold_time = 0.05  # 50 ms
         self.too_fast = self.midline/0.5  # Will hit back wall in under 0.5 sec
-        self.v_shot = 4  # hit puck while going 4 m/s
-        self.t_shot = 0.3  # hit puck for shot 0.3 sec after crossing midline
+        self.v_shot = 80.0  # hit puck while going 40 cm/s
+        self.t_shot = 0.5  # hit puck for shot 0.3 sec after crossing midline
 
         # Path variables (final acceleration is unused at the moment, maybe good if you know the following path)
         self.mallet_x = 0.0
@@ -48,9 +46,9 @@ class HLC(Node):
         self.time = time.time()
         msg = NextPath()
         msg.x = float(self.mallet_x)
-        msg.y = float(self.mallet_y)self.mallet_x-np.avg(self.goal_range)
+        msg.y = float(self.mallet_y)
         msg.vx = self.mallet_vx
-        msg.vy = self.mallet_vyself.mallet_x-np.avg(self.goal_range)
+        msg.vy = self.mallet_vy
         msg.ax = 0.0
         msg.ay = 0.0
         msg.t = self.mallet_t
@@ -74,6 +72,13 @@ class HLC(Node):
         self.mallet_vx = self.v_shot * delta_x/(delta_x**2 + delta_y**2)**(1/2)
         self.mallet_vy = self.v_shot * delta_y/(delta_x**2 + delta_y**2)**(1/2)
 
+    def load_center(self):
+        self.mallet_t = 1.0
+        self.mallet_x = 40.0
+        self.mallet_y = 10.0
+        self.mallet_vx = 0.0
+        self.mallet_vy = 0.0
+
     def puck_callback(self, msg):
         # Get puck status
         self.puck_x = msg.x
@@ -81,18 +86,21 @@ class HLC(Node):
         self.puck_vx = msg.x_vel
         self.puck_vy = msg.y_vel
 
+ 
+
         # If we havent finished our last path don't do anything
         if (time.time() - self.last_path_time) < self.mallet_t:
             return
 
         # If shot is coming our way
+        self.last_path_time = time.time()
         if self.crossing_midline():
-            self.last_path_time = time.time()
 
             # If puck is not too fast
             if (abs(self.puck_vy) < self.too_fast):
                 self.load_offensive_path()
                 self.update_path()
+                
                 print("nice and slow")
             # If puck is too fast
             else:
@@ -103,15 +111,25 @@ class HLC(Node):
                     self.update_path()
                 # Otherwise we are fine to chill
                 else:
-                    print("not on target ;)")                
+                    print("not on target ;)")   
+        else:
+             self.load_center()
+             print("center")
+             self.update_path()   
 
     def crossing_midline(self):
-        if self.puck_vy > 0:
+        
+        if self.puck_x<0:
+            # Lost puck, just go pack to center
+            return False
+        if self.puck_vy > 20:
             # Not moving towards, us we dont care
             return False
         if (self.puck_y + (self.puck_vy * self.threshold_time)) < self.midline:
             # Puck is on opponents end and coming at us
             return True
+        print('not headed to our side')
+
         return False
 
 def main(args=None):

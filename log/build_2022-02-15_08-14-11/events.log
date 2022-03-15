@@ -1,0 +1,142 @@
+[0.000000] (-) TimerEvent: {}
+[0.000618] (-) JobUnselected: {'identifier': 'HLC'}
+[0.000837] (-) JobUnselected: {'identifier': 'bp_coms'}
+[0.001236] (-) JobUnselected: {'identifier': 'data_logger'}
+[0.001285] (-) JobUnselected: {'identifier': 'hockey_gui'}
+[0.001350] (-) JobUnselected: {'identifier': 'hockey_msgs'}
+[0.002314] (-) JobUnselected: {'identifier': 'hockey_testing'}
+[0.002463] (-) JobUnselected: {'identifier': 'keyboard_control'}
+[0.002520] (-) JobUnselected: {'identifier': 'puck_tracker'}
+[0.002568] (-) JobUnselected: {'identifier': 'visualizer'}
+[0.002619] (bp_coms_cpp) JobQueued: {'identifier': 'bp_coms_cpp', 'dependencies': OrderedDict([('hockey_msgs', '/home/fizzer/PucksInDeep/install/hockey_msgs')])}
+[0.002674] (bp_coms_cpp) JobStarted: {'identifier': 'bp_coms_cpp'}
+[0.017679] (bp_coms_cpp) JobProgress: {'identifier': 'bp_coms_cpp', 'progress': 'cmake'}
+[0.018611] (bp_coms_cpp) JobProgress: {'identifier': 'bp_coms_cpp', 'progress': 'build'}
+[0.019701] (bp_coms_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/fizzer/PucksInDeep/build/bp_coms_cpp', '--', '-j4', '-l4'], 'cwd': '/home/fizzer/PucksInDeep/build/bp_coms_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_CA:en'), ('USER', 'fizzer'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1178'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/fizzer'), ('OLDPWD', '/home/fizzer/PucksInDeep/RPi'), ('DESKTOP_SESSION', 'xubuntu'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('QT_QPA_PLATFORMTHEME', 'gtk2'), ('COLCON_PREFIX_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'fizzer'), ('WINDOWID', '65011715'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('CLUTTER_BACKEND', 'x11'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', 'c2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/fizzer/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/fizzer-Vostro-3458:@/tmp/.ICE-unix/1101,unix/fizzer-Vostro-3458:/tmp/.ICE-unix/1101'), ('GDM_LANG', 'en_CA'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('LANG', 'en_CA.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('XDG_SESSION_DESKTOP', 'xubuntu'), ('XAUTHORITY', '/home/fizzer/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/fizzer'), ('AMENT_PREFIX_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms_cpp:/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'xubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '7'), ('PWD', '/home/fizzer/PucksInDeep/build/bp_coms_cpp'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share'), ('PYTHONPATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui/lib/python3.8/site-packages:/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs/lib/python3.8/site-packages:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms/lib/python3.8/site-packages:/home/fizzer/PucksInDeep/RPi/rosHockey/build/HLC:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms_cpp:/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs:/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy')]), 'shell': False}
+[0.086570] (bp_coms_cpp) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target bp_coms\x1b[0m\n'}
+[0.099326] (-) TimerEvent: {}
+[0.126860] (bp_coms_cpp) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/bp_coms.dir/src/bp_coms.cpp.o\x1b[0m\n'}
+[0.199447] (-) TimerEvent: {}
+[0.299772] (-) TimerEvent: {}
+[0.400113] (-) TimerEvent: {}
+[0.500431] (-) TimerEvent: {}
+[0.600774] (-) TimerEvent: {}
+[0.701065] (-) TimerEvent: {}
+[0.801600] (-) TimerEvent: {}
+[0.901977] (-) TimerEvent: {}
+[1.002355] (-) TimerEvent: {}
+[1.102723] (-) TimerEvent: {}
+[1.203111] (-) TimerEvent: {}
+[1.303491] (-) TimerEvent: {}
+[1.403869] (-) TimerEvent: {}
+[1.504265] (-) TimerEvent: {}
+[1.604642] (-) TimerEvent: {}
+[1.704982] (-) TimerEvent: {}
+[1.730842] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid BpComm::initialize()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.731148] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:94:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison is always false due to limited range of data type [\x1b[01;35m\x1b[K-Wtype-limits\x1b[m\x1b[K]\n'}
+[1.731343] (bp_coms_cpp) StderrLine: {'line': b'   94 |         if (\x1b[01;35m\x1b[Kcount > 10000000000\x1b[m\x1b[K){\n'}
+[1.731460] (bp_coms_cpp) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K~~~~~~^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.750583] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid BpComm::write_bp(hockey_msgs::msg::NextPath_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.751008] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:26:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_x_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::x\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_x_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wnarrowing\x1b[m\x1b[K]\n'}
+[1.751135] (bp_coms_cpp) StderrLine: {'line': b'  145 |     float vals[7] = {\x1b[01;35m\x1b[Kmsg.x\x1b[m\x1b[K, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};\n'}
+[1.751224] (bp_coms_cpp) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K~~~~^\x1b[m\x1b[K\n'}
+[1.751307] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:33:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_y_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::y\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_y_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wnarrowing\x1b[m\x1b[K]\n'}
+[1.751398] (bp_coms_cpp) StderrLine: {'line': b'  145 |     float vals[7] = {msg.x, \x1b[01;35m\x1b[Kmsg.y\x1b[m\x1b[K, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};\n'}
+[1.751480] (bp_coms_cpp) StderrLine: {'line': b'      |                             \x1b[01;35m\x1b[K~~~~^\x1b[m\x1b[K\n'}
+[1.751561] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:40:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_vx_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::vx\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_vx_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wnarrowing\x1b[m\x1b[K]\n'}
+[1.751647] (bp_coms_cpp) StderrLine: {'line': b'  145 |     float vals[7] = {msg.x, msg.y, \x1b[01;35m\x1b[Kmsg.vx\x1b[m\x1b[K, msg.vy, msg.ax, msg.ay, msg.t};\n'}
+[1.751728] (bp_coms_cpp) StderrLine: {'line': b'      |                                    \x1b[01;35m\x1b[K~~~~^~\x1b[m\x1b[K\n'}
+[1.751810] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:48:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_vy_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::vy\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_vy_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wnarrowing\x1b[m\x1b[K]\n'}
+[1.751896] (bp_coms_cpp) StderrLine: {'line': b'  145 |     float vals[7] = {msg.x, msg.y, msg.vx, \x1b[01;35m\x1b[Kmsg.vy\x1b[m\x1b[K, msg.ax, msg.ay, msg.t};\n'}
+[1.751977] (bp_coms_cpp) StderrLine: {'line': b'      |                                            \x1b[01;35m\x1b[K~~~~^~\x1b[m\x1b[K\n'}
+[1.752058] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:56:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_ax_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::ax\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_ax_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wnarrowing\x1b[m\x1b[K]\n'}
+[1.752165] (bp_coms_cpp) StderrLine: {'line': b'  145 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, \x1b[01;35m\x1b[Kmsg.ax\x1b[m\x1b[K, msg.ay, msg.t};\n'}
+[1.752270] (bp_coms_cpp) StderrLine: {'line': b'      |                                                    \x1b[01;35m\x1b[K~~~~^~\x1b[m\x1b[K\n'}
+[1.752363] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:64:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_ay_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::ay\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_ay_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wnarrowing\x1b[m\x1b[K]\n'}
+[1.752462] (bp_coms_cpp) StderrLine: {'line': b'  145 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, \x1b[01;35m\x1b[Kmsg.ay\x1b[m\x1b[K, msg.t};\n'}
+[1.752544] (bp_coms_cpp) StderrLine: {'line': b'      |                                                            \x1b[01;35m\x1b[K~~~~^~\x1b[m\x1b[K\n'}
+[1.752625] (bp_coms_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:72:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_t_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::t\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_t_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wnarrowing\x1b[m\x1b[K]\n'}
+[1.752714] (bp_coms_cpp) StderrLine: {'line': b'  145 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, \x1b[01;35m\x1b[Kmsg.t\x1b[m\x1b[K};\n'}
+[1.752795] (bp_coms_cpp) StderrLine: {'line': b'      |                                                                    \x1b[01;35m\x1b[K~~~~^\x1b[m\x1b[K\n'}
+[1.805126] (-) TimerEvent: {}
+[1.905468] (-) TimerEvent: {}
+[2.005789] (-) TimerEvent: {}
+[2.106116] (-) TimerEvent: {}
+[2.206440] (-) TimerEvent: {}
+[2.306783] (-) TimerEvent: {}
+[2.407126] (-) TimerEvent: {}
+[2.507457] (-) TimerEvent: {}
+[2.607775] (-) TimerEvent: {}
+[2.708270] (-) TimerEvent: {}
+[2.808662] (-) TimerEvent: {}
+[2.909043] (-) TimerEvent: {}
+[3.009446] (-) TimerEvent: {}
+[3.109829] (-) TimerEvent: {}
+[3.210163] (-) TimerEvent: {}
+[3.310498] (-) TimerEvent: {}
+[3.410850] (-) TimerEvent: {}
+[3.511196] (-) TimerEvent: {}
+[3.611538] (-) TimerEvent: {}
+[3.711878] (-) TimerEvent: {}
+[3.812266] (-) TimerEvent: {}
+[3.912803] (-) TimerEvent: {}
+[4.013216] (-) TimerEvent: {}
+[4.113542] (-) TimerEvent: {}
+[4.213866] (-) TimerEvent: {}
+[4.314209] (-) TimerEvent: {}
+[4.414562] (-) TimerEvent: {}
+[4.514894] (-) TimerEvent: {}
+[4.615224] (-) TimerEvent: {}
+[4.715547] (-) TimerEvent: {}
+[4.815879] (-) TimerEvent: {}
+[4.916199] (-) TimerEvent: {}
+[5.016546] (-) TimerEvent: {}
+[5.116850] (-) TimerEvent: {}
+[5.217177] (-) TimerEvent: {}
+[5.317517] (-) TimerEvent: {}
+[5.417861] (-) TimerEvent: {}
+[5.518196] (-) TimerEvent: {}
+[5.618522] (-) TimerEvent: {}
+[5.718861] (-) TimerEvent: {}
+[5.819235] (-) TimerEvent: {}
+[5.919649] (-) TimerEvent: {}
+[6.020037] (-) TimerEvent: {}
+[6.120418] (-) TimerEvent: {}
+[6.220802] (-) TimerEvent: {}
+[6.321198] (-) TimerEvent: {}
+[6.421605] (-) TimerEvent: {}
+[6.521986] (-) TimerEvent: {}
+[6.622342] (-) TimerEvent: {}
+[6.722682] (-) TimerEvent: {}
+[6.822996] (-) TimerEvent: {}
+[6.830505] (bp_coms_cpp) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable bp_coms\x1b[0m\n'}
+[6.923167] (-) TimerEvent: {}
+[7.023539] (-) TimerEvent: {}
+[7.123910] (-) TimerEvent: {}
+[7.195335] (bp_coms_cpp) StdoutLine: {'line': b'[100%] Built target bp_coms\n'}
+[7.209137] (bp_coms_cpp) CommandEnded: {'returncode': 0}
+[7.224158] (-) TimerEvent: {}
+[7.242223] (bp_coms_cpp) JobProgress: {'identifier': 'bp_coms_cpp', 'progress': 'install'}
+[7.256332] (bp_coms_cpp) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/fizzer/PucksInDeep/build/bp_coms_cpp'], 'cwd': '/home/fizzer/PucksInDeep/build/bp_coms_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_CA:en'), ('USER', 'fizzer'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1178'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/fizzer'), ('OLDPWD', '/home/fizzer/PucksInDeep/RPi'), ('DESKTOP_SESSION', 'xubuntu'), ('ROS_PYTHON_VERSION', '3'), ('XDG_SEAT_PATH', '/org/freedesktop/DisplayManager/Seat0'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('QT_QPA_PLATFORMTHEME', 'gtk2'), ('COLCON_PREFIX_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'fizzer'), ('WINDOWID', '65011715'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('CLUTTER_BACKEND', 'x11'), ('TERM', 'xterm-256color'), ('GTK_OVERLAY_SCROLLING', '0'), ('XDG_SESSION_ID', 'c2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/fizzer/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/fizzer-Vostro-3458:@/tmp/.ICE-unix/1101,unix/fizzer-Vostro-3458:/tmp/.ICE-unix/1101'), ('GDM_LANG', 'en_CA'), ('XDG_SESSION_PATH', '/org/freedesktop/DisplayManager/Session0'), ('XDG_MENU_PREFIX', 'xfce-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0.0'), ('LANG', 'en_CA.UTF-8'), ('XDG_CURRENT_DESKTOP', 'XFCE'), ('XDG_SESSION_DESKTOP', 'xubuntu'), ('XAUTHORITY', '/home/fizzer/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('XDG_GREETER_DATA_DIR', '/var/lib/lightdm-data/fizzer'), ('AMENT_PREFIX_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms_cpp:/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'xubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '7'), ('PWD', '/home/fizzer/PucksInDeep/build/bp_coms_cpp'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share'), ('PYTHONPATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui/lib/python3.8/site-packages:/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs/lib/python3.8/site-packages:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms/lib/python3.8/site-packages:/home/fizzer/PucksInDeep/RPi/rosHockey/build/HLC:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms_cpp:/home/fizzer/PucksInDeep/RPi/rosHockey/install/hockey_msgs:/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy')]), 'shell': False}
+[7.269352] (bp_coms_cpp) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[7.269643] (bp_coms_cpp) StdoutLine: {'line': b'-- Installing: /home/fizzer/PucksInDeep/install/bp_coms_cpp/lib/bp_coms_cpp/bp_coms\n'}
+[7.272656] (bp_coms_cpp) StdoutLine: {'line': b'-- Set runtime path of "/home/fizzer/PucksInDeep/install/bp_coms_cpp/lib/bp_coms_cpp/bp_coms" to ""\n'}
+[7.273201] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/package_run_dependencies/bp_coms_cpp\n'}
+[7.273412] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/parent_prefix_path/bp_coms_cpp\n'}
+[7.273578] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/ament_prefix_path.sh\n'}
+[7.273699] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/ament_prefix_path.dsv\n'}
+[7.273784] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/path.sh\n'}
+[7.273936] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/path.dsv\n'}
+[7.274078] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.bash\n'}
+[7.274162] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.sh\n'}
+[7.274258] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.zsh\n'}
+[7.274340] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.dsv\n'}
+[7.274421] (bp_coms_cpp) StdoutLine: {'line': b'-- Installing: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/package.dsv\n'}
+[7.274502] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/packages/bp_coms_cpp\n'}
+[7.274595] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/cmake/bp_coms_cppConfig.cmake\n'}
+[7.274679] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/cmake/bp_coms_cppConfig-version.cmake\n'}
+[7.274761] (bp_coms_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/package.xml\n'}
+[7.276033] (bp_coms_cpp) CommandEnded: {'returncode': 0}
+[7.324271] (-) TimerEvent: {}
+[7.332952] (bp_coms_cpp) JobEnded: {'identifier': 'bp_coms_cpp', 'rc': 0}
+[7.334428] (-) EventReactorShutdown: {}

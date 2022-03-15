@@ -1,0 +1,48 @@
+[0.019s] Invoking command in '/home/fizzer/PucksInDeep/build/bp_coms_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy /usr/bin/cmake --build /home/fizzer/PucksInDeep/build/bp_coms_cpp -- -j4 -l4
+[0.081s] [35m[1mScanning dependencies of target bp_coms[0m
+[0.114s] [ 50%] [32mBuilding CXX object CMakeFiles/bp_coms.dir/src/bp_coms.cpp.o[0m
+[1.761s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:[m[K In member function ‘[01m[Kvoid BpComm::write_bp(hockey_msgs::msg::NextPath_<std::allocator<void> >::SharedPtr)[m[K’:
+[1.761s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:133:26:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_x_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::x[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_x_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[1.761s]   133 |     float vals[7] = {[01;35m[Kmsg.x[m[K, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};
+[1.761s]       |                      [01;35m[K~~~~^[m[K
+[1.762s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:133:33:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_y_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::y[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_y_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[1.762s]   133 |     float vals[7] = {msg.x, [01;35m[Kmsg.y[m[K, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};
+[1.762s]       |                             [01;35m[K~~~~^[m[K
+[1.762s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:133:40:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_vx_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::vx[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_vx_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[1.762s]   133 |     float vals[7] = {msg.x, msg.y, [01;35m[Kmsg.vx[m[K, msg.vy, msg.ax, msg.ay, msg.t};
+[1.762s]       |                                    [01;35m[K~~~~^~[m[K
+[1.762s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:133:48:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_vy_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::vy[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_vy_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[1.762s]   133 |     float vals[7] = {msg.x, msg.y, msg.vx, [01;35m[Kmsg.vy[m[K, msg.ax, msg.ay, msg.t};
+[1.762s]       |                                            [01;35m[K~~~~^~[m[K
+[1.762s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:133:56:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_ax_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::ax[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_ax_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[1.762s]   133 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, [01;35m[Kmsg.ax[m[K, msg.ay, msg.t};
+[1.762s]       |                                                    [01;35m[K~~~~^~[m[K
+[1.763s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:133:64:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_ay_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::ay[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_ay_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[1.763s]   133 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, [01;35m[Kmsg.ay[m[K, msg.t};
+[1.763s]       |                                                            [01;35m[K~~~~^~[m[K
+[1.763s] [01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:133:72:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_t_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::t[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_t_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[1.763s]   133 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, [01;35m[Kmsg.t[m[K};
+[1.763s]       |                                                                    [01;35m[K~~~~^[m[K
+[6.808s] [100%] [32m[1mLinking CXX executable bp_coms[0m
+[7.184s] [100%] Built target bp_coms
+[7.197s] Invoked command in '/home/fizzer/PucksInDeep/build/bp_coms_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy /usr/bin/cmake --build /home/fizzer/PucksInDeep/build/bp_coms_cpp -- -j4 -l4
+[7.248s] Invoking command in '/home/fizzer/PucksInDeep/build/bp_coms_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy /usr/bin/cmake --install /home/fizzer/PucksInDeep/build/bp_coms_cpp
+[7.260s] -- Install configuration: ""
+[7.261s] -- Installing: /home/fizzer/PucksInDeep/install/bp_coms_cpp/lib/bp_coms_cpp/bp_coms
+[7.264s] -- Set runtime path of "/home/fizzer/PucksInDeep/install/bp_coms_cpp/lib/bp_coms_cpp/bp_coms" to ""
+[7.264s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/package_run_dependencies/bp_coms_cpp
+[7.265s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/parent_prefix_path/bp_coms_cpp
+[7.265s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/ament_prefix_path.sh
+[7.265s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/ament_prefix_path.dsv
+[7.265s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/path.sh
+[7.265s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/path.dsv
+[7.265s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.bash
+[7.265s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.sh
+[7.266s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.zsh
+[7.266s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.dsv
+[7.266s] -- Installing: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/package.dsv
+[7.266s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/packages/bp_coms_cpp
+[7.266s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/cmake/bp_coms_cppConfig.cmake
+[7.266s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/cmake/bp_coms_cppConfig-version.cmake
+[7.266s] -- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/package.xml
+[7.268s] Invoked command in '/home/fizzer/PucksInDeep/build/bp_coms_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fizzer/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/fizzer/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/fizzer/PucksInDeep/RPi/rosHockey/install/HLC:/opt/ros/foxy /usr/bin/cmake --install /home/fizzer/PucksInDeep/build/bp_coms_cpp

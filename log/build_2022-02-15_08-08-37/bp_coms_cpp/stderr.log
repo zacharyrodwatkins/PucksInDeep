@@ -1,0 +1,28 @@
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:[m[K In member function ‘[01m[Kvoid BpComm::initialize()[m[K’:
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:99:26:[m[K [01;31m[Kerror: [m[Kqualified-id in declaration before ‘[01m[K([m[K’ token
+   99 | void BpComm::clear_serial[01;31m[K([m[K){
+      |                          [01;31m[K^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:109:21:[m[K [01;31m[Kerror: [m[Kqualified-id in declaration before ‘[01m[K([m[K’ token
+  109 | void BpComm::read_bp[01;31m[K([m[K){
+      |                     [01;31m[K^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:139:22:[m[K [01;31m[Kerror: [m[Kqualified-id in declaration before ‘[01m[K([m[K’ token
+  139 | void BpComm::write_bp[01;31m[K([m[Kconst hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
+      |                      [01;31m[K^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:153:23:[m[K [01;31m[Kerror: [m[Kqualified-id in declaration before ‘[01m[K([m[K’ token
+  153 | int BpComm::config_tty[01;31m[K([m[K){
+      |                       [01;31m[K^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:202:26:[m[K [01;31m[Kerror: [m[Kqualified-id in declaration before ‘[01m[K([m[K’ token
+  202 | void BpComm::close_serial[01;31m[K([m[K){
+      |                          [01;31m[K^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:209:1:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+  209 | [01;31m[K{[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:214:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+  214 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:67:26:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   67 | void BpComm::initialize()[01;36m[K{[m[K
+      |                          [01;36m[K^[m[K
+make[2]: *** [CMakeFiles/bp_coms.dir/build.make:63: CMakeFiles/bp_coms.dir/src/bp_coms.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:105: CMakeFiles/bp_coms.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

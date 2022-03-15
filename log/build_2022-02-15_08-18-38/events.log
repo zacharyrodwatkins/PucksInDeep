@@ -1,0 +1,70 @@
+[0.000000] (-) TimerEvent: {}
+[0.001201] (-) JobUnselected: {'identifier': 'HLC'}
+[0.001282] (-) JobUnselected: {'identifier': 'bp_coms_cpp'}
+[0.001317] (-) JobUnselected: {'identifier': 'data_logger'}
+[0.001363] (-) JobUnselected: {'identifier': 'hockey_gui'}
+[0.001416] (-) JobUnselected: {'identifier': 'hockey_msgs'}
+[0.002401] (-) JobUnselected: {'identifier': 'hockey_testing'}
+[0.002618] (-) JobUnselected: {'identifier': 'keyboard_control'}
+[0.002676] (-) JobUnselected: {'identifier': 'puck_tracker'}
+[0.002720] (-) JobUnselected: {'identifier': 'visualizer'}
+[0.002756] (bp_coms) JobQueued: {'identifier': 'bp_coms', 'dependencies': OrderedDict()}
+[0.002793] (bp_coms) JobStarted: {'identifier': 'bp_coms'}
+[0.099698] (-) TimerEvent: {}
+[0.200201] (-) TimerEvent: {}
+[0.300562] (-) TimerEvent: {}
+[0.401041] (-) TimerEvent: {}
+[0.501343] (-) TimerEvent: {}
+[0.601678] (-) TimerEvent: {}
+[0.702100] (-) TimerEvent: {}
+[0.802461] (-) TimerEvent: {}
+[0.885273] (bp_coms) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../../build/bp_coms', 'build', '--build-base', '/home/fizzer/PucksInDeep/build/bp_coms/build', 'install', '--prefix', '/home/fizzer/PucksInDeep/install/bp_coms', '--record', '/home/fizzer/PucksInDeep/build/bp_coms/install.log', '--single-version-externally-managed'], 'cwd': '/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_CA:en', 'USER': 'fizzer', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1178', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'HOME': '/home/fizzer', 'DESKTOP_SESSION': 'xubuntu', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'QT_QPA_PLATFORMTHEME': 'gtk2', 'LOGNAME': 'fizzer', 'WINDOWID': '65011715', '_': '/usr/bin/colcon', 'XDG_SESSION_CLASS': 'user', 'CLUTTER_BACKEND': 'x11', 'TERM': 'xterm-256color', 'GTK_OVERLAY_SCROLLING': '0', 'XDG_SESSION_ID': 'c2', 'PATH': '/home/fizzer/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/fizzer-Vostro-3458:@/tmp/.ICE-unix/1101,unix/fizzer-Vostro-3458:/tmp/.ICE-unix/1101', 'GDM_LANG': 'en_CA', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'xfce-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0.0', 'LANG': 'en_CA.UTF-8', 'XDG_CURRENT_DESKTOP': 'XFCE', 'XDG_SESSION_DESKTOP': 'xubuntu', 'XAUTHORITY': '/home/fizzer/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/fizzer', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'xubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'XDG_VTNR': '7', 'PWD': '/home/fizzer/PucksInDeep/build/bp_coms', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share', 'COLCON': '1', 'VTE_VERSION': '6003', 'PYTHONPATH': '/home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages:'}, 'shell': False}
+[0.902620] (-) TimerEvent: {}
+[1.003060] (-) TimerEvent: {}
+[1.103389] (-) TimerEvent: {}
+[1.116328] (bp_coms) StdoutLine: {'line': b'running egg_info\n'}
+[1.117055] (bp_coms) StdoutLine: {'line': b'creating ../../../build/bp_coms/bp_coms.egg-info\n'}
+[1.117351] (bp_coms) StdoutLine: {'line': b'writing ../../../build/bp_coms/bp_coms.egg-info/PKG-INFO\n'}
+[1.117597] (bp_coms) StdoutLine: {'line': b'writing dependency_links to ../../../build/bp_coms/bp_coms.egg-info/dependency_links.txt\n'}
+[1.117825] (bp_coms) StdoutLine: {'line': b'writing entry points to ../../../build/bp_coms/bp_coms.egg-info/entry_points.txt\n'}
+[1.118036] (bp_coms) StdoutLine: {'line': b'writing requirements to ../../../build/bp_coms/bp_coms.egg-info/requires.txt\n'}
+[1.118185] (bp_coms) StdoutLine: {'line': b'writing top-level names to ../../../build/bp_coms/bp_coms.egg-info/top_level.txt\n'}
+[1.125137] (bp_coms) StdoutLine: {'line': b"writing manifest file '../../../build/bp_coms/bp_coms.egg-info/SOURCES.txt'\n"}
+[1.166899] (bp_coms) StdoutLine: {'line': b"reading manifest file '../../../build/bp_coms/bp_coms.egg-info/SOURCES.txt'\n"}
+[1.167821] (bp_coms) StdoutLine: {'line': b"writing manifest file '../../../build/bp_coms/bp_coms.egg-info/SOURCES.txt'\n"}
+[1.168172] (bp_coms) StdoutLine: {'line': b'running build\n'}
+[1.168467] (bp_coms) StdoutLine: {'line': b'running build_py\n'}
+[1.168752] (bp_coms) StdoutLine: {'line': b'creating /home/fizzer/PucksInDeep/build/bp_coms/build\n'}
+[1.168971] (bp_coms) StdoutLine: {'line': b'creating /home/fizzer/PucksInDeep/build/bp_coms/build/lib\n'}
+[1.169209] (bp_coms) StdoutLine: {'line': b'creating /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms\n'}
+[1.169453] (bp_coms) StdoutLine: {'line': b'copying bp_coms/bp_rx.py -> /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms\n'}
+[1.169628] (bp_coms) StdoutLine: {'line': b'copying bp_coms/bp_tx.py -> /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms\n'}
+[1.169845] (bp_coms) StdoutLine: {'line': b'copying bp_coms/__init__.py -> /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms\n'}
+[1.170009] (bp_coms) StdoutLine: {'line': b'copying bp_coms/bp_coms.py -> /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms\n'}
+[1.170174] (bp_coms) StdoutLine: {'line': b'running install\n'}
+[1.170968] (bp_coms) StdoutLine: {'line': b'running install_lib\n'}
+[1.172179] (bp_coms) StdoutLine: {'line': b'creating /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms\n'}
+[1.172585] (bp_coms) StdoutLine: {'line': b'copying /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_rx.py -> /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms\n'}
+[1.172880] (bp_coms) StdoutLine: {'line': b'copying /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_tx.py -> /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms\n'}
+[1.173095] (bp_coms) StdoutLine: {'line': b'copying /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms/__init__.py -> /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms\n'}
+[1.173274] (bp_coms) StdoutLine: {'line': b'copying /home/fizzer/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_coms.py -> /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms\n'}
+[1.173793] (bp_coms) StdoutLine: {'line': b'byte-compiling /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_rx.py to bp_rx.cpython-38.pyc\n'}
+[1.176041] (bp_coms) StdoutLine: {'line': b'byte-compiling /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_tx.py to bp_tx.cpython-38.pyc\n'}
+[1.176743] (bp_coms) StdoutLine: {'line': b'byte-compiling /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/__init__.py to __init__.cpython-38.pyc\n'}
+[1.177035] (bp_coms) StdoutLine: {'line': b'byte-compiling /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_coms.py to bp_coms.cpython-38.pyc\n'}
+[1.177973] (bp_coms) StdoutLine: {'line': b'running install_data\n'}
+[1.178649] (bp_coms) StdoutLine: {'line': b'creating /home/fizzer/PucksInDeep/install/bp_coms/share/ament_index\n'}
+[1.179037] (bp_coms) StdoutLine: {'line': b'creating /home/fizzer/PucksInDeep/install/bp_coms/share/ament_index/resource_index\n'}
+[1.179328] (bp_coms) StdoutLine: {'line': b'creating /home/fizzer/PucksInDeep/install/bp_coms/share/ament_index/resource_index/packages\n'}
+[1.179514] (bp_coms) StdoutLine: {'line': b'copying resource/bp_coms -> /home/fizzer/PucksInDeep/install/bp_coms/share/ament_index/resource_index/packages\n'}
+[1.179690] (bp_coms) StdoutLine: {'line': b'copying package.xml -> /home/fizzer/PucksInDeep/install/bp_coms/share/bp_coms\n'}
+[1.179864] (bp_coms) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.181554] (bp_coms) StdoutLine: {'line': b'Copying ../../../build/bp_coms/bp_coms.egg-info to /home/fizzer/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms-0.0.0-py3.8.egg-info\n'}
+[1.182731] (bp_coms) StdoutLine: {'line': b'running install_scripts\n'}
+[1.203501] (-) TimerEvent: {}
+[1.203899] (bp_coms) StdoutLine: {'line': b'Installing bp_rx script to /home/fizzer/PucksInDeep/install/bp_coms/lib/bp_coms\n'}
+[1.204352] (bp_coms) StdoutLine: {'line': b'Installing bp_tx script to /home/fizzer/PucksInDeep/install/bp_coms/lib/bp_coms\n'}
+[1.204672] (bp_coms) StdoutLine: {'line': b"writing list of installed files to '/home/fizzer/PucksInDeep/build/bp_coms/install.log'\n"}
+[1.235268] (bp_coms) CommandEnded: {'returncode': 0}
+[1.252534] (bp_coms) JobEnded: {'identifier': 'bp_coms', 'rc': 0}
+[1.253349] (-) EventReactorShutdown: {}

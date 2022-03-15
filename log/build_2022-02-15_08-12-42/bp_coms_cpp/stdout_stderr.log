@@ -1,0 +1,44 @@
+[35m[1mScanning dependencies of target bp_coms[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/bp_coms.dir/src/bp_coms.cpp.o[0m
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:[m[K In member function ‘[01m[Kvoid BpComm::write_bp(hockey_msgs::msg::NextPath_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:26:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_x_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::x[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_x_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  145 |     float vals[7] = {[01;35m[Kmsg.x[m[K, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};
+      |                      [01;35m[K~~~~^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:33:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_y_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::y[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_y_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  145 |     float vals[7] = {msg.x, [01;35m[Kmsg.y[m[K, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};
+      |                             [01;35m[K~~~~^[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:40:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_vx_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::vx[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_vx_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  145 |     float vals[7] = {msg.x, msg.y, [01;35m[Kmsg.vx[m[K, msg.vy, msg.ax, msg.ay, msg.t};
+      |                                    [01;35m[K~~~~^~[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:48:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_vy_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::vy[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_vy_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  145 |     float vals[7] = {msg.x, msg.y, msg.vx, [01;35m[Kmsg.vy[m[K, msg.ax, msg.ay, msg.t};
+      |                                            [01;35m[K~~~~^~[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:56:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_ax_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::ax[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_ax_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  145 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, [01;35m[Kmsg.ax[m[K, msg.ay, msg.t};
+      |                                                    [01;35m[K~~~~^~[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:64:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_ay_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::ay[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_ay_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  145 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, [01;35m[Kmsg.ay[m[K, msg.t};
+      |                                                            [01;35m[K~~~~^~[m[K
+[01m[K/home/fizzer/PucksInDeep/RPi/rosHockey/bp_coms_cpp/src/bp_coms.cpp:145:72:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(hockey_msgs::msg::NextPath_<std::allocator<void> >::_t_type)msg.hockey_msgs::msg::NextPath_<std::allocator<void> >::t[m[K’ from ‘[01m[Khockey_msgs::msg::NextPath_<std::allocator<void> >::_t_type[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  145 |     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, [01;35m[Kmsg.t[m[K};
+      |                                                                    [01;35m[K~~~~^[m[K
+[100%] [32m[1mLinking CXX executable bp_coms[0m
+[100%] Built target bp_coms
+-- Install configuration: ""
+-- Installing: /home/fizzer/PucksInDeep/install/bp_coms_cpp/lib/bp_coms_cpp/bp_coms
+-- Set runtime path of "/home/fizzer/PucksInDeep/install/bp_coms_cpp/lib/bp_coms_cpp/bp_coms" to ""
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/package_run_dependencies/bp_coms_cpp
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/parent_prefix_path/bp_coms_cpp
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/ament_prefix_path.sh
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/path.sh
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/environment/path.dsv
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.bash
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.sh
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.zsh
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/local_setup.dsv
+-- Installing: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/package.dsv
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/ament_index/resource_index/packages/bp_coms_cpp
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/cmake/bp_coms_cppConfig.cmake
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/cmake/bp_coms_cppConfig-version.cmake
+-- Up-to-date: /home/fizzer/PucksInDeep/install/bp_coms_cpp/share/bp_coms_cpp/package.xml
