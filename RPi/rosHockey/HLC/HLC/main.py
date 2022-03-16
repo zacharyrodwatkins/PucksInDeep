@@ -19,15 +19,18 @@ class HLC(Node):
 
         #  Table geometry
         self.midline = 80  # cm
-        self.goal_range = (26.5, 26.5+25.4)
+        # self.goal_range = (26.5, 26.5+25.4)
+        self.goal_range = (10, 65)
 
         #  Decision variables
         self.last_path_time = time.time()
-        self.crossing_line = 0.0  # Default defensive intercept line is goal line
+        self.crossing_line = 10.0  # Default defensive intercept line is goal line
         self.threshold_time = 0.05  # 50 ms
         self.too_fast = self.midline/0.5  # Will hit back wall in under 0.5 sec
-        self.v_shot = 80.0  # hit puck while going 40 cm/s
-        self.t_shot = 0.5  # hit puck for shot 0.3 sec after crossing midline
+        self.v_shot = 150.0  # hit puck while going 40 cm/s
+        self.t_shot = 0.35  # hit puck for shot 0.3 sec after crossing midline
+        self.defensive_path_factor = 1.8
+        self.home = False
 
         # Path variables (final acceleration is unused at the moment, maybe good if you know the following path)
         self.mallet_x = 0.0
@@ -59,9 +62,11 @@ class HLC(Node):
     def load_defensive_path(self):
         self.mallet_t = (self.crossing_line-self.puck_y)/self.puck_vy
         self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
-        self.mallet_y = self.crossing_line
+        self.mallet_y = self.crossing_line-5.0
         self.mallet_vx = 0.0
         self.mallet_vy = 0.0
+
+        self.mallet_t = self.mallet_t/self.defensive_path_factor
     
     def load_offensive_path(self):
         self.mallet_t = self.t_shot
@@ -86,16 +91,16 @@ class HLC(Node):
         self.puck_vx = msg.x_vel
         self.puck_vy = msg.y_vel
 
- 
+        
 
         # If we havent finished our last path don't do anything
-        if (time.time() - self.last_path_time) < self.mallet_t:
+        if (((time.time() - self.last_path_time) < self.mallet_t+0.15) and not self.home):
             return
 
         # If shot is coming our way
         self.last_path_time = time.time()
         if self.crossing_midline():
-
+            self.home = False
             # If puck is not too fast
             if (abs(self.puck_vy) < self.too_fast):
                 self.load_offensive_path()
@@ -113,16 +118,19 @@ class HLC(Node):
                 else:
                     print("not on target ;)")   
         else:
-             self.load_center()
-             print("center")
-             self.update_path()   
+            if not self.home:
+                self.home = True
+                self.load_center()
+                print("center")
+                self.update_path()
 
     def crossing_midline(self):
         
-        if self.puck_x<0:
+        if self.puck_y<20:
             # Lost puck, just go pack to center
             return False
         if self.puck_vy > 20:
+            print("movin back")
             # Not moving towards, us we dont care
             return False
         if (self.puck_y + (self.puck_vy * self.threshold_time)) < self.midline:

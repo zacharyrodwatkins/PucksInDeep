@@ -55,6 +55,7 @@ class PuckTracker(Node):
         self.flag = True
         self.flag_subscriber = self.create_subscription(String, 'FLAG', self.bp_cb, 10)
         self.bp_flag = True
+        self.found = 0
 
         self.path_publisher = self.create_publisher(NextPath,'PATH',10)
 
@@ -183,12 +184,18 @@ class PuckTracker(Node):
                 M["m00"] = 0
             cX = float(M["m10"] / M["m00"]) * self.pixels_to_cm
             cY = (self.des_image_shape[1] - float(M["m01"] / M["m00"])) * self.pixels_to_cm  # Subtracting from image height to get y=0 at bottom
+            self.found = 0
         except ZeroDivisionError:
+            self.found = self.found+1
             print("lost puck")
-            # cX = self.puck_pos[0]
-            # cY = self.puck_pos[1]
-            cX = -1.0
-            cY = -1.0
+            if self.found>2:
+                # if puck is lost for more than 3 frames then publish lost puck
+                cX = -1.0
+                cY = -1.0
+            else:
+                cX = self.puck_pos[0]
+                cY = self.puck_pos[1]
+
 
         if (self.puck_pos[0] is not None):
             # load new x and y velocities into buffer, and apply savgol filter to smooth noise
