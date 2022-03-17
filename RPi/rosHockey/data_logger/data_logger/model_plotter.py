@@ -14,14 +14,6 @@ A =[0.000302317987455,   0.002945831880935,   0.119058419607644]
 B =[-0.000164609682178, -0.001659107542495,  -0.002067773828908]
 
 
-from solve_for_coefs import get_coeffs
-start = np.zeros(3)
-stop = np.array([50,0,0])
-Dt = 1
-y_coeffs = get_coeffs(start, stop, Dt)
-x_coeffs = get_coeffs(start, stop, Dt)
-# x_coeffs = np.zeros(6)
-
 
 
 def get_model_function(x_coeffs, y_coeffs):
@@ -45,13 +37,6 @@ def get_model_function(x_coeffs, y_coeffs):
 
     return func
 
-
-    # for i in range(3):
-    #     V1 += A[i]*np.polyval(np.polyder(theta_1_coeffs,3-i),t)+\
-    #          B[i]*np.polyval(np.polyder(theta_2_coeffs,3-i),t)
-    #     V2 += A[i]*np.polyval(np.polyder(theta_2_coeffs,3-i),t)+\
-    #          B[i]*np.polyval(np.polyder(theta_1_coeffs,3-i),t)
-    # return np.array((V1,V2))
 
 if __name__ == "__main__":
     from solve_for_coefs import get_coeffs
