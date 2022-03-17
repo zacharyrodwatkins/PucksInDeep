@@ -14,6 +14,7 @@
 #include "hockey_msgs/msg/mallet_pos.hpp"
 #include "hockey_msgs/msg/next_path.hpp"
 #include "hockey_msgs/msg/motor_status.hpp"
+#include "std_msgs/msg/string.hpp"
 
 
 #define TIMER_FREQ 10ms
@@ -34,6 +35,7 @@ public:
     // ros stuff
     mallet_publisher_ = this->create_publisher<hockey_msgs::msg::MalletPos>("MALLET", 1);
     motor_publisher_ = this->create_publisher<hockey_msgs::msg::MotorStatus>("MOTOR", 1);
+    flag_publisher_ = this->create_publisher<std_msgs::msg::String>("FLAG",1);
     timer_ = this->create_wall_timer(
         TIMER_FREQ, std::bind(&BpComm::read_bp, this));
     path_sub_ = this->create_subscription<hockey_msgs::msg::NextPath>(
@@ -56,6 +58,7 @@ private:
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Publisher<hockey_msgs::msg::MalletPos>::SharedPtr mallet_publisher_;
   rclcpp::Publisher<hockey_msgs::msg::MotorStatus>::SharedPtr motor_publisher_;
+  rclcpp::Publisher<std_msgs::msg::String>::SharedPtr flag_publisher_;
   rclcpp::Subscription<hockey_msgs::msg::NextPath>::SharedPtr path_sub_;
   struct termios tty;
   int serial_port;
@@ -106,6 +109,10 @@ void BpComm::read_bp(){
     int bytes;
     uint8_t init_byte[1];
     ioctl(serial_port, FIONREAD, &bytes);
+
+    if (bytes <= 0)
+        return;
+
     while (count < 4){
         if (bytes > 0){
             read(serial_port, &init_byte, sizeof(init_byte));
@@ -119,29 +126,10 @@ void BpComm::read_bp(){
         ioctl(serial_port, FIONREAD, &bytes);
     }
 
-// go fuck yourself
-
-    // int bytes;
-    // uint8_t start_bytes[__SIZEOF_FLOAT__];
-    // uint32_t start_byte;
-    // ioctl(serial_port, FIONREAD, &bytes);
-    // if (bytes >= READ_SIZE + __SIZEOF_FLOAT__){
-    //     read(serial_port, &start_bytes, __SIZEOF_FLOAT__);
-    //     memcpy(&start_byte, &start_bytes[0], __SIZEOF_FLOAT__);
-
-    //     if (start_byte != 0xffffffff){
-    //         printf("ERROR: WRONG START BYTE. CHECK COMS\n");
-    //         printf("%d", start_byte);
-    //         printf("\n");
-    //         }
-        
-    //     else {
-    //         printf("OK!");
-    //     }
-    // if(bytes>READ_SIZE){
         while(bytes<READ_SIZE){
             ioctl(serial_port, FIONREAD, &bytes);
         }
+        
         n_read = read(serial_port, &read_buf, sizeof(read_buf));
         if (n_read == READ_SIZE){
             hockey_msgs::msg::MalletPos mallet_msg = hockey_msgs::msg::MalletPos();
@@ -161,6 +149,7 @@ void BpComm::read_bp(){
             motor_msg.m2effort = float_values[5];
             mallet_msg.time_on_path = float_values[6];
             motor_msg.time_on_path = float_values[6];
+
             mallet_publisher_->publish(mallet_msg);
             motor_publisher_->publish(motor_msg);
         }
@@ -182,7 +171,10 @@ void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
         // printf("Writing %.2f\n", vals[i]);
     }
     write(serial_port, write_buffer, 32);
-        RCLCPP_INFO(this->get_logger(), "sent");
+    RCLCPP_INFO(this->get_logger(), "sent");
+    std_msgs::msg::String flag_msg = std_msgs::msg::String();
+    flag_msg.data = "A";
+    flag_publisher_->publish(flag_msg);
 }
 
 int BpComm::config_tty(){

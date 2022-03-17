@@ -10,6 +10,7 @@ import numpy as np
 class Intercept(Node):
   
     def __init__(self):
+        self.start_time = time.time()
         self.puck_x = 0.0
         self.puck_y = 0.0
         self.puck_vx = 0.0
@@ -18,7 +19,7 @@ class Intercept(Node):
         self.crossing_line = 20.0
 
         self.mallet_x = 0.0
-        self.mallet_y = self.crossing_line
+        self.mallet_y = self.crossing_line-5.0
         self.mallet_t = 0.0
 
         self.avgx = 0
@@ -32,6 +33,8 @@ class Intercept(Node):
         self.puck_status_subscription = self.create_subscription(PuckStatus,'PUCK',self.puck_callback,10)
         self.path_publisher = self.create_publisher(NextPath, 'PATH', 10)
         
+        # self.pos_time = 1.0
+        # self.pos_timer = self.create_timer(self.pos_time, self.puck_callback)
         # self.puck_status_publisher = self.create_publisher(PuckStatus, 'PUCK', 10)
 
 
@@ -39,20 +42,29 @@ class Intercept(Node):
         if(self.not_pub and self.puck_vy < -150.0):
             self.vy.put(self.puck_vy)
             self.vx.put(self.puck_vx)
-            if (self.vx.qsize()>=1):
-                
-                l = list(self.vx.queue)
-                self.avgx = sum(l)/len(l)
-                
-                l = list(self.vy.queue)
-                self.avgy = sum(l)/len(l)
-                self.not_pub = False
-                print('zoom')
-                print(self.avgy)
-                print(self.avgx)
-                self.publish_path()          
+
+            
+            l = list(self.vx.queue)
+            self.avgx = sum(l)/len(l)
+            
+            l = list(self.vy.queue)
+            self.avgy = sum(l)/len(l)
+
+            self.not_pub = False
+
+            self.avgx = self.puck_vx
+            self.avgy = self.puck_vy
+            print('zoom')
+            print(self.avgy)
+            print(self.avgx)
+            print(self.puck_y)
+
+
+            self.publish_path()   
+            # self.get_logger().info("end")       
             
     def publish_path(self):
+
         self.mallet_t = (self.crossing_line-self.puck_y)/self.avgy
         self.mallet_x = self.puck_x+self.avgx*self.mallet_t
 
@@ -63,17 +75,25 @@ class Intercept(Node):
         msg.vy = 0.0
         msg.ax = 0.0
         msg.ay = 0.0
-        msg.t = self.mallet_t
-        self.get_logger().info("intercept")
+        msg.t = self.mallet_t/1.5
+        # self.get_logger().info("intercept")
         self.path_publisher.publish(msg)
-        self.get_logger().info("published")
+        # self.get_logger().info("published")
 
-    def puck_callback(self, msg):
-        # print('callback')
+    def puck_callback(self,msg):
+        # self.get_logger().info("start")
         self.puck_x = msg.x
         self.puck_y = msg.y
         self.puck_vx = msg.x_vel
         self.puck_vy = msg.y_vel
+
+        # self.puck_x = 0.0
+        # self.puck_y = 0.0
+        # self.puck_vy = 0.0
+        # if (time.time()-self.start_time>2):
+        #     self.puck_vy = -200.0
+        # self.puck_vx = 0.0
+
 
         self.compute_dir()
 
