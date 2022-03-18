@@ -1,10 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy.lib.twodim_base import vander
-time = 0.5
-start = np.array([0,0,0])
-end = np.array([50,0,-1000])
-
 
 def get_coeffs(start, stop, Dt):
     mat = gen_mat(Dt)
