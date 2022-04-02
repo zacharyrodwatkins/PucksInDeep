@@ -1,0 +1,46 @@
+[4.409s] Invoking command in '/home/pham/PucksInDeep/build/HLC': PYTHONPATH=/home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/HLC --uninstall --editable --build-directory /home/pham/PucksInDeep/build/HLC/build
+[5.280s] running develop
+[5.842s] Removing /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC.egg-link (link to .)
+[5.926s] Invoked command in '/home/pham/PucksInDeep/build/HLC' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/HLC --uninstall --editable --build-directory /home/pham/PucksInDeep/build/HLC/build
+[5.934s] Invoking command in '/home/pham/PucksInDeep/RPi/rosHockey/HLC': PYTHONPATH=/home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/HLC build --build-base /home/pham/PucksInDeep/build/HLC/build install --prefix /home/pham/PucksInDeep/install/HLC --record /home/pham/PucksInDeep/build/HLC/install.log --single-version-externally-managed
+[6.740s] running egg_info
+[6.743s] writing ../../../build/HLC/HLC.egg-info/PKG-INFO
+[6.744s] writing dependency_links to ../../../build/HLC/HLC.egg-info/dependency_links.txt
+[6.744s] writing entry points to ../../../build/HLC/HLC.egg-info/entry_points.txt
+[6.744s] writing requirements to ../../../build/HLC/HLC.egg-info/requires.txt
+[6.744s] writing top-level names to ../../../build/HLC/HLC.egg-info/top_level.txt
+[6.863s] reading manifest file '../../../build/HLC/HLC.egg-info/SOURCES.txt'
+[6.866s] writing manifest file '../../../build/HLC/HLC.egg-info/SOURCES.txt'
+[6.866s] running build
+[6.867s] running build_py
+[6.867s] creating /home/pham/PucksInDeep/build/HLC/build
+[6.867s] creating /home/pham/PucksInDeep/build/HLC/build/lib
+[6.867s] creating /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+[6.868s] copying HLC/basic_intercept.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+[6.872s] copying HLC/main.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+[6.873s] copying HLC/test_shot.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+[6.873s] copying HLC/__init__.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+[6.875s] running install
+[6.884s] running install_lib
+[6.894s] creating /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+[6.895s] copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/basic_intercept.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+[6.895s] copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/main.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+[6.895s] copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/test_shot.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+[6.896s] copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/__init__.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+[6.897s] byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/basic_intercept.py to basic_intercept.cpython-38.pyc
+[6.909s] byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/main.py to main.cpython-38.pyc
+[6.909s]   File "/home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/main.py", line 51
+[6.910s]     msg.y = float(self.mallet_y)self.mallet_x-np.avg(self.goal_range)
+[6.910s]                                 ^
+[6.910s] SyntaxError: invalid syntax
+[6.910s] 
+[6.911s] byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/test_shot.py to test_shot.cpython-38.pyc
+[6.911s] byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/__init__.py to __init__.cpython-38.pyc
+[6.911s] running install_data
+[6.911s] running install_egg_info
+[6.914s] Copying ../../../build/HLC/HLC.egg-info to /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC-0.0.0-py3.8.egg-info
+[6.915s] running install_scripts
+[6.954s] Installing Fake_Shot script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+[6.955s] Installing HLC script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+[6.956s] Installing intercept script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+[6.956s] writing list of installed files to '/home/pham/PucksInDeep/build/HLC/install.log'

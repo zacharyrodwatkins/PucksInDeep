@@ -1,0 +1,127 @@
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 0.9.9 (/home/pham/ros2_foxy/ros2-linux/share/ament_cmake/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_lint_auto: 0.9.6 (/home/pham/ros2_foxy/ros2-linux/share/ament_lint_auto/cmake)
+-- Found rosidl_default_generators: 1.0.1 (/home/pham/ros2_foxy/ros2-linux/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_connext_c;rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (/home/pham/ros2_foxy/ros2-linux/share/rosidl_adapter/cmake)
+-- Could not find RTI Connext - skipping rosidl_typesupport_connext_c
+-- Could not find RTI Connext - skipping rosidl_typesupport_connext_cpp
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+-- Found FastRTPS: /home/pham/ros2_foxy/ros2-linux/include  
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_connext_cpp;rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+-- Found ament_cmake_ros: 0.9.2 (/home/pham/ros2_foxy/ros2-linux/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_connext_c;rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_connext_cpp;rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+-- Found python_cmake_module: 0.8.1 (/home/pham/ros2_foxy/ros2-linux/share/python_cmake_module/cmake)
+-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+-- Found PythonExtra: .so  
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pham/PucksInDeep/build/hockey_msgs
+[35m[1mScanning dependencies of target hockey_msgs__cpp[0m
+[  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  3%] Built target hockey_msgs__cpp
+[  5%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[  7%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[  9%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_generator_c[0m
+[ 10%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/mallet_pos__functions.c.o[0m
+[ 12%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/puck_status__functions.c.o[0m
+[ 14%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/motor_status__functions.c.o[0m
+[ 16%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_generator_c.dir/rosidl_generator_c/hockey_msgs/msg/detail/next_path__functions.c.o[0m
+[ 18%] [32m[1mLinking C shared library libhockey_msgs__rosidl_generator_c.so[0m
+[ 18%] Built target hockey_msgs__rosidl_generator_c
+[ 20%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 21%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_cpp[0m
+[ 23%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/mallet_pos__type_support.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/puck_status__type_support.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/next_path__type_support.cpp.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hockey_msgs/msg/motor_status__type_support.cpp.o[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_introspection_cpp[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/mallet_pos__type_support.cpp.o[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[ 32%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/puck_status__type_support.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/mallet_pos__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/puck_status__type_support.cpp.o[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_c[0m
+[ 38%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/mallet_pos__type_support.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/motor_status__type_support.cpp.o[0m
+[ 41%] [32m[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_cpp.so[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/puck_status__type_support.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/motor_status__type_support.cpp.o[0m
+[ 45%] Built target hockey_msgs__rosidl_typesupport_cpp
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_introspection_c[0m
+[ 47%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hockey_msgs/msg/next_path__type_support.cpp.o[0m
+[ 49%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/mallet_pos__type_support.c.o[0m
+[ 52%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/puck_status__type_support.c.o[0m
+[ 52%] [32m[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_c.so[0m
+[ 54%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/motor_status__type_support.c.o[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hockey_msgs/msg/detail/next_path__type_support.cpp.o[0m
+[ 58%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hockey_msgs/msg/detail/next_path__type_support.c.o[0m
+[ 58%] Built target hockey_msgs__rosidl_typesupport_c
+[ 61%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/next_path__type_support.cpp.o[0m
+[ 61%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hockey_msgs/msg/detail/dds_fastrtps/motor_status__type_support.cpp.o[0m
+[ 63%] [32m[1mLinking C shared library libhockey_msgs__rosidl_typesupport_introspection_c.so[0m
+[ 63%] Built target hockey_msgs__rosidl_typesupport_introspection_c
+[ 65%] [32m[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[ 65%] Built target hockey_msgs__rosidl_typesupport_introspection_cpp
+[ 67%] [32m[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 67%] Built target hockey_msgs__rosidl_typesupport_fastrtps_cpp
+[ 69%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_fastrtps_c[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/motor_status__type_support_c.cpp.o[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/puck_status__type_support_c.cpp.o[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/mallet_pos__type_support_c.cpp.o[0m
+[ 76%] [32mBuilding CXX object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hockey_msgs/msg/detail/next_path__type_support_c.cpp.o[0m
+[ 78%] [32m[1mLinking CXX shared library libhockey_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[ 78%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c
+[35m[1mScanning dependencies of target hockey_msgs[0m
+[ 78%] Built target hockey_msgs
+[35m[1mScanning dependencies of target hockey_msgs__py[0m
+[ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 80%] Built target hockey_msgs__py
+[35m[1mScanning dependencies of target hockey_msgs__python[0m
+[ 83%] [32mBuilding C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_motor_status_s.c.o[0m
+[ 83%] [32mBuilding C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_puck_status_s.c.o[0m
+[ 85%] [32mBuilding C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_mallet_pos_s.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/hockey_msgs__python.dir/rosidl_generator_py/hockey_msgs/msg/_next_path_s.c.o[0m
+[ 89%] [32m[1mLinking C shared library rosidl_generator_py/hockey_msgs/libhockey_msgs__python.so[0m
+[ 89%] Built target hockey_msgs__python
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_c__pyext[0m
+[35m[1mScanning dependencies of target hockey_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[ 90%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/hockey_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/hockey_msgs/_hockey_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[100%] [32m[1mLinking CXX shared library rosidl_generator_py/hockey_msgs/hockey_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[100%] [32m[1mLinking C shared library rosidl_generator_py/hockey_msgs/hockey_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[100%] [32m[1mLinking C shared library rosidl_generator_py/hockey_msgs/hockey_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[100%] Built target hockey_msgs__rosidl_typesupport_introspection_c__pyext
+[100%] Built target hockey_msgs__rosidl_typesupport_c__pyext
+[100%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c__pyext

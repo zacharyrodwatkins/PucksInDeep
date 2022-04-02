@@ -1,0 +1,38 @@
+running develop
+Removing /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC.egg-link (link to .)
+running egg_info
+writing ../../../build/HLC/HLC.egg-info/PKG-INFO
+writing dependency_links to ../../../build/HLC/HLC.egg-info/dependency_links.txt
+writing entry points to ../../../build/HLC/HLC.egg-info/entry_points.txt
+writing requirements to ../../../build/HLC/HLC.egg-info/requires.txt
+writing top-level names to ../../../build/HLC/HLC.egg-info/top_level.txt
+reading manifest file '../../../build/HLC/HLC.egg-info/SOURCES.txt'
+writing manifest file '../../../build/HLC/HLC.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pham/PucksInDeep/build/HLC/build
+creating /home/pham/PucksInDeep/build/HLC/build/lib
+creating /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+copying HLC/basic_intercept.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+copying HLC/main.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+copying HLC/test_shot.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+copying HLC/__init__.py -> /home/pham/PucksInDeep/build/HLC/build/lib/HLC
+running install
+running install_lib
+creating /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/basic_intercept.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/main.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/test_shot.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+copying /home/pham/PucksInDeep/build/HLC/build/lib/HLC/__init__.py -> /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC
+byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/basic_intercept.py to basic_intercept.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/main.py to main.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/test_shot.py to test_shot.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/__init__.py to __init__.cpython-38.pyc
+running install_data
+running install_egg_info
+Copying ../../../build/HLC/HLC.egg-info to /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC-0.0.0-py3.8.egg-info
+running install_scripts
+Installing Fake_Shot script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+Installing HLC script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+Installing intercept script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+writing list of installed files to '/home/pham/PucksInDeep/build/HLC/install.log'

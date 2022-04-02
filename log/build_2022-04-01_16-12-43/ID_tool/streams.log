@@ -1,0 +1,25 @@
+[4.596s] Invoking command in '/home/pham/PucksInDeep/build/ID_tool': PYTHONPATH=/home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/ID_tool --editable --build-directory /home/pham/PucksInDeep/build/ID_tool/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/ID_tool
+[5.710s] running develop
+[6.681s] running egg_info
+[6.684s] creating ID_tool.egg-info
+[6.684s] writing ID_tool.egg-info/PKG-INFO
+[6.684s] writing dependency_links to ID_tool.egg-info/dependency_links.txt
+[6.685s] writing entry points to ID_tool.egg-info/entry_points.txt
+[6.685s] writing requirements to ID_tool.egg-info/requires.txt
+[6.685s] writing top-level names to ID_tool.egg-info/top_level.txt
+[6.685s] writing manifest file 'ID_tool.egg-info/SOURCES.txt'
+[6.858s] reading manifest file 'ID_tool.egg-info/SOURCES.txt'
+[6.860s] writing manifest file 'ID_tool.egg-info/SOURCES.txt'
+[6.866s] running build_ext
+[6.866s] Creating /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/site.py
+[6.887s] Creating /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID-tool.egg-link (link to .)
+[6.893s] Installing ID_tool script to /home/pham/PucksInDeep/install/ID_tool/lib/ID_tool
+[6.894s] 
+[6.894s] Installed /home/pham/PucksInDeep/build/ID_tool
+[6.895s] running install_data
+[6.895s] creating /home/pham/PucksInDeep/install/ID_tool/share/ament_index
+[6.895s] creating /home/pham/PucksInDeep/install/ID_tool/share/ament_index/resource_index
+[6.895s] creating /home/pham/PucksInDeep/install/ID_tool/share/ament_index/resource_index/packages
+[6.896s] copying resource/ID_tool -> /home/pham/PucksInDeep/install/ID_tool/share/ament_index/resource_index/packages
+[6.896s] copying package.xml -> /home/pham/PucksInDeep/install/ID_tool/share/ID_tool
+[8.102s] Invoked command in '/home/pham/PucksInDeep/build/ID_tool' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/ID_tool --editable --build-directory /home/pham/PucksInDeep/build/ID_tool/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/ID_tool

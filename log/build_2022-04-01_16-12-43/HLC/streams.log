@@ -1,0 +1,27 @@
+[4.663s] Invoking command in '/home/pham/PucksInDeep/build/HLC': PYTHONPATH=/home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/HLC --editable --build-directory /home/pham/PucksInDeep/build/HLC/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/HLC
+[6.857s] running develop
+[6.958s] running egg_info
+[6.958s] creating HLC.egg-info
+[6.959s] writing HLC.egg-info/PKG-INFO
+[6.959s] writing dependency_links to HLC.egg-info/dependency_links.txt
+[6.960s] writing entry points to HLC.egg-info/entry_points.txt
+[6.960s] writing requirements to HLC.egg-info/requires.txt
+[6.960s] writing top-level names to HLC.egg-info/top_level.txt
+[6.965s] writing manifest file 'HLC.egg-info/SOURCES.txt'
+[7.091s] reading manifest file 'HLC.egg-info/SOURCES.txt'
+[7.092s] writing manifest file 'HLC.egg-info/SOURCES.txt'
+[7.097s] running build_ext
+[7.098s] Creating /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/site.py
+[7.104s] Creating /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC.egg-link (link to .)
+[7.107s] Installing Fake_Shot script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+[7.107s] Installing HLC script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+[7.107s] Installing intercept script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+[7.108s] 
+[7.108s] Installed /home/pham/PucksInDeep/build/HLC
+[7.108s] running install_data
+[7.108s] creating /home/pham/PucksInDeep/install/HLC/share/ament_index
+[7.109s] creating /home/pham/PucksInDeep/install/HLC/share/ament_index/resource_index
+[7.109s] creating /home/pham/PucksInDeep/install/HLC/share/ament_index/resource_index/packages
+[7.109s] copying resource/HLC -> /home/pham/PucksInDeep/install/HLC/share/ament_index/resource_index/packages
+[7.109s] copying package.xml -> /home/pham/PucksInDeep/install/HLC/share/HLC
+[8.158s] Invoked command in '/home/pham/PucksInDeep/build/HLC' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/HLC --editable --build-directory /home/pham/PucksInDeep/build/HLC/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/HLC

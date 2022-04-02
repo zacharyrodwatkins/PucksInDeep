@@ -1,0 +1,169 @@
+[0.028s] Invoking command in '/home/pham/PucksInDeep/build/hockey_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pham/PucksInDeep/RPi/rosHockey/install/visualizer:/home/pham/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/puck_tracker:/home/pham/PucksInDeep/RPi/rosHockey/install/position_publisher:/home/pham/PucksInDeep/RPi/rosHockey/install/keyboard_control:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_testing:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/data_logger:/home/pham/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/pham/PucksInDeep/RPi/rosHockey/install/ID_tool:/home/pham/PucksInDeep/RPi/rosHockey/install/HLC /usr/bin/cmake /home/pham/PucksInDeep/RPi/rosHockey/hockey_msgs -DCMAKE_INSTALL_PREFIX=/home/pham/PucksInDeep/install/hockey_msgs
+[0.051s] -- Found ament_cmake: 0.9.9 (/home/pham/ros2_foxy/ros2-linux/share/ament_cmake/cmake)
+[0.096s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.096s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.361s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.371s] -- Found ament_lint_auto: 0.9.6 (/home/pham/ros2_foxy/ros2-linux/share/ament_lint_auto/cmake)
+[0.464s] -- Found rosidl_default_generators: 1.0.1 (/home/pham/ros2_foxy/ros2-linux/share/rosidl_default_generators/cmake)
+[0.470s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_connext_c;rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.476s] -- Found rosidl_adapter: 1.2.1 (/home/pham/ros2_foxy/ros2-linux/share/rosidl_adapter/cmake)
+[0.504s] -- Could not find RTI Connext - skipping rosidl_typesupport_connext_c
+[0.532s] -- Could not find RTI Connext - skipping rosidl_typesupport_connext_cpp
+[0.663s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_connext_cpp;rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.739s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[0.851s] -- Found ament_cmake_ros: 0.9.2 (/home/pham/ros2_foxy/ros2-linux/share/ament_cmake_ros/cmake)
+[0.956s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_connext_c;rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.967s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_connext_cpp;rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.011s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[1.012s] -- Found python_cmake_module: 0.8.1 (/home/pham/ros2_foxy/ros2-linux/share/python_cmake_module/cmake)
+[1.061s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.061s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[1.061s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[1.093s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.095s] -- Added test 'lint_cmake' to check CMake code style
+[1.096s] -- Added test 'xmllint' to check XML markup files
+[1.104s] -- Configuring done
+[1.150s] -- Generating done
+[1.154s] -- Build files have been written to: /home/pham/PucksInDeep/build/hockey_msgs
+[1.161s] Invoked command in '/home/pham/PucksInDeep/build/hockey_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pham/PucksInDeep/RPi/rosHockey/install/visualizer:/home/pham/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/puck_tracker:/home/pham/PucksInDeep/RPi/rosHockey/install/position_publisher:/home/pham/PucksInDeep/RPi/rosHockey/install/keyboard_control:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_testing:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/data_logger:/home/pham/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/pham/PucksInDeep/RPi/rosHockey/install/ID_tool:/home/pham/PucksInDeep/RPi/rosHockey/install/HLC /usr/bin/cmake /home/pham/PucksInDeep/RPi/rosHockey/hockey_msgs -DCMAKE_INSTALL_PREFIX=/home/pham/PucksInDeep/install/hockey_msgs
+[1.165s] Invoking command in '/home/pham/PucksInDeep/build/hockey_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pham/PucksInDeep/RPi/rosHockey/install/visualizer:/home/pham/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/puck_tracker:/home/pham/PucksInDeep/RPi/rosHockey/install/position_publisher:/home/pham/PucksInDeep/RPi/rosHockey/install/keyboard_control:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_testing:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/data_logger:/home/pham/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/pham/PucksInDeep/RPi/rosHockey/install/ID_tool:/home/pham/PucksInDeep/RPi/rosHockey/install/HLC /usr/bin/cmake --build /home/pham/PucksInDeep/build/hockey_msgs -- -j8 -l8
+[1.231s] [  1%] Built target hockey_msgs__cpp
+[1.231s] [ 12%] Built target hockey_msgs__rosidl_generator_c
+[1.270s] [ 34%] Built target hockey_msgs__rosidl_typesupport_cpp
+[1.270s] [ 41%] Built target hockey_msgs__rosidl_typesupport_c
+[1.271s] [ 45%] Built target hockey_msgs__rosidl_typesupport_introspection_cpp
+[1.281s] [ 56%] Built target hockey_msgs__rosidl_typesupport_introspection_c
+[1.283s] [ 67%] Built target hockey_msgs__rosidl_typesupport_fastrtps_cpp
+[1.310s] [ 78%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c
+[1.335s] [ 78%] Built target hockey_msgs
+[1.364s] [ 80%] Built target hockey_msgs__py
+[1.399s] [ 89%] Built target hockey_msgs__python
+[1.441s] [100%] Built target hockey_msgs__rosidl_typesupport_fastrtps_c__pyext
+[1.441s] [100%] Built target hockey_msgs__rosidl_typesupport_introspection_c__pyext
+[1.441s] [100%] Built target hockey_msgs__rosidl_typesupport_c__pyext
+[1.456s] Invoked command in '/home/pham/PucksInDeep/build/hockey_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pham/PucksInDeep/RPi/rosHockey/install/visualizer:/home/pham/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/puck_tracker:/home/pham/PucksInDeep/RPi/rosHockey/install/position_publisher:/home/pham/PucksInDeep/RPi/rosHockey/install/keyboard_control:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_testing:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/data_logger:/home/pham/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/pham/PucksInDeep/RPi/rosHockey/install/ID_tool:/home/pham/PucksInDeep/RPi/rosHockey/install/HLC /usr/bin/cmake --build /home/pham/PucksInDeep/build/hockey_msgs -- -j8 -l8
+[1.597s] Invoking command in '/home/pham/PucksInDeep/build/hockey_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pham/PucksInDeep/RPi/rosHockey/install/visualizer:/home/pham/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/puck_tracker:/home/pham/PucksInDeep/RPi/rosHockey/install/position_publisher:/home/pham/PucksInDeep/RPi/rosHockey/install/keyboard_control:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_testing:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/data_logger:/home/pham/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/pham/PucksInDeep/RPi/rosHockey/install/ID_tool:/home/pham/PucksInDeep/RPi/rosHockey/install/HLC /usr/bin/cmake --install /home/pham/PucksInDeep/build/hockey_msgs
+[1.609s] -- Install configuration: ""
+[1.610s] -- Execute custom install script
+[1.610s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/ament_index/resource_index/rosidl_interfaces/hockey_msgs
+[1.621s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__functions.h
+[1.634s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__struct.h
+[1.649s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__type_support.h
+[1.662s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__functions.h
+[1.674s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__struct.h
+[1.684s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__type_support.h
+[1.694s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__functions.h
+[1.704s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__struct.h
+[1.714s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__type_support.h
+[1.723s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__functions.h
+[1.736s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__struct.h
+[1.747s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__type_support.h
+[1.758s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/mallet_pos.h
+[1.768s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/motor_status.h
+[1.778s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/next_path.h
+[1.788s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/puck_status.h
+[1.798s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/rosidl_generator_c__visibility_control.h
+[1.808s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/library_path.sh
+[1.818s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/library_path.dsv
+[1.829s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_c.h
+[1.842s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__rosidl_typesupport_fastrtps_c.h
+[1.852s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__rosidl_typesupport_fastrtps_c.h
+[1.862s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_fastrtps_c.h
+[1.872s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.883s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_fastrtps_c.so
+[1.893s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_fastrtps_cpp.hpp
+[1.903s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__rosidl_typesupport_fastrtps_cpp.hpp
+[1.913s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__rosidl_typesupport_fastrtps_cpp.hpp
+[1.923s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_fastrtps_cpp.hpp
+[1.935s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.947s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_fastrtps_cpp.so
+[1.958s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_c.h
+[1.969s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__rosidl_typesupport_introspection_c.h
+[1.978s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__rosidl_typesupport_introspection_c.h
+[1.988s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_introspection_c.h
+[1.998s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[2.008s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__builder.hpp
+[2.018s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__struct.hpp
+[2.029s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__traits.hpp
+[2.041s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__builder.hpp
+[2.052s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__struct.hpp
+[2.063s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__traits.hpp
+[2.073s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__builder.hpp
+[2.083s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__struct.hpp
+[2.093s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__traits.hpp
+[2.103s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__builder.hpp
+[2.114s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__struct.hpp
+[2.123s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__traits.hpp
+[2.136s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/mallet_pos.hpp
+[2.147s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/motor_status.hpp
+[2.157s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/next_path.hpp
+[2.168s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/puck_status.hpp
+[2.178s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/mallet_pos__rosidl_typesupport_introspection_cpp.hpp
+[2.188s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/motor_status__rosidl_typesupport_introspection_cpp.hpp
+[2.197s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/next_path__rosidl_typesupport_introspection_cpp.hpp
+[2.208s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/include/hockey_msgs/msg/detail/puck_status__rosidl_typesupport_introspection_cpp.hpp
+[2.218s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/pythonpath.sh
+[2.228s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/pythonpath.dsv
+[2.239s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/__init__.py
+[2.253s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/__init__.py
+[2.266s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/_mallet_pos.py
+[2.278s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/_motor_status.py
+[2.288s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/_next_path.py
+[2.298s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/msg/_puck_status.py
+[2.308s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[2.319s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[2.330s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/hockey_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[2.343s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__python.so
+[2.353s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/MalletPos.idl
+[2.367s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/PuckStatus.idl
+[2.377s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/MotorStatus.idl
+[2.390s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/NextPath.idl
+[2.403s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/MalletPos.msg
+[2.414s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/PuckStatus.msg
+[2.424s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/MotorStatus.msg
+[2.437s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/msg/NextPath.msg
+[2.449s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/ament_index/resource_index/package_run_dependencies/hockey_msgs
+[2.459s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/ament_index/resource_index/parent_prefix_path/hockey_msgs
+[2.468s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/ament_prefix_path.sh
+[2.478s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/ament_prefix_path.dsv
+[2.488s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/path.sh
+[2.498s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/environment/path.dsv
+[2.509s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/local_setup.bash
+[2.521s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/local_setup.sh
+[2.534s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/local_setup.zsh
+[2.547s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/local_setup.dsv
+[2.560s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/package.dsv
+[2.572s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/ament_index/resource_index/packages/hockey_msgs
+[2.582s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/rosidl_cmake-extras.cmake
+[2.593s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.603s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[2.613s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[2.626s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.640s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[2.653s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[2.666s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgsConfig.cmake
+[2.678s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgsConfig-version.cmake
+[2.688s] -- Symlinking: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/package.xml
+[2.698s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_generator_c.so
+[2.699s] -- Set runtime path of "/home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_generator_c.so" to ""
+[2.699s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_c.so
+[2.700s] -- Set runtime path of "/home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_c.so" to ""
+[2.700s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_c.so
+[2.701s] -- Set runtime path of "/home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_c.so" to ""
+[2.701s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_cpp.so
+[2.701s] -- Set runtime path of "/home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[2.702s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_cpp.so
+[2.703s] -- Set runtime path of "/home/pham/PucksInDeep/install/hockey_msgs/lib/libhockey_msgs__rosidl_typesupport_cpp.so" to ""
+[2.769s] Compiling '/home/pham/PucksInDeep/install/hockey_msgs/lib/python3.8/site-packages/hockey_msgs/__init__.py'...
+[2.773s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_generator_cExport.cmake
+[2.774s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_generator_cExport-noconfig.cmake
+[2.774s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cExport.cmake
+[2.774s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[2.775s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cExport.cmake
+[2.775s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[2.776s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_generator_cppExport.cmake
+[2.776s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[2.776s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[2.777s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cppExport.cmake
+[2.777s] -- Installing: /home/pham/PucksInDeep/install/hockey_msgs/share/hockey_msgs/cmake/hockey_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[2.781s] Invoked command in '/home/pham/PucksInDeep/build/hockey_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/pham/PucksInDeep/RPi/rosHockey/install/visualizer:/home/pham/PucksInDeep/RPi/rosHockey/install/qt_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/puck_tracker:/home/pham/PucksInDeep/RPi/rosHockey/install/position_publisher:/home/pham/PucksInDeep/RPi/rosHockey/install/keyboard_control:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_testing:/home/pham/PucksInDeep/RPi/rosHockey/install/hockey_gui:/home/pham/PucksInDeep/RPi/rosHockey/install/data_logger:/home/pham/PucksInDeep/RPi/rosHockey/install/bp_coms:/home/pham/PucksInDeep/RPi/rosHockey/install/ID_tool:/home/pham/PucksInDeep/RPi/rosHockey/install/HLC /usr/bin/cmake --install /home/pham/PucksInDeep/build/hockey_msgs

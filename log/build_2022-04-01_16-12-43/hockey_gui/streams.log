@@ -1,0 +1,25 @@
+[4.464s] Invoking command in '/home/pham/PucksInDeep/build/hockey_gui': PYTHONPATH=/home/pham/PucksInDeep/install/hockey_gui/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/hockey_gui --editable --build-directory /home/pham/PucksInDeep/build/hockey_gui/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/hockey_gui
+[5.469s] running develop
+[6.296s] running egg_info
+[6.296s] creating hockey_gui.egg-info
+[6.296s] writing hockey_gui.egg-info/PKG-INFO
+[6.297s] writing dependency_links to hockey_gui.egg-info/dependency_links.txt
+[6.298s] writing entry points to hockey_gui.egg-info/entry_points.txt
+[6.298s] writing requirements to hockey_gui.egg-info/requires.txt
+[6.298s] writing top-level names to hockey_gui.egg-info/top_level.txt
+[6.312s] writing manifest file 'hockey_gui.egg-info/SOURCES.txt'
+[6.525s] reading manifest file 'hockey_gui.egg-info/SOURCES.txt'
+[6.527s] writing manifest file 'hockey_gui.egg-info/SOURCES.txt'
+[6.557s] running build_ext
+[6.557s] Creating /home/pham/PucksInDeep/install/hockey_gui/lib/python3.8/site-packages/site.py
+[6.563s] Creating /home/pham/PucksInDeep/install/hockey_gui/lib/python3.8/site-packages/hockey-gui.egg-link (link to .)
+[6.565s] Installing main script to /home/pham/PucksInDeep/install/hockey_gui/lib/hockey_gui
+[6.565s] 
+[6.565s] Installed /home/pham/PucksInDeep/build/hockey_gui
+[6.580s] running install_data
+[6.580s] creating /home/pham/PucksInDeep/install/hockey_gui/share/ament_index
+[6.581s] creating /home/pham/PucksInDeep/install/hockey_gui/share/ament_index/resource_index
+[6.581s] creating /home/pham/PucksInDeep/install/hockey_gui/share/ament_index/resource_index/packages
+[6.581s] copying resource/hockey_gui -> /home/pham/PucksInDeep/install/hockey_gui/share/ament_index/resource_index/packages
+[6.581s] copying package.xml -> /home/pham/PucksInDeep/install/hockey_gui/share/hockey_gui
+[6.771s] Invoked command in '/home/pham/PucksInDeep/build/hockey_gui' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/hockey_gui/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/hockey_gui --editable --build-directory /home/pham/PucksInDeep/build/hockey_gui/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/hockey_gui

@@ -1,0 +1,23 @@
+[4.448s] Invoking command in '/home/pham/PucksInDeep/build/keyboard_control': PYTHONPATH=/home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/keyboard_control --editable --build-directory /home/pham/PucksInDeep/build/keyboard_control/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/keyboard_control
+[6.044s] running develop
+[6.997s] running egg_info
+[6.997s] creating keyboard_control.egg-info
+[6.998s] writing keyboard_control.egg-info/PKG-INFO
+[6.998s] writing dependency_links to keyboard_control.egg-info/dependency_links.txt
+[6.998s] writing entry points to keyboard_control.egg-info/entry_points.txt
+[6.999s] writing requirements to keyboard_control.egg-info/requires.txt
+[6.999s] writing top-level names to keyboard_control.egg-info/top_level.txt
+[7.008s] writing manifest file 'keyboard_control.egg-info/SOURCES.txt'
+[7.228s] reading manifest file 'keyboard_control.egg-info/SOURCES.txt'
+[7.230s] writing manifest file 'keyboard_control.egg-info/SOURCES.txt'
+[7.235s] running build_ext
+[7.236s] Creating /home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages/site.py
+[7.242s] Creating /home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages/keyboard-control.egg-link (link to .)
+[7.260s] 
+[7.261s] Installed /home/pham/PucksInDeep/build/keyboard_control
+[7.261s] running install_data
+[7.261s] creating /home/pham/PucksInDeep/install/keyboard_control/share/ament_index
+[7.262s] creating /home/pham/PucksInDeep/install/keyboard_control/share/ament_index/resource_index
+[7.262s] creating /home/pham/PucksInDeep/install/keyboard_control/share/ament_index/resource_index/packages
+[7.262s] error: can't copy 'resource/keyboard_control': doesn't exist or not a regular file
+[8.087s] Invoked command in '/home/pham/PucksInDeep/build/keyboard_control' returned '1': PYTHONPATH=/home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/keyboard_control --editable --build-directory /home/pham/PucksInDeep/build/keyboard_control/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/keyboard_control

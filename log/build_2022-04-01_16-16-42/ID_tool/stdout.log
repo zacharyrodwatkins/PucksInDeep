@@ -1,0 +1,30 @@
+running develop
+Removing /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID-tool.egg-link (link to .)
+running egg_info
+writing ../../../build/ID_tool/ID_tool.egg-info/PKG-INFO
+writing dependency_links to ../../../build/ID_tool/ID_tool.egg-info/dependency_links.txt
+writing entry points to ../../../build/ID_tool/ID_tool.egg-info/entry_points.txt
+writing requirements to ../../../build/ID_tool/ID_tool.egg-info/requires.txt
+writing top-level names to ../../../build/ID_tool/ID_tool.egg-info/top_level.txt
+reading manifest file '../../../build/ID_tool/ID_tool.egg-info/SOURCES.txt'
+writing manifest file '../../../build/ID_tool/ID_tool.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pham/PucksInDeep/build/ID_tool/build
+creating /home/pham/PucksInDeep/build/ID_tool/build/lib
+creating /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool
+copying ID_tool/ID_tool.py -> /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool
+copying ID_tool/__init__.py -> /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool
+running install
+running install_lib
+creating /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool
+copying /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool/ID_tool.py -> /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool
+copying /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool/__init__.py -> /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool
+byte-compiling /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool/ID_tool.py to ID_tool.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool/__init__.py to __init__.cpython-38.pyc
+running install_data
+running install_egg_info
+Copying ../../../build/ID_tool/ID_tool.egg-info to /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool-0.0.0-py3.8.egg-info
+running install_scripts
+Installing ID_tool script to /home/pham/PucksInDeep/install/ID_tool/lib/ID_tool
+writing list of installed files to '/home/pham/PucksInDeep/build/ID_tool/install.log'

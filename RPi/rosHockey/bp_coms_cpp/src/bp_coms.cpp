@@ -16,7 +16,7 @@
 #include "hockey_msgs/msg/motor_status.hpp"
 
 
-#define TIMER_FREQ 10ms
+#define TIMER_FREQ 1ms
 #define READ_SIZE 28
 #define NUM_FLOATS_READ 7
 

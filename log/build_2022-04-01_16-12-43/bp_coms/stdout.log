@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating bp_coms.egg-info
+writing bp_coms.egg-info/PKG-INFO
+writing dependency_links to bp_coms.egg-info/dependency_links.txt
+writing entry points to bp_coms.egg-info/entry_points.txt
+writing requirements to bp_coms.egg-info/requires.txt
+writing top-level names to bp_coms.egg-info/top_level.txt
+writing manifest file 'bp_coms.egg-info/SOURCES.txt'
+reading manifest file 'bp_coms.egg-info/SOURCES.txt'
+writing manifest file 'bp_coms.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/site.py
+Creating /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp-coms.egg-link (link to .)
+Installing bp_rx script to /home/pham/PucksInDeep/install/bp_coms/lib/bp_coms
+Installing bp_tx script to /home/pham/PucksInDeep/install/bp_coms/lib/bp_coms
+
+Installed /home/pham/PucksInDeep/build/bp_coms
+running install_data
+creating /home/pham/PucksInDeep/install/bp_coms/share/ament_index
+creating /home/pham/PucksInDeep/install/bp_coms/share/ament_index/resource_index
+creating /home/pham/PucksInDeep/install/bp_coms/share/ament_index/resource_index/packages
+copying resource/bp_coms -> /home/pham/PucksInDeep/install/bp_coms/share/ament_index/resource_index/packages
+copying package.xml -> /home/pham/PucksInDeep/install/bp_coms/share/bp_coms

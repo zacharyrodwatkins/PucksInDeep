@@ -1,0 +1,37 @@
+running develop
+Removing /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp-coms.egg-link (link to .)
+running egg_info
+writing ../../../build/bp_coms/bp_coms.egg-info/PKG-INFO
+writing dependency_links to ../../../build/bp_coms/bp_coms.egg-info/dependency_links.txt
+writing entry points to ../../../build/bp_coms/bp_coms.egg-info/entry_points.txt
+writing requirements to ../../../build/bp_coms/bp_coms.egg-info/requires.txt
+writing top-level names to ../../../build/bp_coms/bp_coms.egg-info/top_level.txt
+reading manifest file '../../../build/bp_coms/bp_coms.egg-info/SOURCES.txt'
+writing manifest file '../../../build/bp_coms/bp_coms.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pham/PucksInDeep/build/bp_coms/build
+creating /home/pham/PucksInDeep/build/bp_coms/build/lib
+creating /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+copying bp_coms/bp_coms.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+copying bp_coms/bp_rx.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+copying bp_coms/bp_tx.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+copying bp_coms/__init__.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+running install
+running install_lib
+creating /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_coms.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_rx.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_tx.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/__init__.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_coms.py to bp_coms.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_rx.py to bp_rx.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_tx.py to bp_tx.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/__init__.py to __init__.cpython-38.pyc
+running install_data
+running install_egg_info
+Copying ../../../build/bp_coms/bp_coms.egg-info to /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms-0.0.0-py3.8.egg-info
+running install_scripts
+Installing bp_rx script to /home/pham/PucksInDeep/install/bp_coms/lib/bp_coms
+Installing bp_tx script to /home/pham/PucksInDeep/install/bp_coms/lib/bp_coms
+writing list of installed files to '/home/pham/PucksInDeep/build/bp_coms/install.log'

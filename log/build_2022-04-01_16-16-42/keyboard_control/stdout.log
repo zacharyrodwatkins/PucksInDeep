@@ -1,0 +1,22 @@
+running develop
+Removing /home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages/keyboard-control.egg-link (link to .)
+running egg_info
+writing ../../build/keyboard_control/keyboard_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/keyboard_control/keyboard_control.egg-info/dependency_links.txt
+writing entry points to ../../build/keyboard_control/keyboard_control.egg-info/entry_points.txt
+writing requirements to ../../build/keyboard_control/keyboard_control.egg-info/requires.txt
+writing top-level names to ../../build/keyboard_control/keyboard_control.egg-info/top_level.txt
+reading manifest file '../../build/keyboard_control/keyboard_control.egg-info/SOURCES.txt'
+writing manifest file '../../build/keyboard_control/keyboard_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pham/PucksInDeep/build/keyboard_control/build
+creating /home/pham/PucksInDeep/build/keyboard_control/build/lib
+creating /home/pham/PucksInDeep/build/keyboard_control/build/lib/keyboard_control
+copying keyboard_control/__init__.py -> /home/pham/PucksInDeep/build/keyboard_control/build/lib/keyboard_control
+running install
+running install_lib
+creating /home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages/keyboard_control
+copying /home/pham/PucksInDeep/build/keyboard_control/build/lib/keyboard_control/__init__.py -> /home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages/keyboard_control
+byte-compiling /home/pham/PucksInDeep/install/keyboard_control/lib/python3.8/site-packages/keyboard_control/__init__.py to __init__.cpython-38.pyc
+running install_data

@@ -1,0 +1,33 @@
+[4.383s] Invoking command in '/home/pham/PucksInDeep/build/ID_tool': PYTHONPATH=/home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/ID_tool --uninstall --editable --build-directory /home/pham/PucksInDeep/build/ID_tool/build
+[5.244s] running develop
+[5.797s] Removing /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID-tool.egg-link (link to .)
+[5.878s] Invoked command in '/home/pham/PucksInDeep/build/ID_tool' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/ID_tool --uninstall --editable --build-directory /home/pham/PucksInDeep/build/ID_tool/build
+[5.884s] Invoking command in '/home/pham/PucksInDeep/RPi/rosHockey/ID_tool': PYTHONPATH=/home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/ID_tool build --build-base /home/pham/PucksInDeep/build/ID_tool/build install --prefix /home/pham/PucksInDeep/install/ID_tool --record /home/pham/PucksInDeep/build/ID_tool/install.log --single-version-externally-managed
+[6.698s] running egg_info
+[6.700s] writing ../../../build/ID_tool/ID_tool.egg-info/PKG-INFO
+[6.700s] writing dependency_links to ../../../build/ID_tool/ID_tool.egg-info/dependency_links.txt
+[6.701s] writing entry points to ../../../build/ID_tool/ID_tool.egg-info/entry_points.txt
+[6.702s] writing requirements to ../../../build/ID_tool/ID_tool.egg-info/requires.txt
+[6.702s] writing top-level names to ../../../build/ID_tool/ID_tool.egg-info/top_level.txt
+[6.814s] reading manifest file '../../../build/ID_tool/ID_tool.egg-info/SOURCES.txt'
+[6.816s] writing manifest file '../../../build/ID_tool/ID_tool.egg-info/SOURCES.txt'
+[6.817s] running build
+[6.817s] running build_py
+[6.817s] creating /home/pham/PucksInDeep/build/ID_tool/build
+[6.818s] creating /home/pham/PucksInDeep/build/ID_tool/build/lib
+[6.818s] creating /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool
+[6.818s] copying ID_tool/ID_tool.py -> /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool
+[6.818s] copying ID_tool/__init__.py -> /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool
+[6.819s] running install
+[6.822s] running install_lib
+[6.825s] creating /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool
+[6.825s] copying /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool/ID_tool.py -> /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool
+[6.825s] copying /home/pham/PucksInDeep/build/ID_tool/build/lib/ID_tool/__init__.py -> /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool
+[6.827s] byte-compiling /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool/ID_tool.py to ID_tool.cpython-38.pyc
+[6.840s] byte-compiling /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool/__init__.py to __init__.cpython-38.pyc
+[6.840s] running install_data
+[6.840s] running install_egg_info
+[6.841s] Copying ../../../build/ID_tool/ID_tool.egg-info to /home/pham/PucksInDeep/install/ID_tool/lib/python3.8/site-packages/ID_tool-0.0.0-py3.8.egg-info
+[6.842s] running install_scripts
+[6.911s] Installing ID_tool script to /home/pham/PucksInDeep/install/ID_tool/lib/ID_tool
+[6.911s] writing list of installed files to '/home/pham/PucksInDeep/build/ID_tool/install.log'

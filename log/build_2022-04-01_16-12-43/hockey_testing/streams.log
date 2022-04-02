@@ -1,0 +1,24 @@
+[4.429s] Invoking command in '/home/pham/PucksInDeep/build/hockey_testing': PYTHONPATH=/home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/hockey_testing --editable --build-directory /home/pham/PucksInDeep/build/hockey_testing/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/hockey_testing
+[5.455s] running develop
+[6.298s] running egg_info
+[6.298s] creating hockey_testing.egg-info
+[6.298s] writing hockey_testing.egg-info/PKG-INFO
+[6.299s] writing dependency_links to hockey_testing.egg-info/dependency_links.txt
+[6.300s] writing entry points to hockey_testing.egg-info/entry_points.txt
+[6.300s] writing requirements to hockey_testing.egg-info/requires.txt
+[6.300s] writing top-level names to hockey_testing.egg-info/top_level.txt
+[6.304s] writing manifest file 'hockey_testing.egg-info/SOURCES.txt'
+[6.525s] reading manifest file 'hockey_testing.egg-info/SOURCES.txt'
+[6.536s] writing manifest file 'hockey_testing.egg-info/SOURCES.txt'
+[6.543s] running build_ext
+[6.544s] Creating /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/site.py
+[6.559s] Creating /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey-testing.egg-link (link to .)
+[6.566s] 
+[6.566s] Installed /home/pham/PucksInDeep/build/hockey_testing
+[6.567s] running install_data
+[6.567s] creating /home/pham/PucksInDeep/install/hockey_testing/share/ament_index
+[6.568s] creating /home/pham/PucksInDeep/install/hockey_testing/share/ament_index/resource_index
+[6.568s] creating /home/pham/PucksInDeep/install/hockey_testing/share/ament_index/resource_index/packages
+[6.569s] copying resource/hockey_testing -> /home/pham/PucksInDeep/install/hockey_testing/share/ament_index/resource_index/packages
+[6.569s] copying package.xml -> /home/pham/PucksInDeep/install/hockey_testing/share/hockey_testing
+[6.895s] Invoked command in '/home/pham/PucksInDeep/build/hockey_testing' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/hockey_testing --editable --build-directory /home/pham/PucksInDeep/build/hockey_testing/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/hockey_testing

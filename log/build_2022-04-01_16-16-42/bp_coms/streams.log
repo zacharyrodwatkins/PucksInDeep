@@ -1,0 +1,41 @@
+[4.372s] Invoking command in '/home/pham/PucksInDeep/build/bp_coms': PYTHONPATH=/home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/bp_coms --uninstall --editable --build-directory /home/pham/PucksInDeep/build/bp_coms/build
+[5.224s] running develop
+[5.774s] Removing /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp-coms.egg-link (link to .)
+[5.846s] Invoked command in '/home/pham/PucksInDeep/build/bp_coms' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/bp_coms --uninstall --editable --build-directory /home/pham/PucksInDeep/build/bp_coms/build
+[5.852s] Invoking command in '/home/pham/PucksInDeep/RPi/rosHockey/bp_coms': PYTHONPATH=/home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/bp_coms build --build-base /home/pham/PucksInDeep/build/bp_coms/build install --prefix /home/pham/PucksInDeep/install/bp_coms --record /home/pham/PucksInDeep/build/bp_coms/install.log --single-version-externally-managed
+[6.655s] running egg_info
+[6.657s] writing ../../../build/bp_coms/bp_coms.egg-info/PKG-INFO
+[6.658s] writing dependency_links to ../../../build/bp_coms/bp_coms.egg-info/dependency_links.txt
+[6.658s] writing entry points to ../../../build/bp_coms/bp_coms.egg-info/entry_points.txt
+[6.658s] writing requirements to ../../../build/bp_coms/bp_coms.egg-info/requires.txt
+[6.659s] writing top-level names to ../../../build/bp_coms/bp_coms.egg-info/top_level.txt
+[6.771s] reading manifest file '../../../build/bp_coms/bp_coms.egg-info/SOURCES.txt'
+[6.773s] writing manifest file '../../../build/bp_coms/bp_coms.egg-info/SOURCES.txt'
+[6.774s] running build
+[6.774s] running build_py
+[6.774s] creating /home/pham/PucksInDeep/build/bp_coms/build
+[6.775s] creating /home/pham/PucksInDeep/build/bp_coms/build/lib
+[6.775s] creating /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+[6.775s] copying bp_coms/bp_coms.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+[6.775s] copying bp_coms/bp_rx.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+[6.776s] copying bp_coms/bp_tx.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+[6.776s] copying bp_coms/__init__.py -> /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms
+[6.777s] running install
+[6.780s] running install_lib
+[6.782s] creating /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+[6.783s] copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_coms.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+[6.783s] copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_rx.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+[6.783s] copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/bp_tx.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+[6.784s] copying /home/pham/PucksInDeep/build/bp_coms/build/lib/bp_coms/__init__.py -> /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms
+[6.785s] byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_coms.py to bp_coms.cpython-38.pyc
+[6.790s] byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_rx.py to bp_rx.cpython-38.pyc
+[6.791s] byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/bp_tx.py to bp_tx.cpython-38.pyc
+[6.793s] byte-compiling /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms/__init__.py to __init__.cpython-38.pyc
+[6.793s] running install_data
+[6.795s] running install_egg_info
+[6.801s] Copying ../../../build/bp_coms/bp_coms.egg-info to /home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages/bp_coms-0.0.0-py3.8.egg-info
+[6.803s] running install_scripts
+[6.872s] Installing bp_rx script to /home/pham/PucksInDeep/install/bp_coms/lib/bp_coms
+[6.872s] Installing bp_tx script to /home/pham/PucksInDeep/install/bp_coms/lib/bp_coms
+[6.873s] writing list of installed files to '/home/pham/PucksInDeep/build/bp_coms/install.log'
+[6.938s] Invoked command in '/home/pham/PucksInDeep/RPi/rosHockey/bp_coms' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/bp_coms/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/bp_coms build --build-base /home/pham/PucksInDeep/build/bp_coms/build install --prefix /home/pham/PucksInDeep/install/bp_coms --record /home/pham/PucksInDeep/build/bp_coms/install.log --single-version-externally-managed

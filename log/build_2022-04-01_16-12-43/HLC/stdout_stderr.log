@@ -1,0 +1,25 @@
+running develop
+running egg_info
+creating HLC.egg-info
+writing HLC.egg-info/PKG-INFO
+writing dependency_links to HLC.egg-info/dependency_links.txt
+writing entry points to HLC.egg-info/entry_points.txt
+writing requirements to HLC.egg-info/requires.txt
+writing top-level names to HLC.egg-info/top_level.txt
+writing manifest file 'HLC.egg-info/SOURCES.txt'
+reading manifest file 'HLC.egg-info/SOURCES.txt'
+writing manifest file 'HLC.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/site.py
+Creating /home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC.egg-link (link to .)
+Installing Fake_Shot script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+Installing HLC script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+Installing intercept script to /home/pham/PucksInDeep/install/HLC/lib/HLC
+
+Installed /home/pham/PucksInDeep/build/HLC
+running install_data
+creating /home/pham/PucksInDeep/install/HLC/share/ament_index
+creating /home/pham/PucksInDeep/install/HLC/share/ament_index/resource_index
+creating /home/pham/PucksInDeep/install/HLC/share/ament_index/resource_index/packages
+copying resource/HLC -> /home/pham/PucksInDeep/install/HLC/share/ament_index/resource_index/packages
+copying package.xml -> /home/pham/PucksInDeep/install/HLC/share/HLC

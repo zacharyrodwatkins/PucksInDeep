@@ -16,7 +16,7 @@ bool y_ok = true;
 int read_count = 0;
 int ser_counter = 0;
 
-const float SUPPLY_V = 23.6;
+const float SUPPLY_V = 24;
 int start_time = 0;
 
 MalletController controller;
@@ -231,13 +231,13 @@ void loop(){
   total_effort[0] = v[0]*128.0/SUPPLY_V;
   total_effort[1] = v[1]*128.0/SUPPLY_V;
 
-  // write_to_motor(MOTOR_LEFT, total_effort[0]);
-  write_to_motor(MOTOR_RIGHT, total_effort[1]);
   write_to_motor(MOTOR_LEFT, total_effort[0]);
+  write_to_motor(MOTOR_RIGHT, total_effort[1]);
+  // write_to_motor(MOTOR_LEFT, total_effort[0]);
 
 
   
-  if ((millis() - prev_write_time) > 10) {
+  if ((millis() - prev_write_time) > 1) {
     if (Serial.availableForWrite()){
       prev_write_time = millis();
       send_to_pi[0] = (float) controller.xy[0];  // x position

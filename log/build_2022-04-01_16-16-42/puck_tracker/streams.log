@@ -1,0 +1,47 @@
+[2.058s] Invoking command in '/home/pham/PucksInDeep/RPi/rosHockey/puck_tracker': PYTHONPATH=/home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/puck_tracker build --build-base /home/pham/PucksInDeep/build/puck_tracker/build install --prefix /home/pham/PucksInDeep/install/puck_tracker --record /home/pham/PucksInDeep/build/puck_tracker/install.log --single-version-externally-managed
+[2.867s] running egg_info
+[2.869s] creating ../../../build/puck_tracker/puck_tracker.egg-info
+[2.869s] writing ../../../build/puck_tracker/puck_tracker.egg-info/PKG-INFO
+[2.870s] writing dependency_links to ../../../build/puck_tracker/puck_tracker.egg-info/dependency_links.txt
+[2.870s] writing entry points to ../../../build/puck_tracker/puck_tracker.egg-info/entry_points.txt
+[2.871s] writing requirements to ../../../build/puck_tracker/puck_tracker.egg-info/requires.txt
+[2.871s] writing top-level names to ../../../build/puck_tracker/puck_tracker.egg-info/top_level.txt
+[2.875s] writing manifest file '../../../build/puck_tracker/puck_tracker.egg-info/SOURCES.txt'
+[2.987s] reading manifest file '../../../build/puck_tracker/puck_tracker.egg-info/SOURCES.txt'
+[2.989s] writing manifest file '../../../build/puck_tracker/puck_tracker.egg-info/SOURCES.txt'
+[2.989s] running build
+[2.990s] running build_py
+[2.990s] creating /home/pham/PucksInDeep/build/puck_tracker/build
+[2.990s] creating /home/pham/PucksInDeep/build/puck_tracker/build/lib
+[2.991s] creating /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker
+[2.991s] copying puck_tracker/speed_test.py -> /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker
+[2.992s] copying puck_tracker/dumb_sub.py -> /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker
+[2.993s] copying puck_tracker/tracker.py -> /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker
+[2.994s] copying puck_tracker/vel_test.py -> /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker
+[2.995s] copying puck_tracker/__init__.py -> /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker
+[2.996s] running install
+[2.999s] running install_lib
+[3.002s] creating /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[3.003s] copying /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker/speed_test.py -> /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[3.004s] copying /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker/dumb_sub.py -> /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[3.005s] copying /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker/tracker.py -> /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[3.006s] copying /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker/vel_test.py -> /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[3.007s] copying /home/pham/PucksInDeep/build/puck_tracker/build/lib/puck_tracker/__init__.py -> /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker
+[3.007s] byte-compiling /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/speed_test.py to speed_test.cpython-38.pyc
+[3.016s] byte-compiling /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/dumb_sub.py to dumb_sub.cpython-38.pyc
+[3.017s] byte-compiling /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/tracker.py to tracker.cpython-38.pyc
+[3.021s] byte-compiling /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/vel_test.py to vel_test.cpython-38.pyc
+[3.022s] byte-compiling /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/__init__.py to __init__.cpython-38.pyc
+[3.023s] running install_data
+[3.024s] creating /home/pham/PucksInDeep/install/puck_tracker/share/ament_index
+[3.025s] creating /home/pham/PucksInDeep/install/puck_tracker/share/ament_index/resource_index
+[3.025s] creating /home/pham/PucksInDeep/install/puck_tracker/share/ament_index/resource_index/packages
+[3.025s] copying resource/puck_tracker -> /home/pham/PucksInDeep/install/puck_tracker/share/ament_index/resource_index/packages
+[3.026s] copying package.xml -> /home/pham/PucksInDeep/install/puck_tracker/share/puck_tracker
+[3.026s] running install_egg_info
+[3.032s] Copying ../../../build/puck_tracker/puck_tracker.egg-info to /home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages/puck_tracker-0.0.0-py3.8.egg-info
+[3.034s] running install_scripts
+[3.086s] Installing puck_tracker script to /home/pham/PucksInDeep/install/puck_tracker/lib/puck_tracker
+[3.086s] Installing vel_test script to /home/pham/PucksInDeep/install/puck_tracker/lib/puck_tracker
+[3.087s] writing list of installed files to '/home/pham/PucksInDeep/build/puck_tracker/install.log'
+[3.141s] Invoked command in '/home/pham/PucksInDeep/RPi/rosHockey/puck_tracker' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/puck_tracker/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/puck_tracker build --build-base /home/pham/PucksInDeep/build/puck_tracker/build install --prefix /home/pham/PucksInDeep/install/puck_tracker --record /home/pham/PucksInDeep/build/puck_tracker/install.log --single-version-externally-managed

@@ -1,0 +1,29 @@
+running develop
+Removing /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey-testing.egg-link (link to .)
+running egg_info
+writing ../../../build/hockey_testing/hockey_testing.egg-info/PKG-INFO
+writing dependency_links to ../../../build/hockey_testing/hockey_testing.egg-info/dependency_links.txt
+writing entry points to ../../../build/hockey_testing/hockey_testing.egg-info/entry_points.txt
+writing requirements to ../../../build/hockey_testing/hockey_testing.egg-info/requires.txt
+writing top-level names to ../../../build/hockey_testing/hockey_testing.egg-info/top_level.txt
+reading manifest file '../../../build/hockey_testing/hockey_testing.egg-info/SOURCES.txt'
+writing manifest file '../../../build/hockey_testing/hockey_testing.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pham/PucksInDeep/build/hockey_testing/build
+creating /home/pham/PucksInDeep/build/hockey_testing/build/lib
+creating /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing
+copying hockey_testing/run_test.py -> /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing
+copying hockey_testing/__init__.py -> /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing
+running install
+running install_lib
+creating /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing
+copying /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing/run_test.py -> /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing
+copying /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing/__init__.py -> /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing
+byte-compiling /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing/run_test.py to run_test.cpython-38.pyc
+byte-compiling /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing/__init__.py to __init__.cpython-38.pyc
+running install_data
+running install_egg_info
+Copying ../../../build/hockey_testing/hockey_testing.egg-info to /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing-0.0.0-py3.8.egg-info
+running install_scripts
+writing list of installed files to '/home/pham/PucksInDeep/build/hockey_testing/install.log'

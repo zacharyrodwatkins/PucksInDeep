@@ -1,0 +1,25 @@
+[4.566s] Invoking command in '/home/pham/PucksInDeep/build/data_logger': PYTHONPATH=/home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/data_logger --editable --build-directory /home/pham/PucksInDeep/build/data_logger/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/data_logger
+[5.598s] running develop
+[6.252s] running egg_info
+[6.252s] creating data_logger.egg-info
+[6.253s] writing data_logger.egg-info/PKG-INFO
+[6.254s] writing dependency_links to data_logger.egg-info/dependency_links.txt
+[6.254s] writing entry points to data_logger.egg-info/entry_points.txt
+[6.254s] writing requirements to data_logger.egg-info/requires.txt
+[6.255s] writing top-level names to data_logger.egg-info/top_level.txt
+[6.266s] writing manifest file 'data_logger.egg-info/SOURCES.txt'
+[6.382s] reading manifest file 'data_logger.egg-info/SOURCES.txt'
+[6.384s] writing manifest file 'data_logger.egg-info/SOURCES.txt'
+[6.389s] running build_ext
+[6.404s] Creating /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/site.py
+[6.411s] Creating /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data-logger.egg-link (link to .)
+[6.413s] Installing logger script to /home/pham/PucksInDeep/install/data_logger/lib/data_logger
+[6.413s] 
+[6.414s] Installed /home/pham/PucksInDeep/build/data_logger
+[6.414s] running install_data
+[6.414s] creating /home/pham/PucksInDeep/install/data_logger/share/ament_index
+[6.415s] creating /home/pham/PucksInDeep/install/data_logger/share/ament_index/resource_index
+[6.415s] creating /home/pham/PucksInDeep/install/data_logger/share/ament_index/resource_index/packages
+[6.415s] copying resource/data_logger -> /home/pham/PucksInDeep/install/data_logger/share/ament_index/resource_index/packages
+[6.415s] copying package.xml -> /home/pham/PucksInDeep/install/data_logger/share/data_logger
+[6.577s] Invoked command in '/home/pham/PucksInDeep/build/data_logger' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/data_logger --editable --build-directory /home/pham/PucksInDeep/build/data_logger/build --no-deps install_data --install-dir /home/pham/PucksInDeep/install/data_logger

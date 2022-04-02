@@ -1,0 +1,32 @@
+[4.325s] Invoking command in '/home/pham/PucksInDeep/build/hockey_testing': PYTHONPATH=/home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/hockey_testing --uninstall --editable --build-directory /home/pham/PucksInDeep/build/hockey_testing/build
+[5.192s] running develop
+[5.757s] Removing /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey-testing.egg-link (link to .)
+[5.844s] Invoked command in '/home/pham/PucksInDeep/build/hockey_testing' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/hockey_testing --uninstall --editable --build-directory /home/pham/PucksInDeep/build/hockey_testing/build
+[5.847s] Invoking command in '/home/pham/PucksInDeep/RPi/rosHockey/hockey_testing': PYTHONPATH=/home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/hockey_testing build --build-base /home/pham/PucksInDeep/build/hockey_testing/build install --prefix /home/pham/PucksInDeep/install/hockey_testing --record /home/pham/PucksInDeep/build/hockey_testing/install.log --single-version-externally-managed
+[6.856s] running egg_info
+[6.856s] writing ../../../build/hockey_testing/hockey_testing.egg-info/PKG-INFO
+[6.857s] writing dependency_links to ../../../build/hockey_testing/hockey_testing.egg-info/dependency_links.txt
+[6.857s] writing entry points to ../../../build/hockey_testing/hockey_testing.egg-info/entry_points.txt
+[6.858s] writing requirements to ../../../build/hockey_testing/hockey_testing.egg-info/requires.txt
+[6.858s] writing top-level names to ../../../build/hockey_testing/hockey_testing.egg-info/top_level.txt
+[6.858s] reading manifest file '../../../build/hockey_testing/hockey_testing.egg-info/SOURCES.txt'
+[6.859s] writing manifest file '../../../build/hockey_testing/hockey_testing.egg-info/SOURCES.txt'
+[6.859s] running build
+[6.859s] running build_py
+[6.860s] creating /home/pham/PucksInDeep/build/hockey_testing/build
+[6.860s] creating /home/pham/PucksInDeep/build/hockey_testing/build/lib
+[6.860s] creating /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing
+[6.860s] copying hockey_testing/run_test.py -> /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing
+[6.861s] copying hockey_testing/__init__.py -> /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing
+[6.861s] running install
+[6.861s] running install_lib
+[6.862s] creating /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing
+[6.862s] copying /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing/run_test.py -> /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing
+[6.862s] copying /home/pham/PucksInDeep/build/hockey_testing/build/lib/hockey_testing/__init__.py -> /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing
+[6.862s] byte-compiling /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing/run_test.py to run_test.cpython-38.pyc
+[6.863s] byte-compiling /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing/__init__.py to __init__.cpython-38.pyc
+[6.863s] running install_data
+[6.863s] running install_egg_info
+[6.872s] Copying ../../../build/hockey_testing/hockey_testing.egg-info to /home/pham/PucksInDeep/install/hockey_testing/lib/python3.8/site-packages/hockey_testing-0.0.0-py3.8.egg-info
+[6.872s] running install_scripts
+[6.898s] writing list of installed files to '/home/pham/PucksInDeep/build/hockey_testing/install.log'

@@ -1,0 +1,5 @@
+  File "/home/pham/PucksInDeep/install/HLC/lib/python3.8/site-packages/HLC/main.py", line 51
+    msg.y = float(self.mallet_y)self.mallet_x-np.avg(self.goal_range)
+                                ^
+SyntaxError: invalid syntax
+

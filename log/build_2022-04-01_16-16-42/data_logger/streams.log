@@ -1,0 +1,39 @@
+[4.363s] Invoking command in '/home/pham/PucksInDeep/build/data_logger': PYTHONPATH=/home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/data_logger --uninstall --editable --build-directory /home/pham/PucksInDeep/build/data_logger/build
+[5.216s] running develop
+[5.785s] Removing /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data-logger.egg-link (link to .)
+[5.872s] Invoked command in '/home/pham/PucksInDeep/build/data_logger' returned '0': PYTHONPATH=/home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --prefix /home/pham/PucksInDeep/install/data_logger --uninstall --editable --build-directory /home/pham/PucksInDeep/build/data_logger/build
+[5.875s] Invoking command in '/home/pham/PucksInDeep/RPi/rosHockey/data_logger': PYTHONPATH=/home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../../build/data_logger build --build-base /home/pham/PucksInDeep/build/data_logger/build install --prefix /home/pham/PucksInDeep/install/data_logger --record /home/pham/PucksInDeep/build/data_logger/install.log --single-version-externally-managed
+[6.686s] running egg_info
+[6.688s] writing ../../../build/data_logger/data_logger.egg-info/PKG-INFO
+[6.689s] writing dependency_links to ../../../build/data_logger/data_logger.egg-info/dependency_links.txt
+[6.689s] writing entry points to ../../../build/data_logger/data_logger.egg-info/entry_points.txt
+[6.690s] writing requirements to ../../../build/data_logger/data_logger.egg-info/requires.txt
+[6.690s] writing top-level names to ../../../build/data_logger/data_logger.egg-info/top_level.txt
+[6.819s] reading manifest file '../../../build/data_logger/data_logger.egg-info/SOURCES.txt'
+[6.821s] writing manifest file '../../../build/data_logger/data_logger.egg-info/SOURCES.txt'
+[6.823s] running build
+[6.824s] running build_py
+[6.824s] creating /home/pham/PucksInDeep/build/data_logger/build
+[6.825s] creating /home/pham/PucksInDeep/build/data_logger/build/lib
+[6.825s] creating /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger
+[6.825s] copying data_logger/plotter.py -> /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger
+[6.829s] copying data_logger/solve_for_coefs.py -> /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger
+[6.829s] copying data_logger/__init__.py -> /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger
+[6.830s] copying data_logger/logger_node.py -> /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger
+[6.830s] running install
+[6.832s] running install_lib
+[6.839s] creating /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger
+[6.840s] copying /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger/plotter.py -> /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger
+[6.840s] copying /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger/solve_for_coefs.py -> /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger
+[6.841s] copying /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger/__init__.py -> /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger
+[6.841s] copying /home/pham/PucksInDeep/build/data_logger/build/lib/data_logger/logger_node.py -> /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger
+[6.844s] byte-compiling /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger/plotter.py to plotter.cpython-38.pyc
+[6.847s] byte-compiling /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger/solve_for_coefs.py to solve_for_coefs.cpython-38.pyc
+[6.848s] byte-compiling /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger/__init__.py to __init__.cpython-38.pyc
+[6.848s] byte-compiling /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger/logger_node.py to logger_node.cpython-38.pyc
+[6.848s] running install_data
+[6.849s] running install_egg_info
+[6.864s] Copying ../../../build/data_logger/data_logger.egg-info to /home/pham/PucksInDeep/install/data_logger/lib/python3.8/site-packages/data_logger-0.0.0-py3.8.egg-info
+[6.866s] running install_scripts
+[6.892s] Installing logger script to /home/pham/PucksInDeep/install/data_logger/lib/data_logger
+[6.896s] writing list of installed files to '/home/pham/PucksInDeep/build/data_logger/install.log'
