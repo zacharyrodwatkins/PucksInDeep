@@ -17,17 +17,20 @@ class HLC(Node):
         self.puck_vx = 0.0
         self.puck_vy = 0.0
 
-        #  Table geometry
+         #  Table geometry
         self.midline = 80  # cm
-        # self.goal_range = (26.5, 26.5+25.4)
-        self.goal_range = (10, 65)
+        self.goal_line = 123
+        self.mallet_radius = 5
+        self.puck_radius = 3.1
+         # self.goal_range = (26.5, 26.5+25.4)
+        self.goal_range = (20, 60)
 
         #  Decision variables
         self.last_path_time = time.time()
         self.crossing_line = 10.0  # Default defensive intercept line is goal line
         self.threshold_time = 0.05  # 50 ms
         self.too_fast = self.midline/0.5  # Will hit back wall in under 0.5 sec
-        self.v_shot = 150.0  # hit puck while going 40 cm/s
+        self.v_shot = 220.0  # hit puck while going 40 cm/s
         self.t_shot = 0.35  # hit puck for shot 0.3 sec after crossing midline
         self.defensive_path_factor = 1.8
         self.home = False
@@ -62,7 +65,7 @@ class HLC(Node):
     def load_defensive_path(self):
         self.mallet_t = (self.crossing_line-self.puck_y)/self.puck_vy
         self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
-        self.mallet_y = self.crossing_line-5.0
+        self.mallet_y = self.crossing_line-self.mallet_radius
         self.mallet_vx = 0.0
         self.mallet_vy = 0.0
 
@@ -72,10 +75,21 @@ class HLC(Node):
         self.mallet_t = self.t_shot
         self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
         self.mallet_y = self.puck_y+self.puck_vy*self.mallet_t
+
         delta_x = mean(self.goal_range)-self.mallet_x
-        delta_y = self.midline*2 - self.mallet_y
-        self.mallet_vx = self.v_shot * delta_x/(delta_x**2 + delta_y**2)**(1/2)
-        self.mallet_vy = self.v_shot * delta_y/(delta_x**2 + delta_y**2)**(1/2)
+        delta_y = self.goal_line - self.mallet_y-self.mallet_radius
+
+        direction_x = delta_x/(delta_x**2 + delta_y**2)**(1/2)
+        direction_y = delta_y/(delta_x**2 + delta_y**2)**(1/2)
+
+        # print(self.mallet_y)
+        # print(direction_x)
+        # print(direction_y)
+
+        self.mallet_x = self.mallet_x-direction_x*(self.mallet_radius+self.puck_radius)
+        self.mallet_y = self.mallet_y-direction_y*(self.mallet_radius+self.puck_radius)
+        self.mallet_vx = self.v_shot * direction_x
+
 
     def load_center(self):
         self.mallet_t = 1.0
