@@ -251,7 +251,7 @@ void loop(){
   }
 
   
-  if ((millis() - prev_write_time) > 100) {
+  if ((millis() - prev_write_time) > 10) {
     if (Serial.availableForWrite()){
       prev_write_time = millis();
 
