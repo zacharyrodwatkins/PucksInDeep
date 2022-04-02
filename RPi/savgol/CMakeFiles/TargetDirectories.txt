@@ -1,4 +1,0 @@
-/home/fizzer/PucksInDeep/RPi/savgol/CMakeFiles/rebuild_cache.dir
-/home/fizzer/PucksInDeep/RPi/savgol/CMakeFiles/edit_cache.dir
-/home/fizzer/PucksInDeep/RPi/savgol/CMakeFiles/main.dir
-/home/fizzer/PucksInDeep/RPi/savgol/CMakeFiles/savgol.dir
