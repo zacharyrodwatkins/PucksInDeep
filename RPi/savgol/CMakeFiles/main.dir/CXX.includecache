@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fizzer/PucksInDeep/RPi/savgol/main.cpp
+savgol.hpp
+/home/fizzer/PucksInDeep/RPi/savgol/savgol.hpp
+stdio.h
+-
+unistd.h
+-
+
+lib/savgol.hpp
+stdio.h
+-
+time.h
+lib/time.h
+stdint.h
+-
+
