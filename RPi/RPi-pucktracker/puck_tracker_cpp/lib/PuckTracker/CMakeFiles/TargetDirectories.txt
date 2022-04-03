@@ -1,3 +1,0 @@
-/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/PuckTracker/CMakeFiles/rebuild_cache.dir
-/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/PuckTracker/CMakeFiles/edit_cache.dir
-/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/PuckTracker/CMakeFiles/tracker.dir

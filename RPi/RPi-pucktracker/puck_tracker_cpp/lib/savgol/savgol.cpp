@@ -5,9 +5,7 @@
 #include <inttypes.h>
 
 void SavitskyGolay::update_velocity(float xy[]) {
-  printf("\n Time \n");
-
-  printf("%" PRIu64 "\n", micros());
+ 
   float time_on_path = micros()-start_time;
   for(int i=window-1;i>0;i--){
     time_hist[i] = time_hist[i-1];
@@ -15,8 +13,7 @@ void SavitskyGolay::update_velocity(float xy[]) {
 
   time_hist[0] = ((float) time_on_path)*1e-6;
   window_step_size = (time_hist[0] - time_hist[window-1])/(window-1);
-  printf("\n Window Size \n");
-  printf("%f \n", window_step_size);
+
 
 
 

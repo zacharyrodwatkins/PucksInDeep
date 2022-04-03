@@ -13,10 +13,11 @@ class SavitskyGolay {
         float time_hist[window] = {0,0};
         float window_step_size;
         uint64_t micros();
-
         uint64_t start_time = 1.0*micros();
 
     private:
+
+
 
         void update_savgol_coeff(float coeffs[]){
             float start = 6.0/(window*1.0*(window+1));
@@ -25,9 +26,6 @@ class SavitskyGolay {
             for (int i = 0; i<window; i++){
                 coeffs[i] = start;
                 start = start+del;
-                printf("\n Coeff %d \n", i);
-                printf("%f \n", coeffs[i]);
-
             }
         }
         
@@ -35,15 +33,15 @@ class SavitskyGolay {
         
     public:
 
-        void Constructor() {
-            vel[0] = 1;
+        SavitskyGolay() {
+            vel[0] = 0;
+            vel[1] = 0;
             //Coefficients for savgol filter, set window in definition
             update_savgol_coeff(savgol);
         }
 
     void update_velocity(float xy[]);
-    void test();
-    
+
 
 
 };

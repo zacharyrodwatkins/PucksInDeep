@@ -7,7 +7,13 @@
 #include <ctime>
 #include <chrono>
 #include <fstream>
-
+#include "../savgol/savgol.hpp"
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <string.h>
+#define PORT  8080
+#define IP "10.42.0.1"
 using namespace cv;
 using namespace std;
 
@@ -20,15 +26,24 @@ class tracker {
 
     private:
 
+        // socket stuff
+        int sockfd, portno, n;
+        struct sockaddr_in serv_addr;
+        struct hostent *server;
+
+        void setup_socket(void);
+        
         // Dimesion constants
         const float TABLE_Y_DIMS = 200; // cm
         const float TABLE_X_DIMS = 100; // cm
         const float PUCK_RADIUS = 3; //cm
         const int FRAME_WIDTH = 640;
         const int FRAME_HEIGHT = 480;
-        const int M00_cut = 0.5 *3.1415*(3*3*TABLE_Y_DIMS*TABLE_X_DIMS/FRAME_WIDTH*FRAME_HEIGHT); 
-        
+        const float IMG_X_TO_CM = TABLE_X_DIMS/FRAME_HEIGHT;
+        const float IMG_Y_TO_CM = TABLE_Y_DIMS/FRAME_WIDTH;
+        const int M00_cut = 0.5 *3.1415*(3*3*TABLE_Y_DIMS*TABLE_X_DIMS/FRAME_WIDTH*FRAME_HEIGHT);  
 
+        SavitskyGolay savgol;
         // CV2 transform constants
         Point2f inQuad[4];
         Point2f outQuad[4];
@@ -53,15 +68,19 @@ class tracker {
         VideoCapture cap;
         // VideoWriter writer;
 
-        float x;
-        float y;
-        float vx;
-        float vy;
+        float x = -1;
+        float y = -1 ;
+        float vx = 0;
+        float vy = 0;
         
 
     public:
+        void tracker_write(void);
         tracker(void){
             
+    
+            savgol = SavitskyGolay();
+            setup_socket();
             outQuad[0] = Point2f(0,FRAME_WIDTH);
             outQuad[1] = Point2f(0,0);
             outQuad[2] = Point2f(FRAME_HEIGHT,0);
@@ -93,7 +112,6 @@ class tracker {
                         cerr << "Error reading " << HSV_FILE << '\n';
                         exit(1);
                     }
-                    printf("%d\n",val);
                     bounds[i][j] = val;
                 }
             }
