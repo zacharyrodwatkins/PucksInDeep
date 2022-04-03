@@ -61,6 +61,9 @@ float max_v;
 tester t;
 float v[2] = {0,0};
 
+int ramp_count = 0;
+
+
 FUNCTION get_func_type(float read_val){
 
   int val = round(read_val);
@@ -212,6 +215,11 @@ void loop(){
     max_v = vals[3];
     n_read_in_buffer = -1;
     t.set_function(func_type, dir, char_time, max_v);
+
+
+    ramp_count = 0;
+
+
     zero();
     if (dir==Y)
       move_to_middle_x();
@@ -230,7 +238,7 @@ void loop(){
   t.get_efforts(time_s, v);
   total_effort[0] = v[0]*128.0/SUPPLY_V;
   total_effort[1] = v[1]*128.0/SUPPLY_V;
-
+  
   write_to_motor(MOTOR_LEFT, total_effort[0]);
   write_to_motor(MOTOR_RIGHT, total_effort[1]);
   // write_to_motor(MOTOR_LEFT, total_effort[0]);
