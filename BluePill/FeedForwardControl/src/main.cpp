@@ -115,8 +115,12 @@ void zero() {
   controller.clear_history();
 
   // Must reset start angles to zero, readAngle depends on their values
-  controller.start_angles[0] =  0.0;
-  controller.start_angles[1] =  0.0;
+  float angle_offset = start_x_offset/(3.1415*PULLEY_RADIUS)*180;
+
+
+  controller.start_angles[0] = angle_offset;
+  controller.start_angles[1] = angle_offset;
+  
   controller.readAngle(controller.start_angles);
   start_time = micros();
 }
@@ -251,7 +255,7 @@ void loop(){
   }
 
   
-  if ((millis() - prev_write_time) > 100) {
+  if ((millis() - prev_write_time) > 10) {
     if (Serial.availableForWrite()){
       prev_write_time = millis();
 

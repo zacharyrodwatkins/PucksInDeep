@@ -1,4 +1,3 @@
-from copyreg import pickle
 import os
 import matplotlib.pyplot as plt
 import numpy as np
@@ -15,7 +14,7 @@ def get_end_index(m1,m2):
     return None
 
 
-def make_data(positions, motor_efforts, show=False):
+def make_data(positions, motor_efforts, show=True):
     end_index = get_end_index(motor_efforts['m1'], motor_efforts['m2'])
 
     if end_index is None:
@@ -52,17 +51,24 @@ def make_data(positions, motor_efforts, show=False):
         ax2.plot(t,m2,color = 'c', label = 'm2')
         ax1.legend(loc = 'upper left')
         ax2.legend(loc = 'upper right')
+        ax1.set_xlabel("Time (s)")
+        ax2.set_ylabel("Volts")
+        ax1.set_ylabel("Position (cm)")
+
+
+
 
         for p,c,ax in zip([fit_x,fit_y,fit_m1,fit_m2],['b','r','g','c'],[ax1,ax1,ax2,ax2]):
             test_t = np.linspace(t[0],t[-1])
             vals = np.polyval(p,test_t)
             ax.plot(test_t,vals,color = c, linestyle='dashed')
+            
+    plt.show()
 
     theta_1_coeffs = (fit_x + fit_y)/(R)
     theta_2_coeffs = (fit_x - fit_y)/(R)
 
-
-    return np.concatenate((theta_1_coeffs, theta_2_coeffs)), np.concatenate((fit_m1, fit_m2))
+    return np.concatenate((theta_1_coeffs, theta_2_coeffs)), np.concatenate((fit_m1, fit_m2, np.array([t[-1]])))
 
 
 
@@ -104,7 +110,7 @@ def get_all_paths(log_file):
 
 if __name__ == "__main__":
     data_file = 'data/2022-03-16 20:54:22.237820.json'
-    out_file = os.path.splitext(data_file)[0] + '_nn_data.pkl'
+    out_file = os.path.splitext(data_file)[0] + '_nn_data_with_time.pkl'
     paths=get_all_paths(data_file)
     with open(out_file, 'wb') as f:
         pkl.dump(paths,f)

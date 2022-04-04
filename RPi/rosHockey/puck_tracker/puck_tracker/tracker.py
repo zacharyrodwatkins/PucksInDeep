@@ -29,7 +29,11 @@ class PuckTracker(Node):
         # Setup video capture and recording objects
         self.dir_path = os.path.dirname(os.path.realpath(__file__))  # directory of this python file
         # ls /dev/v4l/by-path then mash tab and take an index 0 careful not to take webcam
-        self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.4:1.0-video-index0')
+        # self.vid = cv2.VideoCapture('/dev/v4l/by-path/pci-0000:00:14.0-usb-0:1.4:1.0-video-index0')
+        
+        os.system('ssh pi@10.42.0.124 "~/run_camera.bash" &')
+        self.vid = cv2.VideoCapture('udp://10.42.0.1:5000')
+        self.vid.set(cv2.CAP_PROP_FOURCC,cv2.VideoWriter_fourcc('H','2','4','6'))
         self.frame = self.vid.read()[1]
         self.w = self.frame.shape[0]
         self.h = self.frame.shape[1]
@@ -38,7 +42,7 @@ class PuckTracker(Node):
         self.initialize()
 
         # Puck status updater and display
-        self.frame_rate = 30
+        self.frame_rate = 120
         self.pos_update_period = 1.0/self.frame_rate
         self.last_frame_time = time.time()  # seconds
         self.show_frame = False
@@ -94,9 +98,9 @@ class PuckTracker(Node):
         
         
         self.transform_matrix = cv2.getPerspectiveTransform(np.float32(self.from_corners), np.float32(self.to_corners))
-
-        os.system("v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1")
-        os.system("v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=60")
+        
+        # os.system("v4l2-ctl -d /dev/video0 --set-ctrl=exposure_auto=1")
+        # os.system("v4l2-ctl -d /dev/video0 --set-ctrl=exposure_absolute=60")
 
 
     def get_corners(self, event, x, y, flags, param):

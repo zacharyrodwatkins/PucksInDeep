@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/savgol.cpp
+savgol.hpp
+/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/savgol.hpp
+chrono
+/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/chrono
+ctime
+/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/ctime
+stdint.h
+-
+inttypes.h
+-
+
+/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/savgol.hpp
+stdio.h
+-
+time.h
+/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/time.h
+stdint.h
+-
+
