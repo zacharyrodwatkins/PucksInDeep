@@ -53,4 +53,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/puck_tracker.dir/DependInfo.cmake"
   "CMakeFiles/tracker.dir/DependInfo.cmake"
+  "CMakeFiles/savgol.dir/DependInfo.cmake"
   )

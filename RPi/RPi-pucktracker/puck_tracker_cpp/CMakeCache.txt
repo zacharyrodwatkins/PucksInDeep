@@ -230,6 +230,9 @@ PuckTracker_BINARY_DIR:STATIC=/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_
 //Value Computed by CMake
 PuckTracker_SOURCE_DIR:STATIC=/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp
 
+//Dependencies for the target
+savgol_LIB_DEPENDS:STATIC=general;tracker;
+
 
 ########################
 # INTERNAL cache entries

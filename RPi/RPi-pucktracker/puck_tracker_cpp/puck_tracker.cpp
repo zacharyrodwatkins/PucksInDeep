@@ -24,5 +24,6 @@ int main(int, char**) {
     for(;;){
         t.process_frame();
         t.show();
+        t.tracker_write();
     }
 }

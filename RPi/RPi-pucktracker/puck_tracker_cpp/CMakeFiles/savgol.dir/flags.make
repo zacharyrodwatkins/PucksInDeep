@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -fPIC  
 
-CXX_DEFINES = -Dtracker_EXPORTS
+CXX_DEFINES = -Dsavgol_EXPORTS
 
 CXX_INCLUDES = -I/usr/include/opencv4 -I/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/Savgol -I/home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/PuckTracker 
 

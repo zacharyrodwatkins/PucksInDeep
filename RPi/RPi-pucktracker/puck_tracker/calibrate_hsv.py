@@ -70,7 +70,7 @@ calib = calibrate_hsv_obj(None)
 # frame = cv2.warpPerspective(frame, calib.transform_matrix, calib.des_image_shape)
 calib.frame = frame
 
-# cv2.imwrite("testFrame.png", frame)
+cv2.imwrite("testFrame.png", frame)
 
 cv2.imshow("initialization", frame)
 

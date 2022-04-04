@@ -131,4 +131,8 @@ CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o: /usr/include/opencv4/openc
 CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o: /usr/include/opencv4/opencv2/viz/vizcore.hpp
 CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o: /usr/include/opencv4/opencv2/viz/widgets.hpp
 CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o: lib/PuckTracker/tracker.hpp
+CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o: lib/savgol/savgol.hpp
+
+CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.o: lib/savgol/savgol.cpp
+CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.o: lib/savgol/savgol.hpp
 

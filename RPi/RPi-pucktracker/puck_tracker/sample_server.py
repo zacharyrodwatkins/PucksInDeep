@@ -6,7 +6,7 @@ import time
 
 localIP     = "10.42.0.1"
 
-localPort   = 20001
+localPort   = 8080
 
 bufferSize  = 1024
 
@@ -20,7 +20,9 @@ bufferSize  = 1024
 
 # Create a datagram socket
 
-UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+# UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
+
 
  
 

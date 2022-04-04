@@ -18,26 +18,27 @@ class HLC(Node):
         self.puck_vy = 0.0
 
          #  Table geometry
-        self.midline = 80  # cm
+        self.midline = 90  # cm
         self.goal_line = 123
         self.mallet_radius = 5
         self.puck_radius = 3.1
          # self.goal_range = (26.5, 26.5+25.4)
-        self.goal_range = (20, 60)
-        self.table_range = (0,99)
+        self.goal_range = (10, 70)
+        self.table_range = (0,89)
 
 
         #  Decision variables
         self.last_path_time = time.time()
 
-        self.crossing_line = 10.0  # Default defensive intercept line is goal line
+        self.crossing_line = 20.0  # Default defensive intercept line is goal line
         self.threshold_time = 0.05  # 50 ms, how far ahead of the puck trajectory are we looking at when we decide off vs def
-        self.too_fast = self.midline/0.5  # Will hit back wall in under 0.5 sec, this sets defensive flag flag
+        self.too_fast =  150 #set defensive flag
         self.v_shot = 220.0  # velocity of offensive path
         self.t_shot = 0.35  # path time for offensive path
         self.defensive_path_factor = 1.8 #get to puck faster than we expect based on camera lag
         self.min_mallet_t = 0.1 #prevent defensive paths from being under this time, small path times are unstable
         self.home = False
+        self.offensive_flag = False
 
         # Path variables (final acceleration is unused at the moment, maybe good if you know the following path)
         self.mallet_x = 0.0
@@ -113,11 +114,12 @@ class HLC(Node):
 
     # play along the back of the net, default position
     def load_center(self):
-        self.mallet_t = 1.0
+        self.mallet_t = 0.5
         self.mallet_x = (self.table_range[1]-self.table_range[0])/2.0
-        self.mallet_y = 0.0
+        self.mallet_y = 15.0
         self.mallet_vx = 0.0
         self.mallet_vy = 0.0
+        self.home = True
 
     def puck_callback(self, msg):
         # Get puck status
@@ -129,23 +131,39 @@ class HLC(Node):
         
 
         # If we havent finished our last path don't do anything, there's a time lag here
-        if (((time.time() - self.last_path_time) < self.mallet_t+0.1) and not self.home):
-            return
+        if ((time.time() - self.last_path_time) < self.mallet_t+0.1):
+            if(self.offensive_flag):
+                return
+            if (not self.home):
+                return
 
         # If shot is coming our way
         self.last_path_time = time.time()
         if self.crossing_midline():
+            self.offensive_flag = False
             self.home = False
             # If puck is not too fast
+            print(self.puck_vy)
+
+            if (self.offensive_flag):
+                self.offensive_flag = False
+                self.load_center()
+                self.update_path()
+                print("goin home")
+
+
             if (abs(self.puck_vy) < self.too_fast):
                 self.load_offensive_path()
                 self.update_path()
-                
-                print("nice and slow")
+                self.offensive_flag = True
+                print("offense!")
+
             # If puck is too fast
             else:
                 # Get x and t at which puck will cross the goal line
+                print("defense!")
                 self.load_defensive_path()
+
                 # If that x value is within the goal, move to block
                 if self.mallet_x > self.goal_range[0] and self.mallet_x < self.goal_range[1]:
                     self.update_path()
@@ -154,7 +172,6 @@ class HLC(Node):
                     print("not on target ;)")   
         else:
             if not self.home:
-                self.home = True
                 self.load_center()
                 print("center")
                 self.update_path()
@@ -162,17 +179,17 @@ class HLC(Node):
     def crossing_midline(self):
         
         # puck is too close to our goal line
-        if self.puck_y<6:
+        if self.puck_y<20:
             # Lost puck, just go pack to center
             return False
         if self.puck_vy > 20:
-            print("movin back")
+            # print("movin back")
             # Not moving towards, us we dont care
             return False
         if (self.puck_y + (self.puck_vy * self.threshold_time)) < self.midline:
             # Puck is on opponents end and coming at us
             return True
-        print('not headed to our side')
+        # print('not headed to our side')
 
         return False
 

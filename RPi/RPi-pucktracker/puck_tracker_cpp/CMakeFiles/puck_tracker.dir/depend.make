@@ -131,6 +131,10 @@ CMakeFiles/puck_tracker.dir/lib/PuckTracker/tracker.cpp.o: /usr/include/opencv4/
 CMakeFiles/puck_tracker.dir/lib/PuckTracker/tracker.cpp.o: /usr/include/opencv4/opencv2/viz/vizcore.hpp
 CMakeFiles/puck_tracker.dir/lib/PuckTracker/tracker.cpp.o: /usr/include/opencv4/opencv2/viz/widgets.hpp
 CMakeFiles/puck_tracker.dir/lib/PuckTracker/tracker.cpp.o: lib/PuckTracker/tracker.hpp
+CMakeFiles/puck_tracker.dir/lib/PuckTracker/tracker.cpp.o: lib/savgol/savgol.hpp
+
+CMakeFiles/puck_tracker.dir/lib/savgol/savgol.cpp.o: lib/savgol/savgol.cpp
+CMakeFiles/puck_tracker.dir/lib/savgol/savgol.cpp.o: lib/savgol/savgol.hpp
 
 CMakeFiles/puck_tracker.dir/puck_tracker.cpp.o: puck_tracker.cpp
 CMakeFiles/puck_tracker.dir/puck_tracker.cpp.o: /usr/include/opencv4/opencv2/calib3d.hpp
@@ -262,4 +266,5 @@ CMakeFiles/puck_tracker.dir/puck_tracker.cpp.o: /usr/include/opencv4/opencv2/viz
 CMakeFiles/puck_tracker.dir/puck_tracker.cpp.o: /usr/include/opencv4/opencv2/viz/vizcore.hpp
 CMakeFiles/puck_tracker.dir/puck_tracker.cpp.o: /usr/include/opencv4/opencv2/viz/widgets.hpp
 CMakeFiles/puck_tracker.dir/puck_tracker.cpp.o: lib/PuckTracker/tracker.hpp
+CMakeFiles/puck_tracker.dir/puck_tracker.cpp.o: lib/savgol/savgol.hpp
 

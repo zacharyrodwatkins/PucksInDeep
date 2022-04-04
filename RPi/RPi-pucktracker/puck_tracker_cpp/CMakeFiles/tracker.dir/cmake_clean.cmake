@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o"
+  "CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.o"
   "libtracker.pdb"
   "libtracker.so"
 )

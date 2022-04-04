@@ -136,6 +136,19 @@ tracker/fast:
 	$(MAKE) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/build
 .PHONY : tracker/fast
 
+#=============================================================================
+# Target rules for targets named savgol
+
+# Build rule for target.
+savgol: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 savgol
+.PHONY : savgol
+
+# fast build rule for target.
+savgol/fast:
+	$(MAKE) -f CMakeFiles/savgol.dir/build.make CMakeFiles/savgol.dir/build
+.PHONY : savgol/fast
+
 lib/PuckTracker/tracker.o: lib/PuckTracker/tracker.cpp.o
 
 .PHONY : lib/PuckTracker/tracker.o
@@ -165,6 +178,39 @@ lib/PuckTracker/tracker.cpp.s:
 	$(MAKE) -f CMakeFiles/puck_tracker.dir/build.make CMakeFiles/puck_tracker.dir/lib/PuckTracker/tracker.cpp.s
 	$(MAKE) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.s
 .PHONY : lib/PuckTracker/tracker.cpp.s
+
+lib/savgol/savgol.o: lib/savgol/savgol.cpp.o
+
+.PHONY : lib/savgol/savgol.o
+
+# target to build an object file
+lib/savgol/savgol.cpp.o:
+	$(MAKE) -f CMakeFiles/puck_tracker.dir/build.make CMakeFiles/puck_tracker.dir/lib/savgol/savgol.cpp.o
+	$(MAKE) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.o
+	$(MAKE) -f CMakeFiles/savgol.dir/build.make CMakeFiles/savgol.dir/lib/savgol/savgol.cpp.o
+.PHONY : lib/savgol/savgol.cpp.o
+
+lib/savgol/savgol.i: lib/savgol/savgol.cpp.i
+
+.PHONY : lib/savgol/savgol.i
+
+# target to preprocess a source file
+lib/savgol/savgol.cpp.i:
+	$(MAKE) -f CMakeFiles/puck_tracker.dir/build.make CMakeFiles/puck_tracker.dir/lib/savgol/savgol.cpp.i
+	$(MAKE) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.i
+	$(MAKE) -f CMakeFiles/savgol.dir/build.make CMakeFiles/savgol.dir/lib/savgol/savgol.cpp.i
+.PHONY : lib/savgol/savgol.cpp.i
+
+lib/savgol/savgol.s: lib/savgol/savgol.cpp.s
+
+.PHONY : lib/savgol/savgol.s
+
+# target to generate assembly for a file
+lib/savgol/savgol.cpp.s:
+	$(MAKE) -f CMakeFiles/puck_tracker.dir/build.make CMakeFiles/puck_tracker.dir/lib/savgol/savgol.cpp.s
+	$(MAKE) -f CMakeFiles/tracker.dir/build.make CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.s
+	$(MAKE) -f CMakeFiles/savgol.dir/build.make CMakeFiles/savgol.dir/lib/savgol/savgol.cpp.s
+.PHONY : lib/savgol/savgol.cpp.s
 
 puck_tracker.o: puck_tracker.cpp.o
 
@@ -203,9 +249,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... puck_tracker"
 	@echo "... tracker"
+	@echo "... savgol"
 	@echo "... lib/PuckTracker/tracker.o"
 	@echo "... lib/PuckTracker/tracker.i"
 	@echo "... lib/PuckTracker/tracker.s"
+	@echo "... lib/savgol/savgol.o"
+	@echo "... lib/savgol/savgol.i"
+	@echo "... lib/savgol/savgol.s"
 	@echo "... puck_tracker.o"
 	@echo "... puck_tracker.i"
 	@echo "... puck_tracker.s"

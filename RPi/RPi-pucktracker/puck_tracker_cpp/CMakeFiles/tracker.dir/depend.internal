@@ -132,3 +132,7 @@ CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o
  /usr/include/opencv4/opencv2/viz/vizcore.hpp
  /usr/include/opencv4/opencv2/viz/widgets.hpp
  lib/PuckTracker/tracker.hpp
+ lib/savgol/savgol.hpp
+CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.o
+ /home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/savgol.cpp
+ /home/fizzer/PucksInDeep/RPi/RPi-pucktracker/puck_tracker_cpp/lib/savgol/savgol.hpp
