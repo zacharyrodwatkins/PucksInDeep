@@ -44,7 +44,8 @@ public:
     {
         t.process_frame();
         this->publish();
-        // t.show();
+        t.show();
+        // t.writeVideo();
         return 0;
     }
 
