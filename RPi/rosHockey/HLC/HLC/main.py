@@ -23,7 +23,7 @@ class HLC(Node):
         self.mallet_radius = 5
         self.puck_radius = 3.1
          # self.goal_range = (26.5, 26.5+25.4)
-        self.goal_range = (10, 70)
+        self.goal_range = (0, 99)
         self.table_range = (0,99)
 
 
@@ -32,10 +32,10 @@ class HLC(Node):
 
         self.crossing_line = 20.0  # Default defensive intercept line is goal line
         self.threshold_time = 0.05  # 50 ms, how far ahead of the puck trajectory are we looking at when we decide off vs def
-        self.too_fast =  150 #set defensive flag
-        self.v_shot = 100.0  # velocity of offensive path
+        self.too_fast =  50 #set defensive flag
+        self.v_shot = 300.0  # velocity of offensive path
         self.t_shot = 0.4  # path time for offensive path
-        self.defensive_path_factor = 1.2 #get to puck faster than we expect based on camera lag
+        self.defensive_path_factor = 1 #get to puck faster than we expect based on camera lag
         self.min_mallet_t = 0.1 #prevent defensive paths from being under this time, small path times are unstable
         self.home = False
         self.offensive_flag = False
@@ -73,13 +73,6 @@ class HLC(Node):
         self.mallet_x = self.puck_x+self.puck_vx*self.mallet_t
 
 
-        # bounce mechanics
-        if (self.mallet_x < self.table_range[0]):
-            self.mallet_x = 2*self.table_range[0]-self.mallet_x
-        elif (self.mallet_x > self.table_range[1]):
-            self.mallet_x = 2*self.table_range[1]-self.mallet_x
-
-
         self.mallet_y = self.crossing_line-self.mallet_radius
         self.mallet_vx = 0.0
         self.mallet_vy = 0.0
@@ -106,14 +99,15 @@ class HLC(Node):
         # print(direction_x)
         # print(direction_y)
 
-        # self.mallet_x = self.mallet_x-direction_x*(self.mallet_radius+self.puck_radius)
-        # self.mallet_y = self.mallet_y-direction_y*(self.mallet_radius+self.puck_radius)
+        self.mallet_x = self.mallet_x-direction_x*(self.mallet_radius+self.puck_radius)
+        self.mallet_y = self.mallet_y-direction_y*(self.mallet_radius+self.puck_radius)
         self.mallet_vx = self.v_shot * direction_x
+        self.mallet_vy = self.v_shot * direction_y
 
 
     # play along the back of the net, default position
     def load_center(self):
-        self.mallet_t = 0.5
+        self.mallet_t = 0.8
         self.mallet_x = (self.table_range[1]-self.table_range[0])/2.0
         self.mallet_y = 15.0
         self.mallet_vx = 0.0
@@ -165,13 +159,21 @@ class HLC(Node):
             else:
                 # Get x and t at which puck will cross the goal line
                 print("defense!")
+                        # bounce mechanics
+                if (self.mallet_x < self.table_range[0]):
+                    self.mallet_x = 2*self.table_range[0]-self.mallet_x
+                elif (self.mallet_x > self.table_range[1]):
+                    self.mallet_x = 2*self.table_range[1]-self.mallet_x
                 self.load_defensive_path()
 
-                # If that x value is within the goal, move to block
+
+                # If that x value is within the goal, move to block, currently
                 if self.mallet_x > self.goal_range[0] and self.mallet_x < self.goal_range[1]:
                     self.update_path()
+                    time.sleep(0.3)
                 # Otherwise we are fine to chill
                 else:
+                    self.mallet_t = 0
                     print("not on target ;)")   
         else:
             if not self.home:
@@ -181,7 +183,7 @@ class HLC(Node):
 
     def crossing_midline(self):
         
-        # puck is too close to our goal line
+        # puck is too close to our goal lines
         if self.puck_y<20:
             # Lost puck, just go pack to center
             return False
@@ -189,7 +191,8 @@ class HLC(Node):
             # print("movin back")
             # Not moving towards, us we dont care
             return False
-        if (self.puck_y + (self.puck_vy * self.threshold_time)) < self.midline:
+        if (self.puck_y) < self.midline:
+            print("crossing")
             # Puck is on opponents end and coming at us
             return True
         # print('not headed to our side')
