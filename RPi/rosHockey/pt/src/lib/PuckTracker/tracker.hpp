@@ -7,10 +7,13 @@
 #include <ctime>
 #include <chrono>
 #include <fstream>
+#include <iomanip>
+#include <sstream>
 #include "../savgol/savgol.hpp"
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <string>
 #include <string.h>
 #define PORT  8080
 #define IP "10.42.0.1"
@@ -18,11 +21,11 @@
 #define CAMERA_STREAM_PORT 5000
 using namespace cv;
 using namespace std;
+using std::to_string;
 #define LOST_CUT 3
 
 #define CORNERS_FILE "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/calibration/calibrate.txt"
 #define HSV_FILE "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/calibration/HSV.txt"
-
 
 class tracker {
 
@@ -40,14 +43,14 @@ class tracker {
         void setup_socket(void);
         
         // Dimension constants
-        const float TABLE_Y_DIMS = 122; // cm
-        const float TABLE_X_DIMS = 89.5; // cm
+        const float TABLE_Y_DIMS = 216.5; // cm
+        const float TABLE_X_DIMS = 99; // cm
         const float PUCK_RADIUS = 3; //cm
         const int FRAME_WIDTH = 640;
         const int FRAME_HEIGHT = 480;
         const float IMG_X_TO_CM = TABLE_X_DIMS/FRAME_HEIGHT;
         const float IMG_Y_TO_CM = TABLE_Y_DIMS/FRAME_WIDTH;
-        const int M00_cut = 0.2 *3.1415*(3*3*TABLE_Y_DIMS*TABLE_X_DIMS/(FRAME_WIDTH*FRAME_HEIGHT));  
+        const int M00_cut = 0.2 *3.1415*(0.1*0.1*TABLE_Y_DIMS*TABLE_X_DIMS/(FRAME_WIDTH*FRAME_HEIGHT));  
 
         SavitskyGolay savgol;
         // CV2 transform constants
@@ -62,18 +65,31 @@ class tracker {
         Scalar lowerb;// = Scalar(45,45,155);
         Scalar upperb;// = Scalar(65+shift_int,65,175);
 
+        Scalar lowerb1;// = Scalar(45,45,155);
+        Scalar upperb1;// = Scalar(65+shift_int,65,175);
+
 
         // Frames 
         Mat transformed;
         Mat hsv;
         Mat bin;
+        Mat bin1;
+        Mat bin_send;
         Mat raw;
 
         Moments moms;
-
         VideoCapture cap;
-        // VideoWriter writer;
 
+
+        uint64_t us = std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::high_resolution_clock::now().time_since_epoch())
+            .count();
+        String time = to_string(us);
+        String output_file = "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/videos/";
+
+        const String file = output_file + time + ".avi";
+        // cout << file;
+        VideoWriter video = VideoWriter(file, VideoWriter::fourcc('M','J','P','G'), 10, Size(FRAME_WIDTH, FRAME_HEIGHT));
 
     public:
 
@@ -129,19 +145,21 @@ class tracker {
 
 
             if (bounds[0][0]>bounds[1][0]){
-                int h_shift = 180 - bounds[0][0];
-                bounds[1][0] += h_shift;
-                bounds[0][0] = 0;
-                shift = Scalar(h_shift);
-                shift_flag = true;
+                lowerb = Scalar(bounds[0][0],bounds[0][1], bounds[0][2]);
+                upperb = Scalar(180,bounds[1][1], bounds[1][2]);
+
+                lowerb1 = Scalar(0,bounds[0][1], bounds[0][2]);
+                upperb1 = Scalar(bounds[1][0],bounds[1][1], bounds[1][2]);
             }
             else{
-                shift  = Scalar(0);
-                shift_flag = false;
-            }
-
             lowerb = Scalar(bounds[0][0],bounds[0][1], bounds[0][2]);
             upperb = Scalar(bounds[1][0],bounds[1][1], bounds[1][2]);
+
+            lowerb1 = Scalar(bounds[0][0],bounds[0][1], bounds[0][2]);
+            upperb1 = Scalar(bounds[1][0],bounds[1][1], bounds[1][2]);
+            }
+
+
 
 
             //Does this block idk?
@@ -156,6 +174,11 @@ class tracker {
 
         int process_frame(void);
         void show(void);
+        void writeVideo(void);
+        ~tracker(){
+            video.release();
+            cap.release();
+        }
 
         enum PUCK_STATUS {PUCK_FOUND = 0, PUCK_LOST = 1};
 

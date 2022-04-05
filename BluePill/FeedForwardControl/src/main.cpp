@@ -19,7 +19,8 @@ int model_on = 0;
 int pd_on = 1;
 
 float motor_v = 24.0;
-float start_x_offset = 9;
+float start_x_offset = 4.3;
+float start_y_offset = 9.5;
 int start_time = 0;
 
 MalletController controller;
@@ -75,11 +76,11 @@ void setup(){
 
     zero();
 
-    float angle_offset = start_x_offset/(3.1415*PULLEY_RADIUS)*180;
-    
+    float angle_offset_0 = (start_x_offset+start_y_offset)/(3.1415*PULLEY_RADIUS)*180;
+    float angle_offset_1 = (start_x_offset-start_y_offset)/(3.1415*PULLEY_RADIUS)*180;
 
-    controller.start_angles[0] = angle_offset;
-    controller.start_angles[1] = angle_offset;
+    controller.start_angles[0] = angle_offset_0;
+    controller.start_angles[1] = angle_offset_1;
     controller.readAngle(controller.start_angles);
     delay(100); 
     move_to_middle_x();
@@ -229,8 +230,7 @@ void loop(){
     // path_time should be in seconds, start_time should be in seconds
     controller.setPath(finalXY, finalVel, finalAcc, path_time,  (1.0*start_time)/1e6);
     mod.set_coeffs(controller.x_coeffs, controller.y_coeffs);
-    
-   
+
   }
 
   float* effort;      
