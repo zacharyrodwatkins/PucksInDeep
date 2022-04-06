@@ -19,8 +19,8 @@ int model_on = 0;
 int pd_on = 1;
 
 float motor_v = 24.0;
-float start_x_offset = 4.3;
-float start_y_offset = 9.5;
+float start_x_offset = 3.8;
+float start_y_offset = 3.1;
 int start_time = 0;
 
 MalletController controller;
@@ -206,15 +206,16 @@ void loop(){
 
   ser_counter = Serial.available();
   if (n_read_in_buffer == NUM_BYTES_REC) {
+    // if (true) { 
     digitalWrite(PC13,HIGH);
     float vals [NUM_VALS];
     //read_count++;
     //uint8_t serial_reading_buffer[14] = {1 ,2, 3 ,4, 5, 6 , 7 , 8, 9, 10, 11, 12, 13,14};
     read_floats_from_pi(serial_reading_buffer, vals, NUM_VALS);
-    // float finalXY[2] = {vals[0],vals[1]};
-    // float finalVel[2] = {vals[2],vals[3]};
-    // float finalAcc[2] = {vals[4],vals[5]};
-    // float path_time = vals[6];
+    // // float finalXY[2] = {vals[0],vals[1]};
+    // // float finalVel[2] = {vals[2],vals[3]};
+    // // float finalAcc[2] = {vals[4],vals[5]};
+    // // float path_time = vals[6];
 
     finalXY[0] = vals[0];
     finalXY[1] = vals[1];
@@ -225,6 +226,14 @@ void loop(){
     path_time = vals[6];
 
     n_read_in_buffer = -1;
+
+    // finalXY[0] = 0;
+    // finalXY[1] = 0;
+    // finalVel[0] = 0;
+    // finalVel[1] =  0;
+    // finalAcc[0] = 0;
+    // finalAcc[1] = 0;
+    // path_time = 8;
 
     start_time = micros();
     // path_time should be in seconds, start_time should be in seconds
