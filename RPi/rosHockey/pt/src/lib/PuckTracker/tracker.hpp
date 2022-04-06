@@ -24,6 +24,8 @@ using namespace std;
 using std::to_string;
 #define LOST_CUT 3
 
+
+
 #define CORNERS_FILE "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/calibration/calibrate.txt"
 #define HSV_FILE "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/calibration/HSV.txt"
 
@@ -32,6 +34,8 @@ class tracker {
 
     private:
 
+        void get_offsets(float position[], float offsets[]);
+        
         int lost_frames=LOST_CUT;
         const int lost_thresh = LOST_CUT; 
 
@@ -39,6 +43,9 @@ class tracker {
         int sockfd, portno, n;
         struct sockaddr_in serv_addr;
         struct hostent *server;
+
+        const float A = 6.7595e-6;
+        const float B = 3.94956e-6;
 
         void setup_socket(void);
         

@@ -9,6 +9,13 @@
 #include <netdb.h> 
 
 
+void tracker::get_offsets(float position[], float offsets[]){
+    float x = position[0];
+    float y = position[1];
+    offsets[0] = A*(x-TABLE_X_DIMS/2)*(y)*(y-TABLE_Y_DIMS);
+    offsets[1] = B*(y-TABLE_Y_DIMS/2)*x*(x-TABLE_X_DIMS);
+}
+
 int tracker::process_frame(void){
     cap.read(raw);
     if (raw.empty()) {
@@ -40,7 +47,13 @@ int tracker::process_frame(void){
         float yt = (transform_matrix.at<double>(1,0)*x_img + transform_matrix.at<double>(1,1)*y_img + transform_matrix.at<double>(1,2))/scale_fac;  
         this->x = xt*this->IMG_X_TO_CM;
         this->y = yt*this->IMG_Y_TO_CM;
+        float offsets[2]; 
         float xy[] = {x,y};
+        get_offsets(xy,offsets);
+        this->x += offsets[0];
+        this->y += offsets[1];
+        xy[0] = x;
+        xy[1] = y; 
         savgol.update_velocity(xy);
         vx = savgol.vel[0];
         vy = savgol.vel[1];
