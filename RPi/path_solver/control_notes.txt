@@ -1,4 +1,0 @@
-moving 60 cm in 1 sec:
-    - overshoot 0.27 cm 
-moving 60 cm in 2 sec:
-    - overshoot 3.52:
