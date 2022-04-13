@@ -21,30 +21,20 @@ const float ticks_to_deg = 360.0/two_to_the_14;
 
 class MalletController {
     public:
-        float factor = 0.5;
-        // float px = 25.0*factor;
-        // float ix = 0;
-        // float dx = 0.93*factor;
-        // float py = 21*factor;
-        // float iy = 0;
-        // float dy = 0.65*factor;
-
-        // float px = 45; 25 frames for 3 periods
-
-        // float py = 72 30 frames for 2 periods
-        // float px = 36*factor; 
-        // float ix = 0;
-        // float dx = 1.25*factor;
-        // float py = 57.6*factor;
-        // float iy = 0;
-        // float dy = 3.6*factor;
-
-        float px = 45*.2; 
+        float factor = 1;
+        float px = 25.0*factor;
         float ix = 0;
-        float dx = 0.066*45*.277;
-        float py = 72*.2;
+        float dx = 0.93*factor;
+        float py = 21*factor;
         float iy = 0;
-        float dy = 0.066*72*0.5;
+        float dy = 0.65*factor;
+
+        // float px = 0;
+        // float ix = 0;
+        // float dx = 0;
+        // float py = 0;
+        // float iy = 0;
+        // float dy = 0;
 
 
         // const uint8_t MOTOR_LEFT = 0x81;

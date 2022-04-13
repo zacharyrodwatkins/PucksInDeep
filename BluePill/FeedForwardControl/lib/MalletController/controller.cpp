@@ -202,23 +202,6 @@ void MalletController::update_coeffs(float curr_xy[2], float curr_vel[2], float 
   y_coeffs[3] = 0.5*Vy[4];
   y_coeffs[4] = Vy[2];
   y_coeffs[5] = Vy[0];
-
-// pd tuning
-  // x_coeffs[0] = 0;
-  // x_coeffs[1] = 0;
-  // x_coeffs[2] = 0;
-  // x_coeffs[3] = 0;
-  // x_coeffs[4] = 0;
-  // x_coeffs[5] = 0;
-
-  // y_coeffs[0] = 0;
-  // y_coeffs[1] = 0;
-  // y_coeffs[2] = 0;
-  // y_coeffs[3] = 0;
-  // y_coeffs[4] = 0;
-  // y_coeffs[5] = 47;
-
-
 }
 
 void MalletController::setPath(float final_xy[], float final_vel[], float final_acc[], float deltaT, float current_time){
