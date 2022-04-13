@@ -28,9 +28,16 @@ frame = vid.read()[1]
 cv2.imshow("initialization", frame)
 
 
+
 cv2.setMouseCallback("initialization", calib.get_corners)
 while (len(calib.from_corners) < 4):
     cv2.waitKey(1)
 cv2.destroyWindow("initialization")
-with open(calib.dir_path + '/../camera_calib.pkl', 'wb') as f:
-    pickle.dump(calib.from_corners, f)
+
+
+with open(calib.dir_path + '/../camera_calib.txt', 'w') as f:
+    for i in range(len(calib.from_corners)):
+        print(calib.from_corners[i][0])
+        f.write("{} {}".format(calib.from_corners[i][0],calib.from_corners[i][1]))
+        if (i<len(calib.from_corners)-1):
+            f.write("\n")

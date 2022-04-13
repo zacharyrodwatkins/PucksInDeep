@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             "puck_tracker = puck_tracker.tracker:main",
-            "vel_test = puck_tracker.vel_test:main"
+            "vel_test = puck_tracker.vel_test:main",
+            "tracker_server = puck_tracker.trackerServer:main"
         ],
     },
 )

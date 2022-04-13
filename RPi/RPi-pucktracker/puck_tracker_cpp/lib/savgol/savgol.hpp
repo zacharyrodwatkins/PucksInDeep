@@ -1,4 +1,4 @@
-#define window 5
+#define window 3
 #include <stdio.h>
 #include "time.h"
 #include <stdint.h>

@@ -21,9 +21,10 @@ uint64_t micros()
 
 int main(int, char**) { 
     tracker t = tracker();
+    
     for(;;){
         t.process_frame();
-        t.show();
+        // t.show();
         t.tracker_write();
     }
 }

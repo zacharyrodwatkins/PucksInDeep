@@ -14,6 +14,8 @@
 #include <string.h>
 #define PORT  8080
 #define IP "10.42.0.1"
+#define CAMERA_STREAM_IP "10.42.0.1"
+#define CAMERA_STREAM_PORT 5000
 using namespace cv;
 using namespace std;
 
@@ -33,15 +35,15 @@ class tracker {
 
         void setup_socket(void);
         
-        // Dimesion constants
-        const float TABLE_Y_DIMS = 200; // cm
-        const float TABLE_X_DIMS = 100; // cm
+        // Dimension constants
+        const float TABLE_Y_DIMS = 122; // cm
+        const float TABLE_X_DIMS = 89.5; // cm
         const float PUCK_RADIUS = 3; //cm
         const int FRAME_WIDTH = 640;
         const int FRAME_HEIGHT = 480;
         const float IMG_X_TO_CM = TABLE_X_DIMS/FRAME_HEIGHT;
         const float IMG_Y_TO_CM = TABLE_Y_DIMS/FRAME_WIDTH;
-        const int M00_cut = 0.5 *3.1415*(3*3*TABLE_Y_DIMS*TABLE_X_DIMS/FRAME_WIDTH*FRAME_HEIGHT);  
+        const int M00_cut = 0.2 *3.1415*(3*3*TABLE_Y_DIMS*TABLE_X_DIMS/(FRAME_WIDTH*FRAME_HEIGHT));  
 
         SavitskyGolay savgol;
         // CV2 transform constants
@@ -49,7 +51,7 @@ class tracker {
         Point2f outQuad[4];
         Scalar shift;
         bool shift_flag;
-        Size transformSize = Size(FRAME_WIDTH,FRAME_HEIGHT);
+        Size transformSize = Size(FRAME_HEIGHT,FRAME_WIDTH);
         Mat transform_matrix;
        
         // HSV bounds
@@ -74,18 +76,22 @@ class tracker {
         float vy = 0;
         
 
+
     public:
         void tracker_write(void);
         tracker(void){
             
+            char stream_commad[256];
+            bzero(stream_commad,256);
+            sprintf(stream_commad, "udp://%s:%d?overrun_nonfatal=1&fifo_size=50000000", CAMERA_STREAM_IP, CAMERA_STREAM_PORT);
+             
     
             savgol = SavitskyGolay();
             setup_socket();
-            outQuad[0] = Point2f(0,FRAME_WIDTH);
-            outQuad[1] = Point2f(0,0);
-            outQuad[2] = Point2f(FRAME_HEIGHT,0);
-            outQuad[3] = Point2f(FRAME_HEIGHT,FRAME_WIDTH);
-
+            outQuad[0] = Point2f(0,0);
+            outQuad[1] = Point2f(0,FRAME_WIDTH);
+            outQuad[2] = Point2f(FRAME_HEIGHT,FRAME_WIDTH);
+            outQuad[3] = Point2f(FRAME_HEIGHT,0);
 
             // READ FILES 
             fstream cornerfile(CORNERS_FILE, ios_base::in);
@@ -99,8 +105,8 @@ class tracker {
                 inQuad[i] = Point2f(x,y);
             }
 
-            transform_matrix = getPerspectiveTransform(inQuad, outQuad);
 
+            transform_matrix = getPerspectiveTransform(inQuad, outQuad);
 
             // lower first then upper
             fstream hsvfile(HSV_FILE, ios_base::in);
@@ -118,7 +124,7 @@ class tracker {
 
 
 
-            if (bounds[0][0]>bounds[1][1]){
+            if (bounds[0][0]>bounds[1][0]){
                 int h_shift = 180 - bounds[0][0];
                 bounds[1][0] += h_shift;
                 bounds[0][0] = 0;
@@ -130,8 +136,12 @@ class tracker {
                 shift_flag = false;
             }
 
+            lowerb = Scalar(bounds[0][0],bounds[0][1], bounds[0][2]);
+            upperb = Scalar(bounds[1][0],bounds[1][1], bounds[1][2]);
+
+
             //Does this block idk?
-            cap = VideoCapture("udp://10.42.0.124:5000?overrun_nonfatal=1&fifo_size=50000000");
+            cap = VideoCapture(stream_commad);
             if (!cap.isOpened()) {
                 cerr << "Unable to open camera\n";
                 exit(-1);
