@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>492</width>
+    <height>273</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QDoubleSpinBox" name="fin_x_vel">
+    <property name="geometry">
+     <rect>
+      <x>312</x>
+      <y>20</y>
+      <width>69</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>-10000.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>10000.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="fin_y_vel">
+    <property name="geometry">
+     <rect>
+      <x>402</x>
+      <y>20</y>
+      <width>69</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>-10000.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>10000.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="fin_x_acc">
+    <property name="geometry">
+     <rect>
+      <x>312</x>
+      <y>50</y>
+      <width>69</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>-40000.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>40000.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="fin_y_acc">
+    <property name="geometry">
+     <rect>
+      <x>402</x>
+      <y>50</y>
+      <width>69</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>-40000.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>40000.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>212</x>
+      <y>20</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Final Vel (x, y)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>212</x>
+      <y>60</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Final Acc (x, y)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>262</x>
+      <y>100</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Time</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="path_time">
+    <property name="geometry">
+     <rect>
+      <x>312</x>
+      <y>90</y>
+      <width>69</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <double>0.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gen_button">
+    <property name="geometry">
+     <rect>
+      <x>232</x>
+      <y>150</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Generate Path</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="send_button">
+    <property name="geometry">
+     <rect>
+      <x>362</x>
+      <y>150</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Send Path</string>
+    </property>
+   </widget>
+   <widget class="MplWidget" name="table_plot" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>201</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="random_button">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>190</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&amp;Rand</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>492</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MplWidget</class>
+   <extends>QWidget</extends>
+   <header>mplwidget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
