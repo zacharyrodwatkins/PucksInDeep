@@ -1,6 +1,0 @@
-Invoking command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs -DCMAKE_INSTALL_PREFIX=/home/ubuntu/PucksInDeep/RPi/rosHockey/install/hockey_msgs
-Invoked command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/ubuntu/PucksInDeep/RPi/rosHockey/hockey_msgs -DCMAKE_INSTALL_PREFIX=/home/ubuntu/PucksInDeep/RPi/rosHockey/install/hockey_msgs
-Invoking command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs -- -j4 -l4
-Invoked command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs -- -j4 -l4
-Invoking command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs
-Invoked command in '/home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ubuntu/PucksInDeep/RPi/rosHockey/build/hockey_msgs

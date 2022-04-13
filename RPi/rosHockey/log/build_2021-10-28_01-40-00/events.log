@@ -1,6 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.001977] (-) JobUnselected: {'identifier': 'hockey_msgs'}
-[0.002878] (-) JobUnselected: {'identifier': 'keyboard_control'}
-[0.003431] (-) JobUnselected: {'identifier': 'position_publisher'}
-[0.004121] (-) JobUnselected: {'identifier': 'visualizer'}
-[0.005573] (-) EventReactorShutdown: {}

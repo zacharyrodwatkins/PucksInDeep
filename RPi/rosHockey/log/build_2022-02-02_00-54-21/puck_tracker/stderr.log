@@ -1,2 +1,0 @@
-/home/ubuntu/PucksInDeep/RPi/rosHockey/install/puck_tracker/lib/python3.8/site-packages/puck_tracker/tracker.py:63: SyntaxWarning: 'str' object is not callable; perhaps you missed a comma?
-  frame = cv2.putText(frame, "x: %f y: %f\nx_vel: %f y_vel: %f" (cX, cY, self.puck_vel[0], self.puck_vel[1]), (0,0), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 2, cv2.LINE_AA)
