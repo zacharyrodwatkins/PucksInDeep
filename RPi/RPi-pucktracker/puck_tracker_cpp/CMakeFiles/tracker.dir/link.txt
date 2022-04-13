@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -shared -Wl,-soname,libtracker.so -o libtracker.so CMakeFiles/tracker.dir/lib/PuckTracker/tracker.cpp.o CMakeFiles/tracker.dir/lib/savgol/savgol.cpp.o 
