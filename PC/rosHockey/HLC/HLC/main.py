@@ -20,14 +20,16 @@ class HLC(Node):
         self.mallet_current_x = 0.0
         self.mallet_current_y = 0.0
 
-        self.vel_offense = 200.0
+        self.vel_offense = 180.0
         self.vel_defense = 200.0
-        self.vel_home = 100.0
+        self.vel_home = 40.0
+        self.vel_absolute_max = 250.0
 
-        self.positive_velocity = True
+        self.gantry_dimensions_y = (10.0,87.0)
+        self.gantry_dimensions_x = (0, 86.0)
 
          #  Table geometry
-        self.midline = 120  # cm
+        self.midline = 80  # cm
         self.goal_line = 200
         self.mallet_radius = 5
         self.puck_radius = 3.1
@@ -39,13 +41,17 @@ class HLC(Node):
         #  Decision variables
         self.last_path_time = time.time()
 
-        self.crossing_line = 20.0  # Default defensive intercept line is goal line
+        self.crossing_line = 10.0  # Default defensive intercept line is goal line
         self.threshold_time = 0.05  # 50 ms, how far ahead of the puck trajectory are we looking at when we decide off vs def
-        self.too_fast =  50 #set defensive flag
-        self.v_shot = 220.0  # velocity of offensive path
-        self.t_shot = 0.36  # path time for offensive path
+        self.too_fast =  70 #set defensive flag
+        self.v_shot = 200.0  # velocity of offensive path 220 is great!
+        self.t_shot = 0.4  # path time for offensive path
         self.defensive_path_factor = 1 #get to puck faster than we expect based on camera lag
         self.min_mallet_t = 0.6 #prevent defensive paths from being under this time, small path times are unstable
+        
+
+        self.positive_velocity = True
+        self.start_defense_loop = 0.0
         self.home = False
         self.offensive_flag = False
 
@@ -66,12 +72,34 @@ class HLC(Node):
         self.puck_status_publisher = self.create_publisher(PuckStatus, 'PuckStatus', 10)
 
     def update_path(self):
+
+        if (self.mallet_x>self.gantry_dimensions_x[1]):
+            self.mallet_x = self.gantry_dimensions_x[1]
+        if (self.mallet_x<self.gantry_dimensions_x[0]):
+            self.mallet_x = self.gantry_dimensions_x[0]
+
+        if (self.mallet_y>self.gantry_dimensions_y[1]):
+            self.mallet_y = self.gantry_dimensions_y[1]
+        if (self.mallet_y<self.gantry_dimensions_y[0]):
+            self.mallet_y = self.gantry_dimensions_y[0]
+
+        if self.mallet_vx > self.vel_absolute_max:
+            self.mallet_vx = self.vel_absolute_max
+        if self.mallet_vx < -1*self.vel_absolute_max:
+            self.mallet_vx = -1*self.vel_absolute_max
+        
+        if self.mallet_vy > self.vel_absolute_max:
+            self.mallet_vy = self.vel_absolute_max
+        if self.mallet_vy < -1*self.vel_absolute_max:
+            self.mallet_vy = -1*self.vel_absolute_max
+
         self.time = time.time()
         msg = NextPath()
         msg.x = float(self.mallet_x)
         msg.y = float(self.mallet_y)
-        msg.vx = self.mallet_vx
-        msg.vy = self.mallet_vy
+
+        msg.vx = float(self.mallet_vx)
+        msg.vy = float(self.mallet_vy)
         msg.ax = 0.0
         msg.ay = 0.0
         msg.t = self.mallet_t
@@ -122,18 +150,21 @@ class HLC(Node):
         self.mallet_x = self.mallet_x-direction_x*(self.mallet_radius+self.puck_radius)
         self.mallet_y = self.mallet_y-direction_y*(self.mallet_radius+self.puck_radius)
         self.mallet_vx = self.v_shot * direction_x
+        
+        self.mallet_vy = self.v_shot * direction_y 
+
+        # self.mallet_vy = 70.0
         # self.mallet_vx = 0.0
-        self.mallet_vy = self.v_shot * direction_y
 
         distance = self.compute_distance()
         self.going_too_fast(self.vel_offense, distance)
 
 
-    # play along the back of the net, default position
+    # play along the back of the net, default posiction
     def load_center(self):
-        self.mallet_t = 0.85
+        self.mallet_t = 0.7
         self.mallet_x = (self.table_range[1]-self.table_range[0])/2.0
-        self.mallet_y = 15.0
+        self.mallet_y = self.crossing_line
         self.mallet_vx = 0.0
         self.mallet_vy = 0.0
         self.home = True
@@ -170,17 +201,16 @@ class HLC(Node):
         # If we havent finished our last path don't do anything, there's a time lag here
         if ((time.time() - self.last_path_time) < self.mallet_t):
             if(self.offensive_flag):
+                return
+            if (not self.home):
                 print("stuck)")
                 return
-            # if (not self.home):
-                # print("stuck)")
-                # return
-            if (not self.positive_velocity):
+            if (not self.positive_velocity and time.time()-self.start_defense_loop< 0.12):
                 print("waiting on returns")
                 return
 
         # If shot is coming our way
-        self.last_path_time = time.time()
+        
 
         if (self.offensive_flag and not self.home):
             self.load_center()
@@ -189,6 +219,7 @@ class HLC(Node):
             self.home = True
 
         elif self.crossing_midline():
+            self.last_path_time = time.time()
             self.home = False
             self.offensive_flag = False
             # If puck is not too fast
@@ -216,15 +247,17 @@ class HLC(Node):
 
 
                 # If that x value is within the goal, move to block, currently
-                if self.mallet_x > self.goal_range[0] and self.mallet_x < self.goal_range[1]:
-                    self.update_path()
-                    self.positive_velocity = False
+                # if self.mallet_x > self.goal_range[0] and self.mallet_x < self.goal_range[1]:
 
-                    # time.sleep(0.3)
-                # Otherwise we are fine to chill
-                else:
-                    self.mallet_t = 0
-                    print("not on target ;)")   
+                self.update_path()
+                self.positive_velocity = False
+                self.start_defense_loop = time.time()
+   
+
+                # # Otherwise we are fine to chill
+                # else:
+                #     self.mallet_t = 0
+                #     print("not on target ;)")   
         else:
             if not self.home:
                 self.load_center()
@@ -245,7 +278,7 @@ class HLC(Node):
             # Not moving towards, us we dont care
             return False
         if (self.puck_y) < self.midline:
-            # print("crossing")
+            print("crossing")
             # Puck is on opponents end and coming at us
             return True
         # print('not headed to our side')
