@@ -44,20 +44,26 @@ class tracker {
         struct sockaddr_in serv_addr;
         struct hostent *server;
 
-        const float A = 6.7595e-6;
-        const float B = 3.94956e-6;
-
         void setup_socket(void);
         
         // Dimension constants
-        const float TABLE_Y_DIMS = 216.5; // cm
-        const float TABLE_X_DIMS = 99; // cm
+        const float TABLE_Y_DIMS = 192.7; // cm
+        const float TABLE_X_DIMS = 92.7; // cm
         const float PUCK_RADIUS = 3; //cm
         const int FRAME_WIDTH = 640;
         const int FRAME_HEIGHT = 480;
         const float IMG_X_TO_CM = TABLE_X_DIMS/FRAME_HEIGHT;
         const float IMG_Y_TO_CM = TABLE_Y_DIMS/FRAME_WIDTH;
-        const int M00_cut = 0.2 *3.1415*(0.1*0.1*TABLE_Y_DIMS*TABLE_X_DIMS/(FRAME_WIDTH*FRAME_HEIGHT));  
+        // const int M00_cut = 0.2 *3.1415*(0.1*0.1*TABLE_Y_DIMS*TABLE_X_DIMS/(FRAME_WIDTH*FRAME_HEIGHT));  
+        const int M00_cut = 0;
+
+        const float A = 8*3.26/(TABLE_Y_DIMS*TABLE_Y_DIMS*TABLE_X_DIMS);
+        const float B = 8*1.6/(TABLE_Y_DIMS*TABLE_X_DIMS*TABLE_X_DIMS);
+
+        Mat table_mask;
+
+        // const float A = 0;
+        // const float B = 0;
 
         SavitskyGolay savgol;
         // CV2 transform constants
@@ -111,7 +117,7 @@ class tracker {
             char stream_commad[256];
             bzero(stream_commad,256);
             sprintf(stream_commad, "udp://%s:%d?overrun_nonfatal=1&fifo_size=50000000", CAMERA_STREAM_IP, CAMERA_STREAM_PORT);
-             
+            
     
             savgol = SavitskyGolay();
             // setup_socket();
@@ -134,6 +140,8 @@ class tracker {
 
 
             transform_matrix = getPerspectiveTransform(inQuad, outQuad);
+
+            // cv2.polylines(table_mask,inQuad,4,true,1,-1)
 
             // lower first then upper
             fstream hsvfile(HSV_FILE, ios_base::in);
