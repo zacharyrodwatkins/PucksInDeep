@@ -25,7 +25,7 @@ using std::to_string;
 #define LOST_CUT 3
 
 
-
+// Both of these files should be calibrated manually
 #define CORNERS_FILE "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/calibration/calibrate.txt"
 #define HSV_FILE "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/calibration/HSV.txt"
 
@@ -54,9 +54,12 @@ class tracker {
         const int FRAME_HEIGHT = 480;
         const float IMG_X_TO_CM = TABLE_X_DIMS/FRAME_HEIGHT;
         const float IMG_Y_TO_CM = TABLE_Y_DIMS/FRAME_WIDTH;
+
+        // M00_cut was useful for tracking the puck, now we are doing only LED and it is unstable
         // const int M00_cut = 0.2 *3.1415*(0.1*0.1*TABLE_Y_DIMS*TABLE_X_DIMS/(FRAME_WIDTH*FRAME_HEIGHT));  
         const int M00_cut = 0;
 
+        // Lens distortion calibration coefficients
         const float A = 8*3.26/(TABLE_Y_DIMS*TABLE_Y_DIMS*TABLE_X_DIMS);
         const float B = 8*1.6/(TABLE_Y_DIMS*TABLE_X_DIMS*TABLE_X_DIMS);
 
@@ -98,6 +101,8 @@ class tracker {
             std::chrono::high_resolution_clock::now().time_since_epoch())
             .count();
         String time = to_string(us);
+
+        // make sure to create this folder, will not upload to git
         String output_file = "/home/fizzer/PucksInDeep/RPi/rosHockey/pt/videos/";
 
         const String file = output_file + time + ".avi";
@@ -141,9 +146,7 @@ class tracker {
 
             transform_matrix = getPerspectiveTransform(inQuad, outQuad);
 
-            // cv2.polylines(table_mask,inQuad,4,true,1,-1)
 
-            // lower first then upper
             fstream hsvfile(HSV_FILE, ios_base::in);
             int bounds[2][3];
             for (int i = 0; i<2; i++){
@@ -157,8 +160,8 @@ class tracker {
                 }
             }
 
-
-
+            //Allows the HSV filter to work for red
+            // IE H = [160, 20]
             if (bounds[0][0]>bounds[1][0]){
                 lowerb = Scalar(bounds[0][0],bounds[0][1], bounds[0][2]);
                 upperb = Scalar(180,bounds[1][1], bounds[1][2]);
@@ -174,22 +177,16 @@ class tracker {
             upperb1 = Scalar(bounds[1][0],bounds[1][1], bounds[1][2]);
             }
 
-
-
-
-            //Does this block idk?
             cap = VideoCapture(stream_commad);
             if (!cap.isOpened()) {
                 cerr << "Unable to open camera\n";
                 exit(-1);
             }
 
-            // writer = VideoWrite("udp://10.42.0.124:5001?overrun_nonfatal=1")
         }
 
         int process_frame(void);
         void show(void);
-        void writeVideo(void);
         ~tracker(){
             video.release();
             cap.release();

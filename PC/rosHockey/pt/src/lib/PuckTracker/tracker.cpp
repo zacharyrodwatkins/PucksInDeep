@@ -23,17 +23,11 @@ int tracker::process_frame(void){
         return -1;
     }
 
-
     cvtColor(raw, hsv, COLOR_BGR2HSV);
     inRange(hsv,lowerb, upperb,bin);
     inRange(hsv,lowerb1,upperb1,bin1);
 
     bin = bin | bin1;
-
-
-
-    // cut to table here
-
     moms = moments(bin);
 
     if (moms.m00>M00_cut){
@@ -41,7 +35,11 @@ int tracker::process_frame(void){
             lost_frames = 0;
         float x_img = 1.0*moms.m10/moms.m00;
         float y_img = 1.0*moms.m01/moms.m00; 
+
+        // Terminal output of pure pixels, useful for calibration
         cout << x_img << " " << y_img << " " <<"\n";
+
+        // Warp Transform
         float scale_fac = transform_matrix.at<double>(2,0)*x_img + transform_matrix.at<double>(2,1)*y_img + transform_matrix.at<double>(2,2);
         float xt = (transform_matrix.at<double>(0,0)*x_img + transform_matrix.at<double>(0,1)*y_img + transform_matrix.at<double>(0,2))/scale_fac;  
         float yt = (transform_matrix.at<double>(1,0)*x_img + transform_matrix.at<double>(1,1)*y_img + transform_matrix.at<double>(1,2))/scale_fac;  
@@ -49,6 +47,8 @@ int tracker::process_frame(void){
         this->y = yt*this->IMG_Y_TO_CM;
         float offsets[2]; 
         float xy[] = {x,y};
+
+        // Camera lens distortion transform
         get_offsets(xy,offsets);
         this->x += offsets[0];
         this->y += offsets[1];
@@ -81,20 +81,13 @@ void tracker::show(void){
 
     if (raw.empty())
         exit(-1);
+
+    // uncomment this line if you'd like to write video
     // video.write(bin_send);
     if (waitKey(1) >= 0)
         exit(0);
 }
 
-void tracker::writeVideo(void){
-    cap >> raw;
-    // If the frame is empty, break immediately
-    if (raw.empty())
-        exit(-1);
-    //   break;
-    // Write the frame into the file 'outcpp.avi'
-    video.write(raw);
-}
 
 void tracker::tracker_write(void){
     char buffer[256];
