@@ -19,8 +19,11 @@ int model_on = 0;
 int pd_on = 1;
 
 float motor_v = 24.0;
+
+// position from bottom corner after zeroing
 float start_x_offset = 3.8;
 float start_y_offset = 3.1;
+
 int start_time = 0;
 
 MalletController controller;
@@ -38,8 +41,7 @@ void move_to_middle_x();
 float move_to_middle_timeout = 1000;
 uint8_t send[SEND_SIZE];
 int prev_write_time = 0;
-// float finalXY[] = {0,0};
-// float finalVel[] = {0,0};
+
 float SerialReads[10] = {0};
 float send_to_pi[7];
 int total_effort[2] = {0};
@@ -75,12 +77,6 @@ void setup(){
     mod = GantryModel();
 
     zero();
-
-    float angle_offset_0 = (start_x_offset+start_y_offset)/(3.1415*PULLEY_RADIUS)*180;
-    float angle_offset_1 = (start_x_offset-start_y_offset)/(3.1415*PULLEY_RADIUS)*180;
-
-    controller.start_angles[0] = angle_offset_0;
-    controller.start_angles[1] = angle_offset_1;
     controller.readAngle(controller.start_angles);
     delay(100); 
     move_to_middle_x();
@@ -115,12 +111,12 @@ void zero() {
   delay(500);
   controller.clear_history();
 
-  // Must reset start angles to zero, readAngle depends on their values
-  float angle_offset = start_x_offset/(3.1415*PULLEY_RADIUS)*180;
+  
+  float angle_offset_0 = (start_x_offset+start_y_offset)/(3.1415*PULLEY_RADIUS)*180;
+  float angle_offset_1 = (start_x_offset-start_y_offset)/(3.1415*PULLEY_RADIUS)*180;
 
-
-  controller.start_angles[0] = angle_offset;
-  controller.start_angles[1] = angle_offset;
+  controller.start_angles[0] = angle_offset_0;
+  controller.start_angles[1] = angle_offset_1;
   
   controller.readAngle(controller.start_angles);
   start_time = micros();
@@ -144,35 +140,6 @@ void move_to_middle_x(){
   write_to_motor(MOTOR_RIGHT, 0);
 }
 
-
-
-
-
-// void read_serial(){
-//   bool read_start = false;
-//   if (n_read_in_buffer == 0){
-//     // look for start byte
-//     uint8_t start_buffer[1];
-//     while(Serial.available()>0){
-//       Serial.readBytes(start_buffer, 1);
-//       if (start_buffer[0] == 0xFF){
-//         read_start = true;
-//         break;
-//       }
-//     }
-//     if (read_start == false){
-//       return;
-//     }
-//   }
-
-//   int num_available = Serial.available();
-//   int num_to_read = min( (int) NUM_BYTES_REC-n_read_in_buffer, num_available);
-//   size_t num_read = Serial.readBytes((serial_reading_buffer+n_read_in_buffer),num_to_read);
-//   n_read_in_buffer += num_read;
-
-
-
-// }
 
 int read_serial(byte path_msg[], int n_read){
   uint8_t incoming_4bytes[4];
@@ -206,16 +173,10 @@ void loop(){
 
   ser_counter = Serial.available();
   if (n_read_in_buffer == NUM_BYTES_REC) {
-    // if (true) { 
+
     digitalWrite(PC13,HIGH);
     float vals [NUM_VALS];
-    //read_count++;
-    //uint8_t serial_reading_buffer[14] = {1 ,2, 3 ,4, 5, 6 , 7 , 8, 9, 10, 11, 12, 13,14};
     read_floats_from_pi(serial_reading_buffer, vals, NUM_VALS);
-    // // float finalXY[2] = {vals[0],vals[1]};
-    // // float finalVel[2] = {vals[2],vals[3]};
-    // // float finalAcc[2] = {vals[4],vals[5]};
-    // // float path_time = vals[6];
 
     finalXY[0] = vals[0];
     finalXY[1] = vals[1];
@@ -227,6 +188,7 @@ void loop(){
 
     n_read_in_buffer = -1;
 
+    // secret zeroing procedure
     if (path_time == -69.0){
       zero();
       finalXY[0] = 45;
@@ -237,14 +199,6 @@ void loop(){
       finalAcc[1] = 0;
       path_time = 0.3;
     }
-
-    // finalXY[0] = 0;
-    // finalXY[1] = 0;
-    // finalVel[0] = 0;
-    // finalVel[1] =  0;
-    // finalAcc[0] = 0;
-    // finalAcc[1] = 0;
-    // path_time = 8;
 
     start_time = micros();
     // path_time should be in seconds, start_time should be in seconds
@@ -274,7 +228,7 @@ void loop(){
     write_to_motor(MOTOR_RIGHT, total_effort[1]);
   }
 
-  
+  // This sets the write time loop speed
   if ((millis() - prev_write_time) > 10) {
     if (Serial.availableForWrite()){
       prev_write_time = millis();
