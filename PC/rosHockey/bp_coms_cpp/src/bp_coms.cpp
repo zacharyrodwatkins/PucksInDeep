@@ -23,9 +23,6 @@
 
 using namespace std::chrono_literals;
 
-/* This example creates a subclass of Node and uses std::bind() to register a
- * member function as a callback from the timer. */
-
 class BpComm : public rclcpp::Node
 {
 public:
@@ -41,7 +38,7 @@ public:
     path_sub_ = this->create_subscription<hockey_msgs::msg::NextPath>(
         "PATH", 1, std::bind(&BpComm::write_bp, this, std::placeholders::_1));
     serial_port = config_tty();
-    // clear_serial();
+
   }
   void close_serial();
   ~BpComm(){
@@ -52,7 +49,6 @@ public:
 private:
 
   int config_tty();
-//   void clear_serial();
   void read_bp();
   void write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg);
   rclcpp::TimerBase::SharedPtr timer_;
@@ -66,43 +62,6 @@ private:
   int n_read;
 };
 
-// void BpComm::clear_serial(){
-//     int count = 0;
-//     int bytes;
-//     uint8_t init_byte[1];
-//     ioctl(serial_port, FIONREAD, &bytes);
-//     while (count < 4){
-//         if (bytes > 0){
-//             read(serial_port, &init_byte, sizeof(init_byte))
-//             if (init_byte[0] == 0xff){
-//                 count++;
-//             }
-//             else{
-//                 count = 0
-//             }
-//         }
-//         ioctl(serial_port, FIONREAD, &bytes);
-//     }
-//     int floats_read = 0;
-//     printf("Clearing Serial");
-//     while(floats_read <= NUM_FLOATS_READ+1){
-//         if (bytes>=4){
-//             read(serial_port, &byte_buff, __SIZEOF_FLOAT__);
-//             memcpy(&sum, &byte_buff[0], __SIZEOF_FLOAT__);
-//             if (sum==0xffffffff){
-//                 printf("Here");
-//                 floats_read++;
-//             }
-
-//             else if (floats_read>0){
-//                 // read(serial_port, &byte_buff, __SIZEOF_FLOAT__);
-//                 floats_read++;
-//             }
-//         }
-//         ioctl(serial_port, FIONREAD, &bytes);
-//     }
-// }
-
 void BpComm::read_bp(){
     // RCLCPP_INFO(this->get_logger(), "reading");
     int count = 0;
@@ -110,9 +69,11 @@ void BpComm::read_bp(){
     uint8_t init_byte[1];
     ioctl(serial_port, FIONREAD, &bytes);
 
+    // Wait for startbytes
     if (bytes <= 0)
         return;
-
+        
+    // Check startbytes
     while (count < 4){
         if (bytes > 0){
             read(serial_port, &init_byte, sizeof(init_byte));
@@ -125,7 +86,7 @@ void BpComm::read_bp(){
         }
         ioctl(serial_port, FIONREAD, &bytes);
     }
-
+        // If we see startbytes, read message
         while(bytes<READ_SIZE){
             ioctl(serial_port, FIONREAD, &bytes);
         }
@@ -161,19 +122,21 @@ void BpComm::read_bp(){
 void BpComm::write_bp(const hockey_msgs::msg::NextPath::SharedPtr msg_ptr){
     RCLCPP_INFO(this->get_logger(), "sending");
     uint8_t write_buffer[32];
+
+    // Write startbytes
     for (int i = 0; i<4; i++)
         write_buffer[i] = 0xff;
     const hockey_msgs::msg::NextPath msg = *msg_ptr;
     float vals[7] = {msg.x, msg.y, msg.vx, msg.vy, msg.ax, msg.ay, msg.t};
-    // short vals[7] = {2,2,3,4,5,6,7};
+
+    // Write message
     for (int i=0;i<7;i++){
         memcpy(&write_buffer[4*i+4], &vals[i], 4);
         // printf("Writing %.2f\n", vals[i]);
     }
     write(serial_port, write_buffer, 32);
     RCLCPP_INFO(this->get_logger(), "sent");
-    std_msgs::msg::String flag_msg = std_msgs::msg::String();
-    flag_msg.data = "A";
+    std_msgs::msg::String flag_msg = std_msgs::msg::String();cd  cdcdcsdcsdcsdc
     flag_publisher_->publish(flag_msg);
 }
 
