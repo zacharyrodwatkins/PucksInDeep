@@ -60,8 +60,10 @@ class tracker {
         const int M00_cut = 0;
 
         // Lens distortion calibration coefficients
-        const float A = 8*3.26/(TABLE_Y_DIMS*TABLE_Y_DIMS*TABLE_X_DIMS);
-        const float B = 8*1.6/(TABLE_Y_DIMS*TABLE_X_DIMS*TABLE_X_DIMS);
+        const float x_offset = 3.26;
+        const float y_offset = 1.6;
+        const float A = 8*x_offset/(TABLE_Y_DIMS*TABLE_Y_DIMS*TABLE_X_DIMS);
+        const float B = 8*y_offset/(TABLE_Y_DIMS*TABLE_X_DIMS*TABLE_X_DIMS);
 
         Mat table_mask;
 
